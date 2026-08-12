@@ -26,10 +26,21 @@ function parseFrontmatter(text) {
 }
 
 const byGame = {}
+const lore = []
 for (const [path, text] of Object.entries(raw)) {
   const [, gameId, file] = path.match(/^\.\/([^/]+)\/([^/]+)\.md$/) || []
   if (!gameId) continue
   const { meta, body } = parseFrontmatter(text)
+  // โฟลเดอร์ lore = บทความเสริม (ไทม์ไลน์/องค์กร/ตัวละคร/สถานที่) ไม่ใช่บทของเกม
+  if (gameId === 'lore') {
+    lore.push({
+      slug: file,
+      title: meta.title || file,
+      order: Number(meta.order ?? 99),
+      body,
+    })
+    continue
+  }
   byGame[gameId] ??= { chapters: [], substories: null }
   if (file === 'substories') {
     byGame[gameId].substories = { meta, body }
@@ -47,3 +58,7 @@ for (const g of Object.values(byGame)) g.chapters.sort((a, b) => a.n - b.n)
 
 export const contentFor = (gameId) =>
   byGame[gameId] || { chapters: [], substories: null }
+
+lore.sort((a, b) => a.order - b.order)
+export const loreArticles = lore
+export const loreBySlug = (slug) => lore.find((a) => a.slug === slug)

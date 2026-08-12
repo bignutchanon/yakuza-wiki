@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
-import { GAMES, steamHeader } from '../data/games.js'
+import { GAMES, gameImage } from '../data/games.js'
 import Credit from '../components/Credit.jsx'
 
 // three.js หนัก ~1MB — โหลดแบบ lazy เฉพาะหน้านี้ ไม่ถ่วงหน้าเนื้อหา
@@ -29,7 +29,7 @@ export default function Home() {
         <div className="game-grid">
           {GAMES.map((g) => (
             <Link key={g.id} to={`/game/${g.id}`} className="game-card">
-              <img src={steamHeader(g.steamAppId)} alt={g.title} loading="lazy" />
+              <img src={gameImage(g)} alt={g.title} loading="lazy" />
               <div className="body">
                 <h3>{g.title}</h3>
                 <div className="meta">

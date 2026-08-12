@@ -475,6 +475,46 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(90deg, var(--red), transparent);
 }
 
+/* ─── Support page ─── */
+.support-card {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid var(--gold);
+  background: linear-gradient(135deg, rgba(212, 162, 78, 0.1), rgba(212, 162, 78, 0.03));
+  padding: 1.6rem;
+  margin-top: 1.5rem;
+}
+.qr-img {
+  width: 260px;
+  max-width: 100%;
+  background: #fff;
+  padding: 0.6rem;
+}
+.support-info { min-width: 200px; }
+.support-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.support-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-top: 0.3rem;
+}
+.support-acct {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ─── Footer ─── */
 .site-footer {
   border-top: 1px solid var(--line);

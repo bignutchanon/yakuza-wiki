@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { gameById, steamHeader, steamStore } from '../data/games.js'
+import { gameById, gameImage, steamStore } from '../data/games.js'
 import { contentFor } from '../content/loader.js'
 import Credit from '../components/Credit.jsx'
 
@@ -24,7 +24,7 @@ export default function GamePage() {
   return (
     <div className="page">
       <div className="game-hero">
-        <img src={steamHeader(game.steamAppId)} alt={game.title} />
+        <img src={gameImage(game)} alt={game.title} />
       </div>
       <Credit href={steamStore(game.steamAppId)} />
 

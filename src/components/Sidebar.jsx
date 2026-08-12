@@ -23,6 +23,20 @@ export default function Sidebar({ open }) {
       ))}
 
       <div className="nav-section">● = มีม็อดแปลไทยให้โหลด</div>
+
+      <div className="nav-section">อื่น ๆ</div>
+      <NavLink
+        to="/lore"
+        className={({ isActive }) => `nav-game${isActive ? ' active' : ''}`}
+      >
+        เรื่องราวเบื้องหลัง (Lore)
+      </NavLink>
+      <NavLink
+        to="/support"
+        className={({ isActive }) => `nav-game${isActive ? ' active' : ''}`}
+      >
+        ♥ สนับสนุนผู้จัดทำ
+      </NavLink>
     </nav>
   )
 }

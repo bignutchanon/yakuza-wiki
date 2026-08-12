@@ -5,6 +5,8 @@ import Home from './pages/Home.jsx'
 import GamePage from './pages/GamePage.jsx'
 import ChapterPage from './pages/ChapterPage.jsx'
 import SubstoriesPage from './pages/SubstoriesPage.jsx'
+import SupportPage from './pages/SupportPage.jsx'
+import LorePage from './pages/LorePage.jsx'
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -28,6 +30,9 @@ export default function App() {
           <Route path="/game/:id" element={<GamePage />} />
           <Route path="/game/:id/ch/:n" element={<ChapterPage />} />
           <Route path="/game/:id/substories" element={<SubstoriesPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/lore" element={<LorePage />} />
+          <Route path="/lore/:slug" element={<LorePage />} />
         </Routes>
         <footer className="site-footer">
           เว็บ wiki โดยแฟนเกม ทำขึ้นเพื่อแชร์ในกลุ่มผู้เล่นเท่านั้น ไม่มีส่วนเกี่ยวข้องกับ SEGA / Ryu Ga Gotoku Studio
