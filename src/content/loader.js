@@ -41,9 +41,12 @@ for (const [path, text] of Object.entries(raw)) {
     })
     continue
   }
-  byGame[gameId] ??= { chapters: [], substories: null }
+  byGame[gameId] ??= { chapters: [], substories: null, guide: null }
   if (file === 'substories') {
     byGame[gameId].substories = { meta, body }
+  } else if (file === 'guide') {
+    // guide.md = ไกด์เสริมของภาค (เช่นไกด์ RPG ของภาค 7/8)
+    byGame[gameId].guide = { meta, body }
   } else if (file.startsWith('ch-')) {
     byGame[gameId].chapters.push({
       n: Number(meta.n ?? file.replace('ch-', '')),
@@ -57,7 +60,7 @@ for (const [path, text] of Object.entries(raw)) {
 for (const g of Object.values(byGame)) g.chapters.sort((a, b) => a.n - b.n)
 
 export const contentFor = (gameId) =>
-  byGame[gameId] || { chapters: [], substories: null }
+  byGame[gameId] || { chapters: [], substories: null, guide: null }
 
 lore.sort((a, b) => a.order - b.order)
 export const loreArticles = lore

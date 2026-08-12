@@ -9,7 +9,7 @@ export default function GamePage() {
   const game = gameById(id)
   if (!game) return <div className="page">ไม่พบเกมนี้</div>
 
-  const { chapters, substories } = contentFor(id)
+  const { chapters, substories, guide } = contentFor(id)
 
   // แทรกป้ายชื่อพาร์ทเมื่อบทถัดไปเปลี่ยนพาร์ท (ภาคที่แบ่งพาร์ท เช่น Y4/Y5)
   const rows = []
@@ -145,6 +145,17 @@ export default function GamePage() {
         </p>
       ) : (
         <div className="placeholder">เนื้อหาส่วนนี้กำลังเขียน — เร็ว ๆ นี้</div>
+      )}
+
+      {guide && (
+        <>
+          <h2 className="section-h">{guide.meta.title || 'ไกด์เสริม'}</h2>
+          <p>
+            <Link to={`/game/${id}/guide`}>
+              อ่านไกด์ฉบับเต็ม — อาชีพ ของเทพ และการฟาร์ม →
+            </Link>
+          </p>
+        </>
       )}
     </div>
   )

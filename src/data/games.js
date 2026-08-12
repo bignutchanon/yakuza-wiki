@@ -15,11 +15,11 @@ export const steamStore = (appId) =>
 export const CITY_MAPS = {
   kamurocho: {
     label: 'คามุโรโจ (โตเกียว)',
-    img: 'https://static.wikia.nocookie.net/yakuza/images/9/9f/Kamurochomap.jpg',
+    img: 'https://static.wikia.nocookie.net/yakuza/images/7/7b/MapResizeK1.png',
   },
   sotenbori: {
     label: 'โซเท็นโบริ (โอซาก้า)',
-    img: 'https://static.wikia.nocookie.net/yakuza/images/9/98/SotenboriMap_Y5.jpg',
+    img: 'https://static.wikia.nocookie.net/yakuza/images/6/69/Sotenbori_Map_Gaiden.png',
   },
   ijincho: {
     label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)',
