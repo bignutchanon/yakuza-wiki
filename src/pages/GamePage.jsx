@@ -105,8 +105,11 @@ export default function GamePage() {
               if (!m) return null
               return (
                 <figure key={mid} className="map-card">
-                  <img src={m.img} alt={`แผนที่ ${m.label}`} loading="lazy" />
-                  <figcaption>{m.label}</figcaption>
+                  {/* คลิกเปิดไฟล์เต็มความละเอียดในแท็บใหม่ */}
+                  <a href={m.img} target="_blank" rel="noreferrer">
+                    <img src={m.img} alt={`แผนที่ ${m.label}`} loading="lazy" />
+                  </a>
+                  <figcaption>{m.label} — คลิกเพื่อดูเต็มขนาด</figcaption>
                 </figure>
               )
             })}

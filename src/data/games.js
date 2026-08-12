@@ -10,25 +10,14 @@ export const gameImage = (g) => g.image || steamHeader(g.steamAppId)
 export const steamStore = (appId) =>
   `https://store.steampowered.com/app/${appId}/`
 
-// แผนที่เมืองจาก Yakuza Wiki (Fandom) — เครดิต © SEGA แสดงใต้รูปในหน้าเกม
-// key ใช้อ้างจาก games[].maps (Onomichi/Honolulu ไม่มีไฟล์แผนที่บน Fandom)
+// แผนที่เมือง — เก็บไฟล์เองใน public/maps/ (คัดไฟล์คมสุดที่หาได้จากทั้งเว็บแล้ว)
+// ต้นทาง Yakuza Wiki (Fandom) © SEGA — เครดิตแสดงใต้รูปในหน้าเกม
+// key ใช้อ้างจาก games[].maps (Onomichi/Honolulu ไม่มีไฟล์แผนที่เผยแพร่ที่ไหนเลย)
 export const CITY_MAPS = {
-  kamurocho: {
-    label: 'คามุโรโจ (โตเกียว)',
-    img: 'https://static.wikia.nocookie.net/yakuza/images/7/7b/MapResizeK1.png',
-  },
-  sotenbori: {
-    label: 'โซเท็นโบริ (โอซาก้า)',
-    img: 'https://static.wikia.nocookie.net/yakuza/images/6/69/Sotenbori_Map_Gaiden.png',
-  },
-  ijincho: {
-    label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)',
-    img: 'https://static.wikia.nocookie.net/yakuza/images/c/ca/LJ_-_Map_-_Yokohama_99.png',
-  },
-  ryukyu: {
-    label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)',
-    img: 'https://static.wikia.nocookie.net/yakuza/images/4/4d/Y3rryukyumap.png',
-  },
+  kamurocho: { label: 'คามุโรโจ (โตเกียว)', img: './maps/kamurocho.png' },
+  sotenbori: { label: 'โซเท็นโบริ (โอซาก้า)', img: './maps/sotenbori.png' },
+  ijincho: { label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)', img: './maps/ijincho.png' },
+  ryukyu: { label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)', img: './maps/ryukyu.png' },
 }
 
 // mod.status: 'released' | 'wip' | 'none'
