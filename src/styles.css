@@ -1,0 +1,520 @@
+/* ─── Kamurocho at Night — design tokens ───
+   เว็บนี้ commit เป็นธีมมืดธีมเดียว: โลกของซีรีส์คือย่านบันเทิงยามค่ำคืน */
+:root {
+  --bg: #0d0a12;
+  --bg-raise: #171221;
+  --bg-card: #1c1626;
+  --line: #2e2440;
+  --text: #ece7dd;
+  --muted: #9b8fa3;
+  --red: #e63950;
+  --red-deep: #a31226;
+  --gold: #d4a24e;
+  --gold-soft: #e8c98a;
+
+  --font-display: 'Kanit', sans-serif;
+  --font-body: 'Sarabun', sans-serif;
+
+  --sidebar-w: 264px;
+  --content-w: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.75;
+}
+
+::selection { background: var(--red-deep); color: #fff; }
+
+a { color: var(--gold-soft); text-decoration: none; }
+a:hover { color: var(--gold); text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ─── App layout ─── */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+}
+
+/* ─── Sidebar ─── */
+.sidebar {
+  border-right: 1px solid var(--line);
+  background: var(--bg-raise);
+  padding: 1.25rem 0 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand {
+  display: block;
+  padding: 0.25rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.brand:hover { text-decoration: none; }
+.brand .kanji {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.55rem;
+  color: var(--red);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 18px rgba(230, 57, 80, 0.45);
+}
+.brand .sub {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav-section {
+  margin: 1.1rem 1.25rem 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav-game {
+  display: block;
+  padding: 0.42rem 1.25rem;
+  color: var(--text);
+  border-left: 3px solid transparent;
+  font-size: 0.92rem;
+}
+.nav-game:hover {
+  background: rgba(230, 57, 80, 0.08);
+  text-decoration: none;
+  color: var(--text);
+}
+.nav-game.active {
+  border-left-color: var(--red);
+  background: rgba(230, 57, 80, 0.12);
+  color: #fff;
+}
+.nav-game .yr {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-left: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.nav-game .mod-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-left: 0.45rem;
+  vertical-align: 2px;
+  box-shadow: 0 0 6px rgba(212, 162, 78, 0.8);
+}
+
+/* ─── Main column ─── */
+.main { min-width: 0; }
+
+.page {
+  max-width: var(--content-w);
+  padding: 2.5rem 2rem 5rem;
+  margin: 0 auto;
+}
+
+.page-wide {
+  max-width: 62rem;
+}
+
+/* ─── Home hero (3D canvas ด้านหลัง) ─── */
+.hero3d {
+  position: relative;
+  height: 46vh;
+  min-height: 300px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero3d canvas { position: absolute; inset: 0; }
+.hero3d .hero-copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 clamp(1.5rem, 6vw, 5rem);
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 40%, rgba(13, 10, 18, 0.9) 96%);
+}
+.hero-copy h1 {
+  margin: 0;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  color: #fff;
+  text-shadow: 0 0 30px rgba(230, 57, 80, 0.55), 0 2px 24px rgba(0,0,0,0.8);
+}
+.hero-copy h1 .accent { color: var(--red); }
+.hero-copy p {
+  margin: 0.5rem 0 0;
+  max-width: 34rem;
+  color: var(--text);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.9);
+}
+
+/* ─── Game cards grid ─── */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.game-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  color: var(--text);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+.game-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--red);
+  text-decoration: none;
+  color: var(--text);
+}
+.game-card img { aspect-ratio: 460 / 215; object-fit: cover; width: 100%; }
+.game-card .body { padding: 0.8rem 1rem 1rem; }
+.game-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-style: italic;
+  font-weight: 700;
+}
+.game-card .meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.1rem 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold-soft);
+}
+
+/* ─── Credit line ใต้รูปทุกรูป ─── */
+.credit {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+  text-align: right;
+}
+.credit a { color: var(--muted); text-decoration: underline; }
+
+/* ─── Game page ─── */
+.game-hero { margin-bottom: 0.35rem; }
+.game-hero img {
+  width: 100%;
+  border: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 1.6rem 0 0;
+}
+
+.game-title {
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  margin: 0.1rem 0 0.2rem;
+}
+
+.game-sub { color: var(--muted); margin: 0 0 1.2rem; font-size: 1.02rem; }
+
+.fact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1rem 0 1.8rem;
+}
+.fact-table td {
+  padding: 0.45rem 0.6rem;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+.fact-table td:first-child {
+  color: var(--muted);
+  white-space: nowrap;
+  width: 9rem;
+}
+
+/* ─── Mod box ─── */
+.mod-box {
+  border: 1px solid var(--gold);
+  background: linear-gradient(135deg, rgba(212, 162, 78, 0.1), rgba(212, 162, 78, 0.03));
+  padding: 1.1rem 1.3rem;
+  margin: 1.6rem 0;
+}
+.mod-box h3 {
+  margin: 0 0 0.3rem;
+  font-style: italic;
+  color: var(--gold-soft);
+  font-size: 1.05rem;
+}
+.mod-box p { margin: 0.2rem 0 0.8rem; font-size: 0.92rem; color: var(--text); }
+.mod-btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.4rem;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 18px rgba(230, 57, 80, 0.35);
+}
+.mod-btn:hover {
+  background: var(--red-deep);
+  color: #fff;
+  text-decoration: none;
+}
+.mod-box.muted-box {
+  border-color: var(--line);
+  background: var(--bg-raise);
+}
+
+/* ─── Chapter list ─── */
+.chapter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  border-top: 1px solid var(--line);
+}
+.chapter-list li { border-bottom: 1px solid var(--line); }
+.chapter-list .part-label {
+  padding: 0.9rem 0.2rem 0.3rem;
+  border-bottom: none;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.chapter-list a {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+  padding: 0.55rem 0.2rem;
+  color: var(--text);
+}
+.chapter-list a:hover {
+  background: rgba(230, 57, 80, 0.07);
+  text-decoration: none;
+}
+.chapter-list .n {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--red);
+  min-width: 2.1rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.chapter-list .en {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-left: auto;
+  text-align: right;
+}
+
+.placeholder {
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  padding: 1.4rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+}
+
+/* ─── Article (markdown) ─── */
+.article { margin-top: 0.5rem; }
+.article h1, .article h2 { font-style: italic; }
+.article h2 {
+  margin-top: 2.2rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.35rem;
+}
+.article h3 { margin-top: 1.6rem; font-size: 1.1rem; color: var(--gold-soft); }
+.article p { margin: 0.9rem 0; }
+.article blockquote {
+  margin: 1.2rem 0;
+  padding: 0.2rem 1.2rem;
+  border-left: 3px solid var(--red);
+  background: var(--bg-raise);
+  color: var(--muted);
+}
+.article hr { border: none; border-top: 1px solid var(--line); margin: 2rem 0; }
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1.2rem 0;
+}
+.article th, .article td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.article th {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--gold-soft);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+}
+.article .table-wrap { overflow-x: auto; }
+.article code {
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  padding: 0.05rem 0.35rem;
+  font-size: 0.85em;
+}
+
+/* ─── Chapter page header + prev/next ─── */
+.ch-head { margin-bottom: 1.4rem; }
+.ch-head .ch-n {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 3rem;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--red);
+  line-height: 1;
+}
+.ch-head h1 { margin: 0.2rem 0 0; font-size: 1.9rem; font-style: italic; }
+.ch-head .en-title { color: var(--muted); font-size: 0.95rem; margin-top: 0.2rem; }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+.pager a {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold-soft);
+  max-width: 45%;
+}
+
+.spoiler-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  background: var(--bg-raise);
+  padding: 0.5rem 0.9rem;
+  margin: 0 0 1.5rem;
+}
+.spoiler-note::before { content: '⚠ '; color: var(--gold); }
+
+/* ─── Section heading ─── */
+.section-h {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-top: 2.6rem;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+.section-h::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+
+/* ─── Footer ─── */
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.78rem;
+  padding: 1.5rem 2rem 2.5rem;
+  text-align: center;
+}
+
+/* ─── Mobile ─── */
+.menu-btn { display: none; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    z-index: 50;
+    width: min(80vw, 300px);
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 4px 0 30px rgba(0,0,0,0.6);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .menu-btn {
+    display: block;
+    position: fixed;
+    z-index: 60;
+    top: 0.9rem;
+    left: 0.9rem;
+    background: var(--bg-raise);
+    color: var(--text);
+    border: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+  }
+  .page { padding: 4rem 1.2rem 4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card, .sidebar { transition: none; }
+}
