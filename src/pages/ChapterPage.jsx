@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { gameById } from '../data/games.js'
 import { contentFor } from '../content/loader.js'
 import Markdown from '../components/Markdown.jsx'
+import { ChapterArt } from '../components/Screenshots.jsx'
 
 export default function ChapterPage() {
   const { id, n } = useParams()
@@ -28,6 +29,8 @@ export default function ChapterPage() {
       </div>
 
       <div className="spoiler-note">สปอยล์เนื้อเรื่องของบทนี้เต็ม ๆ</div>
+
+      <ChapterArt game={game} n={ch.n} />
 
       <Markdown text={ch.body} />
 

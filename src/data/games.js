@@ -75,13 +75,13 @@ export const GAMES = [
     id: 'darkties',
     title: 'Dark Ties',
     subtitle: 'เรื่องราวฝั่งโยชิทากะ มิเนะ — แคมเปญใหม่คู่กับ Kiwami 3',
-    year: 2009,
+    year: 2007,
     releaseYear: 2026,
     steamAppId: 3937550,
     image:
       'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3937550/a90df0d7be6d8f1dd5d8eceb796840ff522d002a/header.jpg',
     protagonists: ['โยชิทากะ มิเนะ'],
-    setting: 'โตเกียว — ค.ศ. 2009 (คู่ขนานกับเหตุการณ์ภาค 3)',
+    setting: 'โตเกียว — ค.ศ. 2007 (ก่อนเหตุการณ์ภาค 3)',
     blurb:
       'เรื่องราวที่ไม่เคยเล่ามาก่อนของมิเนะ ตัวร้ายจากภาค 3 — เส้นทางจากนักธุรกิจสู่โลกยากูซ่า แคมเปญใหม่ยาว ~15 ชั่วโมงที่มาคู่กับ Yakuza Kiwami 3',
     mod: { status: 'none' },

@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { gameById, gameImage, steamStore } from '../data/games.js'
 import { contentFor } from '../content/loader.js'
 import Credit from '../components/Credit.jsx'
+import { ShotStrip } from '../components/Screenshots.jsx'
 
 export default function GamePage() {
   const { id } = useParams()
@@ -76,6 +77,8 @@ export default function GamePage() {
           <p>ภาคนี้ยังไม่มีม็อดแปลไทย</p>
         </div>
       )}
+
+      <ShotStrip game={game} />
 
       <h2 className="section-h">เนื้อเรื่องหลัก — สรุปรายบท</h2>
       {chapters.length ? (

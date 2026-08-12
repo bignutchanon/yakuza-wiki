@@ -475,6 +475,41 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(90deg, var(--red), transparent);
 }
 
+/* ─── Screenshots ─── */
+.shot-strip-wrap { margin: 1.2rem 0 0.4rem; }
+.shot-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+}
+.shot-thumb {
+  flex: 0 0 150px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: none;
+  cursor: pointer;
+}
+.shot-thumb:hover { border-color: var(--red); }
+.shot-thumb img { width: 150px; aspect-ratio: 16/9; object-fit: cover; }
+.shot-big {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-top: 0.6rem;
+  border: 1px solid var(--line);
+  background: none;
+  cursor: zoom-out;
+}
+.shot-big img { width: 100%; }
+.ch-art { margin: 0 0 1.5rem; }
+.ch-art img {
+  width: 100%;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
 /* ─── Support page ─── */
 .support-card {
   display: flex;

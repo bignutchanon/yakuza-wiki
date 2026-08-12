@@ -3,57 +3,57 @@ title: Substories
 ---
 นอกจากเนื้อเรื่องหลักที่พาอิจิบัง คาสึกะและคาซึมะ คิริวเดินทางจากอิจินโจไปจนถึงโฮโนลูลู ฮาวาย เกม Like a Dragon: Infinite Wealth ยังมีเควสเสริม (Substories) ทั้งหมด 52 เควส กระจายอยู่ทั้งในย่านต่างๆ ของฮาวายและอิจินโจ เต็มไปด้วยเรื่องราวสุดฮาของชาวเมือง ปัญหาชีวิตแปลกๆ และมินิเกมเฉพาะตัว สะท้อนอารมณ์ขันและความอบอุ่นแบบฉบับซีรีส์ยากูซ่าได้อย่างครบรส
 
-| # | ชื่อเควส (อังกฤษ) | สรุปสั้น |
-|---|---|---|
-| 1 | Radio Active | ตามหาที่มาของคลื่นวิทยุลึกลับจนได้ปลดล็อกแอปเพลย์ลิสต์เพลงประกอบการเดินทาง |
-| 2 | Sujimon, Generation II | ช่วยตามหาและปลดล็อกระบบจับ Sujimon เวอร์ชันใหม่ในฮาวาย |
-| 3 | Crazy Money | พัวพันกับเรื่องเงินก้อนโตที่ทำให้ชาวบ้านคนหนึ่งเสียสติ |
-| 4 | Busted! | ช่วยคลี่คลายสถานการณ์อับอายที่คนหนึ่งถูกจับได้คาหนังคาเขา |
-| 5 | Welcome to Hawaii, MFer! | ทักทายฮาวายแบบเผ็ดร้อนผ่านการเผชิญหน้ากับนักเลงข้างถนน |
-| 6 | Surfin' the Streets! | ช่วยนักเล่นเซิร์ฟที่มีปัญหากับกลุ่มคนบนท้องถนน |
-| 7 | Miss Match | เข้าไปพัวพันกับปัญหาการจับคู่ที่ผิดฝาผิดตัวของคนแปลกหน้า |
-| 8 | Snap Those Sickos | ช่วยจับภาพหลักฐานพวกโรคจิตที่ก่อความเดือดร้อนในที่สาธารณะ |
-| 9 | A Love as Sweet as Lemons | ช่วยคลี่คลายเรื่องความรักหวานอมขมกลืนที่เกี่ยวกับมะนาว |
-| 10 | Coming Out of Her Shell | ช่วยหญิงสาวขี้อายคนหนึ่งให้กล้าเปิดเผยตัวตนที่แท้จริง |
-| 11 | Wait for Me | ตามหาใครบางคนที่หายตัวไปตามคำขอร้องอันน่าเป็นห่วง |
-| 12 | Saved by Kindness | ยื่นมือช่วยเหลือคนแปลกหน้าด้วยความเมตตาจนเกิดผลลัพธ์ดีเกินคาด |
-| 13 | Rock and Roil | เข้าไปพัวพันกับความวุ่นวายที่เกี่ยวข้องกับดนตรีร็อกและก้อนหิน |
-| 14 | Neck Deep in Love | ช่วยคลี่คลายปัญหารักที่พัวพันลึกจนแก้ไม่หลุด |
-| 15 | Samurai, May We Walk Together? | ร่วมเดินทางไปกับชายที่หลงตัวเองว่าเป็นซามูไรยุคใหม่ |
-| 16 | Beach Guardian: Water, Water Everywhere | ตอนแรกของซีรีส์ผู้พิทักษ์ชายหาด รับมือปัญหาน้ำท่วมชายหาด |
-| 17 | Beach Guardian: No Kidding Around | ตอนต่อของผู้พิทักษ์ชายหาด จัดการเหตุป่วนที่ไม่ใช่เรื่องล้อเล่น |
-| 18 | Beach Guardian: Heroes of the Sand | ตอนจบของซีรีส์ผู้พิทักษ์ชายหาด ปกป้องผืนทรายในฐานะฮีโร่ |
-| 19 | Home to Roost | ช่วยแก้ปัญหาที่ย้อนกลับมาเล่นงานเจ้าของเรื่องเอง |
-| 20 | A Better Bat | ช่วยคนหนึ่งตามหาไม้เบสบอลที่ดีกว่าเดิมเพื่อภารกิจส่วนตัว |
-| 21 | Playing With Fire | เข้าไปพัวพันกับสถานการณ์เสี่ยงอันตรายที่เกี่ยวกับไฟ |
-| 22 | Rise and Grind | ช่วยใครบางคนลุกขึ้นสู้กับชีวิตที่ต้องดิ้นรนทุกวัน |
-| 23 | The More the Plumeria | พัวพันกับเรื่องราวดอกลั่นทมและความสัมพันธ์ที่ซับซ้อน |
-| 24 | Let It Snow | เข้าไปช่วยจัดการสถานการณ์แปลกที่เกี่ยวกับหิมะในฮาวาย |
-| 25 | Embrace Your Wild Side | ช่วยใครบางคนปลดปล่อยตัวตนด้านที่ดุดันของตัวเอง |
-| 26 | Anaconda Escape | ช่วยตามหาและจับงูอนาคอนดาที่หลุดออกมาป่วนเมือง |
-| 27 | The Pursuit of Realism | เข้าไปพัวพันกับกองถ่ายหรืองานศิลปะที่หมกมุ่นกับความสมจริง |
-| 28 | An Authentic Blockbuster | ช่วยทำหนังหรือโปรเจกต์ให้ออกมาสมจริงแบบหนังฟอร์มยักษ์ |
-| 29 | Litterbugged | จัดการปัญหาคนทิ้งขยะเกลื่อนกลาดสร้างความเดือดร้อน |
-| 30 | Close Encounters of the Bird Kind? | เผชิญเหตุการณ์ประหลาดที่เกี่ยวข้องกับนกลึกลับ |
-| 31 | Let's Go Alo-Happy! | เข้าร่วมกิจกรรมสนุกสนานสไตล์อโลฮ่าที่แสนตื่นเต้น |
-| 32 | Tropical Photo Rally | ตะลุยถ่ายภาพสถานที่เขตร้อนให้ครบตามเป้าหมาย |
-| 33 | The Island at Rock Bottom | ช่วยแก้ปัญหาที่ทำให้เกาะหรือชุมชนตกต่ำถึงขีดสุด |
-| 34 | The Legend of the Labyrinth | ผจญภัยในเขาวงกตลึกลับตามตำนานท้องถิ่น |
-| 35 | Love and Punishment | พัวพันกับเรื่องรักที่นำไปสู่บทลงโทษอันเจ็บปวด |
-| 36 | Relics of the Past | ตามหาสิ่งของหรือความทรงจำจากอดีตที่ถูกลืมเลือน |
-| 37 | Choose Your Starter | ช่วยใครบางคนตัดสินใจเลือกจุดเริ่มต้นครั้งสำคัญของชีวิต |
-| 38 | The CEO of Suji | พัวพันกับผู้บริหารวงการ Sujimon ที่มีเรื่องราวน่าสนใจ |
-| 39 | The Queen's Subilee | ร่วมงานเฉลิมฉลองพิเศษที่เกี่ยวข้องกับราชินีแห่งวงการ Suji |
-| 40 | A True Gym Battle | ดวลกันในศึกยิมที่ต้องพิสูจน์ฝีมือกันอย่างจริงจัง |
-| 41 | Sodachi's Revenge | ช่วยตัวละคร Sodachi ตามล้างแค้นเรื่องราวในอดีต |
-| 42 | Atop the Plateau | ผจญภัยขึ้นไปบนที่ราบสูงเพื่อคลี่คลายปัญหาบางอย่าง |
-| 43 | A Man Named Asakura | เข้าไปพัวพันกับชายลึกลับที่ใช้ชื่อว่าอาซาคุระ |
-| 44 | A Changed Man | ช่วยเหลือชายคนหนึ่งที่พยายามเปลี่ยนแปลงตัวเองให้ดีขึ้น |
-| 45 | The Final Showdown for Real | ศึกดวลครั้งสุดท้ายที่จริงจังยิ่งกว่าครั้งไหนๆ |
-| 46 | A Man Facing the Future | ช่วยชายคนหนึ่งก้าวข้ามอดีตเพื่อมองไปข้างหน้า |
-| 47 | Certifiable Lover | พัวพันกับคนรักที่มีพฤติกรรมหลุดโลกจนน่าเป็นห่วง |
-| 48 | The Ultimate Alo-Happy Activity! | ร่วมกิจกรรมอโลฮ่าสุดพิเศษระดับไคลแมกซ์ |
-| 49 | She Never Misses | เผชิญหน้ากับหญิงสาวที่ยิงหรือเล่นแม่นจนไม่เคยพลาดเป้า |
-| 50 | Together, Forever... | เรื่องราวความผูกพันที่จบลงด้วยคำสัญญาว่าจะอยู่ด้วยกันตลอดไป |
-| 51 | Experimental Procedures | พัวพันกับการทดลองหรือกระบวนการลึกลับที่น่าสงสัย |
-| 52 | Surviving Paradise | เควสเสริมปิดท้าย ว่าด้วยการเอาชีวิตรอดในดินแดนที่ดูเหมือนสวรรค์ |
+| # | ชื่อเควส | สถานที่ | ปลดล็อก | สรุป & เคล็ดลับ |
+|---|---|---|---|---|
+| 1 | Radio Active | ถนน Sakura River, อิเซซากิ อิจินโจ | บทที่ 1 (ปลดอัตโนมัติ) | ตามหาที่มาของคลื่นวิทยุลึกลับ ปลดล็อกแอปเพลย์ลิสต์เพลง |
+| 2 | Sujimon, Generation II | ถนน Ohama, อิเซซากิ อิจินโจ | บทที่ 2 (ปลดอัตโนมัติ) | ปลดล็อกแอป Sujidex สำหรับระบบจับ Sujimon เจนใหม่ |
+| 3 | Crazy Money | ถนน Aloha, โฮโนลูลู | บทที่ 2 (ปลดอัตโนมัติ) | พัวพันกับเรื่องเงินก้อนโต ปลดล็อกมินิเกม Crazy Delivery และได้ Poundmate ตัวแรก (Charlie) |
+| 4 | Busted! | ถนน Seaside Ave, โฮโนลูลู | บทที่ 3 (ปลดอัตโนมัติ) | ช่วยคลี่คลายสถานการณ์อับอาย ปลดล็อกแอป Poundmates |
+| 5 | Welcome to Hawaii, MFer! | ถนน Tsubaki, โฮโนลูลู | บทที่ 3 (ปลดอัตโนมัติ) | ทักทายฮาวายแบบเผ็ดร้อน ปลดล็อกแอป Aloha Links |
+| 6 | Surfin' the Streets! | หน้าร้าน Pigeon Family Market, โฮโนลูลู | บทที่ 3 | ช่วยนักเซิร์ฟที่มีปัญหากับกลุ่มคนบนถนน ปลดล็อกระบบเดินทาง Street Surfer |
+| 7 | Miss Match | ระหว่างถนน Seaside Ave กับสวนถนน Waikiki, โฮโนลูลู | บทที่ 3 | ปลดล็อกมินิเกมจับคู่เดท Miss Match |
+| 8 | Snap Those Sickos! | Aloha Beach (จุดจอดรถราง), โฮโนลูลู | บทที่ 3 | ช่วยจับภาพหลักฐาน ปลดล็อกฟังก์ชันกล้องและมินิเกม Sicko Snap ได้ยา Rejuvenation Bolus |
+| 9 | A Love as Sweet as Lemons | แผงน้ำมะนาว ฝั่งตะวันออกถนน Waikiki, โฮโนลูลู | บทที่ 3 | ช่วยคลี่คลายเรื่องรักที่แผงน้ำมะนาว ได้ Hawaiian Pizza และค่า Kindness เพิ่ม เล่นซ้ำได้หลายรอบ |
+| 10 | Coming Out of Her Shell | Aloha Beach, โฮโนลูลู | บทที่ 3 (ต้องผ่านเควส #4 ก่อน) | ช่วย Nancy กุ้งเครฟิชขี้อาย ได้ Poundmate Nancy/Olivia และค่า Personality เพิ่ม |
+| 11 | Wait for Me | ถนน Momo ใกล้ป้ายรถเมล์ Sakura Street Nishi, โฮโนลูลู | บทที่ 3 | ตามหาคนที่หายตัวไป ตอบคำถามให้ถูกเพื่อรับ Lunch Box x2 และเงิน $100-300 |
+| 12 | Saved by Kindness | ถนน Makani Ave, โฮโนลูลู | บทที่ 3 | ต้องกลับไปคุยรวม 4 ครั้ง ได้ White Plumeria และ Happy Lei |
+| 13 | Rock and Roil | Aloha Beach (ใต้ร้าน Aloha Beach Juicery), โฮโนลูลู | บทที่ 3 (ต้องผ่านเควส #4 ก่อน) | มีมินิเกมจังหวะดนตรี ได้ Poundmate Kazami และ Def Boom Box |
+| 14 | Neck Deep in Love | Aloha Beach (ตะวันออกของแผงน้ำมะพร้าว Kana), โฮโนลูลู | บทที่ 3 | ปริศนาค้นหาแบบตาราง ได้ Courage Pendant |
+| 15 | Samurai, May We Walk Together? | Aloha Beach (ใต้ร้าน Ocean Boys Restaurant), โฮโนลูลู | บทที่ 3-4 (ต้องผ่านเควส #4 ก่อน) | ร่วมเดินกับชายที่หลงตัวเองว่าเป็นซามูไร มีมุกโต้ตอบภาษาญี่ปุ่น ได้ Poundmate Nathan |
+| 16 | Beach Guardian: Water, Water Everywhere | Aloha Beach (บริเวณน้ำ), โฮโนลูลู | บทที่ 3 | ช่วย Raymond หาคนที่ต้องการน้ำ ได้ยา Resurrection Bolus |
+| 17 | Beach Guardian: No Kidding Around | Aloha Beach, โฮโนลูลู | บทที่ 3-4 (ต้องผ่านเควส #16 ก่อน) | ตามหาเด็กหาย ได้ Heartful Golem |
+| 18 | Beach Guardian: Heroes of the Sand | Aloha Beach (ใกล้หอไลฟ์การ์ด), โฮโนลูลู | บทที่ 4 (ต้องผ่านเควส #17 ก่อน) | ศัตรูอาจมีเลเวลสูงกว่าปกติ ได้ Infrared Goggles |
+| 19 | Home to Roost | Aloha Beach West, โฮโนลูลู | บทที่ 3 (ต้องผ่านเควส #4 ก่อน) | ภารกิจเก็บของแบบจับเวลา ช่วยนก Joseph ได้ไอเทมฟื้นฟู |
+| 20 | A Better Bat | - | บทที่ 4 (ปลดอัตโนมัติ) | ปลดล็อก Julie's Gearworks และระบบคราฟต์/อัปเกรดอาวุธ |
+| 21 | Playing With Fire | Ounabara Vocational School, โฮโนลูลู | บทที่ 4 | ผ่านการสอบครั้งแรก ปลดล็อกโรงเรียนอาชีวะและมินิเกมสอบวิชาชีพ |
+| 22 | Rise and Grind | ร้าน Cafe SORAMAME ฝั่งเหนือถนน Anaconda Blvd, โฮโนลูลู | บทที่ 4 | มีโบนัสค่า Personality ได้ Poundmate Mameoka |
+| 23 | The More the Plumeria | หลายจุดในสวนสาธารณะ (Anaconda Harbor Park มุมถนน Momo/Waikiki), โฮโนลูลู | บทที่ 4 | ต้องไปเตรียมการ 2 รอบก่อนจบเควส ได้ Pareo of Happiness |
+| 24 | Let It Snow | หน้าร้าน Mohala Shave Ice ถนน Aloha, โฮโนลูลู | บทที่ 4 | มีฉากไล่ตามรถเข็นเด็ก ได้ Poundmate Gondawara |
+| 25 | Embrace Your Wild Side | ชั้นบนสุด Anaconda Shopping Center, โฮโนลูลู | บทที่ 4 | ต้องไปหลายจุดในห้าง ได้เสื้อยืด Golem เซ็นชื่อ |
+| 26 | Anaconda Escape | ชั้นบนสุด Anaconda Shopping Center, โฮโนลูลู | บทที่ 4 | มินิเกมหนีห้องปริศนา (escape room) ได้กุญแจ Safe Key |
+| 27 | The Pursuit of Realism | สะพานทางแยก Riverside Walk/River St., โฮโนลูลู | บทที่ 4 | มินิเกมหลบรถ ได้ Kaiser's Change Holder และ Reflex Booster |
+| 28 | An Authentic Blockbuster | ร้าน Makani Coffee, Sunset Park, โฮโนลูลู | บทที่ 4 (ต้องผ่านเควส #15 และ #27 ก่อน) | มินิเกมหลบรถอีกครั้ง ได้ Modified Rocket Launcher |
+| 29 | Litterbugged | ป้ายรถราง ใต้ Sunset St. (ใกล้ Harbor Line), โฮโนลูลู | บทที่ 4 | ต่อสู้กับหุ่นยนต์เลเวล 27 ต้องมีเงินอย่างน้อย $3000 |
+| 30 | Close Encounters of the Bird Kind? | ถนน Kaku Ave ใกล้ Worldwide Market Village, โฮโนลูลู | บทที่ 5-6 (ต้องผ่านเควส #29 ก่อน) | ต้องทำตอนกลางคืน ต่อสู้ศัตรูเลเวล 29 ได้ Poundmate Sojimaru |
+| 31 | Let's Go Alo-Happy! | - | บทที่ 5 (ปลดอัตโนมัติ) | ปลดล็อก Alo-Happy Tours และระบบเปลี่ยนอาชีพ |
+| 32 | Tropical Photo Rally | - | บทที่ 5 (ปลดอัตโนมัติ) | ปลดล็อกกิจกรรมถ่ายภาพสะสม Photo Rally |
+| 33 | The Island at Rock Bottom | Dondoko Island | บทที่ 6 (ปลดอัตโนมัติ) | ปลดล็อกเกาะ Dondoko Island |
+| 34 | The Legend of the Labyrinth | Riverside Walk, โฮโนลูลู | บทที่ 5 (ปลดอัตโนมัติ) | ปลดล็อกดันเจี้ยน Hawaiian Haunt |
+| 35 | Love and Punishment | ตรอกใกล้จุดจอดแท็กซี่ Night St., โฮโนลูลู | บทที่ 6 (หลังเหตุการณ์ Daidoji) | ต้องทำตอนกลางวัน ไปหลายรอบ ได้ Platinum Plate และ Fancy Free Magazine x5 |
+| 36 | Relics of the Past | Aloha Beach West, โฮโนลูลู | บทที่ 9 | ดวลบอสเลเวล 31 ที่อ่อนแอต่อธาตุไฟ ได้ข้อมูล Sujidex นักขุดในตำนาน |
+| 37 | Choose Your Starter | - | บทที่ 4 (ปลดอัตโนมัติ) | ปลดล็อกระบบจับ/ต่อสู้ Sujimon |
+| 38 | The CEO of Suji | ร้าน Sujigami PC Shop ถนน Aloha, โฮโนลูลู | แรงค์เทรนเนอร์ Sujimon 10 | ดวลกับคู่ต่อสู้ธาตุแสง ปลดล็อกเลเวลสูงสุด Sujimon เป็น 20 |
+| 39 | The Queen's Subilee | Aloha Beach West, โฮโนลูลู | แรงค์เทรนเนอร์ Sujimon 20 | ดวลกับคู่ต่อสู้ธาตุน้ำแข็ง ปลดล็อกเลเวลสูงสุด Sujimon เป็น 30 |
+| 40 | A True Gym Battle | ถนน Fuji / ลาน Makani Ave, โฮโนลูลู | แรงค์เทรนเนอร์ Sujimon 30 | ดวลกับคู่ต่อสู้หลายธาตุ ปลดล็อกเลเวลสูงสุด Sujimon เป็น 40 |
+| 41 | Sodachi's Revenge | Docks / ถนน Fuji, โฮโนลูลู | แรงค์เทรนเนอร์ Sujimon 35-40 | ได้รับ Super Sodachi ปลดล็อกเลเวลสูงสุด Sujimon เป็น 50 พร้อมวิวัฒนาการใหม่ |
+| 42 | Atop the Plateau | Anaconda Shopping Center (สนามสเตเดียม), โฮโนลูลู | ผ่านเควส #37-41 ครบ | ดวลบอสใหญ่ แนะนำเลเวลตัวละครประมาณ 50 ได้ Yasuo Sodachi เป็นแขกที่ Dondoko Island |
+| 43 | A Man Named Asakura | สะพาน Aloha Bridge กับถนน River St., โฮโนลูลู | บทที่ 4 | ดวล 1 ต่อ 1 กับชายลึกลับชื่ออาซาคุระ |
+| 44 | A Changed Man | Docks / ถนน Harbor St., โฮโนลูลู | บทที่ 4 (ต้องผ่านเควส #43 ก่อน) | ดวลกับอาซาคุระเลเวล 26 แพ้แล้วลองใหม่ได้ |
+| 45 | The Final Showdown for Real | Docks / ถนน Harbor St., โฮโนลูลู | ต้องผ่านเควส #44 ก่อน | ดวลกับอาซาคุระเลเวล 33 แพ้แล้วลองใหม่ได้ |
+| 46 | A Man Facing the Future | Docks / ถนน Harbor St., โฮโนลูลู | ต้องผ่านเควส #45 ก่อน | ต่อสู้ 3 ระลอกกับศัตรูเลเวล 43 ได้ Poundmate Asakura |
+| 47 | Certifiable Lover | Ounabara Vocational School, โฮโนลูลู | ผ่านวิชาสอบครบทั้ง 21 วิชาที่โรงเรียนอาชีวะ | ต้องมอบของขวัญให้ถูกใจ ได้ Laura เป็นแขกที่ Dondoko Island |
+| 48 | The Ultimate Alo-Happy Activity! | จุดรับสมัคร Alo-Happy Tours, โฮโนลูลู | ผ่านทัวร์ Alo-Happy ครบ 8 ทัวร์ | ต้องมอบของขวัญให้ถูกใจ ได้ Elizabeth เป็นแขกที่ Dondoko Island |
+| 49 | She Never Misses | จุดจัดเดท Miss Match ถนน Seaside Ave, โฮโนลูลู | นัดเดท Miss Match ครบ 10 คน | ต้องมอบของขวัญให้ถูกใจ ได้ Machiko-san เป็นแขกที่ Dondoko Island |
+| 50 | Together, Forever... | ร้าน Ohahu Burger ถนน Aloha, โฮโนลูลู | Poundmates ถึงแรงค์ซิลเวอร์ (Rank 2) | ต้องมอบของขวัญให้ถูกใจ ได้ Chitose เป็นแขกที่ Dondoko Island |
+| 51 | Experimental Procedures | Julie's Gearworks, โฮโนลูลู | ระดับการลงทุน (Investment) ถึงเลเวล 4 | ต้องมอบของขวัญให้ถูกใจ ได้ Julie เป็นแขกที่ Dondoko Island |
+| 52 | Surviving Paradise | ร้าน Revolve Bar ถนน Tsubaki, โฮโนลูลู | ผ่านเควส #47-51 ครบทุกเควส | เควสเสริมปิดท้ายสายความสัมพันธ์ ได้โบนัสป้องกันถาวร |
