@@ -9,49 +9,49 @@ order: 5
 
 ## คาซึมะ คิริว — มังกรเงิน
 
-![รอยสักมังกรของคิริว](https://static.wikia.nocookie.net/yakuza/images/1/1e/KIRYU_BACK_TATTOO.jpg/revision/latest?cb=20190923205501)
+![รอยสักมังกรของคิริว](https://static.wikia.nocookie.net/yakuza/images/1/1e/KIRYU_BACK_TATTOO.jpg)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Kazuma_Kiryu) — © SEGA*
 
 มังกรสีเงินกำลังทะยานขึ้นฟ้า ที่มาของฉายา "มังกรแห่งโดจิมะ" มังกรของคิริวยังสักไม่เสร็จสมบูรณ์ (ไม่ลงตาครบ) สื่อว่าเส้นทางของเขายังไม่ถึงจุดสิ้นสุด — มังกรในตำนานญี่ปุ่นคือผู้พิทักษ์และพลังอันบริสุทธิ์ ตรงกับตัวตนของคิริวที่ใช้กำลังเพื่อปกป้องมากกว่าทำลาย สีเงินยังต่างจากมังกรทองของริวจิ โกดะ คู่ปรับจากคันไซอย่างจงใจ
 
 ## โกโร มาจิมะ — หน้ากากฮันเนีย
 
-![รอยสักฮันเนียของมาจิมะ](https://static.wikia.nocookie.net/yakuza/images/f/ff/MAJIMA_TATTOO_FULL.png/revision/latest?cb=20190923205920)
+![รอยสักฮันเนียของมาจิมะ](https://static.wikia.nocookie.net/yakuza/images/f/ff/MAJIMA_TATTOO_FULL.png)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Goro_Majima) — © SEGA*
 
 หน้ากากฮันเนีย (般若) จากละครโนห์ — ใบหน้าปีศาจที่เกิดจากความแค้น ความริษยา และความเจ็บปวดที่ถูกกดทับจนแปรเปลี่ยน ล้อมด้วยงูที่สื่อถึงการลอกคราบเกิดใหม่ เข้ากับชีวิตของมาจิมะที่ถูกตระกูลหักหลัง ทรมาน จนสร้างตัวตน "สุนัขบ้า" ขึ้นมาปกปิดความเจ็บปวดข้างใน ฮันเนียคือคนที่เคยเป็นมนุษย์ธรรมดาแต่ถูกความทุกข์เปลี่ยนให้กลายเป็นปีศาจ — ตรงกับมาจิมะมากกว่าลายไหนทั้งหมด
 
 ## ไทกะ ซาเอะจิมะ — เสือกลางป่าไผ่
 
-![รอยสักเสือของซาเอะจิมะ](https://static.wikia.nocookie.net/yakuza/images/3/32/Saejima%27s_Tattoo_%28Upper%29.png/revision/latest?cb=20190910202807)
+![รอยสักเสือของซาเอะจิมะ](https://static.wikia.nocookie.net/yakuza/images/3/32/Saejima%27s_Tattoo_%28Upper%29.png)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Taiga_Saejima) — © SEGA*
 
 เสือคำรามกลางป่าไผ่ ชื่อ "ไทกะ" (大河) พ้องเสียงกับ "ไทกา" (タイガー) โดยบังเอิญอย่างจงใจ เสือในอิเรซึมิสื่อถึงพละกำลังดิบ ความกล้าหาญ และการปกป้องพวกพ้อง — ต่างจากมังกรที่สื่อถึงปัญญาและอำนาจ เสือกับมังกรยังเป็นคู่ตรงข้ามคลาสสิกในศิลปะเอเชีย ซึ่งเกมใช้เปรียบซาเอะจิมะกับคิริวโดยตรง: คนหนึ่งคือสัตว์ป่าบนพื้นดิน อีกคนคือเทพเจ้าบนฟ้า
 
 ## อากิระ นิชิกิยามะ — ปลาคาร์ปว่ายทวนน้ำ
 
-![รอยสักปลาคาร์ปของนิชิกิยามะ](https://static.wikia.nocookie.net/yakuza/images/c/c5/Yakuza_Koi_Tattoo.jpg/revision/latest?cb=20150105033422)
+![รอยสักปลาคาร์ปของนิชิกิยามะ](https://static.wikia.nocookie.net/yakuza/images/c/c5/Yakuza_Koi_Tattoo.jpg)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Akira_Nishikiyama) — © SEGA*
 
 ปลาคาร์ป (นิชิกิโกอิ — ล้อกับชื่อ "นิชิกิ" ของเขาเอง) ว่ายทวนกระแสน้ำ ตามตำนานจีน-ญี่ปุ่น ปลาคาร์ปที่ว่ายขึ้นน้ำตกมังกร (龍門 หรือประตูมังกร) สำเร็จจะกลายร่างเป็นมังกร — ลายสักของนิชิกิคือคำประกาศว่าเขาอยากไต่ขึ้นไปเทียบชั้น "มังกร" อย่างคิริวเพื่อนรักให้ได้สักวัน โศกนาฏกรรมของ Kiwami คือปลาคาร์ปตัวนี้ยอมแลกทุกอย่างเพื่อกลายเป็นมังกร แต่ไปไม่ถึงฝั่งฝัน
 
 ## อิจิบัง คาซึงะ — ริวเกียว ปลามังกรครึ่งร่าง
 
-![รอยสักริวเกียวของอิจิบัง](https://static.wikia.nocookie.net/yakuza/images/e/e5/Like_a_Dragon_Portal_-_Tattoo_-_Ichiban_Kasuga.png/revision/latest?cb=20260722035522)
+![รอยสักริวเกียวของอิจิบัง](https://static.wikia.nocookie.net/yakuza/images/e/e5/Like_a_Dragon_Portal_-_Tattoo_-_Ichiban_Kasuga.png)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Ichiban_Kasuga) — © SEGA*
 
 ริวเกียว (龍魚) — สัตว์ในตำนานที่อยู่กึ่งกลางระหว่างปลาคาร์ปกับมังกร คือปลาที่กำลังกลายร่างเป็นมังกรกลางน้ำตก ต่อยอดธีมเดียวกับนิชิกิยามะแต่พลิกความหมาย: อิจิบังคือคนธรรมดาที่ "ยังไปไม่ถึง" แต่ไม่เคยหยุดว่าย ลายนี้ประกาศตัวเขาเป็นผู้สืบทอดตำแหน่ง "มังกร" คนต่อไปของซีรีส์ต่อจากคิริว — มังกรที่ยังอยู่ระหว่างทาง
 
 ## ริวจิ โกดะ — มังกรทอง
 
-![รอยสักมังกรทองของริวจิ](https://static.wikia.nocookie.net/yakuza/images/8/8f/Ryuji_Goda_kouryu_tattoo_complete_design.jpg/revision/latest?cb=20130220213220)
+![รอยสักมังกรทองของริวจิ](https://static.wikia.nocookie.net/yakuza/images/8/8f/Ryuji_Goda_kouryu_tattoo_complete_design.jpg)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Ryuji_Goda) — © SEGA*
 
 มังกรทอง (โคริว / 黄龍) เต็มแผ่นหลัง คู่ตรงข้ามโดยตรงกับมังกรเงินของคิริว ริวจิประกาศตลอด Kiwami 2 ว่า "ฟ้าเดียวกันมีมังกรสองตัวไม่ได้" มังกรทองในตำนานจีนคือจักรพรรดิแห่งมังกรทั้งปวง สื่อถึงความทะเยอทะยานของริวจิที่ไม่ได้อยากแค่เทียบชั้นคิริว แต่อยากเป็นมังกรเพียงหนึ่งเดียว
 
 ## ไดโงะ โดจิมะ — ฟุโดเมียวโอ
 
-![รอยสักฟุโดเมียวโอของไดโงะ](https://static.wikia.nocookie.net/yakuza/images/f/f3/Like_a_Dragon_Portal_-_Tattoo_-_Daigo_Dojima.png/revision/latest?cb=20260722035521)
+![รอยสักฟุโดเมียวโอของไดโงะ](https://static.wikia.nocookie.net/yakuza/images/f/f3/Like_a_Dragon_Portal_-_Tattoo_-_Daigo_Dojima.png)
 *ภาพ: [Yakuza Wiki (Fandom)](https://yakuza.fandom.com/wiki/Daigo_Dojima) — © SEGA*
 
 ฟุโดเมียวโอ (不動明王) เทพอสูรผู้พิทักษ์ในพุทธศาสนานิกายชินงอน มือถือดาบตัดกิเลสและเชือกมัดปีศาจ ใบหน้าดุร้ายแต่แท้จริงคือผู้ปกป้องที่ "ไม่หวั่นไหว" (ฟุโด = ไม่เคลื่อน) — สะท้อนบทบาทของไดโงะที่ต้องนั่งบัลลังก์ประธานตระกูลโทโจท่ามกลางพายุ แบกทั้งบาปของพ่อและความคาดหวังของทุกคนโดยขยับหนีไปไหนไม่ได้
