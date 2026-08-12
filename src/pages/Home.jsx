@@ -63,6 +63,7 @@ export default function Home() {
             { slug: 'characters', icon: '侠', title: 'ตัวละครหลัก', desc: 'โปรไฟล์คิริว มาจิมะ อิจิบัง และตัวละครสำคัญข้ามภาค' },
             { slug: 'organizations', icon: '組', title: 'องค์กร & ตระกูล', desc: 'ตระกูลโทโจ พันธมิตรโอมิ และกลุ่มอิทธิพลทั้งซีรีส์' },
             { slug: 'places', icon: '街', title: 'สถานที่ในเกม', desc: 'คามุโรโจ โซเท็นโบริ อิจินโจ และเมืองอื่น ๆ พร้อมต้นแบบจริง' },
+            { slug: 'tattoos', icon: '彫', title: 'รอยสัก (อิเรซึมิ)', desc: 'ความหมายลายสักของคิริว มาจิมะ และตัวละครหลัก พร้อมภาพเต็ม' },
           ].map((l, i) => (
             <MotionLink key={l.slug} to={`/lore/${l.slug}`} className="lore-card" {...cardMotion(i)}>
               <span className="lore-icon">{l.icon}</span>
