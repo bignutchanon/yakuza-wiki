@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { gameById, gameImage, steamStore } from '../data/games.js'
+import { gameById, gameImage, steamStore, CITY_MAPS } from '../data/games.js'
 import { contentFor } from '../content/loader.js'
 import Credit from '../components/Credit.jsx'
 import { ShotStrip } from '../components/Screenshots.jsx'
@@ -79,6 +79,41 @@ export default function GamePage() {
       )}
 
       <ShotStrip game={game} />
+
+      {game.trailer && (
+        <>
+          <h2 className="section-h">เทรลเลอร์</h2>
+          <div className="video-wrap">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${game.trailer}`}
+              title={`${game.title} — Trailer`}
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          <Credit href={`https://www.youtube.com/watch?v=${game.trailer}`} label="วิดีโอ: YouTube — © SEGA / RGG Studio" />
+        </>
+      )}
+
+      {game.maps?.length > 0 && (
+        <>
+          <h2 className="section-h">แผนที่เมืองในภาคนี้</h2>
+          <div className="map-grid">
+            {game.maps.map((mid) => {
+              const m = CITY_MAPS[mid]
+              if (!m) return null
+              return (
+                <figure key={mid} className="map-card">
+                  <img src={m.img} alt={`แผนที่ ${m.label}`} loading="lazy" />
+                  <figcaption>{m.label}</figcaption>
+                </figure>
+              )
+            })}
+          </div>
+          <Credit href="https://yakuza.fandom.com/" label="แผนที่: Yakuza Wiki (Fandom) — © SEGA" />
+        </>
+      )}
 
       <h2 className="section-h">เนื้อเรื่องหลัก — สรุปรายบท</h2>
       {chapters.length ? (

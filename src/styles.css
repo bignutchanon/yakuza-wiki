@@ -52,6 +52,30 @@ h1, h2, h3, h4 {
 
 img { max-width: 100%; display: block; }
 
+/* ─── Motion ───
+   เอฟเฟกต์เข้าฉากเบา ๆ ทั้งเว็บ — ปิดอัตโนมัติเมื่อผู้ใช้ตั้ง reduced motion */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.6; }
+  94% { opacity: 1; }
+  96% { opacity: 0.75; }
+  97% { opacity: 1; }
+}
+.page, .hero3d .hero-copy { animation: fade-up 0.5s ease both; }
+.game-card { animation: fade-up 0.5s ease both; }
+.game-grid .game-card:nth-child(2) { animation-delay: 0.05s; }
+.game-grid .game-card:nth-child(3) { animation-delay: 0.1s; }
+.game-grid .game-card:nth-child(4) { animation-delay: 0.15s; }
+.game-grid .game-card:nth-child(5) { animation-delay: 0.2s; }
+.game-grid .game-card:nth-child(6) { animation-delay: 0.25s; }
+.game-grid .game-card:nth-child(n + 7) { animation-delay: 0.3s; }
+.brand .kanji { animation: neon-flicker 7s linear infinite; }
+
 /* ─── App layout ─── */
 .app {
   display: grid;
@@ -230,6 +254,41 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--gold);
   color: var(--gold-soft);
 }
+
+/* ─── Lore quick links (หน้าแรก) ─── */
+.lore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.lore-card {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 1rem 1.1rem;
+  color: var(--text);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+  animation: fade-up 0.5s ease both;
+}
+.lore-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  text-decoration: none;
+  color: var(--text);
+}
+.lore-card .lore-icon {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--red);
+  text-shadow: 0 0 14px rgba(230, 57, 80, 0.4);
+}
+.lore-card h3 { margin: 0; font-size: 1rem; font-style: italic; }
+.lore-card p { margin: 0.25rem 0 0; font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
 
 /* ─── Credit line ใต้รูปทุกรูป ─── */
 .credit {
@@ -510,6 +569,39 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--line);
 }
 
+/* ─── Video embed (เทรลเลอร์) ─── */
+.video-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 1.2rem 0 0.3rem;
+  border: 1px solid var(--line);
+  background: #000;
+}
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ─── City maps ─── */
+.map-grid {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.map-card { border: 1px solid var(--line); background: var(--bg-card); }
+.map-card img { width: 100%; }
+.map-card figcaption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
+  color: var(--gold-soft);
+}
+.map-card figure { margin: 0; }
+
 /* ─── Support page ─── */
 .support-card {
   display: flex;
@@ -592,4 +684,5 @@ img { max-width: 100%; display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   .game-card, .sidebar { transition: none; }
+  .page, .hero3d .hero-copy, .game-card, .lore-card, .brand .kanji { animation: none; }
 }

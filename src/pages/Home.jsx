@@ -43,6 +43,24 @@ export default function Home() {
           ))}
         </div>
         <Credit href="https://store.steampowered.com/" label="ภาพปกทั้งหมด: © SEGA — จากหน้าร้าน Steam" />
+
+        <h2 className="section-h">ทำความรู้จักจักรวาล Yakuza</h2>
+        <div className="lore-grid">
+          {[
+            { slug: 'timeline', icon: '龍', title: 'ไทม์ไลน์ซีรีส์', desc: 'เหตุการณ์ 35+ ปี เรียงตามปีในเกม พร้อมลำดับที่แนะนำให้เล่น' },
+            { slug: 'characters', icon: '侠', title: 'ตัวละครหลัก', desc: 'โปรไฟล์คิริว มาจิมะ อิจิบัง และตัวละครสำคัญข้ามภาค' },
+            { slug: 'organizations', icon: '組', title: 'องค์กร & ตระกูล', desc: 'ตระกูลโทโจ พันธมิตรโอมิ และกลุ่มอิทธิพลทั้งซีรีส์' },
+            { slug: 'places', icon: '街', title: 'สถานที่ในเกม', desc: 'คามุโรโจ โซเท็นโบริ อิจินโจ และเมืองอื่น ๆ พร้อมต้นแบบจริง' },
+          ].map((l) => (
+            <Link key={l.slug} to={`/lore/${l.slug}`} className="lore-card">
+              <span className="lore-icon">{l.icon}</span>
+              <div>
+                <h3>{l.title}</h3>
+                <p>{l.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   )

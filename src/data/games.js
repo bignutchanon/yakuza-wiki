@@ -10,6 +10,27 @@ export const gameImage = (g) => g.image || steamHeader(g.steamAppId)
 export const steamStore = (appId) =>
   `https://store.steampowered.com/app/${appId}/`
 
+// แผนที่เมืองจาก Yakuza Wiki (Fandom) — เครดิต © SEGA แสดงใต้รูปในหน้าเกม
+// key ใช้อ้างจาก games[].maps (Onomichi/Honolulu ไม่มีไฟล์แผนที่บน Fandom)
+export const CITY_MAPS = {
+  kamurocho: {
+    label: 'คามุโรโจ (โตเกียว)',
+    img: 'https://static.wikia.nocookie.net/yakuza/images/9/9f/Kamurochomap.jpg',
+  },
+  sotenbori: {
+    label: 'โซเท็นโบริ (โอซาก้า)',
+    img: 'https://static.wikia.nocookie.net/yakuza/images/9/98/SotenboriMap_Y5.jpg',
+  },
+  ijincho: {
+    label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)',
+    img: 'https://static.wikia.nocookie.net/yakuza/images/c/ca/LJ_-_Map_-_Yokohama_99.png',
+  },
+  ryukyu: {
+    label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)',
+    img: 'https://static.wikia.nocookie.net/yakuza/images/4/4d/Y3rryukyumap.png',
+  },
+}
+
 // mod.status: 'released' | 'wip' | 'none'
 export const GAMES = [
   {
@@ -19,6 +40,8 @@ export const GAMES = [
     year: 1988,
     releaseYear: 2015,
     steamAppId: 638970,
+    trailer: 'eeKcgXuewvg',
+    maps: ['kamurocho', 'sotenbori'],
     protagonists: ['คาซึมะ คิริว', 'โกโร่ มาจิมะ'],
     setting: 'คามุโรโจ (โตเกียว) / โซเท็นโบริ (โอซาก้า) — ค.ศ. 1988',
     blurb:
@@ -37,6 +60,8 @@ export const GAMES = [
     year: 2005,
     releaseYear: 2016,
     steamAppId: 834530,
+    trailer: 'fuBRHFl_LiM',
+    maps: ['kamurocho'],
     protagonists: ['คาซึมะ คิริว'],
     setting: 'คามุโรโจ — ค.ศ. 1995 / 2005',
     blurb:
@@ -50,6 +75,8 @@ export const GAMES = [
     year: 2006,
     releaseYear: 2017,
     steamAppId: 927380,
+    trailer: 'JSTKk_pvjl4',
+    maps: ['kamurocho', 'sotenbori'],
     protagonists: ['คาซึมะ คิริว'],
     setting: 'คามุโรโจ / โซเท็นโบริ — ค.ศ. 2006',
     blurb:
@@ -65,6 +92,8 @@ export const GAMES = [
     steamAppId: 3937550,
     image:
       'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3937550/a90df0d7be6d8f1dd5d8eceb796840ff522d002a/header.jpg',
+    trailer: 'nKeeJzadLUE',
+    maps: ['ryukyu', 'kamurocho'],
     protagonists: ['คาซึมะ คิริว'],
     setting: 'โอกินาว่า / คามุโรโจ — ค.ศ. 2009',
     blurb:
@@ -80,6 +109,8 @@ export const GAMES = [
     steamAppId: 3937550,
     image:
       'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3937550/a90df0d7be6d8f1dd5d8eceb796840ff522d002a/header.jpg',
+    trailer: 'nKeeJzadLUE',
+    maps: ['kamurocho'],
     protagonists: ['โยชิทากะ มิเนะ'],
     setting: 'โตเกียว — ค.ศ. 2007 (ก่อนเหตุการณ์ภาค 3)',
     blurb:
@@ -93,6 +124,8 @@ export const GAMES = [
     year: 2010,
     releaseYear: 2010,
     steamAppId: 1105500,
+    trailer: 'SdM55hOwXFQ',
+    maps: ['kamurocho'],
     protagonists: ['ชุน อากิยามะ', 'ไทกะ ซาเอะจิมะ', 'มาซาโยชิ ทานิมูระ', 'คาซึมะ คิริว'],
     setting: 'คามุโรโจ — ค.ศ. 2010',
     blurb:
@@ -106,6 +139,8 @@ export const GAMES = [
     year: 2012,
     releaseYear: 2012,
     steamAppId: 1105510,
+    trailer: '5k60CPJm2ss',
+    maps: ['kamurocho', 'sotenbori'],
     protagonists: ['คาซึมะ คิริว', 'ไทกะ ซาเอะจิมะ', 'ฮารุกะ ซาวามูระ', 'ชุน อากิยามะ', 'ทัตสึโอะ ชินาดะ'],
     setting: 'ฟุกุโอกะ / ซัปโปโร / โอซาก้า / นาโกย่า / โตเกียว — ค.ศ. 2012',
     blurb:
@@ -119,6 +154,8 @@ export const GAMES = [
     year: 2016,
     releaseYear: 2016,
     steamAppId: 1388590,
+    trailer: 'd2uaH7muVmw',
+    maps: ['kamurocho'],
     protagonists: ['คาซึมะ คิริว'],
     setting: 'คามุโรโจ / โอโนมิจิ (ฮิโรชิม่า) — ค.ศ. 2016',
     blurb:
@@ -132,6 +169,8 @@ export const GAMES = [
     year: 2019,
     releaseYear: 2020,
     steamAppId: 1235140,
+    trailer: 'dNmM9pivqQ0',
+    maps: ['ijincho'],
     protagonists: ['อิจิบัง คาสึกะ'],
     setting: 'อิเซซากิ อิจินโจ (โยโกฮาม่า) — ค.ศ. 2019',
     blurb:
@@ -145,6 +184,8 @@ export const GAMES = [
     year: 2019,
     releaseYear: 2023,
     steamAppId: 2375550,
+    trailer: 'm8gvTDCJb0E',
+    maps: ['sotenbori'],
     protagonists: ['คาซึมะ คิริว (โจริว)'],
     setting: 'โซเท็นโบริ / ปราสาทโอซาก้า — ค.ศ. 2019–2020',
     blurb:
@@ -158,6 +199,8 @@ export const GAMES = [
     year: 2024,
     releaseYear: 2024,
     steamAppId: 2072450,
+    trailer: '7WIpJ-ZZBUQ',
+    maps: ['ijincho'],
     protagonists: ['อิจิบัง คาสึกะ', 'คาซึมะ คิริว'],
     setting: 'โฮโนลูลู (ฮาวาย) / โยโกฮาม่า — ค.ศ. 2024',
     blurb:
@@ -171,6 +214,7 @@ export const GAMES = [
     year: 2025,
     releaseYear: 2025,
     steamAppId: 3061810,
+    trailer: '4UW7G-fAvOM',
     protagonists: ['โกโร่ มาจิมะ'],
     setting: 'ฮาวาย / มาดแลนติส — ค.ศ. 2025',
     blurb:
