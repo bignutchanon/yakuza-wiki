@@ -179,7 +179,7 @@ export const GAMES = [
     setting: 'โซเท็นโบริ / ปราสาทโอซาก้า — ค.ศ. 2019–2020',
     blurb:
       'คิริวแกล้งตายและกลายเป็นสายลับนาม "โจริว" — เรื่องราวที่เกิดขึ้นคู่ขนานกับภาค 7 และปูทางสู่ Infinite Wealth',
-    mod: { status: 'none' },
+    mod: { status: 'released', url: 'https://drive.google.com/file/d/1H-ERDEHAQ4cFDStkydr9iR753vzNuoQW/view?usp=drive_link' },
   },
   {
     id: 'y8',
