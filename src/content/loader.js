@@ -27,10 +27,27 @@ function parseFrontmatter(text) {
 
 const byGame = {}
 const lore = []
+const news = []
+let prices = null
 for (const [path, text] of Object.entries(raw)) {
   const [, gameId, file] = path.match(/^\.\/([^/]+)\/([^/]+)\.md$/) || []
   if (!gameId) continue
   const { meta, body } = parseFrontmatter(text)
+  // โฟลเดอร์ news = กระดานข่าว (ไฟล์ละโพสต์ ชื่อไฟล์ขึ้นต้นด้วยวันที่) + prices.md = ตารางราคาเกม
+  if (gameId === 'news') {
+    if (file === 'prices') {
+      prices = { updated: meta.updated || '', body }
+    } else {
+      news.push({
+        slug: file,
+        title: meta.title || file,
+        date: meta.date || file.slice(0, 10),
+        tag: meta.tag || '',
+        body,
+      })
+    }
+    continue
+  }
   // โฟลเดอร์ lore = บทความเสริม (ไทม์ไลน์/องค์กร/ตัวละคร/สถานที่) ไม่ใช่บทของเกม
   if (gameId === 'lore') {
     lore.push({
@@ -65,3 +82,16 @@ export const contentFor = (gameId) =>
 lore.sort((a, b) => a.order - b.order)
 export const loreArticles = lore
 export const loreBySlug = (slug) => lore.find((a) => a.slug === slug)
+
+// ข่าวเรียงใหม่ → เก่า / gamePrices = เนื้อหาตารางราคา (null ถ้ายังไม่มีไฟล์)
+news.sort((a, b) => b.date.localeCompare(a.date))
+export const newsPosts = news
+export const gamePrices = prices
+
+// วันที่ ISO → รูปแบบไทยสั้น เช่น 13 ส.ค. 2026
+const TH_MONTHS = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.']
+export function thaiDate(iso) {
+  const [y, m, d] = String(iso).split('-').map(Number)
+  if (!y || !m || !d) return iso
+  return `${d} ${TH_MONTHS[m - 1]} ${y}`
+}

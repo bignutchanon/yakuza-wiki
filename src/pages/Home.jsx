@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { GAMES, gameImage } from '../data/games.js'
+import { newsPosts, thaiDate } from '../content/loader.js'
 import Credit from '../components/Credit.jsx'
 
 const MotionLink = motion.create(Link)
@@ -37,6 +38,15 @@ export default function Home() {
       </div>
 
       <div className="page page-wide">
+        {/* แถบข่าวล่าสุด — โพสต์แรกสุดจากกระดานข่าว */}
+        {newsPosts[0] && (
+          <Link to="/news" className="news-strip">
+            <span className="news-strip-tag">ข่าวล่าสุด</span>
+            <span className="news-strip-title">{newsPosts[0].title}</span>
+            <span className="news-strip-date">{thaiDate(newsPosts[0].date)} →</span>
+          </Link>
+        )}
+
         <h2 className="section-h">ทุกภาคในซีรีส์ (เรียงตามไทม์ไลน์เนื้อเรื่อง)</h2>
         <div className="game-grid">
           {GAMES.map((g, i) => (

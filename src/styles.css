@@ -15,7 +15,6 @@
   --font-display: 'Kanit', sans-serif;
   --font-body: 'Sarabun', sans-serif;
 
-  --sidebar-w: 264px;
   --content-w: 46rem;
 }
 
@@ -71,51 +70,96 @@ img { max-width: 100%; display: block; }
 .brand .kanji { animation: neon-flicker 7s linear infinite; }
 
 /* ─── App layout ─── */
-.app {
-  display: grid;
-  grid-template-columns: var(--sidebar-w) 1fr;
-  min-height: 100vh;
-}
+.app { min-height: 100vh; }
 
-/* ─── Sidebar ─── */
-.sidebar {
-  border-right: 1px solid var(--line);
-  background: var(--bg-raise);
-  padding: 1.25rem 0 2rem;
+/* ─── Navbar ─── */
+.navbar {
   position: sticky;
   top: 0;
-  height: 100vh;
-  overflow-y: auto;
-}
-
-.brand {
-  display: block;
-  padding: 0.25rem 1.25rem 1rem;
+  z-index: 50;
+  background: rgba(23, 18, 33, 0.92);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0.55rem 1.5rem;
+}
+
+.brand { display: block; line-height: 1.15; flex-shrink: 0; }
 .brand:hover { text-decoration: none; }
 .brand .kanji {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 800;
-  font-size: 1.55rem;
+  font-size: 1.3rem;
   color: var(--red);
   letter-spacing: 0.02em;
   text-shadow: 0 0 18px rgba(230, 57, 80, 0.45);
 }
 .brand .sub {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.58rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.nav-section {
-  margin: 1.1rem 1.25rem 0.4rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.nav-toggle { display: none; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: auto;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+.nav-link.active {
+  color: var(--gold-soft);
+  border-bottom-color: var(--red);
+}
+
+/* dropdown รายชื่อภาค */
+.nav-dropdown { position: relative; }
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 270px;
+  max-height: min(70vh, 540px);
+  overflow-y: auto;
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  padding: 0.4rem 0;
+}
+.nav-dropdown.open .nav-menu { display: block; }
+.nav-menu-note {
+  margin-top: 0.3rem;
+  padding: 0.5rem 1.25rem 0.3rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
   color: var(--muted);
 }
 
@@ -633,6 +677,50 @@ img { max-width: 100%; display: block; }
   font-variant-numeric: tabular-nums;
 }
 
+/* ─── News (กระดานข่าว + ราคาเกม) ─── */
+.news-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--red);
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+.news-strip:hover { text-decoration: none; border-color: var(--gold); }
+.news-strip-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.news-strip-title { font-size: 0.92rem; flex: 1; min-width: 200px; }
+.news-strip-date { color: var(--muted); font-size: 0.8rem; flex-shrink: 0; }
+
+.news-post {
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem 1.3rem;
+  margin: 1.4rem 0;
+}
+.news-post .article h2 { margin-top: 0.4rem; }
+.news-post-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.news-post-date { color: var(--muted); font-size: 0.82rem; }
+.news-prices { margin-top: 2.5rem; }
+
 /* ─── Footer ─── */
 .site-footer {
   border-top: 1px solid var(--line);
@@ -641,39 +729,70 @@ img { max-width: 100%; display: block; }
   padding: 1.5rem 2rem 2.5rem;
   text-align: center;
 }
+/* จุดชวนสนับสนุนแบบไม่ยัดเยียด — เห็นได้ทุกหน้าแต่กลืนไปกับ footer */
+.footer-support {
+  margin: 0 0 0.7rem;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.footer-support a {
+  color: var(--gold-soft);
+  border-bottom: 1px dotted var(--gold-soft);
+}
+.footer-support a:hover { color: var(--gold); text-decoration: none; }
 
 /* ─── Mobile ─── */
-.menu-btn { display: none; }
-
 @media (max-width: 900px) {
-  .app { grid-template-columns: 1fr; }
-  .sidebar {
-    position: fixed;
-    z-index: 50;
-    width: min(80vw, 300px);
-    transform: translateX(-100%);
-    transition: transform 0.22s ease;
-    box-shadow: 4px 0 30px rgba(0,0,0,0.6);
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.55rem 1rem;
   }
-  .sidebar.open { transform: translateX(0); }
-  .menu-btn {
+  .nav-toggle {
     display: block;
-    position: fixed;
-    z-index: 60;
-    top: 0.9rem;
-    left: 0.9rem;
-    background: var(--bg-raise);
+    margin-left: auto;
+    background: var(--bg-card);
     color: var(--text);
     border: 1px solid var(--line);
     font-family: var(--font-display);
-    font-size: 0.9rem;
-    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
     cursor: pointer;
   }
-  .page { padding: 4rem 1.2rem 4rem; }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 0.3rem 0 0.6rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    text-align: left;
+    padding: 0.55rem 0.6rem;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    width: 100%;
+  }
+  .nav-link.active { border-left-color: var(--red); }
+  /* รายชื่อภาคบนมือถือ: กางในแผงเมนูแทน dropdown ลอย */
+  .nav-dropdown { position: static; }
+  .nav-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-left: 1px solid var(--line);
+    border-radius: 0;
+    margin-left: 0.75rem;
+    max-height: none;
+    min-width: 0;
+  }
+  .page { padding: 1.8rem 1.2rem 3.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .game-card, .sidebar { transition: none; }
+  .game-card { transition: none; }
   .hero3d .hero-copy, .brand .kanji { animation: none; }
 }
