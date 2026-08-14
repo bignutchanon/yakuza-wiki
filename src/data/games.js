@@ -90,7 +90,7 @@ export const GAMES = [
     setting: 'โอกินาว่า / คามุโรโจ — ค.ศ. 2009',
     blurb:
       'คิริววางมือไปเปิดสถานเลี้ยงเด็กกำพร้าริมทะเล แต่โครงการรีสอร์ตทหารลากเขากลับเข้าสู่เกมการเมืองและเงาของชายที่หน้าเหมือนคนที่ตายไปแล้ว — รีเมคเต็มรูปแบบของ Yakuza 3 (2009) วางจำหน่ายคู่กับแคมเปญใหม่ Dark Ties',
-    mod: { status: 'none' },
+    mod: { status: 'released', url: 'https://drive.google.com/file/d/1gtoAAEwbeOfAcMmyUvzwVasxYQXqCQpR/view?usp=drive_link' },
   },
   {
     id: 'darkties',
