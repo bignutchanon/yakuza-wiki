@@ -107,7 +107,11 @@ export const GAMES = [
     setting: 'โตเกียว — ค.ศ. 2007 (ก่อนเหตุการณ์ภาค 3)',
     blurb:
       'เรื่องราวที่ไม่เคยเล่ามาก่อนของมิเนะ ตัวร้ายจากภาค 3 — เส้นทางจากนักธุรกิจสู่โลกยากูซ่า แคมเปญใหม่ยาว ~15 ชั่วโมงที่มาคู่กับ Yakuza Kiwami 3',
-    mod: { status: 'none' },
+    mod: {
+      status: 'released',
+      url: 'https://drive.google.com/file/d/1gtoAAEwbeOfAcMmyUvzwVasxYQXqCQpR/view?usp=drive_link',
+      note: 'ม็อดตัวเดียวกับ Kiwami 3 — ติดตั้งครั้งเดียวได้ทั้งสองแคมเปญ',
+    },
   },
   {
     id: 'y4',
