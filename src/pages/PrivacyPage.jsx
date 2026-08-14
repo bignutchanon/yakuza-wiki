@@ -49,7 +49,7 @@ _อัปเดตล่าสุด: 14 ส.ค. 2026_
 export default function PrivacyPage() {
   const resetConsent = () => {
     localStorage.removeItem('cookieConsent')
-    location.reload()
+    window.dispatchEvent(new Event('cookieConsentReset'))
   }
   return (
     <div className="page">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // แบนเนอร์ขอความยินยอมคุกกี้ — โชว์ครั้งแรกจนกว่าจะเลือก เก็บตัวเลือกใน localStorage
@@ -8,6 +8,14 @@ const KEY = 'cookieConsent'
 
 export default function CookieConsent() {
   const [choice, setChoice] = useState(() => localStorage.getItem(KEY))
+
+  // หน้า /privacy ยิง event นี้ตอนกด "เปลี่ยนการตั้งค่าคุกกี้" — เปิดแบนเนอร์ใหม่ทันทีไม่ต้อง reload
+  useEffect(() => {
+    const reopen = () => setChoice(null)
+    window.addEventListener('cookieConsentReset', reopen)
+    return () => window.removeEventListener('cookieConsentReset', reopen)
+  }, [])
+
   if (choice) return null
 
   const decide = (value) => {
