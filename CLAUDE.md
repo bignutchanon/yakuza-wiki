@@ -39,7 +39,13 @@ Flow: `games.js` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 ## Routes
 
-`/` Home · `/game/:id` ภาค · `/game/:id/ch/:n` บท · `/game/:id/substories` · `/game/:id/guide` · `/lore` + `/lore/:slug` · `/news` · `/prices` · `/support`
+`/` Home · `/game/:id` ภาค · `/game/:id/ch/:n` บท · `/game/:id/substories` · `/game/:id/guide` · `/lore` + `/lore/:slug` · `/news` · `/prices` · `/support` · `/privacy` (นโยบายคุกกี้ — คู่กับ AdSense)
+
+## AdSense
+
+- script + meta ใน `index.html` (pub ID `ca-pub-8021468402008200`) + `public/ads.txt`
+- ads.txt ระดับโดเมนอยู่ repo แยก `bignutchanon.github.io` (root redirect เข้า `/yakuza-wiki/`)
+- แบนเนอร์คุกกี้ `<CookieConsent>` เก็บตัวเลือกใน localStorage key `cookieConsent` (`all`/`essential`) — index.html อ่านค่าตอนโหลดเพื่อตั้ง `requestNonPersonalizedAds` ก่อนโฆษณาเริ่ม · หน้า `/privacy` มีปุ่มล้างตัวเลือก
 
 ## กติกา content (frontmatter)
 

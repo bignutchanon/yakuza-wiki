@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yakuza Wiki ภาษาไทย</title>
     <meta name="google-adsense-account" content="ca-pub-8021468402008200" />
+    <script>
+      // ผู้ใช้เลือก "เฉพาะที่จำเป็น" ในแบนเนอร์คุกกี้ → ขอโฆษณาแบบไม่อิงตัวตน
+      // ต้องตั้งก่อนสคริปต์ adsbygoogle เริ่มทำงาน
+      if (localStorage.getItem('cookieConsent') === 'essential') {
+        ;(window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1
+      }
+    </script>
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8021468402008200"

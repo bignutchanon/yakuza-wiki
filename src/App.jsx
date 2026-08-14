@@ -11,6 +11,8 @@ import SupportPage from './pages/SupportPage.jsx'
 import LorePage from './pages/LorePage.jsx'
 import NewsPage from './pages/NewsPage.jsx'
 import PricesPage from './pages/PricesPage.jsx'
+import PrivacyPage from './pages/PrivacyPage.jsx'
+import CookieConsent from './components/CookieConsent.jsx'
 
 export default function App() {
   const location = useLocation()
@@ -45,6 +47,7 @@ export default function App() {
                 <Route path="/prices" element={<PricesPage />} />
                 <Route path="/lore" element={<LorePage />} />
                 <Route path="/lore/:slug" element={<LorePage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
               </Routes>
             </motion.div>
           </AnimatePresence>
@@ -57,7 +60,10 @@ export default function App() {
           เว็บ wiki โดยแฟนเกม ทำขึ้นเพื่อแชร์ในกลุ่มผู้เล่นเท่านั้น ไม่มีส่วนเกี่ยวข้องกับ SEGA / Ryu Ga Gotoku Studio
           <br />
           ภาพประกอบทั้งหมด © SEGA — ใช้เพื่อการอ้างอิงพร้อมระบุที่มาใต้ภาพ
+          {' · '}
+          <Link to="/privacy">นโยบายความเป็นส่วนตัว</Link>
         </footer>
+        <CookieConsent />
       </div>
     </div>
   )
