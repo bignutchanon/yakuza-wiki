@@ -119,7 +119,7 @@ export const GAMES = [
     setting: 'คามุโรโจ — ค.ศ. 2010',
     blurb:
       'ครั้งแรกที่ซีรีส์เล่าผ่านตัวเอกสี่คน — เจ้าหนี้ใจดี นักโทษแหกคุก ตำรวจนอกคอก และมังกรในตำนาน — สี่มุมมองที่พันกันรอบคดีเดียวกลางคามุโรโจ',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/1jrzfU2w0By-sOucbEjezj_MNQjQHXG7A/view?usp=drive_link' },
+    mod: { status: 'released', url: 'https://www.nexusmods.com/yakuza4remastered/mods/233' },
   },
   {
     id: 'y5',
