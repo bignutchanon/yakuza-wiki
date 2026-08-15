@@ -171,7 +171,11 @@ export const GAMES = [
     setting: 'อิเซซากิ อิจินโจ (โยโกฮาม่า) — ค.ศ. 2019',
     blurb:
       'อิจิบังติดคุก 18 ปีแทนตระกูล ออกมาพบว่าถูกหักหลังและถูกยิงทิ้ง — เขาลุกขึ้นจากกองขยะในโยโกฮาม่าพร้อมเปลี่ยนซีรีส์เป็น RPG เต็มตัวครั้งแรก',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/15fJFSyhdyZ_nopCbECZMk_gdap3CkAKe/view?usp=drive_link' },
+    mod: {
+      status: 'released',
+      url: 'https://drive.google.com/file/d/15fJFSyhdyZ_nopCbECZMk_gdap3CkAKe/view?usp=drive_link',
+      note: 'v1.0.2 (15 ส.ค. 2026) — แก้บั๊กมินิเกมบริหารธุรกิจ ใส่พนักงานแล้วดาวไม่ขึ้น',
+    },
   },
   {
     id: 'gaiden',
