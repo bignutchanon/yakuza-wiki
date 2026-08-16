@@ -5,3 +5,6 @@ out/
 .DS_Store
 *.local
 *.tsbuildinfo
+
+# โค้ด Vite เดิม เก็บไว้อ้างอิงในเครื่องเท่านั้น
+legacy/
