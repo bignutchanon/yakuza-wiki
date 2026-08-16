@@ -174,7 +174,7 @@ export const GAMES = [
     mod: {
       status: 'released',
       url: 'https://drive.google.com/file/d/1Ao4cjOf6ykkcyDlJDOUl4jHsnncAgcny/view?usp=sharing',
-      note: 'v1.0.2 (15 ส.ค. 2026) — แก้บั๊กมินิเกมบริหารธุรกิจ ใส่พนักงานแล้วดาวไม่ขึ้น',
+      note: 'v1.0.3 (16 ส.ค. 2026) — แก้บั๊กมินิเกมบริหารธุรกิจ (ดาวไม่ขึ้น) + ลิฟต์ทะลุแมป',
     },
   },
   {
