@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7" ry="7" fill="#171221" stroke="#2e2440" stroke-width="1"/>
+  <defs>
+    <filter id="gate-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="1.3"/>
+    </filter>
+  </defs>
+  <g fill="#e63950" opacity="0.6" filter="url(#gate-glow)">
+    <rect x="8" y="12" width="4" height="14" rx="1"/>
+    <rect x="20" y="12" width="4" height="14" rx="1"/>
+    <path d="M5,10 L5,6 L8,8 L24,8 L27,6 L27,10 L24,12 L8,12 Z"/>
+  </g>
+  <g fill="#e63950">
+    <rect x="8" y="12" width="4" height="14" rx="1"/>
+    <rect x="20" y="12" width="4" height="14" rx="1"/>
+    <path d="M5,10 L5,6 L8,8 L24,8 L27,6 L27,10 L24,12 L8,12 Z"/>
+  </g>
+</svg>

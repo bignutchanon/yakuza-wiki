@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { GAMES } from '@/data/games'
+import { LogoMark } from '@/components/Logo'
 
 // ชื่อย่อสำหรับเมนู — ตัด prefix/suffix ยาว ๆ ออก
 const shortTitle = (t: string): string =>
@@ -32,8 +33,11 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-inner">
         <Link href="/" className="brand">
-          <span className="kanji">龍が如く</span>
-          <span className="sub">Yakuza Wiki ภาษาไทย</span>
+          <LogoMark size={30} full className="brand-mark" />
+          <span className="brand-text">
+            <span className="kanji">龍が如く</span>
+            <span className="sub">Yakuza Wiki ภาษาไทย</span>
+          </span>
         </Link>
 
         <button
