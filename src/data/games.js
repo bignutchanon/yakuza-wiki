@@ -205,7 +205,11 @@ export const GAMES = [
     setting: 'โฮโนลูลู (ฮาวาย) / โยโกฮาม่า — ค.ศ. 2024',
     blurb:
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/1hYSknGiRtufEFFkCV91cDUikmBbTH3Cp/view?usp=drive_link' },
+    mod: {
+      status: 'released',
+      url: 'https://drive.google.com/file/d/1gcaBpawMGgpjT3eICwjCw0EPF-OLeUq-/view?usp=sharing',
+      note: 'v1.0.1 (16 ส.ค. 2026) — แก้ Miss Match ค้างตอน Chat + rebuild ตารางทั้งเกม',
+    },
   },
   {
     id: 'pirate',
