@@ -1,7 +1,3 @@
-'use client'
-
-import { useEffect } from 'react'
-import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion'
 
 // ภาพซุ้มประตูคามุโรโจจริงจากเกม (Like a Dragon: Kiwami 3) แทนอนุภาค three.js เดิม
 // ค่าเดียวจุดนี้ — สลับไปใช้ public/hero/kamurocho-gate-y5.jpg (Yakuza 5, ซุ้มอยู่กลางภาพ) ได้ที่นี่จุดเดียว
@@ -36,36 +32,12 @@ const GLOWS: NeonGlow[] = [
 ]
 
 export default function HeroScene() {
-  const reduced = useReducedMotion()
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-  const springX = useSpring(x, { stiffness: 60, damping: 20, mass: 0.6 })
-  const springY = useSpring(y, { stiffness: 60, damping: 20, mass: 0.6 })
-
-  // พารัลแลกซ์ตามเมาส์ทั้งหน้า — map ตำแหน่งเมาส์เป็น ±10px แล้วปล่อยให้ spring ตามนุ่ม ๆ
-  // ปิดทั้งหมดถ้าเครื่องตั้ง reduced motion (ไม่ผูก listener เลย)
-  useEffect(() => {
-    if (reduced) return
-    const onMouseMove = (e: MouseEvent) => {
-      x.set((e.clientX / window.innerWidth - 0.5) * 20)
-      y.set((e.clientY / window.innerHeight - 0.5) * 20)
-    }
-    window.addEventListener('mousemove', onMouseMove)
-    return () => window.removeEventListener('mousemove', onMouseMove)
-  }, [reduced, x, y])
-
+  // ภาพนิ่ง — ไม่มีพารัลแลกซ์ตามเมาส์/ซูม (user สั่ง freeze) เหลือแค่ไฟนีออนกะพริบ + ฝนผ่าน CSS
   return (
     <div className="hero-scene" aria-hidden="true">
       {/* hero-frame = กรอบอัตราส่วน 16:9 กึ่งกลาง ขยายให้ cover .hero3d เสมอไม่ว่าจอไหน
           ตำแหน่ง % ของ neon-glow ด้านในจึงตรงกับจุดในภาพเป๊ะ ๆ ตลอด ไม่ขึ้นกับความกว้างจอ */}
-      <motion.div
-        className="hero-frame"
-        style={{ x: springX, y: springY }}
-        animate={reduced ? undefined : { scale: [1.03, 1.1] }}
-        transition={
-          reduced ? undefined : { duration: 30, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
-        }
-      >
+      <div className="hero-frame">
         <img
           className="hero-img"
           src={HERO_IMAGE}
@@ -93,7 +65,7 @@ export default function HeroScene() {
 
         <div className="hero-rain" />
         <div className="hero-shade" />
-      </motion.div>
+      </div>
     </div>
   )
 }
