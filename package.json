@@ -9,19 +9,16 @@
     "start": "next start"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.7.0",
     "framer-motion": "^13.1.0",
     "marked": "^12.0.2",
     "next": "^16.0.0",
     "react": "~19.2.0",
-    "react-dom": "~19.2.0",
-    "three": "^0.169.0"
+    "react-dom": "~19.2.0"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
     "@types/react": "~19.2.0",
     "@types/react-dom": "~19.2.0",
-    "@types/three": "^0.169.0",
     "typescript": "^7.0.2"
   }
 }

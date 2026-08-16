@@ -211,7 +211,7 @@ img { max-width: 100%; display: block; }
   max-width: 62rem;
 }
 
-/* ─── Home hero (3D canvas ด้านหลัง) ─── */
+/* ─── Home hero (ภาพซุ้มประตูคามุโรโจด้านหลัง) ─── */
 .hero3d {
   position: relative;
   height: 46vh;
@@ -219,7 +219,6 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
-.hero3d canvas { position: absolute; inset: 0; }
 .hero3d .hero-copy {
   position: absolute;
   inset: 0;
@@ -245,6 +244,122 @@ img { max-width: 100%; display: block; }
   max-width: 34rem;
   color: var(--text);
   text-shadow: 0 1px 12px rgba(0,0,0,0.9);
+}
+
+/* ─── Home hero: ซุ้มประตูคามุโรโจ (รูป + ไฟนีออนกะพริบ) ─── */
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* กรอบอัตราส่วน 16:9 กึ่งกลาง ขยายให้ cover .hero3d เสมอ (มิเรอร์ height:46vh ของ .hero3d ด้านบน)
+   ตำแหน่ง % ของ .neon-glow ด้านในจึงตรงกับจุดในภาพเป๊ะไม่ว่าอัตราส่วนจอจะเป็นเท่าไหร่ */
+.hero-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  aspect-ratio: 16 / 9;
+  width: max(100%, calc(46vh * 16 / 9));
+  min-width: 100%;
+  min-height: 100%;
+  will-change: transform;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.neon-glow {
+  --glow-intensity: 0.8;
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: blur(6px);
+  opacity: var(--glow-intensity);
+  animation-iteration-count: infinite;
+  will-change: opacity;
+}
+.neon-glow.minor { --glow-intensity: 0.6; }
+.neon-flicker-a { animation-name: neon-flicker-a; animation-timing-function: ease-in-out; }
+.neon-flicker-b { animation-name: neon-flicker-b; animation-timing-function: ease-in-out; }
+.neon-buzz { animation-name: neon-buzz; animation-timing-function: steps(7, jump-end); }
+.neon-strobe { animation-name: neon-strobe; animation-timing-function: steps(2, jump-end); }
+.neon-breathe { animation-name: neon-breathe; animation-timing-function: ease-in-out; }
+
+.hero-rain {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(105deg, transparent 0 6px, rgba(255, 255, 255, 0.07) 6px 7px);
+  background-size: 100% 220px;
+  opacity: 0.35;
+  animation: rain-fall 0.6s linear infinite;
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 10, 18, 0.82), rgba(13, 10, 18, 0.35) 45%, transparent 70%),
+    linear-gradient(180deg, rgba(13, 10, 18, 0.55) 0%, transparent 18%, transparent 78%, rgba(13, 10, 18, 0.68) 100%);
+}
+.hero-credit {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
+  z-index: 1;
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes neon-flicker-a {
+  0%, 18%, 22%, 100% { opacity: var(--glow-intensity); }
+  20% { opacity: calc(var(--glow-intensity) * 0.5); }
+  54%, 58% { opacity: calc(var(--glow-intensity) * 0.7); }
+  56% { opacity: var(--glow-intensity); }
+}
+@keyframes neon-flicker-b {
+  0%, 11%, 100% { opacity: var(--glow-intensity); }
+  13% { opacity: calc(var(--glow-intensity) * 0.35); }
+  16% { opacity: var(--glow-intensity); }
+  62% { opacity: var(--glow-intensity); }
+  75% { opacity: calc(var(--glow-intensity) * 0.5); }
+  78% { opacity: var(--glow-intensity); }
+}
+@keyframes neon-buzz {
+  0%, 100% { opacity: calc(var(--glow-intensity) * 0.85); }
+  8% { opacity: 0.08; }
+  16% { opacity: calc(var(--glow-intensity) * 0.8); }
+  24% { opacity: 0.12; }
+  32% { opacity: var(--glow-intensity); }
+  40% { opacity: 0.08; }
+  55% { opacity: calc(var(--glow-intensity) * 0.85); }
+  63% { opacity: 0.1; }
+  70% { opacity: var(--glow-intensity); }
+  80% { opacity: calc(var(--glow-intensity) * 0.85); }
+  88% { opacity: 0.15; }
+}
+@keyframes neon-strobe {
+  0%, 80% { opacity: var(--glow-intensity); }
+  84% { opacity: 0.1; }
+  88% { opacity: var(--glow-intensity); }
+  92% { opacity: 0.15; }
+  96%, 100% { opacity: var(--glow-intensity); }
+}
+@keyframes neon-breathe {
+  0%, 100% { opacity: calc(var(--glow-intensity) * 0.6); }
+  50% { opacity: var(--glow-intensity); }
+}
+@keyframes rain-fall {
+  from { background-position: 0 0; }
+  to { background-position: -60px 220px; }
+}
+
+@media (max-width: 640px) {
+  .neon-glow.minor { display: none; }
 }
 
 /* ─── Game cards grid ─── */
@@ -798,6 +913,7 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .game-card { transition: none; }
   .hero3d .hero-copy, .brand .kanji { animation: none; }
+  .neon-glow, .hero-rain { animation: none; }
 }
 
 /* ---- แบนเนอร์คุกกี้ ---- */
