@@ -90,8 +90,10 @@ img { max-width: 100%; display: block; }
   padding: 0.55rem 1.5rem;
 }
 
-.brand { display: block; line-height: 1.15; flex-shrink: 0; }
+.brand { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 .brand:hover { text-decoration: none; }
+.brand-mark { flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(230, 57, 80, 0.45)); }
+.brand-text { line-height: 1.15; }
 .brand .kanji {
   font-family: var(--font-display);
   font-style: italic;
@@ -748,6 +750,7 @@ img { max-width: 100%; display: block; }
     gap: 0.6rem;
     padding: 0.55rem 1rem;
   }
+  .brand-mark { width: 26px; height: 26px; }
   .nav-toggle {
     display: block;
     margin-left: auto;
