@@ -5,30 +5,32 @@ Deploy ยังเป็น GitHub Pages ผ่าน Actions เหมือ�
 
 ## การตัดสินใจ (ล็อกแล้ว — ห้ามเปลี่ยนโดยไม่ถาม)
 
-- **Next 16 (latest) + App Router + JavaScript ล้วน (.jsx/.js) — ไม่มี TypeScript, ไม่มี Tailwind, ไม่มี ESLint config ใหม่**
+- **Next 16 (latest) + App Router + TypeScript (.tsx/.ts, `strict: true`) — ไม่มี Tailwind, ไม่มี ESLint config ใหม่** (เดิมวางเป็น JS — user สั่งเปลี่ยนเป็น TSX 16 ส.ค.)
+- **ทุกอย่างอยู่ใต้ `src/`**: `src/app/`, `src/lib/`, `src/components/`, `src/data/`, `src/content/` (user สั่ง) · ระหว่าง migrate ย้าย `src/pages/`+`src/App.jsx`+`src/main.jsx`+`src/content/loader.js` ไป `legacy/` (root) ให้ agent อ่านอ้างอิงได้ — ลบทิ้งตอนจบ
 - `next.config.mjs`: `output: 'export'`, `trailingSlash: true`, `images: { unoptimized: true }` — **ไม่มี basePath** (root domain)
 - URL ใหม่ = path เดิมแต่ไม่มี `#/` : `/game/y7/`, `/game/y7/ch/3/`, `/lore/timeline/`, `/news/`, `/prices/`, `/support/`, `/privacy/`
 - โครงไฟล์ใหม่:
   ```
-  app/
-    layout.jsx          html lang=th, <head> (fonts link, AdSense script + consent snippet ผ่าน next/script), Navbar, footer, CookieConsent, HashRedirect
-    template.jsx        'use client' — page transition (framer-motion, initial/animate เท่านั้น ไม่มี exit) ห่อด้วย MotionConfig reducedMotion="user"
-    page.jsx            Home
-    game/[id]/page.jsx  + ch/[n]/page.jsx + substories/page.jsx + guide/page.jsx
-    lore/page.jsx + lore/[slug]/page.jsx
-    news/page.jsx · prices/page.jsx · support/page.jsx · privacy/page.jsx
-    sitemap.js · robots.js · not-found.jsx
-  lib/
-    content.js          server-only (fs) แทน src/content/loader.js — API เดิมเป๊ะ: contentFor(id), loreArticles, loreBySlug, newsPosts, gamePrices
-    format.js           thaiDate() (ไม่มี fs — ใช้ได้ทั้ง server/client)
-    site.js             SITE_URL='https://yakuzathai.com', SITE_NAME, ฟังก์ชัน pageMeta({title, description, path}) คืน object สำหรับ generateMetadata
-  src/data/games.js, screenshots.json  คงที่เดิม (แก้ CITY_MAPS img './maps/x.png' → '/maps/x.png')
-  src/components/      คงที่เดิม แต่: Link จาก next/link (prop href แทน to) · ตัวที่ใช้ state/window ใส่ 'use client'
+  src/app/
+    layout.tsx          html lang=th, <head> (fonts link, AdSense script + consent snippet ผ่าน next/script), Navbar, footer, CookieConsent, HashRedirect
+    llms.txt/route.ts   Route Handler static (`export const dynamic = 'force-static'`) สร้าง llms.txt ตามสเปก llmstxt.org: H1 ชื่อเว็บ + blockquote สรุป + section ต่อหมวด (ภาค → ลิงก์หน้าภาค/บท/substories/guide, Lore, ข่าว, ราคา, ม็อดแปลไทย) เป็น markdown list `- [title](absolute url): คำอธิบายสั้น` (user สั่ง)
+    template.tsx        'use client' — page transition (framer-motion, initial/animate เท่านั้น ไม่มี exit) ห่อด้วย MotionConfig reducedMotion="user"
+    page.tsx            Home
+    game/[id]/page.tsx  + ch/[n]/page.tsx + substories/page.tsx + guide/page.tsx
+    lore/page.tsx + lore/[slug]/page.tsx
+    news/page.tsx · prices/page.tsx · support/page.tsx · privacy/page.tsx
+    sitemap.ts · robots.ts · not-found.tsx
+  src/lib/
+    content.ts          server-only (fs) แทน loader.js — API เดิมเป๊ะ: contentFor(id), loreArticles, loreBySlug, newsPosts, gamePrices + export type Chapter/GameContent/LoreArticle/NewsPost
+    format.ts           thaiDate() (ไม่มี fs — ใช้ได้ทั้ง server/client)
+    site.ts             SITE_URL='https://yakuzathai.com', SITE_NAME, pageMeta({title, description, path, image}): Metadata
+  src/data/games.ts (แปลงจาก games.js + type Game/ModInfo), screenshots.json  (CITY_MAPS img '/maps/x.png')
+  src/components/*.tsx  Link จาก next/link (prop href แทน to) · ตัวที่ใช้ state/window ใส่ 'use client'
   src/content/**/*.md  ไม่แตะ
   src/styles.css       ไม่แตะเนื้อหา — import ใน app/layout.jsx
   public/              เพิ่ม CNAME (yakuzathai.com) + .nojekyll · ads.txt/maps/promptpay-qr.png คงเดิม
   ```
-- ลบทิ้งเมื่อจบ: `index.html`, `vite.config.js`, `src/main.jsx`, `src/App.jsx`, `src/pages/`, `src/content/loader.js`, dep vite/@vitejs/plugin-react/react-router-dom
+- ลบทิ้งเมื่อจบ: `index.html`, `vite.config.js`, `legacy/` (pages/App/main/loader เดิม), dep vite/@vitejs/plugin-react/react-router-dom
 - **Server component เป็นค่าเริ่มต้น** — หน้าเนื้อหาทั้งหมด render markdown ฝั่ง server (marked) ให้ HTML อยู่ใน static output (SEO)
   · `'use client'` เฉพาะ: Navbar (useState + usePathname), CookieConsent, NeonScene (three — โหลดผ่าน `next/dynamic` `ssr:false` จาก client wrapper), Screenshots (useState), template.jsx, HashRedirect, ปุ่มล้างคุกกี้ใน privacy (แยกเป็น component เล็ก), Home การ์ด motion (แยก `HomeGrid` client) 
 - **HashRedirect** (client, ใน layout): ตอน mount ถ้า `location.hash` ขึ้นต้น `#/` → `router.replace(hash.slice(1))` (บุ๊กมาร์กเก่า `/#/game/y7` ยังใช้ได้) · **Markdown component**: แทน `href="#/` → `href="/` ตอน render (ข่าว 3 ไฟล์ลิงก์แบบเก่า)
