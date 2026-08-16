@@ -6,8 +6,6 @@ import * as THREE from 'three'
 
 // ฉากคืนฝนตกสไตล์คามุโรโจ: เม็ดฝนโปรยลง + แสงนีออนโบเก้ลอยช้า ๆ + กล้องเอียงตามเมาส์
 // ตั้งใจให้เบา: geometry แบบ Points ล้วน ไม่มีโมเดล ไม่มี postprocessing
-// หมายเหตุ type: โค้ด three.js/r3f ด้านล่างปล่อยชนิดหลวม (any) ตรง ref ของ geometry ตามคำแนะนำ
-// ไม่ไปไล่ตามชนิดของ three ทุกจุด เพราะไม่คุ้มค่าและไม่กระทบความปลอดภัยของโค้ดจริง
 
 const NEON_COLORS = ['#e63950', '#d4a24e', '#7b4dff', '#ff7ab0', '#3fd2ff']
 
@@ -25,7 +23,7 @@ function glowTexture() {
 }
 
 function Rain({ count = 900 }: { count?: number }) {
-  const ref = useRef<any>(null)
+  const ref = useRef<THREE.Points>(null)
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3)
     for (let i = 0; i < count; i++) {
@@ -37,6 +35,7 @@ function Rain({ count = 900 }: { count?: number }) {
   }, [count])
 
   useFrame((_, dt) => {
+    if (!ref.current) return
     const pos = ref.current.geometry.attributes.position
     for (let i = 0; i < count; i++) {
       let y = pos.getY(i) - dt * (9 + (i % 5))
@@ -51,22 +50,19 @@ function Rain({ count = 900 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      {/* r3f สร้างชนิด props ของ pointsMaterial จากชนิดของ three — เมื่อ three ไม่มี type (ดู src/types/three.d.ts) ชนิดที่ได้จะว่างเปล่า จึง cast เป็น any ที่จุดนี้แทนการไล่ตามชนิด */}
       <pointsMaterial
-        {...({
-          color: '#8fa8c8',
-          size: 0.045,
-          transparent: true,
-          opacity: 0.55,
-          depthWrite: false,
-        } as any)}
+        color="#8fa8c8"
+        size={0.045}
+        transparent
+        opacity={0.55}
+        depthWrite={false}
       />
     </points>
   )
 }
 
 function Bokeh({ count = 60 }: { count?: number }) {
-  const ref = useRef<any>(null)
+  const ref = useRef<THREE.Points>(null)
   const texture = useMemo(glowTexture, [])
   const { positions, colors, seeds } = useMemo(() => {
     const positions = new Float32Array(count * 3)
@@ -87,6 +83,7 @@ function Bokeh({ count = 60 }: { count?: number }) {
   }, [count])
 
   useFrame(({ clock }) => {
+    if (!ref.current) return
     const t = clock.elapsedTime
     const pos = ref.current.geometry.attributes.position
     for (let i = 0; i < count; i++) {
@@ -102,17 +99,14 @@ function Bokeh({ count = 60 }: { count?: number }) {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
-      {/* เหตุผลเดียวกับ pointsMaterial ใน Rain — cast any เพราะ r3f ไล่ชนิดจาก three ไม่ได้ */}
       <pointsMaterial
-        {...({
-          map: texture,
-          vertexColors: true,
-          size: 1.6,
-          transparent: true,
-          opacity: 0.8,
-          depthWrite: false,
-          blending: THREE.AdditiveBlending,
-        } as any)}
+        map={texture}
+        vertexColors
+        size={1.6}
+        transparent
+        opacity={0.8}
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
       />
     </points>
   )
