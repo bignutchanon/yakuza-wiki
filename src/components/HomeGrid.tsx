@@ -2,18 +2,20 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import Credit from './Credit.jsx'
+import Credit from './Credit'
 
 const MotionLink = motion.create(Link)
 
 // การ์ดโผล่ไล่จังหวะทีละใบเมื่อเลื่อนมาถึง + เด้งรับเมาส์
-const cardMotion = (i) => ({
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-40px' },
-  transition: { duration: 0.4, delay: (i % 4) * 0.07, ease: 'easeOut' },
-  whileHover: { y: -6, transition: { duration: 0.18 } },
-})
+// as const กัน TS ขยาย 'easeOut' เป็น string เฉย ๆ (framer-motion ต้องการ literal union ของ Easing)
+const cardMotion = (i: number) =>
+  ({
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-40px' },
+    transition: { duration: 0.4, delay: (i % 4) * 0.07, ease: 'easeOut' },
+    whileHover: { y: -6, transition: { duration: 0.18 } },
+  }) as const
 
 // บทความ lore หน้าแรก — ข้อมูลคงที่ ไม่ได้มาจาก markdown จึงไม่ต้องส่งผ่าน props จาก server
 const LORE_LINKS = [
@@ -24,9 +26,22 @@ const LORE_LINKS = [
   { slug: 'tattoos', icon: '彫', title: 'รอยสัก (อิเรซึมิ)', desc: 'ความหมายลายสักของคิริว มาจิมะ และตัวละครหลัก พร้อมภาพเต็ม' },
 ]
 
+// ข้อมูลภาคที่ serialize ได้ล้วน ๆ ส่งมาจาก server component (คำนวณ gameImage ไว้แล้ว)
+export interface HomeGridGame {
+  id: string
+  title: string
+  year: number
+  releaseYear: number
+  image: string
+  modReleased: boolean
+}
+
+interface HomeGridProps {
+  games: HomeGridGame[]
+}
+
 // การ์ดที่มีอนิเมชัน (framer-motion) ของหน้าแรก — แยกเป็น client component เพราะ motion ต้องใช้ hook ฝั่ง browser
-// games = array ของข้อมูลที่ serialize ได้ล้วน ๆ (คำนวณ gameImage ไว้แล้วฝั่ง server)
-export default function HomeGrid({ games }) {
+export default function HomeGrid({ games }: HomeGridProps) {
   return (
     <>
       <h2 className="section-h">ทุกภาคในซีรีส์ (เรียงตามไทม์ไลน์เนื้อเรื่อง)</h2>

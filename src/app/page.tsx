@@ -1,16 +1,17 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { GAMES, gameImage } from '../src/data/games.js'
-import { newsPosts, thaiDate } from '../lib/content.js'
-import { pageMeta, DEFAULT_DESCRIPTION } from '../lib/site.js'
-import NeonSceneLazy from '../src/components/NeonSceneLazy.jsx'
-import HomeGrid from '../src/components/HomeGrid.jsx'
+import { GAMES, gameImage } from '@/data/games'
+import { newsPosts, thaiDate } from '@/lib/content'
+import { pageMeta, DEFAULT_DESCRIPTION } from '@/lib/site'
+import NeonSceneLazy from '@/components/NeonSceneLazy'
+import HomeGrid, { type HomeGridGame } from '@/components/HomeGrid'
 
-export const metadata = pageMeta({ title: '', description: DEFAULT_DESCRIPTION, path: '/' })
+export const metadata: Metadata = pageMeta({ title: '', description: DEFAULT_DESCRIPTION, path: '/' })
 
 // หน้าแรก — server component: render markdown/ข้อมูลฝั่ง server ทั้งหมด ส่วนการ์ด motion แยกไปที่ HomeGrid (client)
 export default function Home() {
   // เตรียมข้อมูลภาคให้เป็น props ที่ serialize ได้ล้วน ๆ ก่อนส่งเข้า client component
-  const games = GAMES.map((g) => ({
+  const games: HomeGridGame[] = GAMES.map((g) => ({
     id: g.id,
     title: g.title,
     year: g.year,

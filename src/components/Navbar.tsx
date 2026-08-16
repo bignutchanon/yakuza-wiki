@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GAMES } from '../data/games.js'
+import { GAMES } from '@/data/games'
 
 // ชื่อย่อสำหรับเมนู — ตัด prefix/suffix ยาว ๆ ออก
-const shortTitle = (t) =>
+const shortTitle = (t: string): string =>
   t
     .replace('Like a Dragon: ', '')
     .replace(': The Song of Life', '')
@@ -24,8 +24,9 @@ export default function Navbar() {
   }, [pathname])
 
   // แทนที่ NavLink ของ react-router: root ต้อง exact เท่านั้น ที่เหลือ active ทั้งตัวเองและ path ย่อย
-  const isActive = (href) => (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`))
-  const navLinkClass = (href) => `nav-link${isActive(href) ? ' active' : ''}`
+  const isActive = (href: string): boolean =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
+  const navLinkClass = (href: string): string => `nav-link${isActive(href) ? ' active' : ''}`
 
   return (
     <header className="navbar">

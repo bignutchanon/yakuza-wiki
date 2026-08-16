@@ -1,13 +1,15 @@
+import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Script from 'next/script'
 import Link from 'next/link'
-import Navbar from '../src/components/Navbar.jsx'
-import CookieConsent from '../src/components/CookieConsent.jsx'
-import HashRedirect from '../src/components/HashRedirect.jsx'
-import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION } from '../lib/site.js'
-import '../src/styles.css'
+import Navbar from '@/components/Navbar'
+import CookieConsent from '@/components/CookieConsent'
+import HashRedirect from '@/components/HashRedirect'
+import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION } from '@/lib/site'
+import '@/styles.css'
 
 // metadata ของหน้าแรก (title ว่าง → ใช้ชื่อเว็บอย่างเดียว) — หน้าอื่นจะ override ผ่าน export const metadata ของตัวเอง
-export const metadata = {
+export const metadata: Metadata = {
   ...pageMeta({ title: '', description: DEFAULT_DESCRIPTION, path: '/' }),
   metadataBase: new URL(SITE_URL),
   other: { 'google-adsense-account': 'ca-pub-8021468402008200' },
@@ -16,7 +18,7 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="th">
       <head>

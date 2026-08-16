@@ -1,19 +1,44 @@
 // ข้อมูลหลักของแต่ละภาค — รูป hero/cover ดึงจาก Steam CDN (ลิงก์เสถียร ไม่ต้องเก็บรูปใน repo)
 // เครดิตภาพ: © SEGA — แสดงใต้รูปทุกจุดผ่านคอมโพเนนต์ <Credit>
 
-export const steamHeader = (appId) =>
+export type ModStatus = 'released' | 'wip' | 'none'
+
+export interface ModInfo {
+  status: ModStatus
+  url?: string
+  note?: string
+  nexus?: string
+}
+
+export interface Game {
+  id: string
+  title: string
+  subtitle: string
+  year: number
+  releaseYear: number
+  steamAppId?: number
+  image?: string
+  trailer?: string
+  maps?: string[]
+  protagonists: string[]
+  setting: string
+  blurb: string
+  mod: ModInfo
+}
+
+export const steamHeader = (appId?: number): string =>
   `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`
 
 // เกมที่ระบุ image เอง (เกมใหม่ ๆ Steam ใช้ URL แบบ hashed) ให้ใช้ก่อน fallback เป็น steamHeader
-export const gameImage = (g) => g.image || steamHeader(g.steamAppId)
+export const gameImage = (g: Game): string => g.image || steamHeader(g.steamAppId)
 
-export const steamStore = (appId) =>
+export const steamStore = (appId?: number): string =>
   `https://store.steampowered.com/app/${appId}/`
 
 // แผนที่เมือง — เก็บไฟล์เองใน public/maps/ (คัดไฟล์คมสุดที่หาได้จากทั้งเว็บแล้ว)
 // ต้นทาง Yakuza Wiki (Fandom) © SEGA — เครดิตแสดงใต้รูปในหน้าเกม
 // key ใช้อ้างจาก games[].maps (Onomichi/Honolulu ไม่มีไฟล์แผนที่เผยแพร่ที่ไหนเลย)
-export const CITY_MAPS = {
+export const CITY_MAPS: Record<string, { label: string; img: string }> = {
   kamurocho: { label: 'คามุโรโจ (โตเกียว)', img: '/maps/kamurocho.png' },
   sotenbori: { label: 'โซเท็นโบริ (โอซาก้า)', img: '/maps/sotenbori.png' },
   ijincho: { label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)', img: '/maps/ijincho.png' },
@@ -21,7 +46,7 @@ export const CITY_MAPS = {
 }
 
 // mod.status: 'released' | 'wip' | 'none'
-export const GAMES = [
+export const GAMES: Game[] = [
   {
     id: 'y0',
     title: 'Yakuza 0',
@@ -227,4 +252,4 @@ export const GAMES = [
   },
 ]
 
-export const gameById = (id) => GAMES.find((g) => g.id === id)
+export const gameById = (id: string): Game | undefined => GAMES.find((g) => g.id === id)

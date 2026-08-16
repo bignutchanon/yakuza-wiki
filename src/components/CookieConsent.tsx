@@ -3,14 +3,26 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
+// ประกาศ property เสริมบน window ที่สคริปต์ adsbygoogle ใช้ (ชนิดจริงมาจาก Google ไม่มี type ให้)
+// adsbygoogle เป็น array-like queue แต่โค้ดของ Google เองก็แปะ requestNonPersonalizedAds เป็น property ตรง ๆ บน array — ประกาศให้ตรงพฤติกรรมจริง
+interface AdsByGoogleQueue extends Array<unknown> {
+  requestNonPersonalizedAds?: number
+}
+
+declare global {
+  interface Window {
+    adsbygoogle: AdsByGoogleQueue
+  }
+}
+
 // แบนเนอร์ขอความยินยอมคุกกี้ — โชว์ครั้งแรกจนกว่าจะเลือก เก็บตัวเลือกใน localStorage
 // 'all' = โฆษณาปกติ · 'essential' = ขอโฆษณาแบบ non-personalized
-// (app/layout.jsx อ่านค่านี้ตอนโหลดหน้า เพื่อตั้ง requestNonPersonalizedAds ก่อนโฆษณาเริ่มทำงาน)
+// (src/app/layout.tsx อ่านค่านี้ตอนโหลดหน้า เพื่อตั้ง requestNonPersonalizedAds ก่อนโฆษณาเริ่มทำงาน)
 const KEY = 'cookieConsent'
 
 export default function CookieConsent() {
   // เริ่มจาก null เสมอ (SSR ไม่มี localStorage) แล้วค่อยอ่านค่าจริงหลัง mount กัน hydration mismatch
-  const [choice, setChoice] = useState(null)
+  const [choice, setChoice] = useState<string | null>(null)
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -25,7 +37,7 @@ export default function CookieConsent() {
 
   if (!ready || choice) return null
 
-  const decide = (value) => {
+  const decide = (value: string) => {
     localStorage.setItem(KEY, value)
     if (value === 'essential') {
       ;(window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1

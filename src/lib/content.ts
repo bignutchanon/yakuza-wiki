@@ -10,14 +10,54 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import { thaiDate } from './format.js'
+import { thaiDate } from './format'
+
+export interface Chapter {
+  n: number
+  title: string
+  thai: string
+  part: string
+  body: string
+}
+
+// เนื้อหาไกด์เสริม/substories — meta เป็น frontmatter ดิบ (key-value string ล้วน)
+export interface MetaBody {
+  meta: Record<string, string>
+  body: string
+}
+
+export interface GameContent {
+  chapters: Chapter[]
+  substories: MetaBody | null
+  guide: MetaBody | null
+}
+
+export interface LoreArticle {
+  slug: string
+  title: string
+  order: number
+  body: string
+}
+
+export interface NewsPost {
+  slug: string
+  title: string
+  date: string
+  tag: string
+  body: string
+}
+
+export interface Prices {
+  updated: string
+  body: string
+}
 
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content')
 
-function parseFrontmatter(text) {
+function parseFrontmatter(text: string): MetaBody {
   const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(text)
   if (!m) return { meta: {}, body: text }
-  const meta = {}
+  const meta: Record<string, string> = {}
   for (const line of m[1].split(/\r?\n/)) {
     const i = line.indexOf(':')
     if (i === -1) continue
@@ -27,10 +67,10 @@ function parseFrontmatter(text) {
 }
 
 function loadAll() {
-  const byGame = {}
-  const lore = []
-  const news = []
-  let prices = null
+  const byGame: Record<string, GameContent> = {}
+  const lore: LoreArticle[] = []
+  const news: NewsPost[] = []
+  let prices: Prices | null = null
 
   const dirs = fs.readdirSync(CONTENT_DIR, { withFileTypes: true }).filter((d) => d.isDirectory())
 
@@ -97,15 +137,15 @@ function loadAll() {
 // คำนวณครั้งเดียวตอน build (module-level cache) — ไฟล์นี้ถูก import เฉพาะฝั่ง server
 const { byGame, lore, news, prices } = loadAll()
 
-export const contentFor = (gameId) =>
+export const contentFor = (gameId: string): GameContent =>
   byGame[gameId] || { chapters: [], substories: null, guide: null }
 
-export const loreArticles = lore
-export const loreBySlug = (slug) => lore.find((a) => a.slug === slug)
+export const loreArticles: LoreArticle[] = lore
+export const loreBySlug = (slug: string): LoreArticle | undefined => lore.find((a) => a.slug === slug)
 
 // ข่าวเรียงใหม่ → เก่า / gamePrices = เนื้อหาตารางราคา (null ถ้ายังไม่มีไฟล์)
-export const newsPosts = news
-export const gamePrices = prices
+export const newsPosts: NewsPost[] = news
+export const gamePrices: Prices | null = prices
 
 // re-export เพื่อความเข้ากันได้กับโค้ดเดิมที่ import thaiDate จาก loader.js
 export { thaiDate }

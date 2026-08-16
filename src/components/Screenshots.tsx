@@ -1,14 +1,21 @@
 'use client'
 
 import { useState } from 'react'
-import shots from '../data/screenshots.json'
-import { steamStore } from '../data/games.js'
-import Credit from './Credit.jsx'
+import shots from '@/data/screenshots.json'
+import { steamStore, type Game } from '@/data/games'
+import Credit from './Credit'
+
+// shots.json = { [gameId]: string[] } — cast เพราะ TS อนุมาน key เป็น union ตายตัวจากไฟล์จริง
+const screenshotMap = shots as Record<string, string[]>
+
+interface ShotStripProps {
+  game: Game
+}
 
 // แถบสกรีนช็อตทางการจาก Steam — คลิกเพื่อดูรูปใหญ่
-export function ShotStrip({ game }) {
-  const list = shots[game.id] || []
-  const [active, setActive] = useState(null)
+export function ShotStrip({ game }: ShotStripProps) {
+  const list = screenshotMap[game.id] || []
+  const [active, setActive] = useState<string | null>(null)
   if (!list.length) return null
 
   return (
@@ -35,9 +42,14 @@ export function ShotStrip({ game }) {
   )
 }
 
+interface ChapterArtProps {
+  game: Game
+  n: number
+}
+
 // รูปเปิดหัวบท — เลือกสกรีนช็อตแบบวนตามเลขบท (ภาพประกอบบรรยากาศ ไม่ใช่ฉากของบทนั้นตรง ๆ)
-export function ChapterArt({ game, n }) {
-  const list = shots[game.id] || []
+export function ChapterArt({ game, n }: ChapterArtProps) {
+  const list = screenshotMap[game.id] || []
   if (!list.length) return null
   const src = list[(n - 1) % list.length]
   return (
