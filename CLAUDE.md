@@ -59,6 +59,10 @@ Flow: `games.js` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 - `mod.status`: `'released' | 'wip' | 'none'` — ตอน `released` ต้องมี `url` (Google Drive) · `note` กับ `nexus` optional
 - ม็อดแปลเสร็จภาคไหน → แก้ entry ภาคนั้น status + url จุดเดียวจบ — ปุ่มดาวน์โหลด (GamePage), ป้าย "มีม็อดแปลไทย" (Home), จุดเขียว (Navbar) โชว์เองหมด
+- **ม็อดออกตัวแก้ (patch)**: (1) แก้ `mod.note` เป็น `'v<เวอร์ชัน> (<วันที่>) — <สรุปสั้น>'` (โชว์ต่อท้ายปุ่มดาวน์โหลด) (2) เขียนข่าว `content/news/YYYY-MM-DD-<game>-thai-mod-vXYZ.md` tag `ม็อดแปลไทย`
+  โครงข่าว: อาการที่แก้ (ภาษาผู้เล่น ไม่ลงเทคนิคลึก) → วิธีอัปเดต (วางไฟล์ทับ + เซฟเดิมใช้ต่อได้ไหม) → ช่องทางแจ้งบั๊ก (ระบุบท/ฉาก+ภาพหน้าจอ)
+  (3) ลิงก์ Drive: ให้เจ้าของอัปเป็น "เวอร์ชันใหม่ของไฟล์เดิม" (Manage versions) ลิงก์ `url` จะไม่เปลี่ยน — ถ้าอัปเป็นไฟล์ใหม่ต้องแก้ `url` ด้วย
+  ตัวอย่างล่าสุด: Y7 v1.0.3 (16 ส.ค. 2026) `2026-08-16-y7-thai-mod-v103.md`
 - รูป hero/cover ดึงจาก Steam CDN ผ่าน `steamAppId` (ลิงก์เสถียร ไม่เก็บรูปใน repo) — เกมใหม่ที่ Steam ใช้ URL แบบ hashed ให้ใส่ `image` ตรง ๆ แทน
 
 ## กติกา / บทเรียน
@@ -71,3 +75,8 @@ Flow: `games.js` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 ## โปรเจกต์พี่น้อง (ที่มาของม็อดใน games.js)
 
 โปรเจกต์ม็อดแปลไทยอยู่ที่ `D:\Projects\` แยก repo ต่อภาค: `yakuza-0-direct`, `yakuza-kiwami-mod`, `yakuza-kiwami-2-mod`, `yakuza-4-thai` (Yakuza-4-Thai), `yakuza-5`, `yakuza-6-thai`, `yakuza-7-like-a-dragon-thai`, `yakuza-gaiden`, `y8-infinite-wealth`, `pirate-yakuza-hawaii-thai` — แต่ละตัวมี `HANDOFF.md` + `CLAUDE.md` ของตัวเอง ม็อดปล่อยใหม่เมื่อไหร่มาอัปเดตลิงก์ที่นี่
+
+## สถานะม็อดล่าสุด (อัปเดตทุกครั้งที่แตะ games.js)
+
+- **Y7 (Yakuza: Like a Dragon)** — released · v1.0.3 (16 ส.ค. 2026): แก้บั๊กมินิเกมบริหารธุรกิจ (ป้าย Leader/Member เลื่อน ดาวไม่ขึ้น) + ลิฟต์ทะลุแมป — ทั้งคู่มาจากเครื่องมือสร้างตาราง (reARMP) ไม่ใช่คำแปล รายละเอียดใน `yakuza-7-like-a-dragon-thai/HANDOFF.md`
+  · ลิงก์ Drive เดิม (`15fJFSyh…`) — เจ้าของต้องอัปไฟล์ v1.0.3 ทับเป็นเวอร์ชันใหม่ · Nexus #197 ("ไม่เมาไม่แปล") = ฐาน font/db ของแพ็กเกจ ต้องมีเครดิตเสมอ
