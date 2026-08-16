@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { GAMES, gameImage } from '@/data/games'
 import { newsPosts, thaiDate } from '@/lib/content'
 import { pageMeta, DEFAULT_DESCRIPTION } from '@/lib/site'
-import NeonSceneLazy from '@/components/NeonSceneLazy'
+import HeroScene from '@/components/HeroScene'
 import HomeGrid, { type HomeGridGame } from '@/components/HomeGrid'
 
 export const metadata: Metadata = pageMeta({ title: '', description: DEFAULT_DESCRIPTION, path: '/' })
@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <div className="hero3d">
-        <NeonSceneLazy />
+        <HeroScene />
         <div className="hero-copy">
           <h1>
             龍が如く <span className="accent">Yakuza Wiki</span>
@@ -33,6 +33,7 @@ export default function Home() {
             ตั้งแต่ Yakuza 0 ถึง Infinite Wealth — โดยแฟนเกม เพื่อแฟนเกม
           </p>
         </div>
+        <span className="hero-credit">ภาพ: Like a Dragon: Kiwami 3 © SEGA</span>
       </div>
 
       <div className="page page-wide">

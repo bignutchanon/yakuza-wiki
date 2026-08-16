@@ -5,7 +5,7 @@
 
 ## Stack + คำสั่ง
 
-- Next.js 16 (App Router) + TypeScript (`.ts`/`.tsx`, `strict: true`) + React 19.2 (App Router ต้อง React 19 — `@react-three/fiber` 9 ต้องการ react `<19.3` จึง pin `~19.2`) + framer-motion + marked — **ไม่มี Tailwind, ไม่มี ESLint config ใหม่, ไม่มี test**
+- Next.js 16 (App Router) + TypeScript (`.ts`/`.tsx`, `strict: true`) + React 19.2 (App Router ต้อง React 19) + framer-motion + marked — **ไม่มี Tailwind, ไม่มี ESLint config ใหม่, ไม่มี test** · hero หน้าแรกเป็นรูปถ่ายในเกม (ไม่มี three.js/WebGL แล้ว)
 - `legacy/` (gitignored, เก็บ local) = โค้ด Vite/react-router เดิมไว้อ้างอิง — ไม่ถูก build
 - Static export (`output: 'export'`) — build ออกมาเป็น HTML ล้วนทุกหน้า ไม่มี Node server ตอนรันจริง
 - `npm run dev` = เปิด dev server · `npm run build` = build ลง `out/`
@@ -33,7 +33,7 @@ src/
     games.ts              ★ ข้อมูลหลัก 12 ภาค (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
     screenshots.json        รูป screenshot ราย gameId (ใช้ใน <Screenshots>)
   content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md · lore/ · news/ (ไฟล์ละโพสต์) + prices.md
-  components/              Navbar, Markdown (marked), Credit, Screenshots, NeonScene(+Lazy, 3D hero), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
+  components/              Navbar, Markdown (marked), Credit, Screenshots, HeroScene (hero รูปซุ้มคามุโรโจ + ไฟนีออนกะพริบ, รูปใน public/hero/), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
   styles.css               สไตล์ทั้งเว็บไฟล์เดียว (ธีมนีออนแดง-ดำ) — import ใน layout.tsx
 public/
   maps/                    แผนที่เมือง self-host (อ้างจาก CITY_MAPS)
@@ -43,7 +43,7 @@ scripts/
   fetch-prices.ps1         ดึงราคา Steam ไทยทุกภาค — ใช้ตอนอัปเดต prices.md (PS/Xbox ต้องเช็คมือ)
 ```
 
-Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod) → `lib/content.ts` = เนื้อหา markdown → แต่ละหน้า (server component) ประกอบสองอย่างนี้ render ผ่าน `<Markdown>` — component ไหนต้องใช้ state/window/motion ถึงมี `'use client'` (Navbar, CookieConsent, CookieResetButton, HashRedirect, NeonScene, Screenshots, HomeGrid, NewsList, template.tsx) นอกนั้น render markdown ฝั่ง server ให้ HTML อยู่ใน static output ตั้งแต่ build (SEO)
+Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod) → `lib/content.ts` = เนื้อหา markdown → แต่ละหน้า (server component) ประกอบสองอย่างนี้ render ผ่าน `<Markdown>` — component ไหนต้องใช้ state/window/motion ถึงมี `'use client'` (Navbar, CookieConsent, CookieResetButton, HashRedirect, HeroScene, Screenshots, HomeGrid, NewsList, template.tsx) นอกนั้น render markdown ฝั่ง server ให้ HTML อยู่ใน static output ตั้งแต่ build (SEO)
 
 ## Routes
 
