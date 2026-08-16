@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 
 export const SITE_URL = 'https://yakuzathai.com'
 export const SITE_NAME = 'Yakuza Wiki ภาษาไทย'
+// รูป OG/Twitter card ค่าเริ่มต้น (หน้าแรก + หน้าที่ไม่ระบุ image เอง) — public/og.jpg 1200×630
+export const DEFAULT_OG_IMAGE = '/og.jpg'
 export const DEFAULT_DESCRIPTION =
   'วิกิภาษาไทยของซีรีส์ Yakuza / Like a Dragon ทำโดยแฟนเกม สรุปเนื้อเรื่องรายบท ไกด์ substories บทความ lore ข่าวสาร ตารางราคา และลิงก์ดาวน์โหลดม็อดแปลไทยครบทุกภาค'
 
@@ -30,10 +32,10 @@ export function pageMeta({ title, description, path: pagePath, image }: PageMeta
       siteName: SITE_NAME,
       locale: 'th_TH',
       type: 'website',
-      images: image ? [image] : undefined,
+      images: [image ?? DEFAULT_OG_IMAGE],
     },
     twitter: {
-      card: image ? 'summary_large_image' : 'summary',
+      card: 'summary_large_image',
     },
   }
 }
