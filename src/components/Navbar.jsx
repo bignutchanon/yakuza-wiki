@@ -1,5 +1,8 @@
+'use client'
+
 import { useEffect, useState } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { GAMES } from '../data/games.js'
 
 // ชื่อย่อสำหรับเมนู — ตัด prefix/suffix ยาว ๆ ออก
@@ -12,20 +15,22 @@ const shortTitle = (t) =>
 export default function Navbar() {
   const [open, setOpen] = useState(false) // เมนูมือถือ
   const [gamesOpen, setGamesOpen] = useState(false) // dropdown รายชื่อภาค
-  const location = useLocation()
+  const pathname = usePathname()
 
   // ปิดเมนูทุกครั้งที่เปลี่ยนหน้า
   useEffect(() => {
     setOpen(false)
     setGamesOpen(false)
-  }, [location.pathname])
+  }, [pathname])
 
-  const navLinkClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`
+  // แทนที่ NavLink ของ react-router: root ต้อง exact เท่านั้น ที่เหลือ active ทั้งตัวเองและ path ย่อย
+  const isActive = (href) => (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`))
+  const navLinkClass = (href) => `nav-link${isActive(href) ? ' active' : ''}`
 
   return (
     <header className="navbar">
       <div className="navbar-inner">
-        <Link to="/" className="brand">
+        <Link href="/" className="brand">
           <span className="kanji">龍が如く</span>
           <span className="sub">Yakuza Wiki ภาษาไทย</span>
         </Link>
@@ -40,9 +45,9 @@ export default function Navbar() {
         </button>
 
         <nav className={`nav-links${open ? ' open' : ''}`}>
-          <NavLink to="/" end className={navLinkClass}>
+          <Link href="/" className={navLinkClass('/')}>
             หน้าแรก
-          </NavLink>
+          </Link>
 
           <div className={`nav-dropdown${gamesOpen ? ' open' : ''}`}>
             <button
@@ -55,32 +60,32 @@ export default function Navbar() {
             </button>
             <div className="nav-menu">
               {GAMES.map((g) => (
-                <NavLink
+                <Link
                   key={g.id}
-                  to={`/game/${g.id}`}
-                  className={({ isActive }) => `nav-game${isActive ? ' active' : ''}`}
+                  href={`/game/${g.id}`}
+                  className={`nav-game${isActive(`/game/${g.id}`) ? ' active' : ''}`}
                 >
                   {shortTitle(g.title)}
                   <span className="yr">{g.year}</span>
                   {g.mod.status === 'released' && <span className="mod-dot" title="มีม็อดแปลไทย" />}
-                </NavLink>
+                </Link>
               ))}
               <div className="nav-menu-note">● = มีม็อดแปลไทยให้โหลด · เรียงตามไทม์ไลน์</div>
             </div>
           </div>
 
-          <NavLink to="/news" className={navLinkClass}>
+          <Link href="/news" className={navLinkClass('/news')}>
             ข่าวสาร
-          </NavLink>
-          <NavLink to="/prices" className={navLinkClass}>
+          </Link>
+          <Link href="/prices" className={navLinkClass('/prices')}>
             ราคาเกม
-          </NavLink>
-          <NavLink to="/lore" className={navLinkClass}>
+          </Link>
+          <Link href="/lore" className={navLinkClass('/lore')}>
             Lore
-          </NavLink>
-          <NavLink to="/support" className={navLinkClass}>
+          </Link>
+          <Link href="/support" className={navLinkClass('/support')}>
             ♥ สนับสนุน
-          </NavLink>
+          </Link>
         </nav>
       </div>
     </header>

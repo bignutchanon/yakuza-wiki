@@ -14,10 +14,10 @@ export const steamStore = (appId) =>
 // ต้นทาง Yakuza Wiki (Fandom) © SEGA — เครดิตแสดงใต้รูปในหน้าเกม
 // key ใช้อ้างจาก games[].maps (Onomichi/Honolulu ไม่มีไฟล์แผนที่เผยแพร่ที่ไหนเลย)
 export const CITY_MAPS = {
-  kamurocho: { label: 'คามุโรโจ (โตเกียว)', img: './maps/kamurocho.png' },
-  sotenbori: { label: 'โซเท็นโบริ (โอซาก้า)', img: './maps/sotenbori.png' },
-  ijincho: { label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)', img: './maps/ijincho.png' },
-  ryukyu: { label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)', img: './maps/ryukyu.png' },
+  kamurocho: { label: 'คามุโรโจ (โตเกียว)', img: '/maps/kamurocho.png' },
+  sotenbori: { label: 'โซเท็นโบริ (โอซาก้า)', img: '/maps/sotenbori.png' },
+  ijincho: { label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)', img: '/maps/ijincho.png' },
+  ryukyu: { label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)', img: '/maps/ryukyu.png' },
 }
 
 // mod.status: 'released' | 'wip' | 'none'

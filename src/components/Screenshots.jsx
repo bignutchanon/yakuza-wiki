@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import shots from '../data/screenshots.json'
 import { steamStore } from '../data/games.js'
