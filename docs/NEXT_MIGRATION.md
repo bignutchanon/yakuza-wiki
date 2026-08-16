@@ -30,7 +30,7 @@ Deploy ยังเป็น GitHub Pages ผ่าน Actions เหมือ�
   src/styles.css       ไม่แตะเนื้อหา — import ใน app/layout.jsx
   public/              เพิ่ม CNAME (yakuzathai.com) + .nojekyll · ads.txt/maps/promptpay-qr.png คงเดิม
   ```
-- ลบทิ้งเมื่อจบ: `index.html`, `vite.config.js`, `legacy/` (pages/App/main/loader เดิม), dep vite/@vitejs/plugin-react/react-router-dom
+- ลบทิ้งเมื่อจบ: `index.html`, `vite.config.js`, dep vite/@vitejs/plugin-react/react-router-dom · `legacy/` เก็บไว้ในเครื่อง (gitignored) ตามที่ user สั่ง
 - **Server component เป็นค่าเริ่มต้น** — หน้าเนื้อหาทั้งหมด render markdown ฝั่ง server (marked) ให้ HTML อยู่ใน static output (SEO)
   · `'use client'` เฉพาะ: Navbar (useState + usePathname), CookieConsent, NeonScene (three — โหลดผ่าน `next/dynamic` `ssr:false` จาก client wrapper), Screenshots (useState), template.jsx, HashRedirect, ปุ่มล้างคุกกี้ใน privacy (แยกเป็น component เล็ก), Home การ์ด motion (แยก `HomeGrid` client) 
 - **HashRedirect** (client, ใน layout): ตอน mount ถ้า `location.hash` ขึ้นต้น `#/` → `router.replace(hash.slice(1))` (บุ๊กมาร์กเก่า `/#/game/y7` ยังใช้ได้) · **Markdown component**: แทน `href="#/` → `href="/` ตอน render (ข่าว 3 ไฟล์ลิงก์แบบเก่า)
@@ -46,3 +46,9 @@ Deploy ยังเป็น GitHub Pages ผ่าน Actions เหมือ�
 2. **Stage 2 (2 agents ขนาน)**: A = routes game/* · B = lore/news/prices/support/privacy + sitemap/robots/not-found + workflow + ลบไฟล์ Vite
 3. **Stage 3**: lead build ตรวจ: จำนวนหน้าใน out/ = 1 + 12 game + ~200 ch + substories/guide + lore + 5 · เปิด dev เช็คลิงก์/CSS · เทียบ visual กับ main
 4. Merge → push → ตั้ง DNS Cloudflare (CNAME apex → bignutchanon.github.io, DNS-only) + GitHub Pages custom domain + Enforce HTTPS → อัป CLAUDE.md
+
+## สถานะ (16 ส.ค. 2026)
+
+- Stage 1/1b/2A/2B เสร็จบน branch `next-migration` — build 192 หน้า (บท 151/151, substories 11, guide 2, lore 5), sitemap 187 URL, robots/llms.txt/404/CNAME/.nojekyll ครบ, `tsc --noEmit` ผ่าน, className จาก legacy ครบทุกตัว
+- บทเรียน: Next 16 App Router รัน React 19 → ต้องอัป `@react-three/fiber` 9 + react `~19.2` (r3f 9 peer `<19.3`) ไม่งั้นพัง `ReactCurrentOwner` ตอน dev · `robots.ts`/`sitemap.ts`/route handler ต้อง `export const dynamic = 'force-static'` ใต้ `output: 'export'` · `@types/react` ต้องตรง major กับ react
+- ค้าง: DNS Cloudflare ต้องเป็น DNS only (ตอนนี้ proxy เปิดอยู่) → ตั้ง custom domain ฝั่ง GitHub (`gh api -X PUT repos/bignutchanon/yakuza-wiki/pages -f cname=yakuzathai.com`) → HTTPS ติด → merge `next-migration` เข้า `main` (build ใหม่ไม่มี basePath — ต้องอยู่บนโดเมนหลักเท่านั้น ห้าม merge ก่อนโดเมนพร้อม) → เช็ค sitemap/robots/ads.txt/llms.txt บนโดเมนจริง → Search Console + AdSense เพิ่มเว็บใหม่

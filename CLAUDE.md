@@ -5,7 +5,8 @@
 
 ## Stack + คำสั่ง
 
-- Next.js 16 (App Router) + TypeScript (`.ts`/`.tsx`, `strict: true`) + React 18 + framer-motion + marked — **ไม่มี Tailwind, ไม่มี ESLint config ใหม่, ไม่มี test**
+- Next.js 16 (App Router) + TypeScript (`.ts`/`.tsx`, `strict: true`) + React 19.2 (App Router ต้อง React 19 — `@react-three/fiber` 9 ต้องการ react `<19.3` จึง pin `~19.2`) + framer-motion + marked — **ไม่มี Tailwind, ไม่มี ESLint config ใหม่, ไม่มี test**
+- `legacy/` (gitignored, เก็บ local) = โค้ด Vite/react-router เดิมไว้อ้างอิง — ไม่ถูก build
 - Static export (`output: 'export'`) — build ออกมาเป็น HTML ล้วนทุกหน้า ไม่มี Node server ตอนรันจริง
 - `npm run dev` = เปิด dev server · `npm run build` = build ลง `out/`
 - Deploy: push ขึ้น `main` → GitHub Actions (`.github/workflows/deploy.yml`) `npm ci` + `npm run build` + อัป `out/` ขึ้น GitHub Pages อัตโนมัติ — โดเมนหลัก **yakuzathai.com** (custom domain ผ่าน `public/CNAME`, ตั้ง DNS ที่ Cloudflare)
