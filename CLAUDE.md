@@ -89,6 +89,7 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 ## สถานะม็อดล่าสุด (อัปเดตทุกครั้งที่แตะ games.js)
 
+- **Gaiden (Like a Dragon Gaiden)** — released · v1.0.1 (18 ส.ค. 2026): แก้โป๊กเกอร์/แบล็คแจ็ค (คาสิโน Castle ทุกระดับ) + เครื่อง SEGA Master System เข้าแล้วค้าง — ม็อดเผลอเขียนตารางระบบที่ไม่มีคำแปล + รหัสภายใน (`ok`/`absolute`/`stage`) ถูกแปลติด ไม่ใช่คำแปล · ลิงก์ Drive ใหม่ (`1huUYI0b…`) แทน v1.0 (`1H-ERDEH…`) · รายละเอียดใน `yakuza-gaiden/docs/wiki_update_v1.0.1.md`
 - **Y8 (Like a Dragon: Infinite Wealth)** — released · v1.0.1 (16 ส.ค. 2026): แก้แอป Miss Match ค้างตอนกด Chat + โปรไฟล์ไม่อัปเดต — บั๊ก reARMP (row stride/special-field) ตระกูลเดียวกับ Y7 v1.0.2/1.0.3 ไม่ใช่คำแปล · rebuild ครบ 244 ตาราง · ลิงก์ Drive ใหม่ (`1gcaBpaw…`) แทน v1.0 (`1hYSknGi…`) · รายละเอียดใน `y8-infinite-wealth/HANDOFF.md` (หัวข้อ "16 ส.ค. 2026 — บั๊ก Miss Match") + `docs/WIKI_UPDATE_v1.0.1.md`
 - **Y7 (Yakuza: Like a Dragon)** — released · v1.0.3 (16 ส.ค. 2026): แก้บั๊กมินิเกมบริหารธุรกิจ (ป้าย Leader/Member เลื่อน ดาวไม่ขึ้น) + ลิฟต์ทะลุแมป — ทั้งคู่มาจากเครื่องมือสร้างตาราง (reARMP) ไม่ใช่คำแปล รายละเอียดใน `yakuza-7-like-a-dragon-thai/HANDOFF.md`
   · ลิงก์ Drive ปัจจุบัน = zip v1.0.3 (`1e_1ekuu…` อัปเดต 16 ส.ค.) — ทุกเวอร์ชันที่ผ่านมาเจ้าของอัปเป็นไฟล์ใหม่ (ลิงก์เปลี่ยนทุกครั้ง ต้องแก้ `url` ด้วย) · Nexus #197 ("ไม่เมาไม่แปล") = ฐาน font/db ของแพ็กเกจ ต้องมีเครดิตเสมอ

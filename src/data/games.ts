@@ -215,7 +215,11 @@ export const GAMES: Game[] = [
     setting: 'โซเท็นโบริ / ปราสาทโอซาก้า — ค.ศ. 2019–2020',
     blurb:
       'คิริวแกล้งตายและกลายเป็นสายลับนาม "โจริว" — เรื่องราวที่เกิดขึ้นคู่ขนานกับภาค 7 และปูทางสู่ Infinite Wealth',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/1H-ERDEHAQ4cFDStkydr9iR753vzNuoQW/view?usp=drive_link' },
+    mod: {
+      status: 'released',
+      url: 'https://drive.google.com/file/d/1huUYI0bCDQageElYyQnSKSac2qnuW5_x/view?usp=sharing',
+      note: 'v1.0.1 (18 ส.ค. 2026) — แก้โป๊กเกอร์ / แบล็คแจ็ค / Master System เข้าแล้วค้าง',
+    },
   },
   {
     id: 'y8',
