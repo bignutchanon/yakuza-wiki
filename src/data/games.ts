@@ -237,7 +237,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://drive.google.com/file/d/1aYAauqKLgVIosoPOy2tlLJsyMNRhhnqI/view?usp=sharing',
-      note: 'v1.0.2 (19 ส.ค. 2026) — Party Chat เป็นไทยแล้ว + แก้เกมเด้งตอนเล่นดาร์ต + Bonds Bingo',
+      note: 'v1.0.3 (19 ส.ค. 2026) — แก้ Party Chat ที่ยังขึ้นข้อความมั่วในบางเครื่อง',
     },
   },
   {
