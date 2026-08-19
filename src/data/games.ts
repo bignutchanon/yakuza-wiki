@@ -236,8 +236,8 @@ export const GAMES: Game[] = [
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1gcaBpawMGgpjT3eICwjCw0EPF-OLeUq-/view?usp=sharing',
-      note: 'v1.0.1 (16 ส.ค. 2026) — แก้ Miss Match ค้างตอน Chat + rebuild ตารางทั้งเกม',
+      url: 'https://drive.google.com/file/d/1aYAauqKLgVIosoPOy2tlLJsyMNRhhnqI/view?usp=sharing',
+      note: 'v1.0.2 (19 ส.ค. 2026) — Party Chat เป็นไทยแล้ว + แก้เกมเด้งตอนเล่นดาร์ต + Bonds Bingo',
     },
   },
   {
