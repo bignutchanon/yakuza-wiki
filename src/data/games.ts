@@ -8,6 +8,8 @@ export interface ModInfo {
   url?: string
   note?: string
   nexus?: string
+  // รุ่นทดสอบ (beta) ที่แจกคู่กับตัวจริง — ปุ่มรองในหน้าเกม ใช้ตอนอยากให้ผู้เล่นช่วยเทสต์ก่อนออกตัวจริง
+  beta?: { url: string; note?: string }
 }
 
 export interface Game {
@@ -166,7 +168,14 @@ export const GAMES: Game[] = [
     setting: 'ฟุกุโอกะ / ซัปโปโร / โอซาก้า / นาโกย่า / โตเกียว — ค.ศ. 2012',
     blurb:
       'ภาคที่ใหญ่ที่สุดของยุค PS3 — คิริวขับแท็กซี่ในฟุกุโอกะ ฮารุกะไล่ตามฝันไอดอล และสงครามครั้งใหม่กำลังก่อตัวเหนือทั้งห้าเมือง',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/12eyObyFInDo5SjHzwBYSD4yQWHTPsHqd/view?usp=drive_link' },
+    mod: {
+      status: 'released',
+      url: 'https://drive.google.com/file/d/12eyObyFInDo5SjHzwBYSD4yQWHTPsHqd/view?usp=drive_link',
+      beta: {
+        url: 'https://drive.google.com/file/d/1BzWLlaBdmC9APtncOIyu8lz1ok3TPGsF/view?usp=sharing',
+        note: 'v1.5 beta (build 2026.08.20) — แก้เมนูร้านอาหาร/บาร์ที่ตัวหนังสือเพี้ยน + ซับคัตซีนที่ถูกตัดจนคำหาย (ซับบรรทัดแรกเป็นไทยครบ 100%, บรรทัดที่ 2 คงเป็นอังกฤษไว้ก่อน) · ยังไม่ได้ไล่เทสต์ครบทั้งเกม ถ้าไม่อยากเสี่ยงใช้ตัวจริงต่อได้',
+      },
+    },
   },
   {
     id: 'y6',

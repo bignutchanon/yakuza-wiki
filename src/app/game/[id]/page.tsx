@@ -103,6 +103,14 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           <a className="mod-btn" href={game.mod.url} target="_blank" rel="noreferrer">
             ดาวน์โหลดม็อดแปลไทย ↓
           </a>
+          {game.mod.beta && (
+            <p className="mod-beta">
+              <a className="mod-btn mod-btn-beta" href={game.mod.beta.url} target="_blank" rel="noreferrer">
+                ลองรุ่นทดสอบ (beta) ↓
+              </a>
+              {game.mod.beta.note && <span className="mod-beta-note">{game.mod.beta.note}</span>}
+            </p>
+          )}
           {game.mod.nexus && (
             <p style={{ marginTop: '0.7rem', marginBottom: 0 }}>
               หรือโหลดผ่าน{' '}
