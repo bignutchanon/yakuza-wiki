@@ -8,8 +8,11 @@ export interface ModInfo {
   url?: string
   note?: string
   nexus?: string
+  // เวอร์ชันล่าสุด + วันที่ปล่อย (ISO) — ใช้ทำป้าย "อัปเดตใหม่" บนแบนเนอร์ ต้องแก้คู่กับ note ทุกครั้งที่ออกแพตช์
+  version?: string
+  updated?: string
   // รุ่นทดสอบ (beta) ที่แจกคู่กับตัวจริง — ปุ่มรองในหน้าเกม ใช้ตอนอยากให้ผู้เล่นช่วยเทสต์ก่อนออกตัวจริง
-  beta?: { url: string; note?: string }
+  beta?: { url: string; note?: string; version?: string; updated?: string }
 }
 
 export interface Game {
@@ -33,6 +36,22 @@ export const steamHeader = (appId?: number): string =>
 
 // เกมที่ระบุ image เอง (เกมใหม่ ๆ Steam ใช้ URL แบบ hashed) ให้ใช้ก่อน fallback เป็น steamHeader
 export const gameImage = (g: Game): string => g.image || steamHeader(g.steamAppId)
+
+// ป้าย "อัปเดตใหม่" บนแบนเนอร์ — โชว์เมื่อแพตช์ล่าสุดออกไม่เกิน UPDATE_FRESH_DAYS วัน
+// หมายเหตุ: เว็บเป็น static export → วันที่ถูกคำนวณตอน build ป้ายจึงหายก็ต่อเมื่อมี build/deploy ครั้งถัดไป
+export const UPDATE_FRESH_DAYS = 30
+
+export const modUpdateBadge = (mod: ModInfo, now: Date = new Date()): string | null => {
+  if (mod.status !== 'released') return null
+  const fresh = (iso?: string): boolean => {
+    if (!iso) return false
+    const days = (now.getTime() - new Date(`${iso}T00:00:00Z`).getTime()) / 86_400_000
+    return days >= 0 && days <= UPDATE_FRESH_DAYS
+  }
+  if (fresh(mod.updated)) return `อัปเดต ${mod.version ?? 'ใหม่'}`
+  if (mod.beta && fresh(mod.beta.updated)) return `${mod.beta.version ?? 'beta'} ให้ลอง`
+  return null
+}
 
 export const steamStore = (appId?: number): string =>
   `https://store.steampowered.com/app/${appId}/`
@@ -174,6 +193,8 @@ export const GAMES: Game[] = [
       beta: {
         url: 'https://drive.google.com/file/d/1BzWLlaBdmC9APtncOIyu8lz1ok3TPGsF/view?usp=sharing',
         note: 'v1.5 beta (build 2026.08.20) — แก้เมนูร้านอาหาร/บาร์ที่ตัวหนังสือเพี้ยน + ซับคัตซีนที่ถูกตัดจนคำหาย (ซับบรรทัดแรกเป็นไทยครบ 100%, บรรทัดที่ 2 คงเป็นอังกฤษไว้ก่อน) · ยังไม่ได้ไล่เทสต์ครบทั้งเกม ถ้าไม่อยากเสี่ยงใช้ตัวจริงต่อได้',
+        version: 'v1.5 beta',
+        updated: '2026-08-20',
       },
     },
   },
@@ -209,6 +230,8 @@ export const GAMES: Game[] = [
       status: 'released',
       url: 'https://drive.google.com/file/d/1e_1ekuu-peNt1GYDJghg4DWbrrP5odvr/view?usp=sharing',
       note: 'v1.0.3 (16 ส.ค. 2026) — แก้บั๊กมินิเกมบริหารธุรกิจ (ดาวไม่ขึ้น) + ลิฟต์ทะลุแมป',
+      version: 'v1.0.3',
+      updated: '2026-08-16',
     },
   },
   {
@@ -228,6 +251,8 @@ export const GAMES: Game[] = [
       status: 'released',
       url: 'https://drive.google.com/file/d/1huUYI0bCDQageElYyQnSKSac2qnuW5_x/view?usp=sharing',
       note: 'v1.0.1 (18 ส.ค. 2026) — แก้โป๊กเกอร์ / แบล็คแจ็ค / Master System เข้าแล้วค้าง',
+      version: 'v1.0.1',
+      updated: '2026-08-18',
     },
   },
   {
@@ -247,6 +272,8 @@ export const GAMES: Game[] = [
       status: 'released',
       url: 'https://drive.google.com/file/d/1DqCgTMzfEjiAwWl2P3f-53DIOfdI-TP6/view?usp=sharing',
       note: 'v1.0.4 (20 ส.ค. 2026) — แก้เกมเด้งตอนเริ่มเล่นมินิเกมครั้งแรก (ดาร์ต ฯลฯ)',
+      version: 'v1.0.4',
+      updated: '2026-08-20',
     },
   },
   {

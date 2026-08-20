@@ -382,6 +382,7 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
   color: var(--text);
 }
+.game-card .card-media { position: relative; line-height: 0; }
 .game-card img { aspect-ratio: 460 / 215; object-fit: cover; width: 100%; }
 .game-card .body { padding: 0.8rem 1rem 1rem; }
 .game-card h3 {
@@ -408,6 +409,24 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--gold);
   color: var(--gold-soft);
 }
+
+/* ป้ายมุมแบนเนอร์ บอกว่าม็อดภาคนี้เพิ่งออกตัวแก้ (ดู modUpdateBadge ใน data/games.ts) */
+.update-flag {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  padding: 0.12rem 0.5rem;
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(230, 57, 80, 0.5);
+}
+.game-hero .update-flag { top: 0.7rem; right: 0.7rem; font-size: 0.78rem; padding: 0.2rem 0.7rem; }
 
 /* ─── Lore quick links (หน้าแรก) ─── */
 .lore-grid {
@@ -452,7 +471,7 @@ img { max-width: 100%; display: block; }
 .credit a { color: var(--muted); text-decoration: underline; }
 
 /* ─── Game page ─── */
-.game-hero { margin-bottom: 0.35rem; }
+.game-hero { margin-bottom: 0.35rem; position: relative; }
 .game-hero img {
   width: 100%;
   border: 1px solid var(--line);

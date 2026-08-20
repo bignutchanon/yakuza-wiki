@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { GAMES, gameImage } from '@/data/games'
+import { GAMES, gameImage, modUpdateBadge } from '@/data/games'
 import { newsPosts, thaiDate } from '@/lib/content'
 import { pageMeta, DEFAULT_DESCRIPTION } from '@/lib/site'
 import HeroScene from '@/components/HeroScene'
@@ -18,6 +18,7 @@ export default function Home() {
     releaseYear: g.releaseYear,
     image: gameImage(g),
     modReleased: g.mod.status === 'released',
+    updateBadge: modUpdateBadge(g.mod),
   }))
 
   return (

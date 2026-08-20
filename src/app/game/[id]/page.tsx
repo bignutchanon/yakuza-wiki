@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { GAMES, gameById, gameImage, steamStore, CITY_MAPS } from '@/data/games'
+import { GAMES, gameById, gameImage, steamStore, modUpdateBadge, CITY_MAPS } from '@/data/games'
 import { contentFor } from '@/lib/content'
 import type { Chapter } from '@/lib/content'
 import { pageMeta, SITE_URL } from '@/lib/site'
@@ -51,6 +51,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
     rows.push({ type: 'chapter', ch, key: ch.n })
   }
 
+  const updateBadge = modUpdateBadge(game.mod)
+
   const path = `/game/${id}/`
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -67,6 +69,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
       <div className="game-hero">
         <img src={gameImage(game)} alt={game.title} />
+        {updateBadge && <span className="update-flag">{updateBadge}</span>}
       </div>
       <Credit href={steamStore(game.steamAppId)} />
 

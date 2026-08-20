@@ -34,6 +34,8 @@ export interface HomeGridGame {
   releaseYear: number
   image: string
   modReleased: boolean
+  // ข้อความป้ายมุมแบนเนอร์ ("อัปเดต v1.0.4") — null เมื่อไม่มีแพตช์ใหม่ (คำนวณจาก modUpdateBadge ฝั่ง server)
+  updateBadge: string | null
 }
 
 interface HomeGridProps {
@@ -48,7 +50,10 @@ export default function HomeGrid({ games }: HomeGridProps) {
       <div className="game-grid">
         {games.map((g, i) => (
           <MotionLink key={g.id} href={`/game/${g.id}`} className="game-card" {...cardMotion(i)}>
-            <img src={g.image} alt={g.title} loading="lazy" />
+            <div className="card-media">
+              <img src={g.image} alt={g.title} loading="lazy" />
+              {g.updateBadge && <span className="update-flag">{g.updateBadge}</span>}
+            </div>
             <div className="body">
               <h3>{g.title}</h3>
               <div className="meta">
