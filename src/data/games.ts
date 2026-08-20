@@ -45,8 +45,10 @@ export const modUpdateBadge = (mod: ModInfo, now: Date = new Date()): string | n
   if (mod.status !== 'released') return null
   const fresh = (iso?: string): boolean => {
     if (!iso) return false
-    const days = (now.getTime() - new Date(`${iso}T00:00:00Z`).getTime()) / 86_400_000
-    return days >= 0 && days <= UPDATE_FRESH_DAYS
+    const [y, m, d] = iso.split('-').map(Number)
+    const days = (now.getTime() - new Date(y, m - 1, d).getTime()) / 86_400_000
+    // เผื่อ -1 วัน เพราะ GitHub Actions build ด้วยเวลา UTC ซึ่งช้ากว่าไทย 7 ชม. (แพตช์ที่ปล่อย "วันนี้" ตามเวลาไทยจะยังไม่ถึงกำหนดในสายตา runner)
+    return days >= -1 && days <= UPDATE_FRESH_DAYS
   }
   if (fresh(mod.updated)) return `อัปเดต ${mod.version ?? 'ใหม่'}`
   if (mod.beta && fresh(mod.beta.updated)) return `${mod.beta.version ?? 'beta'} ให้ลอง`
@@ -249,10 +251,10 @@ export const GAMES: Game[] = [
       'คิริวแกล้งตายและกลายเป็นสายลับนาม "โจริว" — เรื่องราวที่เกิดขึ้นคู่ขนานกับภาค 7 และปูทางสู่ Infinite Wealth',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1huUYI0bCDQageElYyQnSKSac2qnuW5_x/view?usp=sharing',
-      note: 'v1.0.1 (18 ส.ค. 2026) — แก้โป๊กเกอร์ / แบล็คแจ็ค / Master System เข้าแล้วค้าง',
-      version: 'v1.0.1',
-      updated: '2026-08-18',
+      url: 'https://drive.google.com/file/d/1T-WNCex3s9Fabj1OapWeofxJ156k5C1R/view?usp=sharing',
+      note: 'v1.0.2 (21 ส.ค. 2026) — แก้โป๊กเกอร์/แบล็คแจ็คค้างตอนเล่นครั้งแรก (จอแนะนำปุ่ม)',
+      version: 'v1.0.2',
+      updated: '2026-08-21',
     },
   },
   {
