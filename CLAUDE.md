@@ -30,7 +30,7 @@ src/
     format.ts               thaiDate() (ไม่มี fs — import ได้ทั้ง server/client component)
     site.ts                  SITE_URL, SITE_NAME, pageMeta({title, description, path, image})
   data/
-    games.ts              ★ ข้อมูลหลัก 12 ภาค (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
+    games.ts              ★ ข้อมูลหลัก 15 ภาค (รวม Judgment / Lost Judgment / Ishin!) (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
     screenshots.json        รูป screenshot ราย gameId (ใช้ใน <Screenshots>)
   content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md · lore/ · news/ (ไฟล์ละโพสต์) + prices.md
   components/              Navbar, Markdown (marked), Credit, Screenshots, HeroScene (hero รูปซุ้มคามุโรโจ + ไฟนีออนกะพริบ, รูปใน public/hero/), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
