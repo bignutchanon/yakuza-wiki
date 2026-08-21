@@ -245,7 +245,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://drive.google.com/file/d/1WGZhc4uvW5g29MRRTZ4ASMVr8q1UmddN/view?usp=sharing',
-      note: 'v1.0 (22 ส.ค. 2026) — แปลทั้งเกม 50,297 ประโยค พร้อมตัวติดตั้งอัตโนมัติ (รองรับ Steam PC เท่านั้น)',
+      note: 'v1.0 (22 ส.ค. 2026) — เล่นเป็นภาษาไทยได้ทั้งเกม พร้อมตัวติดตั้งอัตโนมัติ (รองรับ Steam PC เท่านั้น)',
       version: 'v1.0',
       updated: '2026-08-22',
     },
