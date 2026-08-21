@@ -53,6 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <br />
               ภาพประกอบทั้งหมด © SEGA — ใช้เพื่อการอ้างอิงพร้อมระบุที่มาใต้ภาพ
               {' · '}
+              <Link href="/report">แจ้งบั๊กม็อด</Link>
+              {' · '}
               <Link href="/privacy">นโยบายความเป็นส่วนตัว</Link>
             </footer>
             <CookieConsent />

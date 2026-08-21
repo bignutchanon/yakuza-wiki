@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { pageMeta } from '@/lib/site'
 
 export const metadata: Metadata = pageMeta({
@@ -30,6 +31,17 @@ export default function SupportPage() {
         ยอดสนับสนุนทั้งหมดใช้เป็นกำลังใจและค่าเวลาในการทำม็อดแปลไทยภาคต่อ ๆ ไป
         ไม่มีผลต่อการเข้าถึงม็อด — ทุกอย่างยังแจกฟรีเหมือนเดิม
       </p>
+
+      <div className="mod-box">
+        <h3>เจอบั๊กหรือคำแปลผิด</h3>
+        <p>
+          ช่วยได้อีกทางโดยไม่ต้องเสียเงิน — แจ้งเข้ามาให้ตามแก้ได้เลย
+          แนบภาพหน้าจอและไฟล์เซฟได้ในฟอร์มเดียว
+        </p>
+        <Link className="mod-btn" href="/report">
+          ไปหน้าแจ้งบั๊ก ↗
+        </Link>
+      </div>
     </div>
   )
 }

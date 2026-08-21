@@ -6,6 +6,11 @@ export const SITE_URL = 'https://yakuzathai.com'
 export const SITE_NAME = 'Yakuza Wiki ภาษาไทย'
 // รูป OG/Twitter card ค่าเริ่มต้น (หน้าแรก + หน้าที่ไม่ระบุ image เอง) — public/og.jpg 1200×630
 export const DEFAULT_OG_IMAGE = '/og.jpg'
+// ปลายทางฟอร์มแจ้งบั๊กในหน้า /report/ = Google Apps Script Web App (ดูวิธีติดตั้งใน scripts/report-form.gs)
+// ว่าง = ยังไม่ได้ deploy → ฟอร์มจะขึ้นข้อความว่ายังไม่เปิดใช้งานและกดส่งไม่ได้
+export const REPORT_ENDPOINT: string =
+  'https://script.google.com/macros/s/AKfycbw_zzD9w1-R_hR5DAvvW3J2Q6aSUXdeSSqfDNunFpopNKlyHSbK9HFIJ_Tu37WdJG_6fQ/exec'
+
 export const DEFAULT_DESCRIPTION =
   'วิกิภาษาไทยของซีรีส์ Yakuza / Like a Dragon ทำโดยแฟนเกม สรุปเนื้อเรื่องรายบท ไกด์ substories บทความ lore ข่าวสาร ตารางราคา และลิงก์ดาวน์โหลดม็อดแปลไทยครบทุกภาค'
 

@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/prices/` },
     { url: `${SITE_URL}/lore/` },
     { url: `${SITE_URL}/support/` },
+    { url: `${SITE_URL}/report/` },
     { url: `${SITE_URL}/privacy/` },
   ]
 

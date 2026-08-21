@@ -995,3 +995,75 @@ img { max-width: 100%; display: block; }
   background: var(--red-deep);
   border-color: var(--red);
 }
+
+/* ─── หน้าแจ้งบั๊ก (/report/) ─── */
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.6rem;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  padding: 1.6rem;
+}
+.report-row { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.report-row .report-field { flex: 1 1 14rem; }
+.report-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.report-label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold-soft);
+}
+.report-label em { color: var(--red); font-style: normal; }
+.report-form input[type='text'],
+.report-form input[type='url'],
+.report-form select,
+.report-form textarea {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  width: 100%;
+}
+.report-form textarea { resize: vertical; line-height: 1.7; }
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red);
+}
+.report-form input[type='file'] {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.report-hint { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+.report-note {
+  font-size: 0.88rem;
+  border: 1px solid var(--line);
+  padding: 0.7rem 0.9rem;
+  margin: 0;
+}
+.report-note-warn { border-color: var(--red); color: var(--gold-soft); }
+.report-actions { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.report-form .mod-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+/* honeypot — ต้องอยู่ใน DOM ให้บอทเห็น แต่คนไม่เห็นและ tab ไม่ถึง */
+.report-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.report-done {
+  border: 1px solid var(--gold);
+  background: linear-gradient(135deg, rgba(212, 162, 78, 0.1), rgba(212, 162, 78, 0.03));
+  padding: 1.6rem;
+  margin-top: 1.6rem;
+}
+.report-done h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--gold-soft);
+  margin: 0 0 0.4rem;
+}
+.report-done p { margin: 0 0 1rem; font-size: 0.92rem; }
