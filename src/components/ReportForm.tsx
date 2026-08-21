@@ -213,7 +213,9 @@ export default function ReportForm({ games }: ReportFormProps) {
           accept="image/png,image/jpeg,image/webp,video/mp4"
           onChange={(e) => setFile(e.currentTarget.files?.[0] ?? null)}
         />
-        <span className="report-hint">ไม่เกิน {MAX_FILE_MB} MB ต่อไฟล์ (png / jpg / webp / mp4) — ไฟล์ใหญ่กว่านั้นอัปขึ้น Drive แล้ววางลิงก์แทน</span>
+        <span className="report-hint">
+          ไม่เกิน {MAX_FILE_MB} MB ต่อไฟล์ (png / jpg / webp / mp4) — ไฟล์ใหญ่กว่านั้นอัปขึ้น Drive แล้ววางลิงก์แทน · ไฟล์ที่ส่งมาถูกลบอัตโนมัติเมื่อครบ 90 วัน
+        </span>
       </label>
 
       <label className="report-field">

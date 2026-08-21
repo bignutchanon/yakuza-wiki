@@ -16,6 +16,9 @@
  *      https://script.google.com/macros/s/AKfy…/exec
  *    เอา URL นั้นไปใส่ที่ REPORT_ENDPOINT ใน src/lib/site.ts ของโปรเจกต์เว็บ
  *
+ * 6. เปิดล้างไฟล์แนบเก่าอัตโนมัติ: เลือกฟังก์ชัน installCleanupTrigger ในแถบด้านบนของ editor แล้วกด "เรียกใช้"
+ *    (ทำครั้งเดียว) จากนั้นทุกวันตีสามสคริปต์จะลบไฟล์แนบที่เก่ากว่า CONFIG.attachmentKeepDays วันให้เอง
+ *
  * ── เวลาแก้สคริปต์นี้ทีหลัง ──────────────────────────────────────────────────
  * ต้อง Deploy → Manage deployments → แก้ deployment เดิมเป็น "New version" เสมอ
  * ถ้ากด New deployment ใหม่ URL จะเปลี่ยน แล้วต้องไปแก้ในเว็บด้วย
@@ -49,6 +52,9 @@ var CONFIG = {
   masterTabName: 'ทั้งหมด',
   folderName: 'Yakuza Thai — bug report files', // โฟลเดอร์ Drive ที่เก็บไฟล์แนบ
   maxFileBytes: 8 * 1024 * 1024, // กันไฟล์ใหญ่เกิน (ฝั่งเว็บจำกัดไว้ 5 MB อยู่แล้ว)
+  // ไฟล์แนบเก่ากว่ากี่วันให้ลบทิ้ง (กัน Drive เต็ม) — แถวในชีตยังอยู่ครบ เปลี่ยนแค่ช่องไฟล์แนบเป็นข้อความว่าลบแล้ว
+  // ตั้ง 0 = ไม่ลบอัตโนมัติ
+  attachmentKeepDays: 90,
 }
 
 var HEADERS = [
@@ -161,4 +167,72 @@ function saveAttachment_(base64, name, type) {
   var stamp = Utilities.formatDate(new Date(), 'Asia/Bangkok', 'yyyyMMdd-HHmmss')
   var blob = Utilities.newBlob(bytes, type || 'application/octet-stream', stamp + '-' + safeName)
   return folder_().createFile(blob).getUrl()
+}
+
+// ─── ล้างไฟล์แนบเก่า (กัน Drive เต็ม) ──────────────────────────────────────────
+// รันเองได้ตลอด และถูกเรียกอัตโนมัติทุกวันถ้าติดตั้ง trigger ด้วย installCleanupTrigger()
+// ไฟล์ถูกย้ายลงถังขยะของ Drive (Google ล้างถังให้เองใน 30 วัน) ส่วนแถวในชีตยังอยู่ครบ
+// เปลี่ยนแค่ช่อง "ไฟล์แนบ" เป็นข้อความบอกว่าไฟล์ถูกลบไปแล้ว จะได้ไม่มีลิงก์ตายค้างในตาราง
+function cleanupOldAttachments() {
+  var keepDays = CONFIG.attachmentKeepDays
+  if (!keepDays) return
+
+  var cutoff = new Date().getTime() - keepDays * 24 * 60 * 60 * 1000
+  var files = folder_().getFiles()
+  var removed = []
+
+  while (files.hasNext()) {
+    var f = files.next()
+    if (f.getDateCreated().getTime() >= cutoff) continue
+    removed.push({ id: f.getId(), name: f.getName() })
+    f.setTrashed(true)
+  }
+
+  if (removed.length) {
+    markRemovedAttachments_(removed, keepDays)
+  }
+  return removed.length
+}
+
+// แทนลิงก์ไฟล์ที่ลบไปแล้วในทุกแท็บด้วยข้อความสั้น ๆ (คอลัมน์ "ไฟล์แนบ" = คอลัมน์ที่ 9)
+function markRemovedAttachments_(removed, keepDays) {
+  var col = HEADERS.indexOf('ไฟล์แนบ') + 1
+  var note = 'ไฟล์ถูกลบอัตโนมัติ (เก็บไว้ ' + keepDays + ' วัน)'
+  var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets()
+
+  for (var s = 0; s < sheets.length; s++) {
+    var sh = sheets[s]
+    var rows = sh.getLastRow() - 1
+    if (rows < 1) continue
+
+    var range = sh.getRange(2, col, rows, 1)
+    var values = range.getValues()
+    var touched = false
+
+    for (var r = 0; r < values.length; r++) {
+      var cell = String(values[r][0] || '')
+      if (!cell) continue
+      for (var i = 0; i < removed.length; i++) {
+        if (cell.indexOf(removed[i].id) !== -1) {
+          values[r][0] = note
+          touched = true
+          break
+        }
+      }
+    }
+
+    if (touched) range.setValues(values)
+  }
+}
+
+// ติดตั้ง trigger รายวัน — รันฟังก์ชันนี้เองครั้งเดียวจาก editor (กดปุ่ม "เรียกใช้")
+// เรียกซ้ำได้ ของเก่าจะถูกลบก่อนสร้างใหม่ ไม่มี trigger ซ้อน
+function installCleanupTrigger() {
+  var triggers = ScriptApp.getProjectTriggers()
+  for (var i = 0; i < triggers.length; i++) {
+    if (triggers[i].getHandlerFunction() === 'cleanupOldAttachments') {
+      ScriptApp.deleteTrigger(triggers[i])
+    }
+  }
+  ScriptApp.newTrigger('cleanupOldAttachments').timeBased().everyDays(1).atHour(3).create()
 }
