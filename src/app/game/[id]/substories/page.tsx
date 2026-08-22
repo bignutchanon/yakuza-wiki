@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { GAMES, gameById } from '@/data/games'
-import { contentFor } from '@/lib/content'
+import { GAMES, gameById, gameImage, STEAM_HEADER_SIZE } from '@/data/games'
+import { contentFor, plainText } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
+import { breadcrumbJsonLd } from '@/lib/seo'
 import Markdown from '@/components/Markdown'
+import JsonLd from '@/components/JsonLd'
 
 export async function generateStaticParams() {
   return GAMES.filter((g) => contentFor(g.id).substories).map((g) => ({ id: g.id }))
@@ -23,8 +25,9 @@ export async function generateMetadata({
 
   return pageMeta({
     title: `Substories — ${game.title}`,
-    description: `รายการเควสเสริม (Substories) ทั้งหมดของ ${game.title}`,
+    description: `รายการเควสเสริม (Substories) ทั้งหมดของ ${game.title} — ${plainText(substories.body)}`,
     path: `/game/${id}/substories/`,
+    image: { url: gameImage(game), ...STEAM_HEADER_SIZE },
   })
 }
 
@@ -37,6 +40,13 @@ export default async function SubstoriesPage({ params }: { params: Promise<{ id:
 
   return (
     <div className="page">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: game.title, path: `/game/${id}/` },
+          { name: 'เควสเสริม (Substories)', path: `/game/${id}/substories/` },
+        ])}
+      />
+
       <div className="eyebrow">
         <Link href={`/game/${id}`}>{game.title}</Link>
       </div>

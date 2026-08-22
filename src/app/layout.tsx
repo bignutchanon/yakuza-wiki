@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import CookieConsent from '@/components/CookieConsent'
 import HashRedirect from '@/components/HashRedirect'
+import JsonLd from '@/components/JsonLd'
+import { siteJsonLd } from '@/lib/seo'
 import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION } from '@/lib/site'
 import '@/styles.css'
 
@@ -27,6 +29,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        {/* Organization + WebSite — ติดไปทุกหน้าเพราะอยู่ใน layout หน้าอื่นเพิ่มโหนดของตัวเองต่อได้ */}
+        <JsonLd data={siteJsonLd()} />
+
         {/* ผู้ใช้เลือก "เฉพาะที่จำเป็น" ในแบนเนอร์คุกกี้ → ขอโฆษณาแบบไม่อิงตัวตน ต้องตั้งก่อนสคริปต์ adsbygoogle เริ่มทำงาน */}
         <Script id="ads-consent" strategy="beforeInteractive">
           {`if (localStorage.getItem('cookieConsent') === 'essential') {

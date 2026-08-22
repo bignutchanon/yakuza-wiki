@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { loreArticles } from '@/lib/content'
-import { pageMeta } from '@/lib/site'
+import { pageMeta, clip } from '@/lib/site'
+import { breadcrumbJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMeta({
   title: 'Lore — เรื่องราวเบื้องหลัง',
@@ -12,17 +14,20 @@ export const metadata: Metadata = pageMeta({
 export default function LorePage() {
   return (
     <div className="page">
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Lore', path: '/lore/' }])} />
+
       <div className="eyebrow">Lore</div>
       <h1 className="game-title">เรื่องราวเบื้องหลังซีรีส์</h1>
       <p className="game-sub">
         ไทม์ไลน์ องค์กร ตัวละคร และสถานที่ — บริบทที่ทำให้โลกของ Yakuza กลมขึ้น
       </p>
       {loreArticles.length ? (
-        <ul className="chapter-list">
+        <ul className="chapter-list lore-list">
           {loreArticles.map((a) => (
             <li key={a.slug}>
               <Link href={`/lore/${a.slug}`}>
                 <span>{a.title}</span>
+                <span className="lore-desc">{clip(a.excerpt, 110)}</span>
               </Link>
             </li>
           ))}

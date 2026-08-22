@@ -42,6 +42,8 @@ export default function HeroScene() {
           className="hero-img"
           src={HERO_IMAGE}
           alt=""
+          width={1920}
+          height={1080}
           loading="eager"
           decoding="async"
           fetchPriority="high"

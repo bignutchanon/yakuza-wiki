@@ -49,7 +49,9 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-img { max-width: 100%; display: block; }
+/* height:auto จำเป็นเพราะทุก <img> ประกาศ width/height จริงไว้ใน HTML (กัน layout shift ตอนโหลด)
+   ถ้าไม่มีบรรทัดนี้ ภาพจะถูกบีบตามความสูงในแอตทริบิวต์เมื่อ max-width หดความกว้างลง */
+img { max-width: 100%; height: auto; display: block; }
 
 /* ─── Motion ───
    เอฟเฟกต์เข้าฉากเบา ๆ ทั้งเว็บ — ปิดอัตโนมัติเมื่อผู้ใช้ตั้ง reduced motion */
@@ -604,6 +606,14 @@ img { max-width: 100%; display: block; }
   margin-left: auto;
   text-align: right;
 }
+/* สารบัญ lore ใช้โครงเดียวกับสารบัญบท แต่มีคำโปรยยาวต่อท้าย จึงต้องขึ้นบรรทัดใหม่แทนการดันไปชิดขวา */
+.lore-list a { flex-wrap: wrap; }
+.lore-list .lore-desc {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
 
 .placeholder {
   border: 1px dashed var(--line);
@@ -860,6 +870,11 @@ img { max-width: 100%; display: block; }
   margin: 1.4rem 0;
 }
 .news-post .article h2 { margin-top: 0.4rem; }
+.news-post-title { margin: 0.5rem 0 0.4rem; font-size: 1.25rem; }
+.news-post-title a { color: var(--text); text-decoration: none; }
+.news-post-title a:hover { color: var(--red); }
+.news-post-excerpt { margin: 0 0 0.8rem; color: var(--muted); }
+.news-post-more { font-family: var(--font-display); font-style: italic; font-size: 0.9rem; }
 .news-post-head {
   display: flex;
   align-items: center;

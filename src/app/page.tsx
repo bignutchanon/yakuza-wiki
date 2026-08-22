@@ -26,8 +26,9 @@ export default function Home() {
       <div className="hero3d">
         <HeroScene />
         <div className="hero-copy">
+          {/* h1 ต้องมีคำที่คนค้นจริง — เดิมเป็น "龍が如く Yakuza Wiki" ซึ่งไม่มีคำภาษาไทยให้จับเลย */}
           <h1>
-            龍が如く <span className="accent">Yakuza Wiki</span>
+            龍が如く <span className="accent">Yakuza Wiki ภาษาไทย</span>
           </h1>
           <p>
             สรุปเนื้อเรื่องทุกบท เควสเสริม และม็อดแปลไทย ครบทั้งซีรีส์

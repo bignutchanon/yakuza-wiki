@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { GAMES, gameById, gameImage } from '@/data/games'
-import { contentFor } from '@/lib/content'
+import { GAMES, gameById, gameImage, STEAM_HEADER_SIZE } from '@/data/games'
+import { contentFor, plainText } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
+import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import Markdown from '@/components/Markdown'
+import JsonLd from '@/components/JsonLd'
 import { ChapterArt } from '@/components/Screenshots'
 
 export async function generateStaticParams() {
@@ -23,11 +25,14 @@ export async function generateMetadata({
   const ch = chapters.find((c) => c.n === Number(n))
   if (!game || !ch) return {}
 
+  // ต่อชื่อภาคท้าย title เสมอ — ลำพัง "บทที่ 1: Prologue" ไม่บอกว่าเป็นภาคไหนทั้งในผลค้นหาและในแท็บ
+  // (รูปแบบเดียวกับหน้า substories/guide)
   return pageMeta({
-    title: `บทที่ ${ch.n}: ${ch.title}`,
-    description: `สรุปเนื้อเรื่อง ${game.title} บทที่ ${ch.n} — ${ch.thai}`,
+    title: `บทที่ ${ch.n}: ${ch.title} — ${game.title}`,
+    description: `สรุปเนื้อเรื่อง ${game.title} บทที่ ${ch.n}${ch.thai ? ` (${ch.thai})` : ''} — ${plainText(ch.body)}`,
     path: `/game/${id}/ch/${ch.n}/`,
-    image: gameImage(game),
+    image: { url: gameImage(game), ...STEAM_HEADER_SIZE },
+    type: 'article',
   })
 }
 
@@ -46,9 +51,26 @@ export default async function ChapterPage({
 
   const prev = chapters[idx - 1]
   const next = chapters[idx + 1]
+  const path = `/game/${id}/ch/${ch.n}/`
 
   return (
     <div className="page">
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: `${game.title} — บทที่ ${ch.n}: ${ch.title}`,
+            description: `สรุปเนื้อเรื่อง ${game.title} บทที่ ${ch.n}${ch.thai ? ` (${ch.thai})` : ''} — ${plainText(ch.body)}`,
+            path,
+            image: gameImage(game),
+            section: game.title,
+          }),
+          breadcrumbJsonLd([
+            { name: game.title, path: `/game/${id}/` },
+            { name: `บทที่ ${ch.n}: ${ch.title}`, path },
+          ]),
+        ]}
+      />
+
       <div className="ch-head">
         <div className="eyebrow">
           <Link href={`/game/${id}`}>{game.title}</Link>

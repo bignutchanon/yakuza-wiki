@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { STEAM_HEADER_SIZE } from '@/data/games'
 import Credit from './Credit'
 
 const MotionLink = motion.create(Link)
@@ -51,7 +52,7 @@ export default function HomeGrid({ games }: HomeGridProps) {
         {games.map((g, i) => (
           <MotionLink key={g.id} href={`/game/${g.id}`} className="game-card" {...cardMotion(i)}>
             <div className="card-media">
-              <img src={g.image} alt={g.title} loading="lazy" />
+              <img src={g.image} alt={g.title} loading="lazy" {...STEAM_HEADER_SIZE} />
               {g.updateBadge && <span className="update-flag">{g.updateBadge}</span>}
             </div>
             <div className="body">

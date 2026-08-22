@@ -1,11 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { GAMES, gameById, gameImage, steamStore, modUpdateBadge, CITY_MAPS } from '@/data/games'
+import {
+  GAMES,
+  gameById,
+  gameImage,
+  steamStore,
+  modUpdateBadge,
+  CITY_MAPS,
+  STEAM_HEADER_SIZE,
+} from '@/data/games'
 import { contentFor } from '@/lib/content'
 import type { Chapter } from '@/lib/content'
-import { pageMeta, SITE_URL } from '@/lib/site'
+import { pageMeta } from '@/lib/site'
+import { breadcrumbJsonLd, videoGameJsonLd, modJsonLd } from '@/lib/seo'
 import Credit from '@/components/Credit'
+import JsonLd from '@/components/JsonLd'
 import { ShotStrip } from '@/components/Screenshots'
 
 export async function generateStaticParams() {
@@ -24,9 +34,9 @@ export async function generateMetadata({
 
   return pageMeta({
     title: game.title,
-    description: `${game.subtitle} — ${game.blurb}`.slice(0, 160),
+    description: `${game.subtitle} — ${game.blurb}`,
     path: `/game/${id}/`,
-    image: gameImage(game),
+    image: { url: gameImage(game), ...STEAM_HEADER_SIZE },
   })
 }
 
@@ -54,21 +64,21 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   const updateBadge = modUpdateBadge(game.mod)
 
   const path = `/game/${id}/`
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'VideoGame',
-    name: game.title,
-    url: `${SITE_URL}${path}`,
-    image: gameImage(game),
-    inLanguage: 'th',
-  }
+  const image = gameImage(game)
 
   return (
     <div className="page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLd
+        data={[
+          videoGameJsonLd(game, path, image),
+          // ประกาศม็อดแปลไทยเป็นซอฟต์แวร์แจกฟรีแยกโหนด — คำถามยอดฮิตที่คนถามผู้ช่วย AI
+          modJsonLd(game, path, image),
+          breadcrumbJsonLd([{ name: game.title, path }]),
+        ]}
+      />
 
       <div className="game-hero">
-        <img src={gameImage(game)} alt={game.title} />
+        <img src={image} alt={game.title} {...STEAM_HEADER_SIZE} />
         {updateBadge && <span className="update-flag">{updateBadge}</span>}
       </div>
       <Credit href={steamStore(game.steamAppId)} />
@@ -159,7 +169,13 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                 <figure key={mid} className="map-card">
                   {/* คลิกเปิดไฟล์เต็มความละเอียดในแท็บใหม่ */}
                   <a href={m.img} target="_blank" rel="noreferrer">
-                    <img src={m.img} alt={`แผนที่ ${m.label}`} loading="lazy" />
+                    <img
+                      src={m.img}
+                      alt={`แผนที่ ${m.label}`}
+                      width={m.width}
+                      height={m.height}
+                      loading="lazy"
+                    />
                   </a>
                   <figcaption>{m.label} — คลิกเพื่อดูเต็มขนาด</figcaption>
                 </figure>

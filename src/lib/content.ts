@@ -37,6 +37,8 @@ export interface LoreArticle {
   title: string
   order: number
   body: string
+  /** ย่อหน้าแรกแบบข้อความล้วน — ใช้เป็น meta description และคำโปรยในสารบัญ */
+  excerpt: string
 }
 
 export interface NewsPost {
@@ -45,6 +47,8 @@ export interface NewsPost {
   date: string
   tag: string
   body: string
+  /** ย่อหน้าแรกแบบข้อความล้วน — ใช้เป็น meta description, คำโปรยหน้ารวมข่าว และ <description> ของ RSS */
+  excerpt: string
 }
 
 export interface Prices {
@@ -64,6 +68,31 @@ function parseFrontmatter(text: string): MetaBody {
     meta[line.slice(0, i).trim()] = line.slice(i + 1).trim()
   }
   return { meta, body: text.slice(m[0].length) }
+}
+
+// markdown → ข้อความล้วน (ตัดสัญลักษณ์ทิ้ง เก็บแต่ตัวอักษร) สำหรับ meta description / RSS / llms.txt
+export function plainText(markdown: string): string {
+  return markdown
+    .replace(/```[\s\S]*?```/g, ' ') // โค้ดบล็อก
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // รูป
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // ลิงก์ → เหลือข้อความ
+    .replace(/<[^>]+>/g, ' ') // html ที่แทรกในบทความ
+    .replace(/^\s{0,3}>\s?/gm, '') // blockquote
+    .replace(/^\s{0,3}#{1,6}\s+/gm, '') // หัวข้อ
+    .replace(/^\s{0,3}([-*+]|\d+\.)\s+/gm, '') // bullet / เลขข้อ
+    .replace(/^\s*\|.*\|\s*$/gm, ' ') // แถวตาราง (สรุปย่อไม่ควรมีตาราง)
+    .replace(/[*_`~]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+// ย่อหน้าแรกที่มีเนื้อความจริง (ข้ามหัวข้อ/รูป/ตาราง) — ใช้เป็นคำโปรยของบทความ
+function firstParagraph(markdown: string): string {
+  for (const block of markdown.split(/\r?\n\s*\r?\n/)) {
+    const text = plainText(block)
+    if (text.length >= 30) return text
+  }
+  return plainText(markdown)
 }
 
 function loadAll() {
@@ -95,6 +124,7 @@ function loadAll() {
             date: meta.date || file.slice(0, 10),
             tag: meta.tag || '',
             body,
+            excerpt: firstParagraph(body),
           })
         }
         continue
@@ -106,6 +136,7 @@ function loadAll() {
           title: meta.title || file,
           order: Number(meta.order ?? 99),
           body,
+          excerpt: firstParagraph(body),
         })
         continue
       }
@@ -145,6 +176,7 @@ export const loreBySlug = (slug: string): LoreArticle | undefined => lore.find((
 
 // ข่าวเรียงใหม่ → เก่า / gamePrices = เนื้อหาตารางราคา (null ถ้ายังไม่มีไฟล์)
 export const newsPosts: NewsPost[] = news
+export const newsBySlug = (slug: string): NewsPost | undefined => news.find((p) => p.slug === slug)
 export const gamePrices: Prices | null = prices
 
 // re-export เพื่อความเข้ากันได้กับโค้ดเดิมที่ import thaiDate จาก loader.js

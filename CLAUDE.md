@@ -20,20 +20,24 @@ src/
     layout.tsx           html lang=th, <head> (font links, AdSense script/meta ผ่าน next/script), Navbar, footer, CookieConsent, HashRedirect
     template.tsx          page transition (framer-motion, 'use client') ห่อทุกหน้า
     page.tsx               Home
-    llms.txt/route.ts      Route Handler static → llms.txt (สเปก llmstxt.org)
+    llms.txt/route.ts      Route Handler static → llms.txt (สเปก llmstxt.org — สารบัญ + สถานะม็อดรายภาค)
+    llms-full.txt/route.ts   เนื้อหา markdown ทั้งเว็บรวมไฟล์เดียว (~1.3 MB) ให้ผู้ช่วย AI อ่านทีเดียวจบ
+    feed.xml/route.ts        ฟีด RSS ของข่าว (ลิงก์ไป /news/<slug>/)
     sitemap.ts · robots.ts · not-found.tsx
     game/[id]/              page.tsx + ch/[n]/page.tsx + substories/page.tsx + guide/page.tsx
     lore/                    page.tsx (สารบัญ) + [slug]/page.tsx (บทความ)
-    news/ · prices/ · support/ · privacy/    page.tsx
+    news/                    page.tsx (สารบัญ ย่อหน้าแรก) + [slug]/page.tsx (โพสต์เต็ม)
+    prices/ · support/ · privacy/ · report/   page.tsx
   lib/
     content.ts            ★ server-only (fs) โหลด markdown ทั้งหมดตอน build แทน loader.js เดิม — contentFor(id), loreArticles, loreBySlug(slug), newsPosts, gamePrices
     format.ts               thaiDate() (ไม่มี fs — import ได้ทั้ง server/client component)
-    site.ts                  SITE_URL, SITE_NAME, pageMeta({title, description, path, image})
+    site.ts                  SITE_URL, SITE_NAME, pageMeta({title, description, path, image, type, publishedTime}), clip() ตัดข้อความไม่ให้ขาดกลางคำ, absUrl()
+    seo.ts                    ตัวสร้าง JSON-LD: siteJsonLd (Organization+WebSite ใน layout), breadcrumbJsonLd, articleJsonLd, videoGameJsonLd, modJsonLd
   data/
     games.ts              ★ ข้อมูลหลัก 15 ภาค (รวม Judgment / Lost Judgment / Ishin!) (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
     screenshots.json        รูป screenshot ราย gameId (ใช้ใน <Screenshots>)
   content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md · lore/ · news/ (ไฟล์ละโพสต์) + prices.md
-  components/              Navbar, Markdown (marked), Credit, Screenshots, HeroScene (hero รูปซุ้มคามุโรโจ + ไฟนีออนกะพริบ, รูปใน public/hero/), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
+  components/              Navbar, Markdown (marked), JsonLd, Credit, Screenshots, HeroScene (hero รูปซุ้มคามุโรโจ + ไฟนีออนกะพริบ, รูปใน public/hero/), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
   styles.css               สไตล์ทั้งเว็บไฟล์เดียว (ธีมนีออนแดง-ดำ) — import ใน layout.tsx
 public/
   maps/                    แผนที่เมือง self-host (อ้างจาก CITY_MAPS)
@@ -47,7 +51,9 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 ## Routes
 
-`/` Home · `/game/[id]` ภาค · `/game/[id]/ch/[n]` บท · `/game/[id]/substories` · `/game/[id]/guide` · `/lore` + `/lore/[slug]` · `/news` · `/prices` · `/support` · `/privacy` (นโยบายคุกกี้ — คู่กับ AdSense)
+`/` Home · `/game/[id]` ภาค · `/game/[id]/ch/[n]` บท · `/game/[id]/substories` · `/game/[id]/guide` · `/lore` + `/lore/[slug]` · `/news` + `/news/[slug]` · `/prices` · `/report` · `/support` · `/privacy` (นโยบายคุกกี้ — คู่กับ AdSense)
+
+ไฟล์ที่ไม่ใช่หน้าเว็บ: `/sitemap.xml` · `/robots.txt` · `/feed.xml` (RSS ข่าว) · `/llms.txt` + `/llms-full.txt`
 
 ทุก URL จริงลงท้ายด้วย `/` เสมอ (`trailingSlash: true`) เช่น `/game/y7/ch/3/` — ไม่มี `#/` แบบ HashRouter เดิมแล้ว (ดูกติกา HashRedirect ด้านบน)
 
@@ -61,7 +67,7 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 - **บท** `src/content/<gameId>/ch-NN.md`: `n` เลขบท, `title` ชื่อ EN ทางการ, `thai` ชื่อไทย, `part` (เฉพาะภาคแบ่งพาร์ท เช่น Y4/Y5) — `src/lib/content.ts` เรียงตาม `n` ไฟล์เนื้อหาคือ source of truth ของรายชื่อบท (ไม่มี list กลาง)
 - **lore**: `title`, `order` (เลขเรียงในสารบัญ)
-- **news**: `title`, `date` (ISO), `tag` — เรียงใหม่→เก่าอัตโนมัติ
+- **news**: `title`, `date` (ISO), `tag` — เรียงใหม่→เก่าอัตโนมัติ · ชื่อไฟล์ = slug ของ URL `/news/<slug>/` (เปลี่ยนชื่อไฟล์ = ลิงก์เดิมตาย) · ย่อหน้าแรกถูกดึงเป็นคำโปรย/meta description อัตโนมัติ (`excerpt`) จึงควรเป็นประโยคที่สรุปข่าวได้ด้วยตัวเอง ไม่ใช่เกริ่นลอย ๆ
 - **prices.md**: `updated` (ISO) — วันที่โชว์หัวตาราง อัปเดตทุกครั้งที่แก้ราคา
 - วันที่แสดงผลผ่าน `thaiDate()` ใน `src/lib/format.ts` (ISO → "13 ส.ค. 2026") — `src/lib/content.ts` re-export ตัวเดียวกันไว้ให้ import สะดวก
 
@@ -76,6 +82,17 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
   (3) ลิงก์ Drive: ให้เจ้าของอัปเป็น "เวอร์ชันใหม่ของไฟล์เดิม" (Manage versions) ลิงก์ `url` จะไม่เปลี่ยน — ถ้าอัปเป็นไฟล์ใหม่ต้องแก้ `url` ด้วย
   ตัวอย่างล่าสุด: Gaiden v1.0.2 (21 ส.ค. 2026) `2026-08-21-gaiden-thai-mod-v102.md`
 - รูป hero/cover ดึงจาก Steam CDN ผ่าน `steamAppId` (ลิงก์เสถียร ไม่เก็บรูปใน repo) — เกมใหม่ที่ Steam ใช้ URL แบบ hashed ให้ใส่ `image` ตรง ๆ แทน
+
+## SEO / ให้ AI แนะนำเว็บได้ (แก้ครั้งใหญ่ 22 ส.ค. 2026)
+
+- ทุกหน้าที่ลึกกว่าหน้าแรกต้องมี `<JsonLd data={breadcrumbJsonLd([...])} />` — หน้าใหม่ที่เพิ่มทีหลังก็ต้องใส่ด้วย
+- `<img>` **ทุกจุด** ต้องมี `width`/`height` จริง (กัน layout shift / CLS) — ค่าคงที่อยู่ที่ `STEAM_HEADER_SIZE` (460×215), `STEAM_SHOT_SIZE` (1920×1080) ใน `games.ts` และ `CITY_MAPS[].width/height` · CSS `img { height: auto }` ใน `styles.css` เป็นตัวคู่กัน ห้ามลบ
+- `pageMeta()` เรียก `clip()` ให้เอง — ส่ง description ยาวเท่าไหร่ก็ได้ **ห้าม `.slice()` เอง** (ตัดกลางคำ)
+- บทความ (ข่าว/lore/บท) ส่ง `type: 'article'` + `publishedTime` เข้า `pageMeta` และคู่กับ `articleJsonLd`
+- title ของหน้าย่อยในเกมต้องมีชื่อภาคต่อท้ายเสมอ (`บทที่ 3: xxx — Yakuza 5`) — ลำพังเลขบทไม่บอกว่าภาคไหน
+- `robots.ts` ประกาศอนุญาตบอต AI (GPTBot / ClaudeBot / Google-Extended / PerplexityBot ฯลฯ) เป็นรายชื่อ — ตั้งใจให้ ChatGPT/Gemini/Claude อ้างอิงเว็บนี้ได้ ถ้าจะบล็อกภายหลังให้แก้ที่ `AI_AGENTS`
+- `llms.txt` มีหัวข้อ "เว็บนี้คืออะไร" + สถานะม็อดรายภาค (เวอร์ชัน/วันที่) — คือสิ่งที่ผู้ช่วย AI อ่านแล้วตอบคำถาม "ภาคนี้มีม็อดแปลไทยไหม" ได้ · `modJsonLd` ในหน้าเกมประกาศม็อดเป็น `SoftwareApplication` แจกฟรีพร้อม `downloadUrl` ให้ข้อมูลเดียวกันในรูปแบบ structured data
+- ปล่อยม็อดเวอร์ชันใหม่แล้ว `mod.updated` จะไปโผล่เป็น `lastmod` ของหน้าเกมใน sitemap เอง
 
 ## กติกา / บทเรียน
 

@@ -34,6 +34,11 @@ export interface Game {
 export const steamHeader = (appId?: number): string =>
   `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`
 
+// ขนาดจริงของภาพจาก Steam — header.jpg เป็น 460×215 และสกรีนช็อตหน้าร้านเป็น 1920×1080 เสมอ
+// ใช้เป็นแอตทริบิวต์ width/height ของ <img> เพื่อจองพื้นที่ก่อนรูปโหลดเสร็จ (กัน layout shift / CLS)
+export const STEAM_HEADER_SIZE = { width: 460, height: 215 } as const
+export const STEAM_SHOT_SIZE = { width: 1920, height: 1080 } as const
+
 // เกมที่ระบุ image เอง (เกมใหม่ ๆ Steam ใช้ URL แบบ hashed) ให้ใช้ก่อน fallback เป็น steamHeader
 export const gameImage = (g: Game): string => g.image || steamHeader(g.steamAppId)
 
@@ -61,11 +66,12 @@ export const steamStore = (appId?: number): string =>
 // แผนที่เมือง — เก็บไฟล์เองใน public/maps/ (คัดไฟล์คมสุดที่หาได้จากทั้งเว็บแล้ว)
 // ต้นทาง Yakuza Wiki (Fandom) © SEGA — เครดิตแสดงใต้รูปในหน้าเกม
 // key ใช้อ้างจาก games[].maps (Onomichi/Honolulu ไม่มีไฟล์แผนที่เผยแพร่ที่ไหนเลย)
-export const CITY_MAPS: Record<string, { label: string; img: string }> = {
-  kamurocho: { label: 'คามุโรโจ (โตเกียว)', img: '/maps/kamurocho.png' },
-  sotenbori: { label: 'โซเท็นโบริ (โอซาก้า)', img: '/maps/sotenbori.png' },
-  ijincho: { label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)', img: '/maps/ijincho.png' },
-  ryukyu: { label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)', img: '/maps/ryukyu.png' },
+// width/height = ขนาดจริงของไฟล์ ต้องใส่ในแท็ก <img> เพื่อจองพื้นที่ล่วงหน้า (กัน layout shift / CLS)
+export const CITY_MAPS: Record<string, { label: string; img: string; width: number; height: number }> = {
+  kamurocho: { label: 'คามุโรโจ (โตเกียว)', img: '/maps/kamurocho.png', width: 3500, height: 1568 },
+  sotenbori: { label: 'โซเท็นโบริ (โอซาก้า)', img: '/maps/sotenbori.png', width: 1920, height: 1080 },
+  ijincho: { label: 'อิเซซากิ อิจินโจ (โยโกฮาม่า)', img: '/maps/ijincho.png', width: 1330, height: 874 },
+  ryukyu: { label: 'ดาวน์ทาวน์ริวกิว (โอกินาว่า)', img: '/maps/ryukyu.png', width: 1683, height: 1487 },
 }
 
 // mod.status: 'released' | 'wip' | 'none'
