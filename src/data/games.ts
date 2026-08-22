@@ -13,6 +13,9 @@ export interface ModInfo {
   updated?: string
   // รุ่นทดสอบ (beta) ที่แจกคู่กับตัวจริง — ปุ่มรองในหน้าเกม ใช้ตอนอยากให้ผู้เล่นช่วยเทสต์ก่อนออกตัวจริง
   beta?: { url: string; note?: string; version?: string; updated?: string }
+  // แพ็กก็อปไฟล์เอง (ไม่มีไฟล์ .bat/.ps1) ของม็อดตัวเดียวกัน — ปุ่มรองในหน้าเกม
+  // ไว้ให้คนที่โปรแกรมสแกนไวรัสลบตัวติดตั้งทิ้ง เนื้อไฟล์เกมเหมือนแพ็กปกติทุกอย่าง
+  manual?: { url: string; note?: string }
 }
 
 export interface Game {
@@ -109,6 +112,10 @@ export const GAMES: Game[] = [
       url: 'https://drive.google.com/file/d/1vWUKw1czGJhaDXPktMa4fea7__32k67z/view?usp=drive_link',
       note: "รองรับ Yakuza 0 Director's Cut",
       nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/36',
+      manual: {
+        url: 'https://drive.google.com/file/d/1QntHonGq-LOdky-z571H4PMDT_RfaOdk/view?usp=sharing',
+        note: 'ไฟล์เกมเหมือนแพ็กปกติ แต่ไม่มีตัวติดตั้ง — ลากโฟลเดอร์ runtime ทับเอง สำหรับคนที่โปรแกรมสแกนไวรัสลบไฟล์ติดตั้งทิ้ง (แพ็กนี้ไม่สำรองไฟล์เดิมให้)',
+      },
     },
   },
   {

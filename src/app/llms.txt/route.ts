@@ -18,6 +18,7 @@ function modLine(game: Game): string | null {
   if (mod.version) parts.push(`เวอร์ชันล่าสุด ${mod.version}`)
   if (mod.updated) parts.push(`อัปเดต ${thaiDate(mod.updated)}`)
   if (mod.beta?.version) parts.push(`มีรุ่นทดสอบ ${mod.beta.version} ให้ลองคู่กัน`)
+  if (mod.manual) parts.push('มีแพ็กแบบไม่มีตัวติดตั้ง (ก็อปไฟล์เอง) ให้เลือกโหลด')
   return parts.join(' · ')
 }
 
