@@ -299,10 +299,10 @@ export const GAMES: Game[] = [
       'คิริวแกล้งตายและกลายเป็นสายลับนาม "โจริว" — เรื่องราวที่เกิดขึ้นคู่ขนานกับภาค 7 และปูทางสู่ Infinite Wealth',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1T-WNCex3s9Fabj1OapWeofxJ156k5C1R/view?usp=sharing',
-      note: 'v1.0.2 (21 ส.ค. 2026) — แก้โป๊กเกอร์/แบล็คแจ็คค้างตอนเล่นครั้งแรก (จอแนะนำปุ่ม)',
-      version: 'v1.0.2',
-      updated: '2026-08-21',
+      url: 'https://drive.google.com/file/d/1EmY3mbsLmSlPPdZw1a3tF3bBvcCGeSYt/view?usp=sharing',
+      note: 'v1.0.3 (24 ส.ค. 2026) — แก้ซับไตเติลในคัตซีนที่กลายเป็นภาษาอังกฤษใน v1.0.2',
+      version: 'v1.0.3',
+      updated: '2026-08-24',
     },
   },
   {
