@@ -201,7 +201,14 @@ export const GAMES: Game[] = [
     setting: 'คามุโรโจ — ค.ศ. 2010',
     blurb:
       'ครั้งแรกที่ซีรีส์เล่าผ่านตัวเอกสี่คน — เจ้าหนี้ใจดี นักโทษแหกคุก ตำรวจนอกคอก และมังกรในตำนาน — สี่มุมมองที่พันกันรอบคดีเดียวกลางคามุโรโจ',
-    mod: { status: 'released', url: 'https://www.nexusmods.com/yakuza4remastered/mods/233' },
+    mod: {
+      status: 'released',
+      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/tag/v2.2',
+      nexus: 'https://www.nexusmods.com/yakuza4remastered/mods/233',
+      note: 'v2.2 (29 ส.ค. 2026) — ย้ายช่องทางโหลดหลักมาที่ GitHub · ติดตั้งด้วยการลากโฟลเดอร์เดียว ไม่ต้องตั้ง Launch Options',
+      version: 'v2.2',
+      updated: '2026-08-29',
+    },
   },
   {
     id: 'y5',
@@ -218,8 +225,7 @@ export const GAMES: Game[] = [
       'ภาคที่ใหญ่ที่สุดของยุค PS3 — คิริวขับแท็กซี่ในฟุกุโอกะ ฮารุกะไล่ตามฝันไอดอล และสงครามครั้งใหม่กำลังก่อตัวเหนือทั้งห้าเมือง',
     mod: {
       status: 'released',
-      // ย้ายมา Dropbox เพราะไฟล์บน Google Drive ถูกบล็อกจนผู้เล่นโหลดไม่ได้
-      url: 'https://www.dropbox.com/scl/fi/ozbbars68nim5vxgemtoh/Yakuza5-Thai-v1.5-drive.zip?rlkey=39mww9dlguvv7vjdsggixxbhi&st=1fa4qtur&dl=1',
+      url: 'https://github.com/bignutchanon/yakuza5-thai-mod/releases/tag/v1.5',
       note: 'v1.5 (29 ส.ค. 2026) — แก้มินิเกมขับแท็กซี่ค้างจอมืด + บทสนทนาค้างไม่ขึ้นปุ่มกดต่อ · เมนูร้าน/บาร์ ชื่อบทหน้าโหลด และซับคัตซีนเป็นไทยครบขึ้น (รวมงานจากรุ่นทดสอบ v1.5 beta เข้าตัวจริงแล้ว) · ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.5',
       updated: '2026-08-29',
@@ -339,10 +345,10 @@ export const GAMES: Game[] = [
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1DqCgTMzfEjiAwWl2P3f-53DIOfdI-TP6/view?usp=sharing',
-      note: 'v1.0.4 (20 ส.ค. 2026) — แก้เกมเด้งตอนเริ่มเล่นมินิเกมครั้งแรก (ดาร์ต ฯลฯ)',
-      version: 'v1.0.4',
-      updated: '2026-08-20',
+      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/tag/v1.0.5',
+      note: 'v1.0.5 (30 ส.ค. 2026) — เพศผู้พูดถูกต้องขึ้นทั้งเกม + ป้ายบอกสถานที่/การ์ดแนะนำตัวละครเป็นไทย',
+      version: 'v1.0.5',
+      updated: '2026-08-30',
     },
   },
   {
