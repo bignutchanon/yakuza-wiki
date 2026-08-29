@@ -203,7 +203,7 @@ export const GAMES: Game[] = [
       'ครั้งแรกที่ซีรีส์เล่าผ่านตัวเอกสี่คน — เจ้าหนี้ใจดี นักโทษแหกคุก ตำรวจนอกคอก และมังกรในตำนาน — สี่มุมมองที่พันกันรอบคดีเดียวกลางคามุโรโจ',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/tag/v2.2',
+      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/download/v2.2/Yakuza4-Thai-Mod-v2.2.zip',
       nexus: 'https://www.nexusmods.com/yakuza4remastered/mods/233',
       note: 'v2.2 (29 ส.ค. 2026) — ย้ายช่องทางโหลดหลักมาที่ GitHub · ติดตั้งด้วยการลากโฟลเดอร์เดียว ไม่ต้องตั้ง Launch Options',
       version: 'v2.2',
@@ -225,7 +225,7 @@ export const GAMES: Game[] = [
       'ภาคที่ใหญ่ที่สุดของยุค PS3 — คิริวขับแท็กซี่ในฟุกุโอกะ ฮารุกะไล่ตามฝันไอดอล และสงครามครั้งใหม่กำลังก่อตัวเหนือทั้งห้าเมือง',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza5-thai-mod/releases/tag/v1.5',
+      url: 'https://github.com/bignutchanon/yakuza5-thai-mod/releases/download/v1.5/Yakuza5-Thai-v1.5.zip',
       note: 'v1.5 (29 ส.ค. 2026) — แก้มินิเกมขับแท็กซี่ค้างจอมืด + บทสนทนาค้างไม่ขึ้นปุ่มกดต่อ · เมนูร้าน/บาร์ ชื่อบทหน้าโหลด และซับคัตซีนเป็นไทยครบขึ้น (รวมงานจากรุ่นทดสอบ v1.5 beta เข้าตัวจริงแล้ว) · ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.5',
       updated: '2026-08-29',
@@ -345,7 +345,7 @@ export const GAMES: Game[] = [
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/tag/v1.0.5',
+      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/download/v1.0.5/LikeADragon8-Thai-v1.0.5.zip',
       note: 'v1.0.5 (30 ส.ค. 2026) — เพศผู้พูดถูกต้องขึ้นทั้งเกม + ป้ายบอกสถานที่/การ์ดแนะนำตัวละครเป็นไทย',
       version: 'v1.0.5',
       updated: '2026-08-30',
