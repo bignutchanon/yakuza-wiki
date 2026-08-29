@@ -74,7 +74,9 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 ## กติกา games.js (สำคัญสุด — แก้บ่อย)
 
 - ไฟล์นี้คือ `src/data/games.ts` แล้ว (TypeScript, type `Game`/`ModInfo`) — กติกาด้านล่างทั้งหมดยังใช้เหมือนเดิมทุกข้อ
-- `mod.status`: `'released' | 'wip' | 'none'` — ตอน `released` ต้องมี `url` (Google Drive) · `note` กับ `nexus` optional
+- `mod.status`: `'released' | 'wip' | 'none'` — ตอน `released` ต้องมี `url` · `note` กับ `nexus` optional
+- **มาตรฐานลิงก์ดาวน์โหลด (ตั้ง 30 ส.ค. 2026): ทุกภาคใช้ GitHub Releases** repo `bignutchanon/<game>-thai-mod` — และ `url` (รวมทั้ง `beta.url` / `manual.url`) ต้องเป็น**ลิงก์ไฟล์ตรง** `https://github.com/bignutchanon/<repo>/releases/download/<tag>/<ไฟล์>.zip` กดแล้วเซฟไฟล์ทันที **ห้ามใช้หน้า release** (`/releases/tag/<tag>`) ที่ผู้เล่นต้องเลื่อนหา asset เอง · ออกเวอร์ชันใหม่ = แก้ทั้ง `<tag>` และชื่อไฟล์ในลิงก์ แล้วเช็คว่าลิงก์ตอบ 200 ก่อน push · GitHub Releases ไม่มีลิมิต bandwidth แบบ Google Drive/Dropbox ที่เคยบล็อกไฟล์ Y5 มาแล้ว · Nexus ใส่ไว้ที่ `mod.nexus` เป็นมิเรอร์ ไม่ใช่ `url`
+  ย้ายมา GitHub แล้ว: **y4 · y5 · y8** — ที่ยังเป็น Google Drive รอย้าย: y0 (รวม manual) · kiwami · kiwami2 · y3 · darkties · y6 · judgment · y7 · gaiden · lostjudgment · pirate
 - `mod.beta` (`{ url, note?, version?, updated? }`) = รุ่นทดสอบที่แจกคู่ตัวจริง → ปุ่มรอง "ลองรุ่นทดสอบ (beta)" ในหน้าเกม + ป้ายมุมแบนเนอร์ · พอ beta ขึ้นเป็นตัวจริงให้ย้ายลิงก์ไป `mod.url` แล้วลบ `mod.beta` ทิ้ง
 - `mod.manual` (`{ url, note? }`) = แพ็กเดียวกันแบบไม่มีตัวติดตั้ง (ไม่มี .bat/.ps1 ให้ก็อปโฟลเดอร์ทับเอง) ไว้ให้คนที่แอนติไวรัสลบตัวติดตั้งทิ้ง → ปุ่มรอง "แบบไม่มีตัวติดตั้ง (ก็อปไฟล์เอง)" ในหน้าเกม + บรรทัดใน `llms.txt` · ตอนออกเวอร์ชันใหม่ต้องอัปทั้งสองลิงก์คู่กัน (ตอนนี้ใช้ที่ Y0 DC)
 - ม็อดแปลเสร็จภาคไหน → แก้ entry ภาคนั้น status + url จุดเดียวจบ — ปุ่มดาวน์โหลด (GamePage), ป้าย "มีม็อดแปลไทย" (Home), จุดเขียว (Navbar) โชว์เองหมด
