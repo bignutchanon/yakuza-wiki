@@ -320,9 +320,9 @@ export const GAMES: Game[] = [
       'ตำรวจคนหนึ่งสารภาพกลางศาลว่าเขาฆ่าคน ทั้งที่ตอนเกิดเหตุเขานั่งอยู่ในห้องพิจารณาคดีอีกเมืองหนึ่ง — คำสารภาพนั้นลากยากามิเข้าไปในคดีกลั่นแกล้งของโรงเรียนมัธยมในโยโกฮาม่าที่จบลงด้วยการฆ่าตัวตาย และคำถามว่าถ้ากฎหมายเอาผิดคนผิดไม่ได้ ใครควรเป็นคนลงมือ',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1gU5rvpn2wrHgNPeE0gbx-tgSY0t-IJKF/view?usp=sharing',
-      note: 'v1.0 (29 ส.ค. 2026) — เล่นเป็นภาษาไทยได้ทั้งเกม รวม DLC The Kaito Files พร้อมตัวติดตั้งอัตโนมัติ',
-      version: 'v1.0',
+      url: 'https://drive.google.com/file/d/1LNifc_Z-vyP8Jh90R7La3i0yhdMs6syn/view?usp=sharing',
+      note: 'v1.0.1 (29 ส.ค. 2026) — แก้ขึ้นลิฟต์แล้วตกทะลุพื้นแมพ แนะนำให้อัปเดตทุกคน',
+      version: 'v1.0.1',
       updated: '2026-08-29',
     },
   },
