@@ -218,7 +218,8 @@ export const GAMES: Game[] = [
       'ภาคที่ใหญ่ที่สุดของยุค PS3 — คิริวขับแท็กซี่ในฟุกุโอกะ ฮารุกะไล่ตามฝันไอดอล และสงครามครั้งใหม่กำลังก่อตัวเหนือทั้งห้าเมือง',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1lnzsDecmbP477SU_PO3wzhu5zfIZ8DdC/view?usp=sharing',
+      // ย้ายมา Dropbox เพราะไฟล์บน Google Drive ถูกบล็อกจนผู้เล่นโหลดไม่ได้
+      url: 'https://www.dropbox.com/scl/fi/ozbbars68nim5vxgemtoh/Yakuza5-Thai-v1.5-drive.zip?rlkey=39mww9dlguvv7vjdsggixxbhi&st=1fa4qtur&dl=1',
       note: 'v1.5 (29 ส.ค. 2026) — แก้มินิเกมขับแท็กซี่ค้างจอมืด + บทสนทนาค้างไม่ขึ้นปุ่มกดต่อ · เมนูร้าน/บาร์ ชื่อบทหน้าโหลด และซับคัตซีนเป็นไทยครบขึ้น (รวมงานจากรุ่นทดสอบ v1.5 beta เข้าตัวจริงแล้ว) · ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.5',
       updated: '2026-08-29',
