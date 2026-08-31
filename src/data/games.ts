@@ -148,7 +148,13 @@ export const GAMES: Game[] = [
     setting: 'คามุโรโจ / โซเท็นโบริ — ค.ศ. 2006',
     blurb:
       'สงครามระหว่างตระกูลโทโจกับพันธมิตรโอมิปะทุ คิริวต้องเผชิญหน้ากับ "มังกรแห่งคันไซ" เรียว โกดะ ในศึกที่แฟน ๆ ยกให้เป็นคู่ปรับที่ดีที่สุดของซีรีส์',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/1JBdKqU0AZh-TkqmMDsn5I9qSRSgNnLTl/view?usp=drive_link', note: 'รองรับ Yakuza Kiwami 2 (Remaster 2025)' },
+    mod: {
+      status: 'released',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami2-thai-mod/releases/download/v1.1/YakuzaKiwami2R-Thai-v1.1.zip',
+      note: 'v1.1 (1 ก.ย. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · แก้คำลงท้าย/สรรพนามที่ไม่ตรงเพศผู้พูด ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
+      version: 'v1.1',
+      updated: '2026-09-01',
+    },
   },
   {
     id: 'y3',
