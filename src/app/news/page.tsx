@@ -43,9 +43,10 @@ export default function NewsPage() {
 
       <h1>ข่าวสาร</h1>
       <p className="game-sub">
+        {/* ไม่ลิงก์ /feed.xml ตรงนี้ — ฟีดมีไว้ให้แอปอ่านข่าว/บอตเก็บ (ประกาศผ่าน <link rel="alternate"> ใน metadata)
+            คนกดจะเจอ XML ดิบเปล่า ๆ */}
         รวมข่าวจาก Ryu Ga Gotoku Studio และเกมใหม่ในเครือ — อัปเดตโดยผู้จัดทำเป็นระยะ ·
-        เช็คราคาทุกภาคได้ที่หน้า <Link href="/prices">ราคาเกม</Link> · ติดตามผ่าน{' '}
-        <a href="/feed.xml">ฟีด RSS</a>
+        เช็คราคาทุกภาคได้ที่หน้า <Link href="/prices">ราคาเกม</Link>
       </p>
 
       <NewsList posts={items} />

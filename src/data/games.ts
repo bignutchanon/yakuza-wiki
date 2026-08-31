@@ -165,7 +165,13 @@ export const GAMES: Game[] = [
     setting: 'โอกินาว่า / คามุโรโจ — ค.ศ. 2009',
     blurb:
       'คิริววางมือไปเปิดสถานเลี้ยงเด็กกำพร้าริมทะเล แต่โครงการรีสอร์ตทหารลากเขากลับเข้าสู่เกมการเมืองและเงาของชายที่หน้าเหมือนคนที่ตายไปแล้ว — รีเมคเต็มรูปแบบของ Yakuza 3 (2009) วางจำหน่ายคู่กับแคมเปญใหม่ Dark Ties',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/1gtoAAEwbeOfAcMmyUvzwVasxYQXqCQpR/view?usp=drive_link' },
+    mod: {
+      status: 'released',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.1/YakuzaKiwami3-Thai-v1.1.zip',
+      note: 'v1.1 (1 ก.ย. 2026) — แก้คำลงท้าย/สรรพนามที่ไม่ตรงเพศผู้พูด ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
+      version: 'v1.1',
+      updated: '2026-09-01',
+    },
   },
   {
     id: 'darkties',
@@ -184,8 +190,10 @@ export const GAMES: Game[] = [
       'เรื่องราวที่ไม่เคยเล่ามาก่อนของมิเนะ ตัวร้ายจากภาค 3 — เส้นทางจากนักธุรกิจสู่โลกยากูซ่า แคมเปญใหม่ยาว ~15 ชั่วโมงที่มาคู่กับ Yakuza Kiwami 3',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1gtoAAEwbeOfAcMmyUvzwVasxYQXqCQpR/view?usp=drive_link',
-      note: 'ม็อดตัวเดียวกับ Kiwami 3 — ติดตั้งครั้งเดียวได้ทั้งสองแคมเปญ',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.1/YakuzaKiwami3-Thai-v1.1.zip',
+      note: 'v1.1 (1 ก.ย. 2026) — ม็อดตัวเดียวกับ Kiwami 3 ติดตั้งครั้งเดียวได้ทั้งสองแคมเปญ',
+      version: 'v1.1',
+      updated: '2026-09-01',
     },
   },
   {
