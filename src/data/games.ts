@@ -359,10 +359,10 @@ export const GAMES: Game[] = [
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/download/v1.0.5/LikeADragon8-Thai-v1.0.5.zip',
-      note: 'v1.0.5 (30 ส.ค. 2026) — เพศผู้พูดถูกต้องขึ้นทั้งเกม + ป้ายบอกสถานที่/การ์ดแนะนำตัวละครเป็นไทย',
-      version: 'v1.0.5',
-      updated: '2026-08-30',
+      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/download/v1.0.6/LikeADragon8-Thai-v1.0.6.zip',
+      note: 'v1.0.6 (2 ก.ย. 2026) — ซับคัตซีนที่เคยเป็นอังกฤษกลับมาเป็นไทย + เมนูตั้งค่าเป็นไทยครบ',
+      version: 'v1.0.6',
+      updated: '2026-09-02',
     },
   },
   {
