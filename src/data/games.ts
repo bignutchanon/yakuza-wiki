@@ -296,7 +296,7 @@ export const GAMES: Game[] = [
       'อิจิบังติดคุก 18 ปีแทนตระกูล ออกมาพบว่าถูกหักหลังและถูกยิงทิ้ง — เขาลุกขึ้นจากกองขยะในโยโกฮาม่าพร้อมเปลี่ยนซีรีส์เป็น RPG เต็มตัวครั้งแรก',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1e_1ekuu-peNt1GYDJghg4DWbrrP5odvr/view?usp=sharing',
+      url: 'https://github.com/bignutchanon/yakuza7-thai-mod/releases/download/v1.0.3/LikeADragon7-Thai-v1.0.3.zip',
       note: 'v1.0.3 (16 ส.ค. 2026) — แก้บั๊กมินิเกมบริหารธุรกิจ (ดาวไม่ขึ้น) + ลิฟต์ทะลุแมป',
       version: 'v1.0.3',
       updated: '2026-08-16',
