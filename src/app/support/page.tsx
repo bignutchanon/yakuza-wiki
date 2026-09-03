@@ -22,7 +22,8 @@ export default function SupportPage() {
         <img src="/promptpay-qr.png" alt="Thai QR Payment — PromptPay" className="qr-img" />
         <div className="support-info">
           <div className="support-label">Thai QR Payment (PromptPay)</div>
-          <div className="support-name">นาย ชานน แสงพัฒน์</div>
+          {/* ไม่แสดงชื่อ-นามสกุลจริงบนหน้าเว็บ — ชื่อบัญชีผู้รับจะขึ้นในแอปธนาคารตอนสแกน QR อยู่แล้ว */}
+          <div className="support-name">ผู้จัดทำ Yakuza Wiki ภาษาไทย</div>
           <div className="support-acct">xxx-x-x5185-x · รับเงินได้จากทุกธนาคาร</div>
         </div>
       </div>

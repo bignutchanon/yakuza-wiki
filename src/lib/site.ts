@@ -6,6 +6,12 @@ export const SITE_URL = 'https://yakuzathai.com'
 export const SITE_NAME = 'Yakuza Wiki ภาษาไทย'
 // รูป OG/Twitter card ค่าเริ่มต้น (หน้าแรก + หน้าที่ไม่ระบุ image เอง) — public/og.jpg 1200×630
 export const DEFAULT_OG_IMAGE = '/og.jpg'
+// ผู้จัดทำเว็บ + ช่องทางติดต่อ — โชว์ในหน้า /about, footer และ JSON-LD (Person)
+// AdSense/E-E-A-T ต้องการให้ผู้อ่านตรวจสอบได้ว่าใครเขียน และติดต่อกลับได้จริง
+// ใช้นามปากกาเท่านั้น — ห้ามใส่ชื่อ-นามสกุลจริงลงหน้าเว็บ
+export const AUTHOR_NAME = 'BigNut'
+export const CONTACT_EMAIL = 'yakuzathai.contact@gmail.com'
+export const GITHUB_URL = 'https://github.com/bignutchanon'
 export const DEFAULT_OG_SIZE = { width: 1200, height: 630 }
 // ปลายทางฟอร์มแจ้งบั๊กในหน้า /report/ = Google Apps Script Web App (ดูวิธีติดตั้งใน scripts/report-form.gs)
 // ว่าง = ยังไม่ได้ deploy → ฟอร์มจะขึ้นข้อความว่ายังไม่เปิดใช้งานและกดส่งไม่ได้

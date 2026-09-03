@@ -7,7 +7,7 @@ import CookieConsent from '@/components/CookieConsent'
 import HashRedirect from '@/components/HashRedirect'
 import JsonLd from '@/components/JsonLd'
 import { siteJsonLd } from '@/lib/seo'
-import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION } from '@/lib/site'
+import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION, AUTHOR_NAME, CONTACT_EMAIL } from '@/lib/site'
 import '@/styles.css'
 
 // metadata ของหน้าแรก (title ว่าง → ใช้ชื่อเว็บอย่างเดียว) — หน้าอื่นจะ override ผ่าน export const metadata ของตัวเอง
@@ -57,6 +57,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               เว็บ wiki โดยแฟนเกม ทำขึ้นเพื่อแชร์ในกลุ่มผู้เล่นเท่านั้น ไม่มีส่วนเกี่ยวข้องกับ SEGA / Ryu Ga Gotoku Studio
               <br />
               ภาพประกอบทั้งหมด © SEGA — ใช้เพื่อการอ้างอิงพร้อมระบุที่มาใต้ภาพ
+              <br />
+              เขียนและดูแลโดย <Link href="/about">{AUTHOR_NAME}</Link> — ติดต่อ{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <br />
+              <Link href="/about">เกี่ยวกับเว็บนี้</Link>
               {' · '}
               <Link href="/report">แจ้งบั๊กม็อด</Link>
               {' · '}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GAMES, gameImage, modUpdateBadge } from '@/data/games'
 import { newsPosts, thaiDate } from '@/lib/content'
-import { pageMeta, DEFAULT_DESCRIPTION } from '@/lib/site'
+import { pageMeta, DEFAULT_DESCRIPTION, AUTHOR_NAME } from '@/lib/site'
 import HeroScene from '@/components/HeroScene'
 import HomeGrid, { type HomeGridGame } from '@/components/HomeGrid'
 
@@ -47,6 +47,24 @@ export default function Home() {
             <span className="news-strip-date">{thaiDate(newsPosts[0].date)} →</span>
           </Link>
         )}
+
+        {/* ย่อหน้าแนะนำเว็บ — ผู้อ่านที่มาถึงหน้าแรกครั้งแรกต้องรู้ทันทีว่าเว็บนี้คืออะไรและใครทำ */}
+        <section className="home-intro">
+          <h2>เว็บนี้คืออะไร</h2>
+          <p>
+            Yakuza Wiki ภาษาไทย คือวิกิที่ทำโดยแฟนเกมชาวไทย รวมสรุปเนื้อเรื่องรายบท ไกด์เควสเสริม
+            บทความเบื้องหลัง ข่าวสาร และตารางราคาของซีรีส์ Yakuza / Like a Dragon ครบทั้ง 15 ภาค
+            ตั้งแต่ Yakuza 0 จนถึง Like a Dragon: Kiwami 3
+          </p>
+          <p>
+            สิ่งที่หาจากที่อื่นไม่ได้คือ <strong>ม็อดแปลภาษาไทย</strong> ของแต่ละภาค
+            ซึ่งเป็นงานแปลของผู้จัดทำเว็บนี้เอง แจกฟรีทุกตัว พร้อมข่าวแจ้งทุกครั้งที่ออกเวอร์ชันแก้
+            เนื้อหาในเว็บจึงเขียนจากคนที่อ่านบทพูดทั้งเกมมาแล้วตอนทำงานแปล ไม่ใช่การแปลวิกิภาษาอังกฤษมาวาง
+          </p>
+          <p className="home-intro-by">
+            เขียนและดูแลโดย {AUTHOR_NAME} — <Link href="/about">อ่านเพิ่มเติมว่าใครทำเว็บนี้</Link>
+          </p>
+        </section>
 
         <HomeGrid games={games} />
       </div>

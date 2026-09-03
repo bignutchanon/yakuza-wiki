@@ -5,6 +5,7 @@ import { loreArticles, loreBySlug } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import Markdown from '@/components/Markdown'
+import Byline from '@/components/Byline'
 import JsonLd from '@/components/JsonLd'
 
 // เพจ lore ทั้งหมดรู้ล่วงหน้าตอน build จาก loreArticles — slug นอกลิสต์นี้ = 404 (ไม่ generate เพิ่มตอน request)
@@ -64,6 +65,7 @@ export default async function LoreArticlePage({
         <Link href="/lore">Lore — เรื่องราวเบื้องหลัง</Link>
       </div>
       <h1 className="game-title">{article.title}</h1>
+      <Byline note="บทความ lore เรียบเรียงจากเนื้อเรื่องในเกม" />
       <Markdown text={article.body} />
     </div>
   )

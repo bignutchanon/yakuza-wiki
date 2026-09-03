@@ -5,6 +5,7 @@ import { newsPosts, newsBySlug, thaiDate } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import Markdown from '@/components/Markdown'
+import Byline from '@/components/Byline'
 import JsonLd from '@/components/JsonLd'
 
 // โพสต์ทั้งหมดรู้ล่วงหน้าตอน build จาก newsPosts — slug นอกลิสต์นี้ = 404
@@ -71,6 +72,7 @@ export default async function NewsPostPage({ params }: { params: Promise<{ slug:
         <span className="news-post-date">{thaiDate(post.date)}</span>
       </div>
       <h1 className="game-title">{post.title}</h1>
+      <Byline date={post.date} />
 
       <Markdown text={post.body} />
 

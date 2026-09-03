@@ -181,3 +181,56 @@ export const gamePrices: Prices | null = prices
 
 // re-export เพื่อความเข้ากันได้กับโค้ดเดิมที่ import thaiDate จาก loader.js
 export { thaiDate }
+
+// --- เควสเสริมที่ผูกกับบท -------------------------------------------------
+// substories.md ของทุกภาคเก็บเป็นตาราง markdown 5 คอลัมน์: # | ชื่อเควส | สถานที่ | ปลดล็อก | สรุป
+// คอลัมน์ "ปลดล็อก" มักระบุบทที่เควสเปิด เช่น "บทที่ 4 · ชื่อเสียง 20+" — ดึงเลขบทออกมาผูกกลับไปที่หน้าบทนั้น
+// ทำให้หน้าบทบอกได้ว่า "ถึงบทนี้แล้วมีเควสเสริมอะไรเปิดให้เล่นบ้าง" โดยไม่ต้องเขียนข้อมูลซ้ำในสองที่
+
+export interface SubstoryRef {
+  /** เลขลำดับในตาราง (คงเป็น string เพราะบางภาคใช้เลขผสมอักษร) */
+  no: string
+  name: string
+  place: string
+  unlock: string
+  summary: string
+}
+
+function parseSubstoryTable(markdown: string): { row: SubstoryRef; chapters: number[] }[] {
+  const out: { row: SubstoryRef; chapters: number[] }[] = []
+
+  for (const line of markdown.split(/\r?\n/)) {
+    const trimmed = line.trim()
+    if (!trimmed.startsWith('|')) continue
+    if (/^\|[\s\-:|]+\|$/.test(trimmed)) continue // เส้นคั่นหัวตาราง
+
+    const cells = trimmed.replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => plainText(c.trim()))
+    if (cells.length < 5) continue
+    if (!/^[0-9]/.test(cells[0])) continue // แถวหัวตาราง (คอลัมน์แรกไม่ใช่ตัวเลข)
+
+    const [no, name, place, unlock, summary] = cells
+    const chapters = [...new Set([...unlock.matchAll(/บทที่\s*(\d+)/g)].map((m) => Number(m[1])))]
+    if (chapters.length === 0) continue
+
+    out.push({ row: { no, name, place, unlock, summary }, chapters })
+  }
+  return out
+}
+
+// gameId → เลขบท → เควสที่เปิดในบทนั้น (คำนวณครั้งเดียวตอน build เหมือนเนื้อหาอื่น)
+const substoryIndex: Record<string, Map<number, SubstoryRef[]>> = {}
+for (const [gameId, content] of Object.entries(byGame)) {
+  if (!content.substories) continue
+  const map = new Map<number, SubstoryRef[]>()
+  for (const { row, chapters } of parseSubstoryTable(content.substories.body)) {
+    for (const n of chapters) {
+      const list = map.get(n) ?? []
+      list.push(row)
+      map.set(n, list)
+    }
+  }
+  substoryIndex[gameId] = map
+}
+
+export const substoriesForChapter = (gameId: string, n: number): SubstoryRef[] =>
+  substoryIndex[gameId]?.get(n) ?? []

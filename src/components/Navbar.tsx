@@ -88,6 +88,9 @@ export default function Navbar() {
           <Link href="/lore" className={navLinkClass('/lore')}>
             Lore
           </Link>
+          <Link href="/about" className={navLinkClass('/about')}>
+            เกี่ยวกับ
+          </Link>
           <Link href="/report" className={navLinkClass('/report')}>
             รายงานปัญหา
           </Link>

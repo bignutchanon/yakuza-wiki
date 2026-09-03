@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`${SITE_URL}/news/`, latestNews),
     entry(`${SITE_URL}/prices/`, at(gamePrices?.updated)),
     entry(`${SITE_URL}/lore/`),
+    entry(`${SITE_URL}/about/`),
     entry(`${SITE_URL}/support/`),
     entry(`${SITE_URL}/report/`),
     entry(`${SITE_URL}/privacy/`),

@@ -2,12 +2,23 @@
 // เป้าหมายสองอย่าง: rich result ของ Google และให้ผู้ช่วย AI (ChatGPT/Gemini/Claude) อ่านแล้วรู้ว่าหน้านี้คืออะไร
 // ไม่มี fs — import ได้ทั้ง server และ client (แต่ปกติเรียกจาก server component เท่านั้น)
 
-import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, absUrl, clip } from './site'
+import {
+  SITE_URL,
+  SITE_NAME,
+  DEFAULT_OG_IMAGE,
+  AUTHOR_NAME,
+  CONTACT_EMAIL,
+  GITHUB_URL,
+  absUrl,
+  clip,
+} from './site'
 import type { Game } from '@/data/games'
 
 // @id คงที่ ใช้ให้โหนดอื่นอ้างถึงได้โดยไม่ต้องประกาศซ้ำทั้งก้อน
 export const ORG_ID = `${SITE_URL}/#org`
 export const SITE_ID = `${SITE_URL}/#website`
+// ผู้เขียนตัวจริง — บทความทุกหน้าอ้างโหนดนี้เป็น author แทนที่จะเป็นองค์กรลอย ๆ
+export const PERSON_ID = `${SITE_URL}/#person`
 
 export type JsonLdNode = Record<string, unknown>
 
@@ -17,12 +28,26 @@ export function siteJsonLd(): JsonLdNode {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'Person',
+        '@id': PERSON_ID,
+        name: AUTHOR_NAME,
+        url: `${SITE_URL}/about/`,
+        email: CONTACT_EMAIL,
+        sameAs: [GITHUB_URL],
+        knowsLanguage: ['th-TH', 'en'],
+        description:
+          'แฟนเกมชาวไทยที่ทำม็อดแปลภาษาไทยของซีรีส์ Yakuza / Like a Dragon และเขียนเนื้อหาทั้งหมดในเว็บนี้',
+      },
+      {
         '@type': 'Organization',
         '@id': ORG_ID,
         name: SITE_NAME,
         alternateName: ['Yakuza Thai Wiki', 'ยากูซ่าไทยวิกิ'],
         url: `${SITE_URL}/`,
         logo: absUrl('/icon-512.png'),
+        email: CONTACT_EMAIL,
+        founder: { '@id': PERSON_ID },
+        sameAs: [GITHUB_URL],
         description:
           'กลุ่มแฟนเกมชาวไทยที่ทำวิกิสรุปเนื้อเรื่องซีรีส์ Yakuza / Like a Dragon และม็อดแปลไทยของแต่ละภาค ไม่มีส่วนเกี่ยวข้องกับ SEGA หรือ Ryu Ga Gotoku Studio',
       },
@@ -92,7 +117,7 @@ export function articleJsonLd({
     image: absUrl(image ?? DEFAULT_OG_IMAGE),
     isPartOf: { '@id': SITE_ID },
     publisher: { '@id': ORG_ID },
-    author: { '@id': ORG_ID },
+    author: { '@id': PERSON_ID },
   }
   if (datePublished) node.datePublished = datePublished
   if (dateModified ?? datePublished) node.dateModified = dateModified ?? datePublished
@@ -145,4 +170,18 @@ export function modJsonLd(game: Game, pagePath: string, image: string): JsonLdNo
   if (game.mod.version) node.softwareVersion = game.mod.version
   if (game.mod.updated) node.dateModified = game.mod.updated
   return node
+}
+
+// หน้า /about — ประกาศว่าใครอยู่เบื้องหลังเว็บ (E-E-A-T: ผู้อ่านและเครื่องมือค้นหาต้องตรวจสอบตัวตนผู้เขียนได้)
+export function aboutPageJsonLd(): JsonLdNode {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: `เกี่ยวกับ ${SITE_NAME}`,
+    url: absUrl('/about/'),
+    inLanguage: 'th-TH',
+    isPartOf: { '@id': SITE_ID },
+    mainEntity: { '@id': PERSON_ID },
+    publisher: { '@id': ORG_ID },
+  }
 }

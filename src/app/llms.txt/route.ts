@@ -95,6 +95,7 @@ function buildLlmsTxt(): string {
   lines.push(
     `- [ตารางราคาเกมทุกภาค](${SITE_URL}/prices/)${gamePrices?.updated ? ` — อัปเดต ${thaiDate(gamePrices.updated)}` : ''}`,
   )
+  lines.push(`- [เกี่ยวกับเว็บนี้ + ผู้จัดทำ](${SITE_URL}/about/)`)
   lines.push(`- [แจ้งบั๊กม็อดแปลไทย](${SITE_URL}/report/)`)
   lines.push(`- [สนับสนุนผู้จัดทำ](${SITE_URL}/support/)`)
   lines.push(`- [นโยบายความเป็นส่วนตัว](${SITE_URL}/privacy/)`)
