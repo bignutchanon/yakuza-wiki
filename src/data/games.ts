@@ -93,10 +93,10 @@ export const GAMES: Game[] = [
       'ญี่ปุ่นปลายยุคเอโดะกำลังจะแตกเป็นสองฝ่ายหลังเรือรบตะวันตกมาถึง ริวมะ ซากาโมโตะถูกใส่ร้ายว่าฆ่าพ่อบุญธรรมของตัวเอง จึงหนีไปเกียวโตแล้วแฝงตัวเข้ากลุ่มชินเซ็นงุมิในชื่อ "ไซโต ฮาจิเมะ" เพื่อล่าฆาตกรตัวจริง — สปินออฟที่ยกนักแสดงทั้งซีรีส์มาสวมบทบุคคลจริงในประวัติศาสตร์ (ฉบับรีเมค Kiwami วางขายทั่วโลกปี 2023 ต้นฉบับปี 2014 มีแต่ในญี่ปุ่น)',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/like-a-dragon-ishin-thai-mod/releases/download/v1.0/LikeADragonIshinThai-v1.0.zip',
-      note: 'v1.0 (3 ก.ย. 2026) — รุ่นแรก แปลทั้งเกม · ตั้งภาษาข้อความในเกมเป็น English',
-      version: 'v1.0',
-      updated: '2026-09-03',
+      url: 'https://github.com/bignutchanon/like-a-dragon-ishin-thai-mod/releases/download/v1.1/LikeADragonIshinThai-v1.1.zip',
+      note: 'v1.1 (4 ก.ย. 2026) — แก้ภาพในจอทิปส์เป็นสี่เหลี่ยมขาว ชื่อศัตรูขึ้นเป็น ?????? และชื่อผู้พูด/ตัวเลือกตอบที่ยังเป็นอังกฤษ · ตั้งภาษาข้อความในเกมเป็น English',
+      version: 'v1.1',
+      updated: '2026-09-04',
     },
   },
   {
