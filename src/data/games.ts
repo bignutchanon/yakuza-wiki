@@ -262,7 +262,13 @@ export const GAMES: Game[] = [
     setting: 'คามุโรโจ / โอโนมิจิ (ฮิโรชิม่า) — ค.ศ. 2016',
     blurb:
       'ฮารุกะหายตัวไปและตื่นขึ้นมาพร้อมลูกน้อยปริศนา คิริวออกตามหาความจริงถึงเมืองท่าเล็ก ๆ ในฮิโรชิม่า — บทสรุปมหากาพย์ของคาซึมะ คิริวบนเอนจินใหม่ Dragon Engine',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/14_yQgaxuiUQgaY8NQA0eIUlEI8fEyTaW/view?usp=drive_link' },
+    mod: {
+      status: 'released',
+      url: 'https://github.com/bignutchanon/yakuza6-thai-mod/releases/download/v1.4/Yakuza6-Thai-v1.4.zip',
+      note: 'v1.4 (6 ก.ย. 2026) — ช่องไฟตัวอักษรไทยเป็นแบบสัดส่วน ไม่ห่างเป็นช่องเท่าคันจิแล้ว · ต้องตั้งภาษาเกมใน Steam เป็น Japanese',
+      version: 'v1.4',
+      updated: '2026-09-06',
+    },
   },
   {
     id: 'judgment',
