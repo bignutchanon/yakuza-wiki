@@ -120,10 +120,6 @@ export const GAMES: Game[] = [
       version: 'v1.8',
       updated: '2026-09-06',
       nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/36',
-      manual: {
-        url: 'https://github.com/bignutchanon/yakuza0-dc-thai-mod/releases/download/v1.8/Yakuza0DC_Thai_v1.8_manual.zip',
-        note: 'ไฟล์เกมเหมือนแพ็กปกติ แต่ไม่มีตัวติดตั้ง — ลากโฟลเดอร์ runtime ทับเอง สำหรับคนที่โปรแกรมสแกนไวรัสลบไฟล์ติดตั้งทิ้ง (แพ็กนี้ไม่สำรองไฟล์เดิมให้)',
-      },
     },
   },
   {
