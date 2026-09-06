@@ -115,11 +115,13 @@ export const GAMES: Game[] = [
       'ยุคฟองสบู่ญี่ปุ่นกำลังเดือด คิริวหนุ่มถูกใส่ร้ายคดีฆาตกรรมบนที่ดินผืนเดียวที่ทั้งคามุโรโจต้องการ ส่วนมาจิมะถูกเนรเทศไปคุมคาบาเรต์ในโอซาก้า รอวันกลับเข้าตระกูล — สองเส้นเรื่องค่อย ๆ บรรจบกันเป็นจุดเริ่มต้นของทุกสิ่ง',
     mod: {
       status: 'released',
-      url: 'https://drive.google.com/file/d/1vWUKw1czGJhaDXPktMa4fea7__32k67z/view?usp=drive_link',
-      note: "รองรับ Yakuza 0 Director's Cut",
+      url: 'https://github.com/bignutchanon/yakuza0-dc-thai-mod/releases/download/v1.8/Yakuza0DC_Thai_v1.8.zip',
+      note: "v1.8 (6 ก.ย. 2026) — เก็บบทคุยชาวเมือง บทพูดในใจ และบทคาบาเรต์/อสังหาฯ ที่ยังขึ้นเป็นอังกฤษ · รองรับ Yakuza 0 Director's Cut",
+      version: 'v1.8',
+      updated: '2026-09-06',
       nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/36',
       manual: {
-        url: 'https://drive.google.com/file/d/1QntHonGq-LOdky-z571H4PMDT_RfaOdk/view?usp=sharing',
+        url: 'https://github.com/bignutchanon/yakuza0-dc-thai-mod/releases/download/v1.8/Yakuza0DC_Thai_v1.8_manual.zip',
         note: 'ไฟล์เกมเหมือนแพ็กปกติ แต่ไม่มีตัวติดตั้ง — ลากโฟลเดอร์ runtime ทับเอง สำหรับคนที่โปรแกรมสแกนไวรัสลบไฟล์ติดตั้งทิ้ง (แพ็กนี้ไม่สำรองไฟล์เดิมให้)',
       },
     },
