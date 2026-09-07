@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { pageMeta } from '@/lib/site'
+import { GITHUB_SPONSORS_URL, pageMeta } from '@/lib/site'
 
 export const metadata: Metadata = pageMeta({
   title: 'สนับสนุนผู้จัดทำ',
-  description: 'ม็อดแปลไทยทุกภาคแจกฟรี — ช่องทางสนับสนุนผู้จัดทำผ่าน PromptPay',
+  description: 'ม็อดแปลไทยทุกภาคแจกฟรี — ช่องทางสนับสนุนผู้จัดทำผ่าน PromptPay และ GitHub Sponsors',
   path: '/support/',
 })
 
@@ -27,6 +27,19 @@ export default function SupportPage() {
           <div className="support-acct">xxx-x-x5185-x · รับเงินได้จากทุกธนาคาร</div>
         </div>
       </div>
+
+      {GITHUB_SPONSORS_URL && (
+        <div className="mod-box">
+          <h3>สนับสนุนผ่าน GitHub Sponsors</h3>
+          <p>
+            สำหรับคนที่อยู่ต่างประเทศหรือสะดวกจ่ายด้วยบัตรเครดิต —
+            เลือกสนับสนุนครั้งเดียวหรือรายเดือนก็ได้ ผ่านบัญชี GitHub ที่แจกม็อดทุกภาค
+          </p>
+          <a className="mod-btn" href={GITHUB_SPONSORS_URL} target="_blank" rel="noopener noreferrer">
+            ไปหน้า GitHub Sponsors ↗
+          </a>
+        </div>
+      )}
 
       <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginTop: '1.5rem' }}>
         ยอดสนับสนุนทั้งหมดใช้เป็นกำลังใจและค่าเวลาในการทำม็อดแปลไทยภาคต่อ ๆ ไป
