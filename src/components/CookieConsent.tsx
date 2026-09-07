@@ -39,6 +39,8 @@ export default function CookieConsent() {
 
   const decide = (value: string) => {
     localStorage.setItem(KEY, value)
+    // แจ้ง GTM ว่าผู้ใช้เพิ่งเลือก (แท็กใน GTM ใช้ event นี้เป็น trigger ได้)
+    ;(window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({ event: 'cookie_consent', cookieConsent: value })
     if (value === 'essential') {
       ;(window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1
     }

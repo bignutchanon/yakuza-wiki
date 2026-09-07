@@ -7,7 +7,7 @@ import CookieConsent from '@/components/CookieConsent'
 import HashRedirect from '@/components/HashRedirect'
 import JsonLd from '@/components/JsonLd'
 import { siteJsonLd } from '@/lib/seo'
-import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION, AUTHOR_NAME, CONTACT_EMAIL } from '@/lib/site'
+import { pageMeta, SITE_URL, DEFAULT_DESCRIPTION, AUTHOR_NAME, CONTACT_EMAIL, GTM_ID } from '@/lib/site'
 import '@/styles.css'
 
 // metadata ของหน้าแรก (title ว่าง → ใช้ชื่อเว็บอย่างเดียว) — หน้าอื่นจะ override ผ่าน export const metadata ของตัวเอง
@@ -29,6 +29,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        {/* Google Tag Manager — ตัวจัดการแท็ก (GA4 ฯลฯ ตั้งค่าใน GTM ไม่ต้องแก้โค้ด) · ค่าที่เลือกในแบนเนอร์คุกกี้ถูก push เข้า dataLayer เป็น cookie_consent ให้แท็กใช้เป็น trigger ได้ */}
+        {GTM_ID && (
+          <>
+            <Script id="gtm" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'cookie_consent', cookieConsent: localStorage.getItem('cookieConsent') || 'unset' });
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');`}
+            </Script>
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                height="0"
+                width="0"
+                style={{ display: 'none', visibility: 'hidden' }}
+              />
+            </noscript>
+          </>
+        )}
+
         {/* Organization + WebSite — ติดไปทุกหน้าเพราะอยู่ใน layout หน้าอื่นเพิ่มโหนดของตัวเองต่อได้ */}
         <JsonLd data={siteJsonLd()} />
 

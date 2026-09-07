@@ -61,6 +61,7 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 - script (`next/script`, `strategy="afterInteractive"`) + consent snippet (`strategy="beforeInteractive"`) ใน `src/app/layout.tsx` (pub ID `ca-pub-8021468402008200`) + meta `google-adsense-account` ผ่าน `metadata.other` + `public/ads.txt`
 - โดเมนหลักตอนนี้คือ yakuzathai.com เอง (custom domain, ไม่มี basePath) → `public/ads.txt` เสิร์ฟที่ root โดเมนตรง ๆ ไม่ต้องพึ่ง repo แยก `bignutchanon.github.io` redirect แบบตอนอยู่ subpath `/yakuza-wiki/` เหมือนเดิมแล้ว
+- **Google Tag Manager** (`GTM_ID` ใน `src/lib/site.ts` = `GTM-TF6NW7LG`, ว่างไว้ = ไม่โหลด) — สคริปต์ + `<noscript>` iframe ใน `layout.tsx` ผ่าน `next/script` (`afterInteractive`) · ตัวเลือกคุกกี้ถูก push เข้า `dataLayer` เป็น event `cookie_consent` (`cookieConsent: all|essential|unset`) ทั้งตอนโหลดหน้าและตอนกดเลือกใน `<CookieConsent>` → แท็กใน GTM (GA4 ฯลฯ) ตั้ง trigger อิงค่านี้ได้ ไม่ต้องแก้โค้ดเว็บ · หน้า `/privacy` มีข้อความแจ้งเรื่องสถิติแล้ว
 - แบนเนอร์คุกกี้ `<CookieConsent>` เก็บตัวเลือกใน localStorage key `cookieConsent` (`all`/`essential`) — consent snippet ใน `layout.tsx` อ่านค่าตอนโหลดเพื่อตั้ง `requestNonPersonalizedAds` ก่อนโฆษณาเริ่ม · หน้า `/privacy` มีปุ่มล้างตัวเลือก (`<CookieResetButton>`)
 
 ### กติกาที่มาจากรอบแก้ "เนื้อหาที่มีคุณค่าต่ำ" (4 ก.ย. 2026)
