@@ -1,0 +1,79 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-09-07 04:30:00",
+  "containerVersion": {
+    "path": "accounts/6375449268/containers/263390787/versions/0",
+    "accountId": "6375449268",
+    "containerId": "263390787",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/6375449268/containers/263390787",
+      "accountId": "6375449268",
+      "containerId": "263390787",
+      "name": "yakuzathai.com",
+      "publicId": "GTM-TF6NW7LG",
+      "usageContext": ["WEB"]
+    },
+    "variable": [
+      {
+        "accountId": "6375449268",
+        "containerId": "263390787",
+        "variableId": "1",
+        "name": "cookieConsent",
+        "type": "v",
+        "notes": "ค่าที่ผู้ใช้เลือกในแบนเนอร์คุกกี้ของเว็บ (all / essential / unset) — เว็บ push เข้า dataLayer พร้อม event cookie_consent",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "cookieConsent" }
+        ]
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "6375449268",
+        "containerId": "263390787",
+        "triggerId": "2",
+        "name": "Consent All",
+        "type": "CUSTOM_EVENT",
+        "notes": "ยิงเมื่อผู้ใช้ยอมรับคุกกี้ทั้งหมด (ตอนโหลดหน้าถ้าเคยยอมรับไว้ หรือตอนกดปุ่มในแบนเนอร์)",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "cookie_consent" }
+            ]
+          }
+        ],
+        "filter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{cookieConsent}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "all" }
+            ]
+          }
+        ]
+      }
+    ],
+    "tag": [
+      {
+        "accountId": "6375449268",
+        "containerId": "263390787",
+        "tagId": "3",
+        "name": "GA4 - Google Tag",
+        "type": "googtag",
+        "notes": "Google Analytics 4 — ยิงเฉพาะเมื่อผู้ใช้ยอมรับคุกกี้ทั้งหมด",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "G-E3XN51DE5S" }
+        ],
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      }
+    ],
+    "fingerprint": "1"
+  }
+}

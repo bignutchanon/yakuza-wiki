@@ -45,6 +45,7 @@ public/
   CNAME · .nojekyll        GitHub Pages custom domain (yakuzathai.com)
 scripts/
   fetch-prices.ps1         ดึงราคา Steam ไทยทุกภาค — ใช้ตอนอัปเดต prices.md (PS/Xbox ต้องเช็คมือ)
+  gtm-container.json       ค่าตั้ง GTM (ตัวแปร cookieConsent + ทริกเกอร์ Consent All + แท็ก GA4) — import ที่ GTM → ผู้ดูแลระบบ → นำเข้าคอนเทนเนอร์ (merge)
 ```
 
 Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod) → `lib/content.ts` = เนื้อหา markdown → แต่ละหน้า (server component) ประกอบสองอย่างนี้ render ผ่าน `<Markdown>` — component ไหนต้องใช้ state/window/motion ถึงมี `'use client'` (Navbar, CookieConsent, CookieResetButton, HashRedirect, HeroScene, Screenshots, HomeGrid, NewsList, template.tsx) นอกนั้น render markdown ฝั่ง server ให้ HTML อยู่ใน static output ตั้งแต่ build (SEO)
