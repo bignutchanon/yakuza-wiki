@@ -221,11 +221,11 @@ export const GAMES: Game[] = [
       'ครั้งแรกที่ซีรีส์เล่าผ่านตัวเอกสี่คน — เจ้าหนี้ใจดี นักโทษแหกคุก ตำรวจนอกคอก และมังกรในตำนาน — สี่มุมมองที่พันกันรอบคดีเดียวกลางคามุโรโจ',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/download/v2.2/Yakuza4-Thai-Mod-v2.2.zip',
+      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/download/v2.3/Yakuza4-Thai-Mod-v2.3.zip',
       nexus: 'https://www.nexusmods.com/yakuza4remastered/mods/233',
-      note: 'v2.2 (29 ส.ค. 2026) — ย้ายช่องทางโหลดหลักมาที่ GitHub · ติดตั้งด้วยการลากโฟลเดอร์เดียว ไม่ต้องตั้ง Launch Options',
-      version: 'v2.2',
-      updated: '2026-08-29',
+      note: 'v2.3 (7 ก.ย. 2026) — เกลาคำแปลทั้งเกม สรรพนาม/เพศผู้พูด/ชื่อเฉพาะสม่ำเสมอ + แก้ฟอนต์ไทยเบียดกัน · ลากโฟลเดอร์เดียวทับ ไม่ต้องตั้ง Launch Options',
+      version: 'v2.3',
+      updated: '2026-09-07',
     },
   },
   {
