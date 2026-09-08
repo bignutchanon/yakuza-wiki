@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { RECOMMEND_ENDPOINT } from '@/lib/site'
+import { fetchRecommendCounts } from '@/lib/recommend'
 
 // ปุ่ม "แนะนำ" — เว็บเป็น static export ยอดจึงต้องดึงจาก Cloudflare Worker ฝั่ง client
 // (โค้ด worker + วิธี deploy อยู่ที่ worker/README.md · RECOMMEND_ENDPOINT ว่าง = ปิดระบบ ปุ่มไม่ถูก render)
@@ -45,12 +46,11 @@ export default function RecommendButton({ target, label = 'แนะนำภา
     if (!RECOMMEND_ENDPOINT) return
     setVoted(readVoted(target))
 
+    // ยอดโหลดไม่ขึ้นไม่ใช่เรื่องใหญ่ — ปุ่มยังกดได้ แค่ไม่โชว์ตัวเลข (helper กลืน error ให้แล้ว)
     const ac = new AbortController()
-    fetch(`${RECOMMEND_ENDPOINT}?targets=${encodeURIComponent(target)}`, { signal: ac.signal })
-      .then((res) => res.json() as Promise<{ counts?: Record<string, number> }>)
-      .then((body) => setCount(body.counts?.[target] ?? 0))
-      // ยอดโหลดไม่ขึ้นไม่ใช่เรื่องใหญ่ — ปุ่มยังกดได้ แค่ไม่โชว์ตัวเลข
-      .catch(() => {})
+    fetchRecommendCounts([target], ac.signal).then((counts) => {
+      if (target in counts) setCount(counts[target])
+    })
     return () => ac.abort()
   }, [target])
 

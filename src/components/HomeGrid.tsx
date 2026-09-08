@@ -1,8 +1,10 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { STEAM_HEADER_SIZE } from '@/data/games'
+import { fetchRecommendCounts } from '@/lib/recommend'
 import Credit from './Credit'
 
 const MotionLink = motion.create(Link)
@@ -45,6 +47,19 @@ interface HomeGridProps {
 
 // การ์ดที่มีอนิเมชัน (framer-motion) ของหน้าแรก — แยกเป็น client component เพราะ motion ต้องใช้ hook ฝั่ง browser
 export default function HomeGrid({ games }: HomeGridProps) {
+  // ยอดกดแนะนำของทุกภาค ดึงรอบเดียวหลังหน้าโหลด (static export ไม่มียอดตอน build)
+  // ว่าง = ยังไม่โหลด/โหลดไม่สำเร็จ → ป้ายยอดไม่โชว์ การ์ดยังเหมือนเดิม
+  const [counts, setCounts] = useState<Record<string, number>>({})
+
+  useEffect(() => {
+    const ac = new AbortController()
+    fetchRecommendCounts(
+      games.map((g) => `game:${g.id}`),
+      ac.signal
+    ).then(setCounts)
+    return () => ac.abort()
+  }, [games])
+
   return (
     <>
       <h2 className="section-h">ทุกภาคในซีรีส์ (เรียงตามไทม์ไลน์เนื้อเรื่อง)</h2>
@@ -54,6 +69,15 @@ export default function HomeGrid({ games }: HomeGridProps) {
             <div className="card-media">
               <img src={g.image} alt={g.title} loading="lazy" {...STEAM_HEADER_SIZE} />
               {g.updateBadge && <span className="update-flag">{g.updateBadge}</span>}
+              {/* ป้ายวางทับบนภาพ ไม่ใช่ในเนื้อการ์ด — ยอดมาถึงหลังหน้าโหลดแล้ว จะได้ไม่ดันเลย์เอาต์ (CLS) */}
+              {counts[`game:${g.id}`] !== undefined && (
+                <span
+                  className="card-score"
+                  aria-label={`${counts[`game:${g.id}`].toLocaleString('th-TH')} คนกดแนะนำภาคนี้`}
+                >
+                  <span aria-hidden="true">★ {counts[`game:${g.id}`].toLocaleString('th-TH')}</span>
+                </span>
+              )}
             </div>
             <div className="body">
               <h3>{g.title}</h3>

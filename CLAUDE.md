@@ -89,6 +89,7 @@ AdSense เคยตีตราเว็บนี้ว่า **"ต้อง�
   ฝั่งเว็บมีแค่ `<RecommendButton target="game:<id>">` (client component) ที่ยิงข้ามโดเมนไปหา worker
 - **`RECOMMEND_ENDPOINT` ใน `src/lib/site.ts` ว่าง = ปิดระบบ** ปุ่มไม่ถูก render เลย — ตอนนี้ใส่ `https://api.yakuzathai.com/recommend` แล้ว (ดู `worker/README.md`)
 - **Cloudflare พร้อมใช้งานแล้ว (8 ก.ย. 2026)**: worker `yakuzathai-recommend` + D1 `yakuzathai` (`9501dee0-db3c-4041-8863-82fdafb86c00`, `database_id` อยู่ใน `worker/wrangler.toml`) + custom domain `api.yakuzathai.com` + secret `VOTE_SALT` — บัญชี `chanon.bignut@gmail.com` · แก้ worker แล้ว deploy ใหม่ด้วย `npx wrangler deploy` ในโฟลเดอร์ `worker/` ไม่ต้อง build เว็บใหม่
+- ฝั่งเว็บอ่านยอดผ่าน `fetchRecommendCounts()` ใน `src/lib/recommend.ts` (client only) — หน้าเกมดึงของตัวเอง ส่วน `<HomeGrid>` ดึงยอดทุกภาครอบเดียวมาโชว์เป็นป้าย `.card-score` มุมล่างซ้ายของภาพปก (วางทับภาพเพื่อไม่ให้ยอดที่มาหลังโหลดดันเลย์เอาต์) · worker รับได้ไม่เกิน 40 target ต่อคำขอ
 - `target` เป็นรูปแบบ `ชนิด:ไอดี` — ตอนนี้ใช้แค่ `game:<id>` ในหน้าเกม แต่ worker รับ `news:<slug>` / `lore:<slug>` ได้ทันทีถ้าจะขยาย
 - POST ต้องส่งเป็น `application/x-www-form-urlencoded` เท่านั้น (เป็น simple request → ไม่มี preflight) — ห้ามเปลี่ยนเป็น JSON หรือใส่ custom header
 - กันกดซ้ำสองชั้น: localStorage `recommend:<target>` (แค่ UX) + `PRIMARY KEY (target, voter)` ในตาราง (ของจริง)
