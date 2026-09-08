@@ -1,0 +1,18 @@
+# Cloudflare Worker ของระบบ "แนะนำ" — deploy แยกจากเว็บ (เว็บอยู่ GitHub Pages)
+# วิธีติดตั้งครั้งแรกดูที่ worker/README.md
+name = "yakuzathai-recommend"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# ผูกโดเมนย่อยของเว็บเข้ากับ worker — zone ต้องอยู่ใน Cloudflare อยู่แล้ว (DNS ของ yakuzathai.com อยู่ที่นี่)
+routes = [
+  { pattern = "api.yakuzathai.com", custom_domain = true }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "yakuzathai"
+# ใส่ id ที่ได้จาก `wrangler d1 create yakuzathai`
+database_id = "9501dee0-db3c-4041-8863-82fdafb86c00"
+
+# VOTE_SALT เป็น secret ไม่ใส่ในไฟล์นี้ — ตั้งด้วย `wrangler secret put VOTE_SALT`

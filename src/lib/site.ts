@@ -22,6 +22,11 @@ export const DEFAULT_OG_SIZE = { width: 1200, height: 630 }
 export const REPORT_ENDPOINT: string =
   'https://script.google.com/macros/s/AKfycbw_zzD9w1-R_hR5DAvvW3J2Q6aSUXdeSSqfDNunFpopNKlyHSbK9HFIJ_Tu37WdJG_6fQ/exec'
 
+// ปลายทางปุ่ม "แนะนำ" = Cloudflare Worker + D1 (ดูโค้ดและวิธี deploy ใน worker/README.md)
+// เว็บเป็น static export จึงเก็บยอดเองไม่ได้ ต้องยิงข้ามโดเมนจากเบราว์เซอร์
+// ว่าง = ปิดระบบ → <RecommendButton> ไม่ถูก render ทั้งหมด
+export const RECOMMEND_ENDPOINT: string = 'https://api.yakuzathai.com/recommend'
+
 export const DEFAULT_DESCRIPTION =
   'วิกิภาษาไทยของซีรีส์ Yakuza / Like a Dragon ทำโดยแฟนเกม สรุปเนื้อเรื่องรายบท ไกด์ substories บทความ lore ข่าวสาร ตารางราคา และลิงก์ดาวน์โหลดม็อดแปลไทยครบทุกภาค'
 

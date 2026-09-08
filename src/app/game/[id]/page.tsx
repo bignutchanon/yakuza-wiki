@@ -16,6 +16,7 @@ import { pageMeta } from '@/lib/site'
 import { breadcrumbJsonLd, videoGameJsonLd, modJsonLd } from '@/lib/seo'
 import Credit from '@/components/Credit'
 import JsonLd from '@/components/JsonLd'
+import RecommendButton from '@/components/RecommendButton'
 import { ShotStrip } from '@/components/Screenshots'
 
 export async function generateStaticParams() {
@@ -147,6 +148,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           <p>ภาคนี้ยังไม่มีม็อดแปลไทย</p>
         </div>
       )}
+
+      <RecommendButton target={`game:${game.id}`} />
 
       <ShotStrip game={game} />
 

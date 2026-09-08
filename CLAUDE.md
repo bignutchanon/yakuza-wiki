@@ -43,6 +43,10 @@ public/
   maps/                    แผนที่เมือง self-host (อ้างจาก CITY_MAPS)
   promptpay-qr.png         QR หน้า Support
   CNAME · .nojekyll        GitHub Pages custom domain (yakuzathai.com)
+worker/                    ★ Cloudflare Worker + D1 = ระบบปุ่ม "แนะนำ" (recommend) — deploy แยกจากเว็บ
+  src/index.js             GET /recommend?targets=… (อ่านยอด) · POST /recommend (กด) · CORS จำกัด origin
+  schema.sql · test.mjs    ตาราง D1 · เทสลอจิกด้วย node:sqlite (`node test.mjs` ไม่ต้อง login Cloudflare)
+  README.md                ขั้นตอน deploy ครั้งแรก + คำสั่งดู/ลบยอด
 scripts/
   fetch-prices.ps1         ดึงราคา Steam ไทยทุกภาค — ใช้ตอนอัปเดต prices.md (PS/Xbox ต้องเช็คมือ)
   gtm-container.json       ค่าตั้ง GTM (ตัวแปร cookieConsent + ทริกเกอร์ Consent All + แท็ก GA4) — import ที่ GTM → ผู้ดูแลระบบ → นำเข้าคอนเทนเนอร์ (merge)
@@ -78,6 +82,20 @@ AdSense เคยตีตราเว็บนี้ว่า **"ต้อง�
 - **เนื้อเรื่องต้องตรวจกับแหล่งอ้างอิงก่อนเขียน** ห้ามเขียนจากความจำ — รอบที่แล้วเจอข้อมูลผิดกว่า 20 จุด รวมบทที่เล่าเหตุการณ์ของบทอื่นทั้งบท
 - **ขั้นตอนหลังแก้เพื่อขอรีวิว**: deploy → Search Console ส่ง sitemap + ขอ index หน้าใหม่ → รอ 1-3 วันให้บอตเก็บ → กดขอรีวิวใน AdSense **ครั้งเดียว** → ระหว่างรอผลอย่าแก้โครงสร้างเว็บ (เพิ่มข่าว/แก้คำผิดได้ปกติ)
 - **ข้อจำกัดที่เถียงไม่ได้**: รูป © SEGA ทุกหน้า + เว็บมีจุดประสงค์แจกม็อดที่ดัดแปลงไฟล์เกม ถ้าถูกปฏิเสธด้วยเหตุผลด้านลิขสิทธิ์ อย่าไล่แก้เนื้อหาเพิ่ม ให้ทบทวนช่องทางหารายได้แทน
+
+## ปุ่ม "แนะนำ" (recommend)
+
+- เว็บเป็น static export ไม่มี server → ยอดกดเก็บที่ **Cloudflare D1** ผ่าน Worker ใน `worker/` (โดเมน `api.yakuzathai.com`)
+  ฝั่งเว็บมีแค่ `<RecommendButton target="game:<id>">` (client component) ที่ยิงข้ามโดเมนไปหา worker
+- **`RECOMMEND_ENDPOINT` ใน `src/lib/site.ts` ว่าง = ปิดระบบ** ปุ่มไม่ถูก render เลย — ตอนนี้ใส่ `https://api.yakuzathai.com/recommend` แล้ว (ดู `worker/README.md`)
+- **Cloudflare พร้อมใช้งานแล้ว (8 ก.ย. 2026)**: worker `yakuzathai-recommend` + D1 `yakuzathai` (`9501dee0-db3c-4041-8863-82fdafb86c00`, `database_id` อยู่ใน `worker/wrangler.toml`) + custom domain `api.yakuzathai.com` + secret `VOTE_SALT` — บัญชี `chanon.bignut@gmail.com` · แก้ worker แล้ว deploy ใหม่ด้วย `npx wrangler deploy` ในโฟลเดอร์ `worker/` ไม่ต้อง build เว็บใหม่
+- `target` เป็นรูปแบบ `ชนิด:ไอดี` — ตอนนี้ใช้แค่ `game:<id>` ในหน้าเกม แต่ worker รับ `news:<slug>` / `lore:<slug>` ได้ทันทีถ้าจะขยาย
+- POST ต้องส่งเป็น `application/x-www-form-urlencoded` เท่านั้น (เป็น simple request → ไม่มี preflight) — ห้ามเปลี่ยนเป็น JSON หรือใส่ custom header
+- กันกดซ้ำสองชั้น: localStorage `recommend:<target>` (แค่ UX) + `PRIMARY KEY (target, voter)` ในตาราง (ของจริง)
+  `voter` = `sha256(VOTE_SALT + IP)` **ไม่เก็บ IP จริง** — หน้า `/privacy` มีหัวข้ออธิบายเรื่องนี้แล้ว ถ้าเปลี่ยนวิธีเก็บต้องแก้หน้านั้นด้วย
+- แก้ `worker/src/index.js` แล้วต้องรัน `node worker/test.mjs` ให้ผ่านก่อน deploy
+- **ระบบ review (คอมเมนต์ข้อความ) ยังไม่ทำ** — ตั้งใจเว้นไว้เพราะ UGC ที่ไม่ผ่านการอนุมัติเสี่ยงกับเกณฑ์
+  "เนื้อหาที่มีคุณค่าต่ำ" ของ AdSense ที่เว็บนี้เคยโดนมาแล้ว ถ้าจะทำต้องมีระบบอนุมัติก่อนโชว์เสมอ
 
 ## กติกา content (frontmatter)
 
