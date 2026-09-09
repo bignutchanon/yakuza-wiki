@@ -31,6 +31,9 @@ export interface Game {
   protagonists: string[]
   setting: string
   blurb: string
+  // ภาคที่เนื้อเรื่องเหมือนกันทุกประการ (รีมาสเตอร์/รีเมคของเรื่องเดียวกัน) — หน้าเกมจะลิงก์ไปสรุปรายบทของภาคนั้นแทน
+  // ที่เขียนซ้ำสองชุด
+  storyFrom?: string
   mod: ModInfo
 }
 
@@ -204,6 +207,27 @@ export const GAMES: Game[] = [
       note: 'v1.1 (1 ก.ย. 2026) — ม็อดตัวเดียวกับ Kiwami 3 ติดตั้งครั้งเดียวได้ทั้งสองแคมเปญ',
       version: 'v1.1',
       updated: '2026-09-01',
+    },
+  },
+  {
+    id: 'y3r',
+    title: 'Yakuza 3 Remastered',
+    subtitle: 'ภาค 3 ฉบับรีมาสเตอร์ — ต้นฉบับปี 2009 ก่อนถูกรีเมคเป็น Kiwami 3',
+    year: 2009,
+    releaseYear: 2019,
+    steamAppId: 1088710,
+    maps: ['ryukyu', 'kamurocho'],
+    protagonists: ['คาซึมะ คิริว'],
+    setting: 'โอกินาว่า / คามุโรโจ — ค.ศ. 2009',
+    blurb:
+      'คิริววางมือจากวงการมาเปิดสถานเลี้ยงเด็กกำพร้าริมทะเลที่โอกินาว่า ก่อนโครงการรีสอร์ตและกระสุนนัดหนึ่งกลางคามุโรโจจะลากเขากลับเข้าสู่ศึกของตระกูลโทโจอีกครั้ง — ฉบับรีมาสเตอร์ของเกมต้นฉบับปี 2009 เนื้อเรื่องเดียวกับ Yakuza Kiwami 3',
+    storyFrom: 'y3',
+    mod: {
+      status: 'released',
+      url: 'https://github.com/bignutchanon/yakuza3-thai-mod/releases/download/v1.0/Yakuza3-Thai-Mod-v1.0.zip',
+      note: 'v1.0 (9 ก.ย. 2026) — รุ่นแรก แปลไทยทั้งเกม ลากโฟลเดอร์ทับโฟลเดอร์เกมจบ ไม่ต้องตั้ง Launch Options',
+      version: 'v1.0',
+      updated: '2026-09-09',
     },
   },
   {

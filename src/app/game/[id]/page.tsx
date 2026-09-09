@@ -50,6 +50,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   if (!game) notFound()
 
   const { chapters, substories, guide } = contentFor(id)
+  // ภาครีมาสเตอร์/รีเมคของเรื่องเดียวกัน ไม่เขียนสรุปบทซ้ำ แต่ลิงก์ไปหน้าที่มีสรุปอยู่แล้ว
+  const storyGame = game.storyFrom ? gameById(game.storyFrom) : undefined
 
   // แทรกป้ายชื่อพาร์ทเมื่อบทถัดไปเปลี่ยนพาร์ท (ภาคที่แบ่งพาร์ท เช่น Y4/Y5)
   const rows: Row[] = []
@@ -216,6 +218,11 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             ),
           )}
         </ul>
+      ) : storyGame ? (
+        <p>
+          ภาคนี้เล่าเรื่องเดียวกับ {storyGame.title} ทุกบท —{' '}
+          <Link href={`/game/${storyGame.id}/`}>อ่านสรุปเนื้อเรื่องรายบทได้ที่หน้า {storyGame.title} →</Link>
+        </p>
       ) : (
         <div className="placeholder">เนื้อหาส่วนนี้กำลังเขียน — เร็ว ๆ นี้</div>
       )}
@@ -224,6 +231,12 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       {substories ? (
         <p>
           <Link href={`/game/${id}/substories`}>ดูรายการเควสเสริมทั้งหมดของ {game.title} →</Link>
+        </p>
+      ) : storyGame && contentFor(storyGame.id).substories ? (
+        <p>
+          <Link href={`/game/${storyGame.id}/substories`}>
+            ดูรายการเควสเสริมของ {storyGame.title} (ชุดเดียวกับภาคนี้เกือบทั้งหมด) →
+          </Link>
         </p>
       ) : (
         <div className="placeholder">เนื้อหาส่วนนี้กำลังเขียน — เร็ว ๆ นี้</div>
