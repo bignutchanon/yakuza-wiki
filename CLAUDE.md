@@ -34,6 +34,7 @@ src/
     site.ts                  SITE_URL, SITE_NAME, pageMeta({title, description, path, image, type, publishedTime}), clip() ตัดข้อความไม่ให้ขาดกลางคำ, absUrl()
     seo.ts                    ตัวสร้าง JSON-LD: siteJsonLd (Organization+WebSite ใน layout), breadcrumbJsonLd, articleJsonLd, videoGameJsonLd, modJsonLd
   data/
+    substories/<gameId>.json ★ ข้อมูลเควสเสริมแบบมีโครงสร้าง (ตอนนี้มีแค่ y3r) — หน้า substories จะเปลี่ยนจากตาราง markdown เป็นการ์ด + แถบค้นหา `<SubstoryFilter>` อัตโนมัติเมื่อมีไฟล์นี้ · สร้างด้วย `python -X utf8 scripts/extract-substories-y3r.py`
     games.ts              ★ ข้อมูลหลัก 16 ภาค (รวม Judgment / Lost Judgment / Ishin! / Yakuza 3 Remastered) (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
     screenshots.json        รูป screenshot ราย gameId (ใช้ใน <Screenshots>)
   content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md · lore/ · news/ (ไฟล์ละโพสต์) + prices.md
@@ -100,6 +101,7 @@ AdSense เคยตีตราเว็บนี้ว่า **"ต้อง�
 
 ## กติกา content (frontmatter)
 
+- **เควสเสริมแบบ JSON**: ถ้าภาคไหนมี `src/data/substories/<id>.json` หน้า `/game/<id>/substories/` จะ render การ์ดจากไฟล์นั้น (การ์ด render ฝั่ง server ทั้งหมด · `<SubstoryFilter>` เป็น client component ที่แค่ซ่อน/โชว์การ์ดด้วย `card.hidden` และค้นจาก `textContent` ไม่ได้ถือข้อมูลซ้ำ) ส่วน `substories.md` ของภาคนั้นเหลือไว้เป็นคำนำอย่างเดียว — ภาคอื่นที่ยังเป็นตาราง markdown ทำงานเหมือนเดิมทุกอย่าง
 - **บท** `src/content/<gameId>/ch-NN.md`: `n` เลขบท, `title` ชื่อ EN ทางการ, `thai` ชื่อไทย, `part` (เฉพาะภาคแบ่งพาร์ท เช่น Y4/Y5) — `src/lib/content.ts` เรียงตาม `n` ไฟล์เนื้อหาคือ source of truth ของรายชื่อบท (ไม่มี list กลาง)
 - **lore**: `title`, `order` (เลขเรียงในสารบัญ)
 - **news**: `title`, `date` (ISO), `tag` — เรียงใหม่→เก่าอัตโนมัติ · ชื่อไฟล์ = slug ของ URL `/news/<slug>/` (เปลี่ยนชื่อไฟล์ = ลิงก์เดิมตาย) · ย่อหน้าแรกถูกดึงเป็นคำโปรย/meta description อัตโนมัติ (`excerpt`) จึงควรเป็นประโยคที่สรุปข่าวได้ด้วยตัวเอง ไม่ใช่เกริ่นลอย ๆ
