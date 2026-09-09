@@ -18,7 +18,7 @@
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "บทที่ 3",
-   "summary": "ซึคุโมะติดตั้ง **Buzz Researcher** ให้ยากามิ แล้วส่งไปตรวจข่าวลือ \"มนุษย์แมงมุม\" ที่โผล่ในโซเชียล",
+   "summary": "ซึคุโมะติดตั้ง Buzz Researcher ให้ยากามิ แล้วส่งไปตรวจข่าวลือ \"มนุษย์แมงมุม\" ที่โผล่ในโซเชียล",
    "steps": [],
    "group": ""
   },
@@ -168,7 +168,7 @@
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "บทที่ 4",
-   "summary": "ชิบะอินุตัวหนึ่งคาบสายจูงมาให้ยากามิเอง — จุดกำเนิดของ **รันโปะ** สุนัขนักสืบประจำภาค",
+   "summary": "ชิบะอินุตัวหนึ่งคาบสายจูงมาให้ยากามิเอง — จุดกำเนิดของ รันโปะ สุนัขนักสืบประจำภาค",
    "steps": [],
    "group": ""
   },
@@ -208,7 +208,7 @@
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "บทที่ 4",
-   "summary": "เปิดสายคดีดักฟังทั่วอิจินโจ ยากามิได้เครื่อง **Detector** มาใช้",
+   "summary": "เปิดสายคดีดักฟังทั่วอิจินโจ ยากามิได้เครื่อง Detector มาใช้",
    "steps": [],
    "group": ""
   },
@@ -418,13 +418,13 @@
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "เคลียร์คดีย่อย (ที่ไม่ใช่ DLC) ครบทุกคดี",
-   "summary": "**ชิน อามอน** กลับมาท้าดวลอีกครั้งหลังถูกขับออกจากตระกูลอามอนเพราะแพ้ยากามิเมื่อสามปีก่อน (¥500,000 + 50,000 SP)",
+   "summary": "ชิน อามอน กลับมาท้าดวลอีกครั้งหลังถูกขับออกจากตระกูลอามอนเพราะแพ้ยากามิเมื่อสามปีก่อน (¥500,000 + 50,000 SP)",
    "steps": [],
    "group": ""
   },
   {
    "n": "43",
-   "name": "Why I Don the Costume *(DLC)*",
+   "name": "Why I Don the Costume (DLC)",
    "sub": "",
    "place": "คามุโรโจ",
    "unlock": "บทที่ 3",
@@ -434,7 +434,7 @@
   },
   {
    "n": "44",
-   "name": "Stand By Me *(DLC)*",
+   "name": "Stand By Me (DLC)",
    "sub": "",
    "place": "คามุโรโจ",
    "unlock": "บทที่ 3 · ความสนิทกับ มินาโตะ โทโด ระดับ 2",
@@ -444,7 +444,7 @@
   },
   {
    "n": "45",
-   "name": "Kamuro Night Live *(DLC)*",
+   "name": "Kamuro Night Live (DLC)",
    "sub": "",
    "place": "คามุโรโจ",
    "unlock": "บทที่ 3 · ความสนิทระดับ 3 · กลางคืน",
@@ -454,7 +454,7 @@
   },
   {
    "n": "46",
-   "name": "Can't Be Kamulop Forever *(DLC)*",
+   "name": "Can't Be Kamulop Forever (DLC)",
    "sub": "",
    "place": "คามุโรโจ",
    "unlock": "บทที่ 3 · ความสนิทระดับ 4 · กลางคืน",
@@ -464,7 +464,7 @@
   },
   {
    "n": "47",
-   "name": "Somebody's Watching You *(DLC)*",
+   "name": "Somebody's Watching You (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "—",
@@ -474,7 +474,7 @@
   },
   {
    "n": "48",
-   "name": "Melody of the Night *(DLC)*",
+   "name": "Melody of the Night (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "ความสนิทกับ เคียวโกะ ฮากาเสะ ระดับ 2 · กลางคืน",
@@ -484,7 +484,7 @@
   },
   {
    "n": "49",
-   "name": "Just a Slight Feeling *(DLC)*",
+   "name": "Just a Slight Feeling (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "ความสนิทระดับ 3 · ช่วงเที่ยง",
@@ -494,7 +494,7 @@
   },
   {
    "n": "50",
-   "name": "The Dream Continues *(DLC)*",
+   "name": "The Dream Continues (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "ความสนิทระดับ 4 · กลางวัน",
@@ -504,17 +504,17 @@
   },
   {
    "n": "51",
-   "name": "The Filthy Four *(DLC)*",
+   "name": "The Filthy Four (DLC)",
    "sub": "",
    "place": "คามุโรโจ",
    "unlock": "—",
-   "summary": "**โยสุเกะ ซาโอโตเมะ** กลับมาอีกครั้ง — สี่โรคจิตจากภาคแรก (Twisted Trio + Giant Impact) รวมตัวใหม่",
+   "summary": "โยสุเกะ ซาโอโตเมะ กลับมาอีกครั้ง — สี่โรคจิตจากภาคแรก (Twisted Trio + Giant Impact) รวมตัวใหม่",
    "steps": [],
    "group": ""
   },
   {
    "n": "52",
-   "name": "As Changes the Day, So Does the Mind *(DLC)*",
+   "name": "As Changes the Day, So Does the Mind (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "บทที่ 9 · ผ่าน The Filthy Four · ความสนิทกับ สึกิโนะ ระดับ 1 · ช่วงเที่ยง",
@@ -524,7 +524,7 @@
   },
   {
    "n": "53",
-   "name": "Making the Best Choice *(DLC)*",
+   "name": "Making the Best Choice (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "บทที่ 9 · ผ่านคดีก่อนหน้า · ความสนิทระดับ 2 · ช่วงเที่ยง",
@@ -534,7 +534,7 @@
   },
   {
    "n": "54",
-   "name": "Standing Proud Together *(DLC)*",
+   "name": "Standing Proud Together (DLC)",
    "sub": "",
    "place": "อิเซซากิ อิจินโจ",
    "unlock": "ผ่านคดีก่อนหน้า · ความสนิทระดับ 3 · กลางคืน",

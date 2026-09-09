@@ -19,8 +19,18 @@ DATA = Path('src/data/substories')
 SEPARATOR = re.compile(r'^\|[\s\-:|]+\|$')
 
 
+def strip_markdown(text: str) -> str:
+    """ตัดสัญลักษณ์ markdown ในช่องตารางออก เพราะการ์ดแสดงข้อความล้วน ไม่ได้ผ่านตัว render markdown"""
+    text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'', text)       # ลิงก์ -> เหลือข้อความ
+    text = re.sub(r'\*\*([^*]+)\*\*', r'', text)              # ตัวหนา
+    text = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'', text)     # ตัวเอียง
+    text = re.sub(r'`([^`]+)`', r'', text)
+    text = re.sub(r'<br\s*/?>', ' ', text)
+    return re.sub(r'\s{2,}', ' ', text).strip()
+
+
 def split_row(line: str) -> list[str]:
-    return [c.strip() for c in line.strip().strip('|').split('|')]
+    return [strip_markdown(c) for c in line.strip().strip('|').split('|')]
 
 
 def convert(game_id: str) -> tuple[int, int] | None:

@@ -1,5 +1,6 @@
 import { GAMES } from '@/data/games'
 import { contentFor, loreArticles, newsPosts, gamePrices } from '@/lib/content'
+import { substoryDataFor } from '@/lib/substories'
 import { thaiDate } from '@/lib/format'
 import { SITE_URL, DEFAULT_DESCRIPTION } from '@/lib/site'
 
@@ -51,6 +52,18 @@ function buildLlmsFull(): string {
         substories.body.trim(),
         '',
       )
+      // รายการเควสอยู่ใน JSON ไม่ได้อยู่ใน markdown แล้ว — เขียนกลับเป็นตารางให้ผู้ช่วย AI อ่านได้เหมือนเดิม
+      const quests = substoryDataFor(g.id)?.quests ?? []
+      if (quests.length) {
+        push('| # | ชื่อเควส | สถานที่ | ปลดล็อก | สรุป |', '|---|---|---|---|---|')
+        for (const q of quests) {
+          const name = q.sub ? `${q.name} (${q.sub})` : q.name
+          const group = q.group ? `${q.group} · ` : ''
+          const summary = [q.summary, ...q.steps].filter(Boolean).join(' → ')
+          push(`| ${q.n} | ${name} | ${group}${q.place || '-'} | ${q.unlock || '-'} | ${summary || '-'} |`)
+        }
+        push('')
+      }
     }
     if (guide) {
       push(
