@@ -1200,3 +1200,72 @@ img { max-width: 100%; height: auto; display: block; }
 .ch-more ul { margin: 0; padding-left: 1.1rem; }
 .ch-more li { font-size: 0.9rem; line-height: 1.8; color: var(--muted); }
 .ch-more li a { color: var(--text); }
+
+/* หน้าเควสเสริม — แถบค้นหา/กรอง + การ์ดเควส (ข้อมูลมาจาก src/data/substories/<id>.json) */
+.sub-tools { margin: 1.8rem 0 0.4rem; }
+.sub-search {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+}
+.sub-search::placeholder { color: var(--muted); }
+.sub-search:focus-visible { outline: 2px solid var(--red); outline-offset: 1px; }
+.sub-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.sub-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  padding: 0.35rem 0.8rem;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.sub-chip span { opacity: 0.65; font-size: 0.78rem; margin-left: 0.25rem; }
+.sub-chip.is-on { border-color: var(--red); color: var(--text); background: rgba(230, 57, 80, 0.12); }
+.sub-count { margin: 0.7rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+.sub-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+.sub-card {
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+.sub-head { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.sub-no {
+  min-width: 1.9rem;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+}
+.sub-name { margin: 0; font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
+.sub-place {
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.sub-en { margin: 0.15rem 0 0 1.9rem; font-size: 0.8rem; color: var(--muted); }
+.sub-goal { margin: 0.55rem 0 0; font-size: 0.92rem; line-height: 1.75; }
+.sub-steps { margin-top: 0.6rem; }
+.sub-steps summary { cursor: pointer; font-size: 0.85rem; color: var(--red); }
+.sub-steps ol {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.sub-steps li + li { margin-top: 0.35rem; }
+
+@media (max-width: 480px) {
+  .sub-place { margin-left: 0; }
+  .sub-en { margin-left: 0; }
+}
