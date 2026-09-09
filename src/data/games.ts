@@ -31,9 +31,6 @@ export interface Game {
   protagonists: string[]
   setting: string
   blurb: string
-  // ภาคที่เนื้อเรื่องเหมือนกันทุกประการ (รีมาสเตอร์/รีเมคของเรื่องเดียวกัน) — หน้าเกมจะลิงก์ไปสรุปรายบทของภาคนั้นแทน
-  // ที่เขียนซ้ำสองชุด
-  storyFrom?: string
   mod: ModInfo
 }
 
@@ -221,7 +218,6 @@ export const GAMES: Game[] = [
     setting: 'โอกินาว่า / คามุโรโจ — ค.ศ. 2009',
     blurb:
       'คิริววางมือจากวงการมาเปิดสถานเลี้ยงเด็กกำพร้าริมทะเลที่โอกินาว่า ก่อนโครงการรีสอร์ตและกระสุนนัดหนึ่งกลางคามุโรโจจะลากเขากลับเข้าสู่ศึกของตระกูลโทโจอีกครั้ง — ฉบับรีมาสเตอร์ของเกมต้นฉบับปี 2009 เนื้อเรื่องเดียวกับ Yakuza Kiwami 3',
-    storyFrom: 'y3',
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza3-thai-mod/releases/download/v1.0/Yakuza3-Thai-Mod-v1.0.zip',
