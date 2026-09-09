@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { GAMES, gameById, gameImage, STEAM_HEADER_SIZE } from '@/data/games'
 import { contentFor, plainText } from '@/lib/content'
-import { substoryDataFor, substoryPlaces } from '@/lib/substories'
+import { substoryDataFor, substoryFacets } from '@/lib/substories'
 import { pageMeta } from '@/lib/site'
 import { breadcrumbJsonLd } from '@/lib/seo'
 import Markdown from '@/components/Markdown'
@@ -42,6 +42,7 @@ export default async function SubstoriesPage({ params }: { params: Promise<{ id:
 
   // ภาคที่ถอดข้อมูลเควสจากไฟล์เกมได้ (src/data/substories/<id>.json) ใช้การ์ด + แถบค้นหาแทนตารางยาว
   const data = substoryDataFor(id)
+  const facets = data ? substoryFacets(data) : null
 
   return (
     <div className="page">
@@ -60,39 +61,50 @@ export default async function SubstoriesPage({ params }: { params: Promise<{ id:
 
       {data && (
         <>
-          <SubstoryFilter total={data.quests.length} places={substoryPlaces(data)} />
+          <h2 className="section-h">รายการเควสทั้งหมด</h2>
+          <SubstoryFilter
+            total={data.quests.length}
+            facets={facets?.items ?? []}
+            placeholder={
+              facets?.key === 'group'
+                ? 'ค้นชื่อเควส สถานที่ หรือคำในสรุป'
+                : 'ค้นชื่อเควส หรือคำในสรุป เช่น ดาร์ต, Amon'
+            }
+          />
 
           <ol className="sub-list">
-            {data.quests.map((q) => {
-              const [goal, ...rest] = q.steps
-              const name = q.th || q.en
-              return (
-                <li
-                  key={q.n}
-                  className="sub-card"
-                  data-substory={q.n}
-                  data-place={q.place}
-                >
-                  <div className="sub-head">
-                    <span className="sub-no">{q.n}</span>
-                    <h2 className="sub-name">{name}</h2>
-                    <span className="sub-place">{q.place}</span>
-                  </div>
-                  {q.th && <p className="sub-en">{q.en}</p>}
-                  {goal && <p className="sub-goal">{goal}</p>}
-                  {rest.length > 0 && (
-                    <details className="sub-steps">
-                      <summary>ขั้นต่อไปในเควสนี้ ({rest.length})</summary>
-                      <ol>
-                        {rest.map((step, i) => (
-                          <li key={i}>{step}</li>
-                        ))}
-                      </ol>
-                    </details>
-                  )}
-                </li>
-              )
-            })}
+            {data.quests.map((q, i) => (
+              <li
+                key={`${q.group}-${q.n}-${i}`}
+                className="sub-card"
+                data-substory={q.n}
+                data-facet={facets?.key === 'group' ? q.group : q.place}
+              >
+                <div className="sub-head">
+                  <span className="sub-no">{q.n}</span>
+                  <h3 className="sub-name">{q.name}</h3>
+                  {q.place && <span className="sub-place">{q.place}</span>}
+                </div>
+                {q.sub && <p className="sub-en">{q.sub}</p>}
+                {(q.group || q.unlock) && (
+                  <p className="sub-meta">
+                    {q.group && <span className="sub-group">{q.group}</span>}
+                    {q.unlock && <span className="sub-unlock">ปลดล็อก: {q.unlock}</span>}
+                  </p>
+                )}
+                {q.summary && <p className="sub-goal">{q.summary}</p>}
+                {q.steps.length > 0 && (
+                  <details className="sub-steps">
+                    <summary>ขั้นต่อไปในเควสนี้ ({q.steps.length})</summary>
+                    <ol>
+                      {q.steps.map((step, s) => (
+                        <li key={s}>{step}</li>
+                      ))}
+                    </ol>
+                  </details>
+                )}
+              </li>
+            ))}
           </ol>
         </>
       )}

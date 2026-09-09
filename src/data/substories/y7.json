@@ -1,0 +1,526 @@
+{
+ "game": "y7",
+ "source": "ตารางเดิมในไกด์ของเว็บ (แปลงเป็น JSON เมื่อเปลี่ยนหน้าเป็นการ์ด)",
+ "quests": [
+  {
+   "n": "1",
+   "name": "A Can-Do Attitude",
+   "sub": "",
+   "place": "S Sakura River St.",
+   "unlock": "บทที่ 3 (เควสบังคับตามเนื้อเรื่อง)",
+   "summary": "เควสเปิดตัวมินิเกม Can Quest เก็บกระป๋องหาเลี้ยงชีพในช่วงเป็นคนไร้บ้าน เป็นเควสสอนระบบ ไม่มีการต่อสู้",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "2",
+   "name": "Who's That Sujimon!?",
+   "sub": "",
+   "place": "ใกล้ Hello Work, Yokohama",
+   "unlock": "บทที่ 4 (เควสบังคับ)",
+   "summary": "ปลดล็อกแอป Sujidex สำหรับบันทึกข้อมูลศัตรูที่เคยเอาชนะ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "3",
+   "name": "A Golden Opportunity",
+   "sub": "",
+   "place": "S Sakura River St.",
+   "unlock": "บทที่ 4",
+   "summary": "ช่วยตำรวจจับชายที่กำลังก่อเหตุอนาจารริมแม่น้ำ ต้องเลือกผู้ต้องสงสัยที่ถูกต้อง (คนที่ 3) ก่อนเข้าสู่การต่อสู้ง่าย ๆ ได้เครื่องประดับ Binding",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "4",
+   "name": "One Man's Trash",
+   "sub": "",
+   "place": "Misaki St.",
+   "unlock": "บทที่ 4",
+   "summary": "ช่วยคนโดะเจรจากับเจ้าของร้านเรื่องขยะที่กองอยู่หน้าร้าน ต่อสู้กับ Gomi สั้น ๆ ปลดล็อกร้านจำนำ Benten หลังจบ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "5",
+   "name": "A Trip to Pound Town",
+   "sub": "",
+   "place": "Misaki St.",
+   "unlock": "บทที่ 4 (เควสบังคับ)",
+   "summary": "เควสสอนระบบเรียกซัมมอน Poundmates ได้ Gary Buster Holmes เป็นตัวแรก",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "6",
+   "name": "It's the Thought That Counts",
+   "sub": "",
+   "place": "S Sakura River St. และหลายจุดใกล้เคียง",
+   "unlock": "บทที่ 4",
+   "summary": "ช่วยชายชราต่อชั้นวางหนังสือเป็นของขวัญให้หลานสาว ต้องหาไม้และตะปูจากกลุ่มนักเรียนคาราเต้ใกล้บาร์ Survive แล้วต่อสู้ 2 รอบ (ศัตรูกลุ่มเลเวล 12 และเลเวล 15) ได้ Sacrifice Stone",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "7",
+   "name": "Baby Don't Cry",
+   "sub": "",
+   "place": "Ohama St. (Western Central St.)",
+   "unlock": "บทที่ 4 (ต้องปลดล็อก Poundmates ก่อน)",
+   "summary": "ปกป้องชายคนหนึ่งจากการรังแกของยากูซ่าและช่วยเรื่องครอบครัว ไปเอาน้ำร้อนจาก Pocket Cafe ก่อนกลับมาสู้ (ศัตรูเลเวล 13-15) ได้ Patriarch Gondawara เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "8",
+   "name": "Old Cinema Paradiso",
+   "sub": "",
+   "place": "โรงหนัง Seagull Cinema, E Tsurukame Highway",
+   "unlock": "บทที่ 4",
+   "summary": "ปลดล็อกโรงหนังและเล่นมินิเกมกดปุ่มฝืนไม่ให้หลับระหว่างดูหนัง",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "9",
+   "name": "Persimmon Premonition",
+   "sub": "",
+   "place": "ต้นลูกพลับในสวนสาธารณะย่าน Bar District",
+   "unlock": "บทที่ 4 (ต้องปลดล็อก Poundmates ก่อน)",
+   "summary": "ต่อสู้กับกลุ่มคนที่พยายามทำร้ายต้นลูกพลับ ต้องกลับมาเฝ้าหลายรอบ สู้กับศัตรู 3 คนเลเวล 14 (นักซูโม่/มือปืน/วัยรุ่น) ได้ Tosanoyama เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "10",
+   "name": "Fast Times at Ounabara",
+   "sub": "",
+   "place": "โรงเรียนอาชีวะ Ounabara (เหนือสถานี Jinnai)",
+   "unlock": "บทที่ 4",
+   "summary": "สอบวัดผลทดลองที่โรงเรียนอาชีวะ ตอบให้ผ่าน 3 ใน 5 ข้อ เพื่อปลดล็อกระบบสอบวิชาชีพ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "11",
+   "name": "Certified Underdogs",
+   "sub": "",
+   "place": "โรงเรียนอาชีวะ Ounabara",
+   "unlock": "บทที่ 5 (ต้องสอบผ่าน 10 วิชาก่อน)",
+   "summary": "ช่วยอิคาริหางานที่ร้านขนมหลังผ่านการทดสอบวิชาชีพ ต่อสู้กับกลุ่มพนักงานบริษัท ได้ Tranquil Tenugui และจ้างอิคาริมาทำงานที่ Ichiban Confections",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "12",
+   "name": "How to be a Part-Time Hero",
+   "sub": "",
+   "place": "ไชน่าทาวน์",
+   "unlock": "บทที่ 5 (เควสบังคับ)",
+   "summary": "เควสเปิดระบบงานพาร์ทไทม์ ต้องต่อสู้กับศัตรู 2 กลุ่ม",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "13",
+   "name": "Nowhere to Go But Up",
+   "sub": "",
+   "place": "Romance Workshop",
+   "unlock": "บทที่ 5 (เควสบังคับ)",
+   "summary": "เควสสอนระบบตีเหล็กและอัปเกรดอาวุธ เป็นจุดเริ่มสำหรับการลงทุนในเควส 14 ภายหลัง",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "14",
+   "name": "Something Worth Protecting",
+   "sub": "",
+   "place": "Romance Workshop",
+   "unlock": "เริ่มได้บทที่ 5 แต่จบสมบูรณ์ราวบทที่ 15 (ต้องลงทุน 22.5 ล้านเยน + บอนไซ 16 ต้น + Passion เลเวล 10)",
+   "summary": "จีบสุมิเระช่างตีเหล็กด้วยการมอบต้นบอนไซ (ซื้อได้จากพ่อค้าดอกไม้ใน Hamakita Park) พูดคุยตอน Passion เลเวล 4, 7, 10 แล้วต่อสู้กับศัตรูเลเวล 17 เพื่อจ้างสุมิเระ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "15",
+   "name": "Ijincho's Safety Net",
+   "sub": "",
+   "place": "Yokohama (ออฟฟิศ Ichiban Confections)",
+   "unlock": "บทที่ 5 (เควสบังคับ)",
+   "summary": "เควสเปิดระบบบริหารธุรกิจของอิจิบัง ได้ Omelette เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "16",
+   "name": "The Crawfish Caper",
+   "sub": "",
+   "place": "สะพานย่านการค้า (Sunrise Bridge)",
+   "unlock": "บทที่ 5",
+   "summary": "ตามหากุ้งเครย์ฟิชด้วยมุมมองบุคคลที่หนึ่งใกล้บันได แล้วซื้อชุดซูชิพรีเมียมจาก Poppo (ประมาณ 2,000 เยน) เพื่อแลกคืน ได้ Nancy-chan เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "17",
+   "name": "A Love Worth Fighting For",
+   "sub": "",
+   "place": "โรงทานใกล้สะพานย่านการค้า/สะพาน Tsurukame",
+   "unlock": "บทที่ 5",
+   "summary": "ช่วยคุโรอิชายไร้บ้านจีบสาวจากโรงทาน เควสหลายช่วงข้ามหลายจุดในแผนที่ จบที่ Old Seagull Cinema ตอนกลางคืน ต่อสู้ศัตรูเลเวล 15 ได้ Kiyoe Shirakawa เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "18",
+   "name": "Home Run Heroism",
+   "sub": "",
+   "place": "สะพาน Fukotoku ย่าน Bar District",
+   "unlock": "บทที่ 5",
+   "summary": "ปกป้องนักเบสบอลจากนักข่าวและอันธพาลที่มารังควาน ต่อสู้หลายรอบทั่วแผนที่ (กลุ่มเลเวล 15 x2 และ x6) ได้ Old Fountain Pen และจ้างฮานายามะ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "19",
+   "name": "Bubble, Bubble Toil and Trouble",
+   "sub": "",
+   "place": "ตรอกถนน Romance St.",
+   "unlock": "บทที่ 5",
+   "summary": "พาชายที่เปียกฟองสบู่ฝ่าตรอกไปยังร้านเสื้อผ้าโดยหลบจุดที่มีน้ำกระเซ็น ตอบคำถามบทสนทนาให้ถูกเพื่อรับเครื่องประดับ Mysterious Blush",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "20",
+   "name": "Tables for One",
+   "sub": "",
+   "place": "ร้าน Wette Kitchen, Ijin Lane",
+   "unlock": "บทที่ 7",
+   "summary": "ปกป้องเด็กชายเหงา ๆ จากการรังแกไถถุงมือที่ถูกขโมย ต่อสู้ 2 รอบ (ศัตรูเลเวล 17) ได้ Maximum Mittens และจ้างโนโบรุ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "21",
+   "name": "Dumpster of Demise",
+   "sub": "",
+   "place": "ตรงข้าม Romance Workshop",
+   "unlock": "บทที่ 7",
+   "summary": "ไปเยี่ยมชายที่ซ่อนตัวในถังขยะ 3 ครั้ง ครั้งที่ 3 เจอยากูซ่าและต้องต่อสู้เป็นคู่ (เลเวล 17) ได้ Intimidation Manual และจ้าง Shige-San",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "22",
+   "name": "An Act of Kindness",
+   "sub": "",
+   "place": "ใกล้สถานี Jinnai",
+   "unlock": "บทที่ 7",
+   "summary": "บริจาคเงิน 10,000 เยนให้เด็กสาวเก็บเงินหาทำเลใหม่ เลือกบทสนทนาเพื่อเพิ่มค่าสเตตัส แล้วต่อสู้ปกป้องเธอจากมิจฉาชีพ (ศัตรูเลเวล 18) ได้ Pearl Earrings",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "23",
+   "name": "Warmest Wishes",
+   "sub": "",
+   "place": "ย่าน Akaushimaru, Isezaki Road (ต้องทำเควส 22 ก่อน)",
+   "unlock": "บทที่ 9",
+   "summary": "ช่วยครอบครัวเด็กหญิงระดมทุน 1 ล้านเยนสำหรับการผ่าตัดที่จำเป็น ได้ Megumi เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "24",
+   "name": "Fifty Shades of Play",
+   "sub": "",
+   "place": "ถนน Ohama ย่านโคมแดง",
+   "unlock": "บทที่ 7",
+   "summary": "ช่วยชายที่มีรสนิยมพิเศษ (Mr. Masochist ที่ตีแล้วไม่มีดาเมจ) กลับไปคืนดีกับแม่ผู้เป็นดอมินาทริกซ์ ต่อสู้ศัตรูเลเวล 20 ได้ Ecstasy Rope และปลดล็อก Mr. Masochist เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "25",
+   "name": "A Fading Star",
+   "sub": "",
+   "place": "ร้าน Eomeoni's Vow ย่านโคเรียทาวน์",
+   "unlock": "บทที่ 7",
+   "summary": "ช่วยชายชาวเกาหลีสูงวัยจากการทะเลาะวิวาทในบาร์ พาไปย่าน Bar District และหาน้ำจากตู้ขายอัตโนมัติให้ดื่ม ต่อสู้ศัตรูเลเวล 20 ได้ Bullet of Memory และปลดล็อก Il Yu-Jin เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "26",
+   "name": "The Masked Murderer",
+   "sub": "",
+   "place": "ถนนระหว่าง Eomeoni's Vow กับ Hyakkei St.",
+   "unlock": "บทที่ 9",
+   "summary": "ต้องรอถึงเวลากลางคืนแล้วเผชิญหน้ากับ \"ฆาตกรสวมหน้ากาก\" ที่ถูกเข้าใจผิดกลางถนน ต่อสู้แล้วได้ Profane Wristband และปลดล็อก Jiei-san เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "27",
+   "name": "The Miracle of Spice",
+   "sub": "",
+   "place": "ทางแยกปลายถนน Hyakkei St.",
+   "unlock": "บทที่ 7",
+   "summary": "รับกิมจิสูตรมหัศจรรย์จากพ่อค้าแล้วแจกให้ผู้คนต่าง ๆ ทั่วเมือง จบด้วยการช่วยหญิงชราข้ามถนน ได้จ้าง Umeko และปลดล็อกพ่อค้ากิมจิ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "28",
+   "name": "Tour Guide Turmoil",
+   "sub": "",
+   "place": "La chatte blanche ใกล้ Hamakita Park",
+   "unlock": "บทที่ 9",
+   "summary": "ร่วมทัวร์นำเที่ยวเมือง ต้องตอบคำถามให้ถูก (เลือกตัวเลือกล่างสุด เช่น \"Red Dragon\", \"Blue Sign\", \"Ultra Packed Super Bun\") แล้วต่อสู้ศัตรูเลเวล 24 ได้ Fancy Microphone และจ้าง Ayami Ishida",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "29",
+   "name": "The Michio Minefield",
+   "sub": "",
+   "place": "ศาลากลางไชน่าทาวน์",
+   "unlock": "บทที่ 9",
+   "summary": "แยกแยะฟิกเกอร์โอโนะ มิชิโอะของแท้จากของปลอม 7 ตัว โดยดูจากความยาวของแขนเสื้อ ได้ Ono Michio Figure",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "30",
+   "name": "Fauxno Michio",
+   "sub": "",
+   "place": "The Bun Sauna ไชน่าทาวน์ (ต้องทำเควส 29 ก่อน)",
+   "unlock": "บทที่ 9",
+   "summary": "ต่อสู้กับมนุษย์ตุ๊กตาโอโนะ มิชิโอะปลอมและพรรคพวก ได้ Def Boom Box จ้าง Hironaka และปลดล็อกชุด Ono Michio เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "31",
+   "name": "Like Father, Like Son",
+   "sub": "",
+   "place": "ร้าน Meng Wu ไชน่าทาวน์",
+   "unlock": "บทที่ 9",
+   "summary": "ช่วยพ่อลูกเชฟคืนดีกันหลังมีเรื่องบาดหมาง ต้องไปเยี่ยมหลายรอบและเลือกบทสนทนาแบบเห็นใจ ต่อสู้กับพ่อครัวคู่เลเวล 24 ได้ Court Tongs",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "32",
+   "name": "Forget Me Not",
+   "sub": "",
+   "place": "Carriage Highway ใกล้สถานี Jinnai ฝั่งเหนือ",
+   "unlock": "บทที่ 9",
+   "summary": "พาเด็กสาวคนหนึ่งจากอดีตของคาซึกะไปเล่นตู้คีบตุ๊กตาที่ร้านเกม ชนะรางวัลแล้วต่อสู้กับศัตรู 3 คน -",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "33",
+   "name": "The Traffic Census Sensei",
+   "sub": "",
+   "place": "ฝั่งตะวันออกสถานี Jinnai ตรงข้าม La Chatte Blanche",
+   "unlock": "บทที่ 12 (ต้องมี Confidence เลเวล 4 ขึ้นไป)",
+   "summary": "ช่วยนับจำนวนคนเดินถนนให้ชายที่บาดเจ็บ 3 รอบ คำตอบคือ \"4 ผู้ชาย\", \"7 ผู้หญิง\", \"5 ผู้ชาย 6 ผู้หญิง\" ได้ Battered Tally Counter",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "34",
+   "name": "Bros Till the End",
+   "sub": "",
+   "place": "Hamakita Park ฝั่งตะวันออกเฉียงใต้",
+   "unlock": "บทที่ 9",
+   "summary": "ช่วยแก๊งมอเตอร์ไซค์ตามหารถที่ถูกขโมยคืนจากพวกอาชญากร ต่อสู้กับยากูซ่ากลุ่มเลเวล 18-19 ได้ Swordsman's Sash และปลดล็อก Taka the Striker เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "35",
+   "name": "Preparing to Suck",
+   "sub": "",
+   "place": "Sesil Cafe ใน Hamakita Park",
+   "unlock": "บทที่ 9",
+   "summary": "ลงทุน 1 ล้านเยนกับศาสตราจารย์เพื่อทดสอบหุ่นยนต์ดูดฝุ่นต้นแบบ ต่อสู้โดยเล็งจุดอ่อนที่แขนของหุ่นยนต์ จ้าง Soji เข้าทำงานที่ Ichiban Confections",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "36",
+   "name": "Whispers of the Underworld",
+   "sub": "",
+   "place": "ฝั่งตะวันตกของร้านขายยา Kinka",
+   "unlock": "บทที่ 9 (ต้องมี Confidence เลเวล 4 ขึ้นไป, เลเวล 7 เพื่อเข้าร้าน)",
+   "summary": "ปลดล็อกบ่อนพนันใต้ดินและร้านขายอาวุธลับ ใช้รหัสผ่าน \"Lau Chau Chau Ya\" เข้าร้าน ต่อสู้ศัตรู 3 คน ปลดล็อก Chau Ka Long เป็น Poundmate",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "37",
+   "name": "Ringleader Roundup: Bear Blues",
+   "sub": "",
+   "place": "Hamakita Park ฝั่งตะวันตก",
+   "unlock": "บทที่ 10",
+   "summary": "ปราบหมีละครสัตว์เพื่อความปลอดภัยหลังเวที ศัตรูเลเวล 29 มีจุดอ่อนต่อธาตุไฟ ได้ Chief's Towel",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "38",
+   "name": "Ringleader Roundup: Tiger Takeover",
+   "sub": "",
+   "place": "Hamakita Park (ต่อจากเควส 37)",
+   "unlock": "บทที่ 10",
+   "summary": "ต่อสู้กับเสือละครสัตว์ตามคำขอของหัวหน้าคณะ ศัตรูมีจุดอ่อนต่อไฟและปืน ได้ Medal of Honor",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "39",
+   "name": "Ringleader Roundup: Chimp Calamity",
+   "sub": "",
+   "place": "Hamakita Park (ต่อจากเควส 38)",
+   "unlock": "บทที่ 10",
+   "summary": "ช่วยลิงชิมแปนซีที่ติดอยู่ในเครื่องจักรก่อสร้าง ต่อสู้กับลิงในรถตักที่มีจุดอ่อนต่อไฟฟ้า ได้ Doll of Torment และจ้าง Clare-chan",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "40",
+   "name": "Welcome to Dragon Kart",
+   "sub": "",
+   "place": "อาคาร Dragon Kart ใน Hamakita Park",
+   "unlock": "บทที่ 4",
+   "summary": "ผ่านด่านแรกของสนามแข่ง Dragon Kart เพื่อปลดล็อกมินิเกม",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "41",
+   "name": "Two-headed Bomb",
+   "sub": "",
+   "place": "สนาม Dragon Kart (ต้องคว้าแชมป์ Cerberus Cup ก่อน)",
+   "unlock": "บทที่ 4",
+   "summary": "แข่งกับ Naoki และ Hamanoimi บนสนาม Explosion Boulevard ที่มีหมอกหนา ชนะได้ 300 rings และปลดล็อกโกคาร์ท Rumble Crasher",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "42",
+   "name": "The Rocket Girls",
+   "sub": "",
+   "place": "สนาม Dragon Kart (ต้องคว้าแชมป์ Pegasus Cup ก่อน)",
+   "unlock": "บทที่ 4",
+   "summary": "แข่งกับ Ai และ Matsuko บนสนามที่มีหมอกและถังระเบิด ควรอัปเกรดโกคาร์ทให้เต็มก่อนแข่ง ได้ 300 rings และปลดล็อกโกคาร์ท Rapid Phantom",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "43",
+   "name": "The Data Drifter",
+   "sub": "",
+   "place": "สนาม Dragon Kart (ต้องคว้าแชมป์ Phoenix Cup ก่อน)",
+   "unlock": "บทที่ 4",
+   "summary": "แข่งกับสุงุรุคู่แข่งเดี่ยวบนสนาม Pain Circuit ที่มีหมอกหนา ใช้โกคาร์ท Rapid Phantom ที่อัปเกรดแล้ว ได้ 300 rings และปลดล็อกโกคาร์ท Ignition Shadow",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "44",
+   "name": "Biker Blitz",
+   "sub": "",
+   "place": "สนาม Dragon Kart (ต่อจากเควส 43)",
+   "unlock": "บทที่ 4",
+   "summary": "ท้าแข่งกับอากิระบนสนาม Sky Highway ที่มีหมอกหนา ควรใช้โกคาร์ทที่อัปเกรดดีที่สุด ได้ 300 rings",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "45",
+   "name": "One Hell of a Racer",
+   "sub": "",
+   "place": "สนาม Dragon Kart",
+   "unlock": "บทที่ 15",
+   "summary": "ท้าแข่งกับจินหลังผ่านเควส Dragon Kart ก่อนหน้าทั้งหมด บนสนาม Winding Cross ที่มีหมอกหนา ชนะได้ 300 rings",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "46",
+   "name": "The World is my Racetrack",
+   "sub": "",
+   "place": "สนาม Dragon Kart",
+   "unlock": "บทที่ 15",
+   "summary": "เอาชนะผู้จัดสนาม Dragon Kart บนสนาม Final Kamuro Circuit ที่มีหมอกหนา ควรอัปเกรดโกคาร์ทเต็มและใช้ไอเทมเร่งอย่างมีกลยุทธ์ ได้ 500 rings ปลดล็อกโกคาร์ท Rising Dragon และถ้วยรางวัล Pop the Cork",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "47",
+   "name": "Girl of my Dreams",
+   "sub": "",
+   "place": "บาร์ Survive",
+   "unlock": "เริ่มได้บทที่ 5 แต่จบได้เมื่อ Style เลเวล 10 และสัมพันธ์กับซาเอโกะเลเวล 5 ขึ้นไป (ราวบทที่ 15)",
+   "summary": "เส้นทางความรักกับซาเอโกะผ่านการพัฒนาค่าบุคลิกภาพ Style เลือกตอบคำถาม \"Is there anyone you like?\" เพื่อดำเนินเรื่อง",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "48",
+   "name": "Shared Vision",
+   "sub": "",
+   "place": "ออฟฟิศ Ichiban Confections และบาร์ Survive",
+   "unlock": "เริ่มได้บทที่ 5 แต่จบได้เมื่อ Kindness เลเวล 10 และธุรกิจครองอันดับ 1 (ราวบทที่ 15)",
+   "summary": "เส้นทางความรักกับเอริผ่านความสำเร็จทางธุรกิจและค่าบุคลิกภาพ Kindness พูดคุยที่ออฟฟิศและบาร์ Survive",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "49",
+   "name": "Certified Lover",
+   "sub": "",
+   "place": "โรงเรียนอาชีวะ Ounabara",
+   "unlock": "เริ่มได้บทที่ 5 แต่จบได้เมื่อสอบผ่านครบ 21 วิชาและ Intellect เลเวล 10 (ราวบทที่ 15)",
+   "summary": "จีบมิยาโคชิที่โรงเรียนอาชีวะด้วยการสอบผ่านและมอบดอกลิลลี่ 16 ช่อ (ซื้อรวมประมาณ 400,000 เยน หรือดอกเดี่ยว 192 ดอก) พูดคุยตอน Intellect เลเวล 4, 7, 10 ได้ Certificate of Completion และจ้างมิยาโคชิ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "50",
+   "name": "Pillow Chat",
+   "sub": "",
+   "place": "บาร์ Survive ย่าน Bar District",
+   "unlock": "เริ่มได้บทที่ 5 แต่จบได้เมื่อ Charisma เลเวล 10 และสะสม Party Chat 16 ครั้ง (ราวบทที่ 15)",
+   "summary": "สานสัมพันธ์กับอิโรฮะที่บาร์ Survive ด้วยดอกกุหลาบ 16 ช่อ (ประมาณ 400,000 เยน หรือดอกเดี่ยว 160 ดอก) พูดคุยตอน Charisma เลเวล 4, 7, 10 จ้างอิโรฮะเมื่อจบ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "51",
+   "name": "The Real Me",
+   "sub": "",
+   "place": "Hello Work",
+   "unlock": "เริ่มได้บทที่ 5 แต่จบได้เมื่อเปลี่ยนอาชีพครบทุกสาย (ในเนื้อเรื่องหลัก) และ Confidence เลเวล 10 (ราวบทที่ 15)",
+   "summary": "จีบริริกะที่ Hello Work ด้วยการเปลี่ยนอาชีพครบทุกสายและมอบดอกแพนซี 16 ช่อ (ประมาณ 400,000 เยน หรือดอกเดี่ยว 240 ดอก) พูดคุยตอน Confidence เลเวล 4, 7, 10 จ้างริริกะเมื่อจบ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "52",
+   "name": "The Lone Survivor",
+   "sub": "",
+   "place": "บาร์ Survive ชั้น 2",
+   "unlock": "บทที่ 15 (หลังทำเควส 14 และ 47-51 ครบ)",
+   "summary": "เควสปิดท้ายเส้นทางความรักทั้งห้าสาย เป็นฉากคัตซีนอัตโนมัติ ตัวเลือกบทสนทนาไม่มีผลต่อผลลัพธ์ รับโบนัสค่าพลังป้องกัน",
+   "steps": [],
+   "group": ""
+  }
+ ]
+}

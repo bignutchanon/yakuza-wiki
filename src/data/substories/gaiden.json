@@ -1,0 +1,246 @@
+{
+ "game": "gaiden",
+ "source": "ตารางเดิมในไกด์ของเว็บ (แปลงเป็น JSON เมื่อเปลี่ยนหน้าเป็นการ์ด)",
+ "quests": [
+  {
+   "n": "1",
+   "name": "Emergency Request!",
+   "sub": "",
+   "place": "Club Heavenly (โชฟุคุโจ)",
+   "unlock": "เนื้อเรื่องบทที่ 2 / Akame Network เปิดใช้งาน",
+   "summary": "เบาะแสนิรนามให้ไปสืบที่คาบาเรต์คลับ เล่นมินิเกมแรกให้จบแล้วกลับไปรายงานอาคาเมะ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "2",
+   "name": "A Simple Heavy-Lifting Job",
+   "sub": "",
+   "place": "Wild Jackson (W โชฟุคุโจ) → สะพานบิชามน → ออฟฟิศมัตสึมูระ → สวนอาชิตาบะ",
+   "unlock": "หลังผ่าน \"Emergency Request!\"",
+   "summary": "ช่วยงานที่ดูเหมือนเรื่องเล็กแต่พัวพันกับแผนหาผลประโยชน์จากสถานเลี้ยงเด็กกำพร้า เตรียม Heat Gauge เต็มก่อนสู้กับนักเลงและยากูซ่า",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "3",
+   "name": "The Ghost of Sotenbori",
+   "sub": "",
+   "place": "E โซเท็นโบริ → S โชฟุคุโจ → ใกล้สวนอาชิตาบะ",
+   "unlock": "",
+   "summary": "ตามสืบข่าวลือคนเห็นชายที่เชื่อว่าตายไปแล้ว (ริวจิ โกดะปลอม) ต้องดวล 2 รอบ หลบข้างแล้วโจมตีจากด้านหลัง",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "4",
+   "name": "End the Destruction",
+   "sub": "",
+   "place": "โชฟุคุโจ",
+   "unlock": "",
+   "summary": "สืบสวนเหตุมีคนไล่ทำร้ายกลุ่มคนไร้บ้าน เป็นภารกิจต่อสู้หลายด่าน (ยอมรับพันธมิตรไคโตะเพื่อไปต่อได้ แต่ปฏิเสธไม่ได้ถ้าจะเล่นต่อ) รอบสองศัตรูมี 4 หลอดเลือด",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "5",
+   "name": "Investigation Request",
+   "sub": "",
+   "place": "ใกล้ที่ซ่อนอาคาเมะ → ถนนโซเท็นโบริ → ถนนโชฟุคุโจ (S โชฟุคุโจ)",
+   "unlock": "",
+   "summary": "สะกดรอยตามหัวหน้าตระกูลนาโมโอกะ (Namioka Family) โดยถูกคนรู้จักเก่า (เอ็ตสึโกะ) ขัดขวางซ้ำแล้วซ้ำเล่า ตัวเลือกบทสนทนาไม่มีผลต่อผลลัพธ์",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "6",
+   "name": "Film Assistant Needed",
+   "sub": "",
+   "place": "Smile Burger ชั้นบน (S โชฟุคุโจ)",
+   "unlock": "",
+   "summary": "ช่วยทีมถ่ายทำรายการล่าผีสืบสวนอพาร์ตเมนต์ ต้องเผชิญหน้ากับฆาตกรถือมีด แนะนำใช้การตอบโต้ (reactive combat)",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "7",
+   "name": "Seeking Advice",
+   "sub": "",
+   "place": "Smile Burger → สะพานอิวาโอะ → ถนนโซเท็นโบริ → Sotenbori Footpath",
+   "unlock": "",
+   "summary": "ให้คำปรึกษาชายหนุ่ม (คุซาโนะ) ที่ชีวิตพังเพราะเชื่อคำแนะนำจากแอปปัญญาประดิษฐ์ ห้ามปล่อยให้เขาทำร้ายตัวเอง ต่อสู้ท้ายภารกิจ 2 ครั้งไม่ยาก",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "8",
+   "name": "Recruit Homeless Yamanaka",
+   "sub": "",
+   "place": "สวนอาชิตาบะ",
+   "unlock": "",
+   "summary": "ต่อสู้กับชายไร้บ้านที่สวนอาชิตาบะเพื่อชวนมาร่วมทีม (Coliseum) ภารกิจสั้นและง่าย",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "9",
+   "name": "The Strongest Convenience Store Clerk",
+   "sub": "",
+   "place": "Poppo (โชฟุคุโจ)",
+   "unlock": "",
+   "summary": "เอาชนะพนักงานร้านสะดวกซื้อสุดโหดและผู้จัดการของเขาเพื่อชักชวนมาร่วมทีม สู้ 2 ต่อ 1 กับหัวหน้าก่อน แล้วดวลเดี่ยวกับพนักงานที่หลบหลีกบ่อย",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "10",
+   "name": "Save the Pro Wrestler",
+   "sub": "",
+   "place": "ใต้สะพานอิวาโอะ / E Sotenbori Footpath",
+   "unlock": "หลังผ่าน \"The Strongest Convenience Store Clerk\"",
+   "summary": "แจกใบปลิว 10 ใบทั่วโซเท็นโบริ แล้วต่อสู้กับนักมวยปล้ำเพื่อดึงตัวมาร่วมทีม ระวังท่าจับทุ่ม",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "11",
+   "name": "The Cat-Lovin' Rapper",
+   "sub": "",
+   "place": "East Bunzaemon Outdoor Mall",
+   "unlock": "หลังผ่าน \"Recruit Homeless Yamanaka\"",
+   "summary": "ช่วยจัดการกลุ่มคนรังแกแมวที่ 3 จุดที่ทำเครื่องหมายไว้ก่อนจะได้แร็ปเปอร์คนรักแมวมาร่วมทีม",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "12",
+   "name": "Liberate the Hammer Man",
+   "sub": "",
+   "place": "ฝั่งใต้แม่น้ำโซเท็นโบริ (จุดกำแพงปิดทาง)",
+   "unlock": "",
+   "summary": "ช่วยหาเงินใช้หนี้ให้ชายถือค้อน เสนอเงิน 1 ล้านเยน (ไม่เสียเงินจริง แค่ต้องมีเงินพอ) แล้วต่อสู้กับนุโนคาวะและหัวหน้าคนงาน",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "13",
+   "name": "The Struggling Host",
+   "sub": "",
+   "place": "ตรงข้ามร้านจำนำ Ebisu Pawn (โซเท็นโบริ)",
+   "unlock": "หลังผ่าน \"Liberate the Hammer Man\"",
+   "summary": "สืบปัญหาชีวิตของโฮสต์หนุ่ม สัมภาษณ์คน 6 คน ต่อสู้กับอิสึกิ แล้วต่อสู้กับเรนจิ ก่อนชักชวนเข้าร่วมทีม",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "14",
+   "name": "Gotta Catch 'em Balls!",
+   "sub": "",
+   "place": "ทั่วเมือง (เก็บลูกบอลทองคำ 7 ลูก)",
+   "unlock": "ลูกที่ 7 ปลดล็อกช่วงบทที่ 4",
+   "summary": "ตามเก็บลูกบอลทองคำเจ็ดลูกทั่วเมืองเพื่อพบกับตัวละครลึกลับ \"เชนซัง\" เลือกรับรางวัลได้ (เงิน 1 ล้านเยน / ไอเทม 100 ชิ้น / กางเกงใน)",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "15",
+   "name": "Vanquish the Red Peacocks",
+   "sub": "",
+   "place": "ลานจอดรถใกล้ Wild Jackson + อีก 3 จุด + ลานจอดรถตะวันตกเฉียงใต้",
+   "unlock": "",
+   "summary": "ปราบสมาชิกแก๊ง Red Peacocks 4 กลุ่มตามจุดต่าง ๆ ในโซเท็นโบริ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "16",
+   "name": "Final Showdown: Red Peacocks",
+   "sub": "",
+   "place": "ลานจอดรถหน้า Club Four Shine",
+   "unlock": "หลังปราบสมาชิกครบใน \"Vanquish the Red Peacocks\"",
+   "summary": "ดวลรอบสุดท้ายกับหัวหน้าแก๊ง Red Peacocks เอาชนะเพื่อได้เขามาร่วม Joryu Clan",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "17",
+   "name": "Vanquish the White Knights",
+   "sub": "",
+   "place": "ฝั่งใต้แม่น้ำ + อีก 3 จุด (รวมจุด Hiratai ที่ Sotenbori Footpath)",
+   "unlock": "หลังผ่าน \"Final Showdown: Red Peacocks\"",
+   "summary": "ปราบสมาชิกแก๊งคู่แข่ง White Knights โครงสร้างภารกิจคล้าย Red Peacocks",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "18",
+   "name": "Final Showdown: White Knights",
+   "sub": "",
+   "place": "-",
+   "unlock": "หลังปราบสมาชิกครบใน \"Vanquish the White Knights\"",
+   "summary": "ดวลรอบสุดท้ายกับหัวหน้าแก๊ง White Knights เอาชนะเพื่อได้เขามาร่วม Joryu Clan",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "19",
+   "name": "Vanquish the Black Swallowtails",
+   "sub": "",
+   "place": "Wild Jackson + อีก 3 จุด + ห้องพนัน (ชั้น 2)",
+   "unlock": "หลังผ่าน \"Final Showdown: White Knights\"",
+   "summary": "ปราบสมาชิกแก๊ง Black Swallowtails กลุ่มสุดท้าย",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "20",
+   "name": "Final Showdown: Black Swallowtails",
+   "sub": "",
+   "place": "สะพานอิวาโอะ",
+   "unlock": "หลังปราบสมาชิกครบใน \"Vanquish the Black Swallowtails\"",
+   "summary": "ดวลรอบสุดท้ายกับหัวหน้าแก๊ง Black Swallowtails เป็นศึกปิดท้ายสายแก๊ง เอาชนะเพื่อได้เขามาร่วม Joryu Clan",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "21",
+   "name": "The Golden Samurai",
+   "sub": "",
+   "place": "สุ่มในโซเท็นโบริ (มีสัญลักษณ์สามเหลี่ยมสีม่วงบนมินิแมป)",
+   "unlock": "",
+   "summary": "ตามหาและปราบศัตรูปริศนาชุดเกราะทองคำในโซเท็นโบริ แข็งแกร่งกว่าศัตรูทั่วไปในโลกเปิดมาก",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "22",
+   "name": "The Golden Scourge",
+   "sub": "",
+   "place": "สุ่มในโซเท็นโบริ",
+   "unlock": "หลังผ่าน \"The Golden Samurai\"",
+   "summary": "ดวลซ้ำกับซามูไรทองคำในร่างที่แข็งแกร่งกว่าเดิม มีหลอดเลือดเพิ่มและท่าใหม่",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "23",
+   "name": "Golden Gauntlet Throwdown",
+   "sub": "",
+   "place": "ดาดฟ้าอาคาร Yotsudera Kaikan (ห้องพนัน)",
+   "unlock": "หลังผ่าน \"The Golden Scourge\"",
+   "summary": "ศึกดวลครั้งสุดท้ายกับซามูไรทองคำบนดาดฟ้า เขาแข็งแกร่งที่สุดในบรรดา 3 การดวล",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "24",
+   "name": "Operation Family Welfare",
+   "sub": "",
+   "place": "ถูกพาไปสู้กับกลุ่มขโมยอุปกรณ์แก็ดเจ็ตโดยอัตโนมัติหลังรับงาน (ไม่ระบุชื่อจุดแน่ชัด)",
+   "unlock": "หลังเอาชนะ Four Kings ทั้งหมดใน Coliseum",
+   "summary": "คำขอสุดท้ายของอาคาเมะ ผูกกับเนื้อเรื่องตระกูลเคียวคุโซ (Kyokuso Family) ที่จับคนไร้บ้านไปบังคับลงทะเบียนรับสวัสดิการ ศัตรูในภารกิจนี้เบากว่าคู่ต่อสู้ใน Coliseum มาก ผ่านง่าย และปลดล็อกแมตช์พิเศษ Platinum รองสุดท้าย",
+   "steps": [],
+   "group": ""
+  }
+ ]
+}

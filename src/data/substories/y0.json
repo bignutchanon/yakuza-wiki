@@ -1,0 +1,1006 @@
+{
+ "game": "y0",
+ "source": "ตารางเดิมในไกด์ของเว็บ (แปลงเป็น JSON เมื่อเปลี่ยนหน้าเป็นการ์ด)",
+ "quests": [
+  {
+   "n": "1",
+   "name": "The Visionary Fortune-Teller",
+   "sub": "",
+   "place": "Senryo Avenue",
+   "unlock": "บทที่ 5+; ต้องทำเควส Rise of the Dragon (สายมาจิมะ) ก่อน",
+   "summary": "หมอดูข้างถนนทำนายแม่นราวหยั่งรู้อนาคต ตอนถูกถามเรื่องราคาสำหรับเด็ก อย่าตอบว่า \"priceless\"",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "2",
+   "name": "Arakure Quest",
+   "sub": "",
+   "place": "Nakamichi Street",
+   "unlock": "บทที่ 2+",
+   "summary": "เดินสำรวจย่านนากามิจิเพื่อตามหาสาวนักเลงที่หายตัวไป",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "3",
+   "name": "Passport to Pizza",
+   "sub": "",
+   "place": "Champion District",
+   "unlock": "บทที่ 5+",
+   "summary": "ให้ไอเทมฟื้นฟูกับเธอก่อน แล้วรีบไปซื้อพิซซ่าจากร้าน Smile Burger ให้ทันภายในเวลาประมาณ 90 วินาที",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "4",
+   "name": "Kamurocho Undercover",
+   "sub": "",
+   "place": "Champion District",
+   "unlock": "บทที่ 2+",
+   "summary": "ปลอมตัวสืบเรื่องลึกลับ ระวังอย่าให้ถูกจับได้ระหว่างทาง",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "5",
+   "name": "The Human Trafficking Ring",
+   "sub": "",
+   "place": "Shellac, Champion District",
+   "unlock": "บทที่ 5+; ทำเควส Kamurocho Undercover ก่อน",
+   "summary": "ต่อเนื่องจากเควสก่อนหน้า พัวพันขบวนการค้ามนุษย์ในเงามืดของเมือง",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "6",
+   "name": "Damned Yanki",
+   "sub": "",
+   "place": "Shichifuku Street West",
+   "unlock": "บทที่ 2+",
+   "summary": "เลือกบทสนทนาแนว \"Start Your Engines\" / \"Fighting All Day\" / \"Stay Silent\" ระหว่างเจรจา รางวัลคือเสื้อ Wild Shirt",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "7",
+   "name": "How to Train Your Dominatrix",
+   "sub": "",
+   "place": "Pink Street North",
+   "unlock": "บทที่ 2+; ทำเควส The Show Must Go On ก่อน",
+   "summary": "เลือกคำตอบแบบยอมจำนน เช่น \"Who gave you permission to speak, pig?!\" หรือ \"I want to be humiliated.\"",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "8",
+   "name": "Password Protected",
+   "sub": "",
+   "place": "Kamuro Shopping Area",
+   "unlock": "บทที่ 2+",
+   "summary": "ฟังคำใบ้จากมงมง (นัดดูหนัง, ฝนตกตอนเที่ยง) แล้วพิมพ์รหัสผ่าน \"Subotenuhigeukiro\" ให้ตรงตัวพิมพ์ใหญ่-เล็ก",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "9",
+   "name": "The Show Must Go On",
+   "sub": "",
+   "place": "Nakamichi Alley",
+   "unlock": "บทที่ 2+",
+   "summary": "ทำท่าทางโง่ ๆ ตามที่ขอ จากนั้นหยิบ-เอียง-แล้วเอาของประกอบฉากอาหารออกตามลำดับ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "10",
+   "name": "Sugar Daddy",
+   "sub": "",
+   "place": "Hotel District",
+   "unlock": "บทที่ 6+",
+   "summary": "เลือกคำตอบปลอดภัย เช่น บอกว่ารู้จักเธอผ่านเพื่อน / ถามเรื่องเพื่อนร่วมห้อง / พูดถึงพ่อของเธอที่ไม่อยู่",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "11",
+   "name": "The Shrink-Wrapped Dream",
+   "sub": "",
+   "place": "Tenkaichi Alley",
+   "unlock": "บทที่ 6+",
+   "summary": "ต้องแอบผ่านกลุ่มคนที่มุงดูโดยไม่ให้พวกเขาสังเกตเห็น เพื่อหยิบนิตยสารที่ต้องการ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "12",
+   "name": "Miracle on Tenkaichi Street",
+   "sub": "",
+   "place": "Taihei Boulevard",
+   "unlock": "บทที่ 2+; ทำเควส The Show Must Go On ก่อน",
+   "summary": "คุ้มกันมิราเคิลตอนถูกโจมตี รางวัลเลือกได้ระหว่างรองเท้า Silent Shoes กับเสื้อ Baseball Shirt",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "13",
+   "name": "The Tax Lady",
+   "sub": "",
+   "place": "Sugita Building",
+   "unlock": "บทที่ 5+; ชนะ Leisure King และ Electronics King ใน Real Estate Royale",
+   "summary": "หลบเลี่ยงเจ้าหน้าที่สรรพากรที่ไล่ตามหนี้ภาษีให้ถูกจังหวะตามชั้นตึก",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "14",
+   "name": "Destiny Calls",
+   "sub": "",
+   "place": "Pink Street North",
+   "unlock": "บทที่ 10+",
+   "summary": "ต่อเนื่องจากเควสหมอดู โชคชะตานำพาคิริวให้ต้องช่วยเหลือคนแปลกหน้า",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "15",
+   "name": "Help Wanted!",
+   "sub": "",
+   "place": "Theater Square Alley",
+   "unlock": "บทที่ 5+; ชนะ Leisure King ใน Real Estate Royale",
+   "summary": "ผู้สมัครคนแรกที่มาสัมภาษณ์เป็นมิจฉาชีพ อย่ารับเข้าทำงาน",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "16",
+   "name": "Help Wanted! Again...",
+   "sub": "",
+   "place": "Sugita Building",
+   "unlock": "บทที่ 5+; ทำเควส Help Wanted! ก่อน",
+   "summary": "เลือกคำตอบ \"ทำอาหาร\" เป็นคำโกหกที่ถูกจับได้ เพราะโรงแรมแบบญี่ปุ่นดั้งเดิมไม่เสิร์ฟอาหารยุโรป",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "17",
+   "name": "Underneath It All",
+   "sub": "",
+   "place": "Shichifuku Street",
+   "unlock": "บทที่ 2+",
+   "summary": "จำให้ได้ว่าซาชิโกะคือคนผมยาวสีดำผูกไทสีน้ำเงิน เลือกผิดจะเสียเงิน 10,000 เยน",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "18",
+   "name": "Beyond the Door",
+   "sub": "",
+   "place": "Theater Avenue",
+   "unlock": "บทที่ 6+",
+   "summary": "สืบความลับหลังประตูปริศนาบานหนึ่ง อาจต้องใช้กุญแจจากที่อื่น",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "19",
+   "name": "Heir to the Family",
+   "sub": "",
+   "place": "Hotel District",
+   "unlock": "บทที่ 5+",
+   "summary": "ช่วยไกล่เกลี่ยปัญหาทายาทตระกูลธุรกิจที่มีเรื่องบาดหมาง",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "20",
+   "name": "A Shining Example",
+   "sub": "",
+   "place": "Shichifuku Street East",
+   "unlock": "บทที่ 10+",
+   "summary": "ให้กำลังใจเด็กขัดรองเท้าจนคิริวกลายเป็นแบบอย่างที่ดีโดยไม่ตั้งใจ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "21",
+   "name": "First Impressions",
+   "sub": "",
+   "place": "Sugita Building",
+   "unlock": "บทที่ 5+; ทำเควส Help Wanted! ก่อน",
+   "summary": "ใช้ความรู้ด้านกฎหมาย/มารยาทการกินอาหารตอบคำถามระหว่างมื้ออาหาร",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "22",
+   "name": "A Watery Investment",
+   "sub": "",
+   "place": "Nakamichi Alley",
+   "unlock": "บทที่ 5+",
+   "summary": "ปฏิเสธข้อเสนอชวนลงทุนทุกครั้งที่ถูกยื่นมา",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "23",
+   "name": "Miracle in Maharaja",
+   "sub": "",
+   "place": "Taihei Boulevard",
+   "unlock": "บทที่ 5+; ทำเควส Miracle on Tenkaichi Street ก่อน",
+   "summary": "เอาชนะมิราเคิลในศึกเต้น รางวัลเลือกได้ระหว่าง Encounter Finder กับเสื้อ Tour T-shirt",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "24",
+   "name": "The Girl in the Video",
+   "sub": "",
+   "place": "Gandhara",
+   "unlock": "บทที่ 2+; ดูวิดีโอที่ร้าน Gandhara 3 เรื่องก่อน",
+   "summary": "ดูวิดีโอให้ครบ 3 เรื่องเพื่อปลดล็อก แล้วตามหาสาวปริศนาที่ปรากฏในเทป",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "25",
+   "name": "Postcard Rookie - Kiryu",
+   "sub": "",
+   "place": "Sugita Building",
+   "unlock": "บทที่ 6+; ทำเควสสายคิริว 5 เควสก่อน",
+   "summary": "แต่งเรื่องโดยอิงจากเควสเสริมที่ทำผ่านมาแล้ว (เช่นเรื่องของหมอดูใน The Visionary Fortune-Teller ใช้ได้ผล)",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "26",
+   "name": "Postcard Pro - Kiryu",
+   "sub": "",
+   "place": "Sugita Building",
+   "unlock": "บทที่ 6+; ทำเควส Postcard Rookie - Kiryu ก่อน",
+   "summary": "ใช้เควสเสริมอื่นที่ทำผ่านแล้วเป็นวัตถุดิบ (เช่น Arakure Quest ใช้ได้ผล)",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "27",
+   "name": "Postcard Master - Kiryu",
+   "sub": "",
+   "place": "Sugita Building",
+   "unlock": "บทที่ 6+; ทำเควส Postcard Pro - Kiryu ก่อน",
+   "summary": "ใช้เควสอื่นเป็นวัตถุดิบ (เช่น Miracle on Tenkaichi St. ใช้ได้ผล) รางวัลคือถุงมือ Hercules Gloves",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "28",
+   "name": "Don't Dance Alone",
+   "sub": "",
+   "place": "Maharaja Kamurocho",
+   "unlock": "บทที่ 2+",
+   "summary": "เอาชนะคู่แข่งในศึกเต้นที่ดิสโก้มหาราชา",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "29",
+   "name": "Technique to Die For",
+   "sub": "",
+   "place": "Maharaja Kamurocho",
+   "unlock": "บทที่ 2+ (คืนที่ 2); ทำเควส Don't Dance Alone ก่อน",
+   "summary": "ชนะการประลองเต้นอีกรอบ เป็นจุดเชื่อมไปสู่เควส #23/#30",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "30",
+   "name": "Maharaja Showdown",
+   "sub": "",
+   "place": "Maharaja Kamurocho",
+   "unlock": "บทที่ 5+; ทำเควส Technique to Die For ก่อน",
+   "summary": "ตั้งระดับความยากเป็น Easy แล้วเน้นจับจังหวะการกดปุ่ม รางวัลคือพัด Isobe Fan",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "31",
+   "name": "The Innocent Hook-up",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+",
+   "summary": "ลองดูโปรไฟล์ทั้ง 3 แบบ แล้วเลือกสาวชุดสีฟ้า (ริคุ) ซึ่งเป็นแพ็กเกจตรงกลาง",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "32",
+   "name": "The Sexy Hook-up",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+",
+   "summary": "เลือกอายากะ สาวชุดสีม่วง ผมยาว นั่งอยู่ไกลสุด",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "33",
+   "name": "The Flirty Hook-up",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+",
+   "summary": "จับคู่กับสาวให้ถูกคนเพื่อสนิทกับฮารุกิและเอาชนะแฟนเก่าของเธอ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "34",
+   "name": "Sakura Shock",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+",
+   "summary": "ตามหามิเรอิ สาวผมสั้นใส่ชุดสีฟ้า",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "35",
+   "name": "Verbal Warning",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+; นัดเดตกับ Mirai สำเร็จ",
+   "summary": "คิริวต้องเตือนสติด้วยคำพูดก่อนลงไม้ลงมือ เลือกคำตอบสุภาพ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "36",
+   "name": "I am Kazuma-kun",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "หลังเพิ่มมิตรภาพกับนักแข่งป็อกเก็ตเซอร์กิตจนเต็ม (ต่อจาก #50)",
+   "summary": "เอาชนะการแข่งกับเด็กคนนั้น รางวัลคือลาย Blue Bolt",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "37",
+   "name": "The Rocky Road of Romance",
+   "sub": "",
+   "place": "Children's Park",
+   "unlock": "ทำเควส I am Kazuma-kun ก่อน",
+   "summary": "ควรซื้อรถจิ๋ว Killerbee (ราคาประมาณ 50,000 เครดิต) ไว้ก่อน เพราะการแข่งรอบนี้ยากกว่าปกติมาก",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "38",
+   "name": "Gift of Love",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "ทำเควส The Rocky Road of Romance ก่อน",
+   "summary": "เอาชนะการแข่งกับเด็กผู้หญิงคนนั้น รางวัลคือรถจิ๋ว DRAG-ON",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "39",
+   "name": "Suspicion of Perversion",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "บทที่ 2+; ทำเควส Gift of Love ก่อน",
+   "summary": "แก้ความเข้าใจผิดที่ทำให้คิริวถูกมองว่าเป็นคนลามก",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "40",
+   "name": "The Prodigious Racer",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "บทที่ 2+; ทำเควส Suspicion of Perversion ก่อน",
+   "summary": "อัพเกรดรถป็อกเก็ตเซอร์กิตด้านความเร็ว/เลี้ยว แล้วชนะการแข่งกับนักแข่งอัจฉริยะ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "41",
+   "name": "The Woman They Call Professor",
+   "sub": "",
+   "place": "Earth Angel, Champion District",
+   "unlock": "บทที่ 2+; ทำเควส The Prodigious Racer ก่อน",
+   "summary": "พบผู้เชี่ยวชาญด้านรถจิ๋วที่ใคร ๆ เรียกว่าอาจารย์ รับคำแนะนำอัพเกรดรถ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "42",
+   "name": "The Greatest Glory",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "บทที่ 2+; ทำเควส The Woman They Call Professor ก่อน",
+   "summary": "แข่งขันเพื่อชิงเกียรติยศสูงสุดในสนามป็อกเก็ตเซอร์กิต",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "43",
+   "name": "The Fighter's Crown",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "บทที่ 2+; ทำเควส The Greatest Glory ก่อน + มิตรภาพเต็ม",
+   "summary": "ศึกชิงมงกุฎนักสู้ในสนามป็อกเก็ตเซอร์กิต ต้องเพิ่มมิตรภาพกับนักแข่งให้เต็มก่อน",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "44",
+   "name": "The Predator's Call",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+; นัดเดตกับ Maria สำเร็จ",
+   "summary": "เผชิญหน้านักล่าตัวฉกาจ เลือกคำตอบสุภาพให้เข้ากับบุคลิกของเธอ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "45",
+   "name": "A Mother's Touch",
+   "sub": "",
+   "place": "Teltel Boys Club",
+   "unlock": "บทที่ 5+; นัดเดตกับ Sayuri สำเร็จ",
+   "summary": "เรื่องราวอบอุ่นเกี่ยวกับความรักของแม่ เลือกคำตอบอ่อนโยน",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "46",
+   "name": "The Stop and Search Specialist",
+   "sub": "",
+   "place": "Senryo Avenue North",
+   "unlock": "บทที่ 2+",
+   "summary": "แค่เข้าไปคุยกับเจ้าหน้าที่ตำรวจคิคุจิ เขาจะให้ทิชชู่และกลายเป็นเพื่อนที่ติดต่อได้",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "47",
+   "name": "The Mushroom Merchant",
+   "sub": "",
+   "place": "Park Alley",
+   "unlock": "บทที่ 2+",
+   "summary": "ต่อยเจ้าฮูลิแกนให้เรียบร้อย รางวัลคือเห็ด Enokitake และเพื่อนใหม่",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "48",
+   "name": "Kamurocho's Mr. Libido",
+   "sub": "",
+   "place": "Pink Street",
+   "unlock": "บทที่ 5+ (กลับมาคามุโรโจ)",
+   "summary": "แค่เข้าไปคุยกับมิสเตอร์ลิบิโดก็ผูกมิตรได้",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "49",
+   "name": "Kamurocho's Mr. Moneybags",
+   "sub": "",
+   "place": "Vincent, Park Alley",
+   "unlock": "บทที่ 6+",
+   "summary": "ช่วยเศรษฐีจอมฟุ่มเฟือยใช้เงินตามคำขอแปลก ๆ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "50",
+   "name": "Pocket Circuit Fighter!",
+   "sub": "",
+   "place": "Pocket Circuit Stadium",
+   "unlock": "บทที่ 2+",
+   "summary": "แข่งป็อกเก็ตเซอร์กิตให้จบสักครั้งเพื่อเริ่มสายมิตรภาพที่นำไปสู่เควส #36",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "51",
+   "name": "Miho, Convenience Store Clerk",
+   "sub": "",
+   "place": "Poppo, Tenkaichi Street",
+   "unlock": "บทที่ 2+",
+   "summary": "แค่ซื้อของที่แคชเชียร์ของเธอก็เริ่มผูกมิตรได้",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "52",
+   "name": "Emiri, Machi Bowl Receptionist",
+   "sub": "",
+   "place": "Mach Bowl, Theater Square",
+   "unlock": "บทที่ 6+ (หลังปลดล็อก Real Estate)",
+   "summary": "เอาชนะการท้าทายของพนักงานเพื่อผูกมิตร",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "53",
+   "name": "Sushi Gin's Chef",
+   "sub": "",
+   "place": "Sushi Gin, Showa Street",
+   "unlock": "บทที่ 6+",
+   "summary": "สั่งอาหาร 2-3 จานตอน HP ไม่เต็มเพื่อทริกเกอร์ฉาก",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "54",
+   "name": "Luka at SEGA HI-TECH LAND",
+   "sub": "",
+   "place": "SEGA HI-TECH LAND, Nakamichi",
+   "unlock": "บทที่ 2+; เล่นเกม Outrun",
+   "summary": "เล่นตู้เกม Outrun เพื่อเริ่มเควส",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "89",
+   "name": "Bacchus's Training",
+   "sub": "",
+   "place": "Tenkaichi Alley",
+   "unlock": "บทที่ 2+; ให้เหล้ากับคนไร้บ้านที่ Public Park 3 ก่อน",
+   "summary": "ช่วยบัคคัสออกจากสถานการณ์ลำบาก จะปลดล็อกท่าใหม่ในสไตล์ Brawler",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "90",
+   "name": "Kamoji's Training",
+   "sub": "",
+   "place": "Shichifuku Parking Lot",
+   "unlock": "บทที่ 2+",
+   "summary": "พูดคุยกับคาโมจิและหาของ (ภาพวาด) ที่เขาต้องการให้เจอ",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "91",
+   "name": "Miss Tatsu's Training",
+   "sub": "",
+   "place": "Tokyo Pier",
+   "unlock": "บทที่ 2+; ต้องปลดล็อกสไตล์ Beast ก่อน",
+   "summary": "ต้องปลดล็อกสไตล์ Beast ก่อนจึงจะฝึกกับมิสทัตสึได้",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "92",
+   "name": "Apex Predator",
+   "sub": "",
+   "place": "ใกล้จุดที่เจอเจ้าหน้าที่ Stop-and-Search",
+   "unlock": "บทที่ 2+; ต้องเจอและเอาชนะ Mr. Shakedown \"Egashira\" ในคามุโรโจ",
+   "summary": "ท่าไม้ตายสไตล์ Rush จะช่วยให้การต่อสู้นี้ง่ายขึ้นมาก",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "93",
+   "name": "A Dream Unfulfilled",
+   "sub": "",
+   "place": "-",
+   "unlock": "ทำเควส Apex Predator ก่อน",
+   "summary": "ต่อเนื่องจาก #92 ต้องสู้กับศัตรูตัวสูงใหญ่ (สูงราว 8 ฟุต ใส่แจ็คเก็ตสีม่วง)",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "94",
+   "name": "The Head of the Clan",
+   "sub": "",
+   "place": "Bullfighting Arena",
+   "unlock": "บทที่ 16+; ทำเควสสายคิริวที่เหลือทั้งหมดก่อน",
+   "summary": "ศึกสุดท้ายของสายเควสคิริว เตรียมของฟื้นฟูและอุปกรณ์ที่ดีที่สุดให้พร้อม",
+   "steps": [],
+   "group": "สายของคิริว (คามุโรโจ)"
+  },
+  {
+   "n": "49",
+   "name": "From the Heart",
+   "sub": "",
+   "place": "Shofukucho East",
+   "unlock": "บทที่ 3+",
+   "summary": "ช่วยหาของปลอม (สร้อยคอปลอม) จากช่างปลอมแปลง จากนั้นต้องสู้กับกลุ่มติดอาวุธที่ออฟฟิศ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "50",
+   "name": "The Entertainer's Throne",
+   "sub": "",
+   "place": "Iwao Bridge",
+   "unlock": "บทที่ 3+",
+   "summary": "ศึกชิงบัลลังก์นักแสดง ดึงความสนใจฝูงชน (เช่นประกาศเรื่อง UFO/ร้องเพลง) ก่อนนำไปสู่การต่อสู้",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "51",
+   "name": "Rise of the Dragon",
+   "sub": "",
+   "place": "Bunzaemon Outdoor Mall",
+   "unlock": "บทที่ 3+",
+   "summary": "เอาชนะคู่ต่อสู้ HP สูงเพื่อคว้ารางวัลเงินก้อนใหญ่ราวสิบล้านเยน",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "52",
+   "name": "Be My Boyfriend!",
+   "sub": "",
+   "place": "Sotenbori Street",
+   "unlock": "บทที่ 3+",
+   "summary": "สาวขอให้มาจิมะแกล้งเป็นแฟน เลือกบทสนทนาที่จริงใจ/อ่อนโยนจะได้ผลดีกว่า",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "53",
+   "name": "The Man with the Stranger's Face",
+   "sub": "",
+   "place": "Ashitaba Park",
+   "unlock": "บทที่ 3+",
+   "summary": "เควสหลายช่วง ใบหน้าชายปริศนาเปลี่ยนไปเรื่อย ๆ ต้องกลับมาคุยซ้ำหลายรอบจนนำไปสู่การต่อสู้",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "54",
+   "name": "Disciple of the New Order",
+   "sub": "",
+   "place": "Ashitaba Park",
+   "unlock": "บทที่ 3+",
+   "summary": "พัวพันลัทธิใหม่ มีแบบทดสอบคำถาม/ท่าทางของลัทธิก่อนต้องสู้กับผู้นำ (คำตอบที่แน่นอน: -)",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "55",
+   "name": "Calling the Future",
+   "sub": "",
+   "place": "Sotenbori Street West",
+   "unlock": "บทที่ 3+",
+   "summary": "ซื้อแบตเตอรี่จากร้าน Don Quijote และเตรียมไอเทมฟื้นฟูก่อนไปพบผู้ติดต่อ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "56",
+   "name": "A Taxing Issue",
+   "sub": "",
+   "place": "Hoganji Yokocho",
+   "unlock": "บทที่ 3+",
+   "summary": "ปัญหาภาษีที่ต้องสู้กับกลุ่มยากูซ่าก่อน จึงจะเจรจาต่อได้",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "57",
+   "name": "Crossed Words",
+   "sub": "",
+   "place": "Sotenbori Street East",
+   "unlock": "บทที่ 3+",
+   "summary": "ปริศนาคำไขว้/ความเข้าใจผิดจากคำพูด (คำตอบที่แน่นอน: -)",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "58",
+   "name": "Stadium Jumper Strut",
+   "sub": "",
+   "place": "Bunzaemon Outdoor Mall",
+   "unlock": "บทที่ 3+",
+   "summary": "คุ้มกันชายบาดเจ็บข้ามสะพานพร้อมสู้กับกลุ่มอันธพาลระหว่างทาง",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "59",
+   "name": "Postcard Rookie - Majima",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 8+; ทำเควสสายมาจิมะ 5 เควสก่อน",
+   "summary": "ส่งเรื่องราวโปสการ์ดที่ร้าน Sunshine เพื่อเริ่มสายเควสถ่ายภาพของมาจิมะ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "60",
+   "name": "Postcard Pro - Majima",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 8+; ทำเควส Postcard Rookie - Majima ก่อน",
+   "summary": "ยกระดับฝีมือถ่ายภาพโปสการ์ดของมาจิมะสู่มืออาชีพ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "61",
+   "name": "Postcard Master - Majima",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 8+; ทำเควส Postcard Pro - Majima ก่อน",
+   "summary": "ระดับปรมาจารย์ของสายถ่ายภาพ รางวัลปิดท้ายคือ Benkei's Amulet",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "62",
+   "name": "The ¥10 Million Drug Test",
+   "sub": "",
+   "place": "Shofukucho West",
+   "unlock": "บทที่ 3+",
+   "summary": "อ่านโปสเตอร์เพื่อเริ่มเควส การต่อสู้มีตัวจับเวลาลด HP ควรพกไอเทมฟื้นฟูไปด้วย",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "63",
+   "name": "Errands on the Run",
+   "sub": "",
+   "place": "Shofukucho West",
+   "unlock": "บทที่ 3+",
+   "summary": "วิ่งทำธุระ 3 อย่าง (ไอเทมฟื้นฟู รองเท้า พัสดุ) ก่อนนำไปสู่การเผชิญหน้า",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "64",
+   "name": "Toilet Talk",
+   "sub": "",
+   "place": "Ashitaba Park",
+   "unlock": "บทที่ 3+",
+   "summary": "ฝากข้อความในห้องน้ำสาธารณะ กลับมาเลือกคำตอบและนัดพบซ้ำหลายรอบ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "65",
+   "name": "The Obatarian Strikes Again",
+   "sub": "",
+   "place": "Sotenbori Street",
+   "unlock": "บทที่ 3+",
+   "summary": "ป้าใหญ่ปรากฏตัว 3 ครั้ง สองครั้งแรกช่วยไม่ได้ ครั้งที่สามต้องเข้าไปช่วยเหลือ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "66",
+   "name": "Party at Maharaja",
+   "sub": "",
+   "place": "Maharaja Sotenbori",
+   "unlock": "บทที่ 4+; ร้องเพลงที่ Maharaja Sotenbori 3 เพลงก่อน",
+   "summary": "เคลียร์การเต้น 3 รอบ แล้วออกจากคลับและกลับเข้าไปใหม่เพื่อเริ่มการประลอง",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "67",
+   "name": "Disco Transformation",
+   "sub": "",
+   "place": "Maharaja Sotenbori",
+   "unlock": "บทที่ 4+; ทำเควส Party at Maharaja ก่อน",
+   "summary": "ออกจากคลับแล้วกลับเข้าไปใหม่เพื่อเริ่มการแข่งขันรอบถัดไป",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "68",
+   "name": "Disco Dancing Goddess",
+   "sub": "",
+   "place": "Maharaja Sotenbori",
+   "unlock": "บทที่ 4+; ทำเควส Disco Transformation ก่อน",
+   "summary": "ประลองเต้นรอบสุดท้าย ชนะแล้วอาจได้โฮสเตสระดับทองมาร่วมทีม",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "69",
+   "name": "Parental Instincts",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 7+; ฝึกยูกิให้ครบก่อน",
+   "summary": "สัญชาตญาณความเป็นพ่อแม่ตื่นขึ้นหลังฝึกโฮสเตสยูกิจนครบ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "70",
+   "name": "A Moment Shared",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 7+; ฝึกชิกะให้ครบก่อน (ต้องเอาชนะ Club Venus มาก่อน)",
+   "summary": "ช่วงเวลาสั้น ๆ ที่มีความหมายหลังฝึกโฮสเตสชิกะจนครบ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "71",
+   "name": "Of Love and Ramen",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 7+; ฝึกมานะให้ครบก่อน",
+   "summary": "เรื่องรักที่พัวพันร้านราเมงหลังฝึกโฮสเตสมานะจนครบ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "72",
+   "name": "The First Friend",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 7+; ฝึกไอให้ครบก่อน (ต้องเอาชนะ Club Mars มาก่อน)",
+   "summary": "หลังฝึกโฮสเตสไอจนครบแล้วตอบรับคำชวนไปนัดที่สะพาน",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "73",
+   "name": "A Little Brotherly Love",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 7+; ฝึกฮิบิกิให้ครบก่อน",
+   "summary": "ความรักฉันพี่น้องหลังฝึกโฮสเตสฮิบิกิจนครบ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "74",
+   "name": "Dream Chaser",
+   "sub": "",
+   "place": "Sunshine",
+   "unlock": "บทที่ 7+; ฝึกซากิให้ครบก่อน (ต้องเอาชนะ Club Jupiter มาก่อน)",
+   "summary": "ไล่ตามความฝัน เซสชันฝึกสุดท้ายนำไปสู่ฉากช่วยเหลือ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "75",
+   "name": "Mystery Caller",
+   "sub": "",
+   "place": "Shofukucho South",
+   "unlock": "บทที่ 7+",
+   "summary": "ซื้อปืน 9 มม. (ราคาแพง) จากตู้โทรศัพท์ตามคำขอ แค่ทำครั้งแรกก็จบเควสได้ (ทำต่อจะปลดล็อกมิตรภาพกับไซมอน)",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "76",
+   "name": "Sotenbori's Mr. Moneybags",
+   "sub": "",
+   "place": "Sotenbori West Street",
+   "unlock": "บทที่ 7+",
+   "summary": "พูดคุยกับเศรษฐีเพื่อปลดล็อกระบบแลกเปลี่ยนเงินกับเขา",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "77",
+   "name": "Sotenbori's Mr. Libido",
+   "sub": "",
+   "place": "Gandhara Sotenbori",
+   "unlock": "บทที่ 4+",
+   "summary": "ลองเข้าร้าน Gandhara จะทริกเกอร์เควสโดยอัตโนมัติ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "78",
+   "name": "The Doll Girl",
+   "sub": "",
+   "place": "Sotenbori Street East",
+   "unlock": "บทที่ 3+",
+   "summary": "เล่นเกมตู้อาเขตแล้วรับมือกับอันธพาลนอกร้าน ลองคีบตุ๊กตากระรอกแดงจากตู้คีบตุ๊กตาเพื่อเพิ่มมิตรภาพ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "79",
+   "name": "Komian's Chef",
+   "sub": "",
+   "place": "Komian",
+   "unlock": "บทที่ 3+; สั่งอาหารเพื่อเริ่มเควส",
+   "summary": "สั่งอาหารจานใดก็ได้เพื่อเริ่มและจบเควส ไม่มีเทคนิคพิเศษ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "80",
+   "name": "STIJL's Barkeep",
+   "sub": "",
+   "place": "Shot Bar STIJL",
+   "unlock": "บทที่ 3+; สั่งเครื่องดื่มเพื่อเริ่มเควส",
+   "summary": "สั่งเครื่องดื่มแก้วใดก็ได้เพื่อเริ่มและจบเควส ไม่มีเทคนิคพิเศษ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "81",
+   "name": "Gandhara's Clerk",
+   "sub": "",
+   "place": "Gandhara Sotenbori",
+   "unlock": "บทที่ 3+; ดูวิดีโอเพื่อเริ่มเควส",
+   "summary": "ซื้อวิดีโอผู้ใหญ่เรื่องใดก็ได้เพื่อเริ่มและจบเควส",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "82",
+   "name": "Kyoko at SEGA HI-TECH LAND",
+   "sub": "",
+   "place": "SEGA HI-TECH LAND Sotenbori",
+   "unlock": "บทที่ 3+; เล่นเกม Space Harrier",
+   "summary": "เล่นเกม Space Harrier กับเธอเพื่อเริ่มและจบเควส",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "95",
+   "name": "Sparring with Komeki",
+   "sub": "",
+   "place": "Ashitaba Park",
+   "unlock": "บทที่ 4+; เกิดขึ้นหลังฉากเบรกแดนซ์ในเนื้อเรื่อง",
+   "summary": "พบเขาที่สะพานตามเนื้อเรื่องก่อน แล้วตามไปที่สวนสาธารณะเพื่อฝึกรอบแรก",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "96",
+   "name": "Fei Hu's Training",
+   "sub": "",
+   "place": "The Dragon & Tiger, Sotenbori",
+   "unlock": "บทที่ 3+",
+   "summary": "ต้องลงทุนแต้มทักษะสายเฟยหูให้มากพอจึงจะปลดล็อกท่าที่สอง ไม่มีเทคนิคลับเพิ่มเติม",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "97",
+   "name": "Areshi's Training",
+   "sub": "",
+   "place": "Shofukucho West",
+   "unlock": "บทที่ 4+; เกิดขึ้นหลังฉากเบรกแดนซ์ในเนื้อเรื่อง",
+   "summary": "รูปแบบเดียวกับ Sparring with Komeki พบตามเนื้อเรื่องแล้วฝึกรอบแรกที่สวนสาธารณะ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "98",
+   "name": "Play-Money Shakedown",
+   "sub": "",
+   "place": "(เกิดขึ้นตามเนื้อเรื่อง)",
+   "unlock": "ต้องเจอและเอาชนะ Mr. Shakedown ในโซเทนโบริ",
+   "summary": "เผชิญหน้าอันธพาลจอมโหดที่ท้าทายด้วยเงินปลอม ต้องเอาชนะให้ได้",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "99",
+   "name": "The Ultimate Plan",
+   "sub": "",
+   "place": "(เกิดขึ้นตามเนื้อเรื่อง)",
+   "unlock": "ทำเควส Play-Money Shakedown ก่อน",
+   "summary": "ต่อเนื่องจากการเอาชนะ Mr. Shakedown ในโซเทนโบริ",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  },
+  {
+   "n": "100",
+   "name": "Sotenbori in Peril",
+   "sub": "",
+   "place": "Bullfighting Arena",
+   "unlock": "บทที่ 16+; ทำเควสสายมาจิมะที่เหลือทั้งหมดก่อน",
+   "summary": "ศึกสุดท้ายของสายเควสมาจิมะ เตรียมของฟื้นฟูและอุปกรณ์ที่ดีที่สุดให้พร้อม",
+   "steps": [],
+   "group": "สายของมาจิมะ (โซเทนโบริ)"
+  }
+ ]
+}

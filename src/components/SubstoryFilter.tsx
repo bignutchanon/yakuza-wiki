@@ -10,14 +10,16 @@ import { useEffect, useState } from 'react'
 
 interface Props {
   total: number
-  places: { place: string; count: number }[]
+  /** ปุ่มกรอง — ค่าที่เลือกเอาไปเทียบกับ data-facet ของการ์ด (สายตัวเอก หรือทำเล แล้วแต่ภาค) */
+  facets: { value: string; count: number }[]
+  placeholder: string
 }
 
 const norm = (s: string) => s.toLowerCase().trim()
 
-export default function SubstoryFilter({ total, places }: Props) {
+export default function SubstoryFilter({ total, facets, placeholder }: Props) {
   const [query, setQuery] = useState('')
-  const [place, setPlace] = useState('')
+  const [facet, setFacet] = useState('')
   const [shown, setShown] = useState(total)
 
   useEffect(() => {
@@ -28,46 +30,48 @@ export default function SubstoryFilter({ total, places }: Props) {
     for (const card of cards) {
       const haystack = (card.dataset.text ??= (card.textContent ?? '').toLowerCase())
       const match =
-        (!place || card.dataset.place === place) && words.every((w) => haystack.includes(w))
+        (!facet || card.dataset.facet === facet) && words.every((w) => haystack.includes(w))
       card.hidden = !match
       if (match) visible++
     }
 
     setShown(visible)
-  }, [query, place])
+  }, [query, facet])
 
   return (
     <div className="sub-tools">
       <input
         type="search"
         className="sub-search"
-        placeholder="ค้นชื่อเควส หรือคำในเป้าหมาย เช่น ล็อกเกอร์, Amon"
+        placeholder={placeholder}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         aria-label="ค้นหาเควสเสริม"
       />
 
-      <div className="sub-chips" role="group" aria-label="กรองตามทำเล">
-        <button
-          type="button"
-          className={`sub-chip${place === '' ? ' is-on' : ''}`}
-          onClick={() => setPlace('')}
-          aria-pressed={place === ''}
-        >
-          ทั้งหมด <span>{total}</span>
-        </button>
-        {places.map((p) => (
+      {facets.length > 1 && (
+        <div className="sub-chips" role="group" aria-label="กรองรายการ">
           <button
-            key={p.place}
             type="button"
-            className={`sub-chip${place === p.place ? ' is-on' : ''}`}
-            onClick={() => setPlace(p.place)}
-            aria-pressed={place === p.place}
+            className={`sub-chip${facet === '' ? ' is-on' : ''}`}
+            onClick={() => setFacet('')}
+            aria-pressed={facet === ''}
           >
-            {p.place} <span>{p.count}</span>
+            ทั้งหมด <span>{total}</span>
           </button>
-        ))}
-      </div>
+          {facets.map((f) => (
+            <button
+              key={f.value}
+              type="button"
+              className={`sub-chip${facet === f.value ? ' is-on' : ''}`}
+              onClick={() => setFacet(f.value)}
+              aria-pressed={facet === f.value}
+            >
+              {f.value} <span>{f.count}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       <p className="sub-count" aria-live="polite">
         {shown === total ? `ทั้งหมด ${total} เควส` : `พบ ${shown} จาก ${total} เควส`}

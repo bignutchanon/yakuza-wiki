@@ -1,20 +1,27 @@
-// ข้อมูลเควสเสริมแบบมีโครงสร้าง (JSON) — ใช้แทนตาราง markdown ในภาคที่ถอดข้อมูลจากไฟล์เกมได้
-// ไฟล์อยู่ที่ src/data/substories/<gameId>.json สร้างด้วย scripts/extract-substories-<gameId>.py
+// ข้อมูลเควสเสริมแบบมีโครงสร้าง (JSON) — แหล่งข้อมูลจริงของหน้า /game/<id>/substories/
+// ไฟล์อยู่ที่ src/data/substories/<gameId>.json
+//   y3r  สร้างจากไฟล์เกมโดยตรงด้วย scripts/extract-substories-y3r.py
+//   ภาคอื่น แปลงมาจากตาราง markdown เดิมด้วย scripts/substories-md-to-json.py
 // server-only เหมือน lib/content.ts (อ่านด้วย fs ตอน build) — ห้าม import จาก client component
 
 import fs from 'node:fs'
 import path from 'node:path'
 
 export interface Substory {
-  /** ลำดับตามตารางในไฟล์เกม (ตัดช่องที่ถูกถอดออกแล้ว) */
-  n: number
-  /** ชื่อเควสภาษาอังกฤษตามที่เกมต้นฉบับใช้ */
-  en: string
-  /** ชื่อไทยที่ม็อดแปลไทยแสดงในเกม (ว่าง = ม็อดคงชื่ออังกฤษไว้) */
-  th: string
+  /** เลขในตารางของเกม/ไกด์ — เป็น string เพราะบางภาคใช้เลขซ้ำหรือมีอักษรผสม */
+  n: string
+  /** ชื่อที่โชว์เป็นหัวการ์ด */
+  name: string
+  /** ชื่อรอง (ชื่ออังกฤษ) ถ้าหัวการ์ดเป็นภาษาไทย */
+  sub: string
   place: string
-  /** ข้อความความคืบหน้าที่ขึ้นในบันทึกภารกิจ เรียงตามลำดับขั้นของเควส */
+  /** เงื่อนไขปลดล็อก เช่น "บทที่ 5+" (ว่าง = ยังไม่มีข้อมูล) */
+  unlock: string
+  summary: string
+  /** ขั้นความคืบหน้าถัดไปของเควส (ตอนนี้มีเฉพาะภาคที่ถอดจากไฟล์เกม) */
   steps: string[]
+  /** กลุ่มของเควส เช่น สายตัวเอกใน Y0/Y4/Y5 (ว่าง = ไม่แบ่งกลุ่ม) */
+  group: string
 }
 
 export interface SubstoryData {
@@ -40,11 +47,21 @@ const byGame = loadAll()
 
 export const substoryDataFor = (gameId: string): SubstoryData | null => byGame[gameId] ?? null
 
-/** ทำเลทั้งหมดที่มีในภาคนั้น เรียงตามจำนวนเควสจากมากไปน้อย (ใช้ทำปุ่มกรอง) */
-export const substoryPlaces = (data: SubstoryData): { place: string; count: number }[] => {
+export interface SubstoryFacet {
+  value: string
+  count: number
+}
+
+/** ปุ่มกรองของภาคนั้น — ใช้กลุ่ม (สายตัวเอก) ก่อนถ้ามี ไม่งั้นใช้ทำเล */
+export function substoryFacets(data: SubstoryData): { key: 'group' | 'place'; items: SubstoryFacet[] } {
+  const key = data.quests.some((q) => q.group) ? 'group' : 'place'
   const count = new Map<string, number>()
-  for (const q of data.quests) count.set(q.place, (count.get(q.place) ?? 0) + 1)
-  return [...count.entries()]
-    .map(([place, n]) => ({ place, count: n }))
-    .sort((a, b) => b.count - a.count)
+  for (const q of data.quests) {
+    const value = q[key]
+    if (value) count.set(value, (count.get(value) ?? 0) + 1)
+  }
+  const items = [...count.entries()].map(([value, n]) => ({ value, count: n }))
+  // กลุ่มเรียงตามลำดับที่ปรากฏในไกด์ (สายตัวเอกมีลำดับของมัน) ส่วนทำเลเรียงตามจำนวน
+  if (key === 'place') items.sort((a, b) => b.count - a.count)
+  return { key, items }
 }

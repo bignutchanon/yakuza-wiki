@@ -114,21 +114,31 @@ def main() -> None:
         title = title_pool[title_idx[row]]
         if title:
             place = place_pool[place_idx[row]]
+            th = thai.get(title, '')
             current = {
                 'n': 0,
-                'en': title,
-                'th': thai.get(title, ''),
+                # ชื่อที่โชว์บนการ์ด: ใช้ไทยถ้าม็อดแปลชื่อนั้น ไม่งั้นใช้อังกฤษ (เช่น Amon)
+                'name': th or title,
+                'sub': title if th else '',
                 'place': PLACE_TH.get(place, place),
+                # ไฟล์เควสของเกมไม่ได้เก็บว่าเปิดในบทไหน จึงยังไม่มีข้อมูลปลดล็อก
+                'unlock': '',
+                'summary': '',
                 'steps': [],
+                'group': '',
             }
             quests.append(current)
         step = explanations[row].strip()
         if current is not None and step:
             current['steps'].append(tidy(translate(step) or step))
 
-    quests = [q for q in quests if q['en'] != REMOVED]
+    quests = [q for q in quests if q['sub'] != REMOVED and q['name'] != REMOVED]
     for i, quest in enumerate(quests, 1):
-        quest['n'] = i
+        quest['n'] = str(i)
+        # ขั้นแรกคือคำโปรยของเควส ที่เหลือเก็บไว้ในบล็อกพับของการ์ด
+        if quest['steps']:
+            quest['summary'] = quest['steps'][0]
+            quest['steps'] = quest['steps'][1:]
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -145,8 +155,8 @@ def main() -> None:
         + '\n',
         encoding='utf-8',
     )
-    steps = sum(len(q['steps']) for q in quests)
-    missing_th = [q['en'] for q in quests if not q['th']]
+    steps = sum(len(q['steps']) + 1 for q in quests)
+    missing_th = [q['name'] for q in quests if not q['sub']]
     print(f'{out}: {len(quests)} เควส · {steps} ขั้นตอน · ไม่มีชื่อไทย {len(missing_th)} ({", ".join(missing_th) or "-"})')
 
 

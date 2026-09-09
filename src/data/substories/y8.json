@@ -1,0 +1,526 @@
+{
+ "game": "y8",
+ "source": "ตารางเดิมในไกด์ของเว็บ (แปลงเป็น JSON เมื่อเปลี่ยนหน้าเป็นการ์ด)",
+ "quests": [
+  {
+   "n": "1",
+   "name": "Radio Active",
+   "sub": "",
+   "place": "ถนน Sakura River, อิเซซากิ อิจินโจ",
+   "unlock": "บทที่ 1 (ปลดอัตโนมัติ)",
+   "summary": "ตามหาที่มาของคลื่นวิทยุลึกลับ ปลดล็อกแอปเพลย์ลิสต์เพลง",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "2",
+   "name": "Sujimon, Generation II",
+   "sub": "",
+   "place": "ถนน Ohama, อิเซซากิ อิจินโจ",
+   "unlock": "บทที่ 2 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อกแอป Sujidex สำหรับระบบจับ Sujimon เจนใหม่",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "3",
+   "name": "Crazy Money",
+   "sub": "",
+   "place": "ถนน Aloha, โฮโนลูลู",
+   "unlock": "บทที่ 2 (ปลดอัตโนมัติ)",
+   "summary": "พัวพันกับเรื่องเงินก้อนโต ปลดล็อกมินิเกม Crazy Delivery และได้ Poundmate ตัวแรก (Charlie)",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "4",
+   "name": "Busted!",
+   "sub": "",
+   "place": "ถนน Seaside Ave, โฮโนลูลู",
+   "unlock": "บทที่ 3 (ปลดอัตโนมัติ)",
+   "summary": "ช่วยคลี่คลายสถานการณ์อับอาย ปลดล็อกแอป Poundmates",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "5",
+   "name": "Welcome to Hawaii, MFer!",
+   "sub": "",
+   "place": "ถนน Tsubaki, โฮโนลูลู",
+   "unlock": "บทที่ 3 (ปลดอัตโนมัติ)",
+   "summary": "ทักทายฮาวายแบบเผ็ดร้อน ปลดล็อกแอป Aloha Links",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "6",
+   "name": "Surfin' the Streets!",
+   "sub": "",
+   "place": "หน้าร้าน Pigeon Family Market, โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ช่วยนักเซิร์ฟที่มีปัญหากับกลุ่มคนบนถนน ปลดล็อกระบบเดินทาง Street Surfer",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "7",
+   "name": "Miss Match",
+   "sub": "",
+   "place": "ระหว่างถนน Seaside Ave กับสวนถนน Waikiki, โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ปลดล็อกมินิเกมจับคู่เดท Miss Match",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "8",
+   "name": "Snap Those Sickos!",
+   "sub": "",
+   "place": "Aloha Beach (จุดจอดรถราง), โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ช่วยจับภาพหลักฐาน ปลดล็อกฟังก์ชันกล้องและมินิเกม Sicko Snap ได้ยา Rejuvenation Bolus",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "9",
+   "name": "A Love as Sweet as Lemons",
+   "sub": "",
+   "place": "แผงน้ำมะนาว ฝั่งตะวันออกถนน Waikiki, โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ช่วยคลี่คลายเรื่องรักที่แผงน้ำมะนาว ได้ Hawaiian Pizza และค่า Kindness เพิ่ม เล่นซ้ำได้หลายรอบ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "10",
+   "name": "Coming Out of Her Shell",
+   "sub": "",
+   "place": "Aloha Beach, โฮโนลูลู",
+   "unlock": "บทที่ 3 (ต้องผ่านเควส #4 ก่อน)",
+   "summary": "ช่วย Nancy กุ้งเครฟิชขี้อาย ได้ Poundmate Nancy/Olivia และค่า Personality เพิ่ม",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "11",
+   "name": "Wait for Me",
+   "sub": "",
+   "place": "ถนน Momo ใกล้ป้ายรถเมล์ Sakura Street Nishi, โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ตามหาคนที่หายตัวไป ตอบคำถามให้ถูกเพื่อรับ Lunch Box x2 และเงิน $100-300",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "12",
+   "name": "Saved by Kindness",
+   "sub": "",
+   "place": "ถนน Makani Ave, โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ต้องกลับไปคุยรวม 4 ครั้ง ได้ White Plumeria และ Happy Lei",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "13",
+   "name": "Rock and Roil",
+   "sub": "",
+   "place": "Aloha Beach (ใต้ร้าน Aloha Beach Juicery), โฮโนลูลู",
+   "unlock": "บทที่ 3 (ต้องผ่านเควส #4 ก่อน)",
+   "summary": "มีมินิเกมจังหวะดนตรี ได้ Poundmate Kazami และ Def Boom Box",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "14",
+   "name": "Neck Deep in Love",
+   "sub": "",
+   "place": "Aloha Beach (ตะวันออกของแผงน้ำมะพร้าว Kana), โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ปริศนาค้นหาแบบตาราง ได้ Courage Pendant",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "15",
+   "name": "Samurai, May We Walk Together?",
+   "sub": "",
+   "place": "Aloha Beach (ใต้ร้าน Ocean Boys Restaurant), โฮโนลูลู",
+   "unlock": "บทที่ 3-4 (ต้องผ่านเควส #4 ก่อน)",
+   "summary": "ร่วมเดินกับชายที่หลงตัวเองว่าเป็นซามูไร มีมุกโต้ตอบภาษาญี่ปุ่น ได้ Poundmate Nathan",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "16",
+   "name": "Beach Guardian: Water, Water Everywhere",
+   "sub": "",
+   "place": "Aloha Beach (บริเวณน้ำ), โฮโนลูลู",
+   "unlock": "บทที่ 3",
+   "summary": "ช่วย Raymond หาคนที่ต้องการน้ำ ได้ยา Resurrection Bolus",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "17",
+   "name": "Beach Guardian: No Kidding Around",
+   "sub": "",
+   "place": "Aloha Beach, โฮโนลูลู",
+   "unlock": "บทที่ 3-4 (ต้องผ่านเควส #16 ก่อน)",
+   "summary": "ตามหาเด็กหาย ได้ Heartful Golem",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "18",
+   "name": "Beach Guardian: Heroes of the Sand",
+   "sub": "",
+   "place": "Aloha Beach (ใกล้หอไลฟ์การ์ด), โฮโนลูลู",
+   "unlock": "บทที่ 4 (ต้องผ่านเควส #17 ก่อน)",
+   "summary": "ศัตรูอาจมีเลเวลสูงกว่าปกติ ได้ Infrared Goggles",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "19",
+   "name": "Home to Roost",
+   "sub": "",
+   "place": "Aloha Beach West, โฮโนลูลู",
+   "unlock": "บทที่ 3 (ต้องผ่านเควส #4 ก่อน)",
+   "summary": "ภารกิจเก็บของแบบจับเวลา ช่วยนก Joseph ได้ไอเทมฟื้นฟู",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "20",
+   "name": "A Better Bat",
+   "sub": "",
+   "place": "-",
+   "unlock": "บทที่ 4 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อก Julie's Gearworks และระบบคราฟต์/อัปเกรดอาวุธ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "21",
+   "name": "Playing With Fire",
+   "sub": "",
+   "place": "Ounabara Vocational School, โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "ผ่านการสอบครั้งแรก ปลดล็อกโรงเรียนอาชีวะและมินิเกมสอบวิชาชีพ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "22",
+   "name": "Rise and Grind",
+   "sub": "",
+   "place": "ร้าน Cafe SORAMAME ฝั่งเหนือถนน Anaconda Blvd, โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "มีโบนัสค่า Personality ได้ Poundmate Mameoka",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "23",
+   "name": "The More the Plumeria",
+   "sub": "",
+   "place": "หลายจุดในสวนสาธารณะ (Anaconda Harbor Park มุมถนน Momo/Waikiki), โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "ต้องไปเตรียมการ 2 รอบก่อนจบเควส ได้ Pareo of Happiness",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "24",
+   "name": "Let It Snow",
+   "sub": "",
+   "place": "หน้าร้าน Mohala Shave Ice ถนน Aloha, โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "มีฉากไล่ตามรถเข็นเด็ก ได้ Poundmate Gondawara",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "25",
+   "name": "Embrace Your Wild Side",
+   "sub": "",
+   "place": "ชั้นบนสุด Anaconda Shopping Center, โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "ต้องไปหลายจุดในห้าง ได้เสื้อยืด Golem เซ็นชื่อ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "26",
+   "name": "Anaconda Escape",
+   "sub": "",
+   "place": "ชั้นบนสุด Anaconda Shopping Center, โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "มินิเกมหนีห้องปริศนา (escape room) ได้กุญแจ Safe Key",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "27",
+   "name": "The Pursuit of Realism",
+   "sub": "",
+   "place": "สะพานทางแยก Riverside Walk/River St., โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "มินิเกมหลบรถ ได้ Kaiser's Change Holder และ Reflex Booster",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "28",
+   "name": "An Authentic Blockbuster",
+   "sub": "",
+   "place": "ร้าน Makani Coffee, Sunset Park, โฮโนลูลู",
+   "unlock": "บทที่ 4 (ต้องผ่านเควส #15 และ #27 ก่อน)",
+   "summary": "มินิเกมหลบรถอีกครั้ง ได้ Modified Rocket Launcher",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "29",
+   "name": "Litterbugged",
+   "sub": "",
+   "place": "ป้ายรถราง ใต้ Sunset St. (ใกล้ Harbor Line), โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "ต่อสู้กับหุ่นยนต์เลเวล 27 ต้องมีเงินอย่างน้อย $3000",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "30",
+   "name": "Close Encounters of the Bird Kind?",
+   "sub": "",
+   "place": "ถนน Kaku Ave ใกล้ Worldwide Market Village, โฮโนลูลู",
+   "unlock": "บทที่ 5-6 (ต้องผ่านเควส #29 ก่อน)",
+   "summary": "ต้องทำตอนกลางคืน ต่อสู้ศัตรูเลเวล 29 ได้ Poundmate Sojimaru",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "31",
+   "name": "Let's Go Alo-Happy!",
+   "sub": "",
+   "place": "-",
+   "unlock": "บทที่ 5 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อก Alo-Happy Tours และระบบเปลี่ยนอาชีพ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "32",
+   "name": "Tropical Photo Rally",
+   "sub": "",
+   "place": "-",
+   "unlock": "บทที่ 5 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อกกิจกรรมถ่ายภาพสะสม Photo Rally",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "33",
+   "name": "The Island at Rock Bottom",
+   "sub": "",
+   "place": "Dondoko Island",
+   "unlock": "บทที่ 6 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อกเกาะ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "34",
+   "name": "The Legend of the Labyrinth",
+   "sub": "",
+   "place": "Riverside Walk, โฮโนลูลู",
+   "unlock": "บทที่ 5 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อกดันเจี้ยน Hawaiian Haunt",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "35",
+   "name": "Love and Punishment",
+   "sub": "",
+   "place": "ตรอกใกล้จุดจอดแท็กซี่ Night St., โฮโนลูลู",
+   "unlock": "บทที่ 6 (หลังเหตุการณ์ Daidoji)",
+   "summary": "ต้องทำตอนกลางวัน ไปหลายรอบ ได้ Platinum Plate และ Fancy Free Magazine x5",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "36",
+   "name": "Relics of the Past",
+   "sub": "",
+   "place": "Aloha Beach West, โฮโนลูลู",
+   "unlock": "บทที่ 9",
+   "summary": "ดวลบอสเลเวล 31 ที่อ่อนแอต่อธาตุไฟ ได้ข้อมูล Sujidex นักขุดในตำนาน",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "37",
+   "name": "Choose Your Starter",
+   "sub": "",
+   "place": "-",
+   "unlock": "บทที่ 4 (ปลดอัตโนมัติ)",
+   "summary": "ปลดล็อกระบบจับ/ต่อสู้ Sujimon",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "38",
+   "name": "The CEO of Suji",
+   "sub": "",
+   "place": "ร้าน Sujigami PC Shop ถนน Aloha, โฮโนลูลู",
+   "unlock": "แรงค์เทรนเนอร์ Sujimon 10",
+   "summary": "ดวลกับคู่ต่อสู้ธาตุแสง ปลดล็อกเลเวลสูงสุด Sujimon เป็น 20",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "39",
+   "name": "The Queen's Subilee",
+   "sub": "",
+   "place": "Aloha Beach West, โฮโนลูลู",
+   "unlock": "แรงค์เทรนเนอร์ Sujimon 20",
+   "summary": "ดวลกับคู่ต่อสู้ธาตุน้ำแข็ง ปลดล็อกเลเวลสูงสุด Sujimon เป็น 30",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "40",
+   "name": "A True Gym Battle",
+   "sub": "",
+   "place": "ถนน Fuji / ลาน Makani Ave, โฮโนลูลู",
+   "unlock": "แรงค์เทรนเนอร์ Sujimon 30",
+   "summary": "ดวลกับคู่ต่อสู้หลายธาตุ ปลดล็อกเลเวลสูงสุด Sujimon เป็น 40",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "41",
+   "name": "Sodachi's Revenge",
+   "sub": "",
+   "place": "Docks / ถนน Fuji, โฮโนลูลู",
+   "unlock": "แรงค์เทรนเนอร์ Sujimon 35-40",
+   "summary": "ได้รับ Super Sodachi ปลดล็อกเลเวลสูงสุด Sujimon เป็น 50 พร้อมวิวัฒนาการใหม่",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "42",
+   "name": "Atop the Plateau",
+   "sub": "",
+   "place": "Anaconda Shopping Center (สนามสเตเดียม), โฮโนลูลู",
+   "unlock": "ผ่านเควส #37-41 ครบ",
+   "summary": "ดวลบอสใหญ่ แนะนำเลเวลตัวละครประมาณ 50 ได้ Yasuo Sodachi เป็นแขกที่ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "43",
+   "name": "A Man Named Asakura",
+   "sub": "",
+   "place": "สะพาน Aloha Bridge กับถนน River St., โฮโนลูลู",
+   "unlock": "บทที่ 4",
+   "summary": "ดวล 1 ต่อ 1 กับชายลึกลับชื่ออาซาคุระ",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "44",
+   "name": "A Changed Man",
+   "sub": "",
+   "place": "Docks / ถนน Harbor St., โฮโนลูลู",
+   "unlock": "บทที่ 4 (ต้องผ่านเควส #43 ก่อน)",
+   "summary": "ดวลกับอาซาคุระเลเวล 26 แพ้แล้วลองใหม่ได้",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "45",
+   "name": "The Final Showdown for Real",
+   "sub": "",
+   "place": "Docks / ถนน Harbor St., โฮโนลูลู",
+   "unlock": "ต้องผ่านเควส #44 ก่อน",
+   "summary": "ดวลกับอาซาคุระเลเวล 33 แพ้แล้วลองใหม่ได้",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "46",
+   "name": "A Man Facing the Future",
+   "sub": "",
+   "place": "Docks / ถนน Harbor St., โฮโนลูลู",
+   "unlock": "ต้องผ่านเควส #45 ก่อน",
+   "summary": "ต่อสู้ 3 ระลอกกับศัตรูเลเวล 43 ได้ Poundmate Asakura",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "47",
+   "name": "Certifiable Lover",
+   "sub": "",
+   "place": "Ounabara Vocational School, โฮโนลูลู",
+   "unlock": "ผ่านวิชาสอบครบทั้ง 21 วิชาที่โรงเรียนอาชีวะ",
+   "summary": "ต้องมอบของขวัญให้ถูกใจ ได้ Laura เป็นแขกที่ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "48",
+   "name": "The Ultimate Alo-Happy Activity!",
+   "sub": "",
+   "place": "จุดรับสมัคร Alo-Happy Tours, โฮโนลูลู",
+   "unlock": "ผ่านทัวร์ Alo-Happy ครบ 8 ทัวร์",
+   "summary": "ต้องมอบของขวัญให้ถูกใจ ได้ Elizabeth เป็นแขกที่ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "49",
+   "name": "She Never Misses",
+   "sub": "",
+   "place": "จุดจัดเดท Miss Match ถนน Seaside Ave, โฮโนลูลู",
+   "unlock": "นัดเดท Miss Match ครบ 10 คน",
+   "summary": "ต้องมอบของขวัญให้ถูกใจ ได้ Machiko-san เป็นแขกที่ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "50",
+   "name": "Together, Forever...",
+   "sub": "",
+   "place": "ร้าน Ohahu Burger ถนน Aloha, โฮโนลูลู",
+   "unlock": "Poundmates ถึงแรงค์ซิลเวอร์ (Rank 2)",
+   "summary": "ต้องมอบของขวัญให้ถูกใจ ได้ Chitose เป็นแขกที่ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "51",
+   "name": "Experimental Procedures",
+   "sub": "",
+   "place": "Julie's Gearworks, โฮโนลูลู",
+   "unlock": "ระดับการลงทุน (Investment) ถึงเลเวล 4",
+   "summary": "ต้องมอบของขวัญให้ถูกใจ ได้ Julie เป็นแขกที่ Dondoko Island",
+   "steps": [],
+   "group": ""
+  },
+  {
+   "n": "52",
+   "name": "Surviving Paradise",
+   "sub": "",
+   "place": "ร้าน Revolve Bar ถนน Tsubaki, โฮโนลูลู",
+   "unlock": "ผ่านเควส #47-51 ครบทุกเควส",
+   "summary": "เควสเสริมปิดท้ายสายความสัมพันธ์ ได้โบนัสป้องกันถาวร",
+   "steps": [],
+   "group": ""
+  }
+ ]
+}
