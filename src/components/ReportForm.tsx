@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { REPORT_ENDPOINT } from '@/lib/site'
 
 // ฟอร์มแจ้งบั๊กม็อดแปลไทย — ยิง POST ไป Google Apps Script Web App ที่เขียนต่อลง Google Sheet
@@ -30,7 +30,18 @@ const ISSUE_TYPES = [
 const MAX_FILE_MB = 5
 const MAX_FILE_BYTES = MAX_FILE_MB * 1024 * 1024
 
-type Status = 'idle' | 'sending' | 'done' | 'error'
+// Apps Script ที่ต้องเซฟไฟล์แนบลง Drive ด้วยใช้เวลาได้หลายวินาที แต่ถ้าเกินนี้ถือว่าค้างแล้ว
+// ตัดการรอทิ้งพร้อมบอกผู้แจ้ง ดีกว่าปล่อยให้ปุ่มค้างเงียบ ๆ จนคนปิดหน้าไปเอง
+const TIMEOUT_MS = 90_000
+
+type Status = 'idle' | 'reading' | 'sending' | 'done' | 'error'
+
+// ไอดีของ "การกดส่งหนึ่งครั้ง" — ส่งไปกับรายงานให้ฝั่ง Apps Script ใช้กันรายงานซ้ำ
+// (กดรัว ๆ หรือกดลองใหม่หลังเน็ตสะดุดทั้งที่แถวเข้าชีตไปแล้ว จะได้ไม่กลายเป็นสองแถว)
+function newReportId(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID()
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
+}
 
 // อ่านไฟล์เป็น base64 ล้วน (ตัดส่วนหัว data:...;base64, ออก)
 function readAsBase64(file: File): Promise<string> {
@@ -50,11 +61,28 @@ export default function ReportForm({ games }: ReportFormProps) {
   const [error, setError] = useState('')
   const [file, setFile] = useState<File | null>(null)
 
+  // ล็อกกันกดส่งซ้ำ — ต้องเป็น ref ไม่ใช่ state เพราะ state ที่เพิ่งตั้งยังอ่านไม่ได้ในจังหวะเดียวกัน
+  // และปุ่มที่ disabled จากการ re-render มาช้ากว่าการกดรัว/ดับเบิลแท็ปเสมอ
+  // (เคยได้รายงานใบเดียวกันสองแถวห่างกันไม่กี่มิลลิวินาที)
+  const busyRef = useRef(false)
+  // ไอดีของใบที่กำลังส่ง — คงค่าเดิมไว้ตอนกดลองใหม่หลังส่งไม่สำเร็จ ให้ปลายทางรู้ว่าเป็นใบเดียวกัน
+  const reportIdRef = useRef('')
+  const feedbackRef = useRef<HTMLDivElement | null>(null)
+  const doneRef = useRef<HTMLDivElement | null>(null)
+
   const configured = REPORT_ENDPOINT !== ''
+  const busy = status === 'reading' || status === 'sending'
+
+  // เลื่อนจอไปหาผลลัพธ์ทุกครั้งที่ส่งจบ — ฟอร์มยาวกว่าหนึ่งหน้าจอ ถ้าไม่เลื่อนให้
+  // คนที่กดปุ่มตอนอยู่ล่างสุดจะไม่เห็นทั้งกล่องสำเร็จและข้อความบอกข้อผิดพลาด
+  useEffect(() => {
+    if (status === 'done') doneRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (status === 'error') feedbackRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }, [status])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (!configured || status === 'sending') return
+    if (!configured || busyRef.current) return
 
     const form = e.currentTarget
     const data = new FormData(form)
@@ -65,8 +93,11 @@ export default function ReportForm({ games }: ReportFormProps) {
       return
     }
 
-    setStatus('sending')
+    busyRef.current = true
+    setStatus(file ? 'reading' : 'sending')
     setError('')
+
+    if (!reportIdRef.current) reportIdRef.current = newReportId()
 
     const payload = new URLSearchParams()
     for (const key of ['gameId', 'modVersion', 'issueType', 'scene', 'detail', 'system', 'saveLink', 'contact']) {
@@ -75,8 +106,12 @@ export default function ReportForm({ games }: ReportFormProps) {
     // ส่งชื่อภาคเต็มไปด้วย ฝั่ง Apps Script ใช้ gameId ตั้งชื่อแท็บ ส่วนชื่อเต็มลงในคอลัมน์
     const picked = games.find((g) => g.id === payload.get('gameId'))
     payload.set('game', picked ? picked.title : 'อื่น ๆ')
+    payload.set('reportId', reportIdRef.current)
     payload.set('pageUrl', window.location.href)
     payload.set('userAgent', navigator.userAgent)
+
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS)
 
     try {
       if (file) {
@@ -86,24 +121,45 @@ export default function ReportForm({ games }: ReportFormProps) {
         payload.set('fileName', file.name)
         payload.set('fileType', file.type || 'application/octet-stream')
         payload.set('fileData', await readAsBase64(file))
+        setStatus('sending')
       }
 
-      const res = await fetch(REPORT_ENDPOINT, { method: 'POST', body: payload })
-      const body = (await res.json()) as { ok?: boolean; error?: string }
+      const res = await fetch(REPORT_ENDPOINT, { method: 'POST', body: payload, signal: controller.signal })
+
+      // Apps Script ตอบเป็นหน้า HTML ได้ตอนมีปัญหาสิทธิ์หรือ deploy ค้าง — อ่านเป็นข้อความก่อนแล้วค่อยแปลง
+      // ไม่งั้น res.json() จะโยนข้อความ error ที่ผู้แจ้งอ่านไม่รู้เรื่องออกมา
+      const raw = await res.text()
+      let body: { ok?: boolean; error?: string } = {}
+      try {
+        body = JSON.parse(raw) as typeof body
+      } catch {
+        throw new Error('ปลายทางตอบกลับผิดรูปแบบ — ระบบรับแจ้งอาจปิดอยู่ชั่วคราว ลองใหม่อีกครั้งภายหลัง')
+      }
       if (!res.ok || !body.ok) throw new Error(body.error || 'ส่งไม่สำเร็จ')
 
       form.reset()
       setFile(null)
+      reportIdRef.current = ''
       setStatus('done')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'ส่งไม่สำเร็จ')
+      const aborted = err instanceof DOMException && err.name === 'AbortError'
+      setError(
+        aborted
+          ? 'รอนานเกินไปจนต้องยกเลิก — เน็ตอาจสะดุดหรือไฟล์แนบใหญ่เกินไป กดส่งใหม่ได้เลย ถ้าใบแรกเข้าระบบไปแล้วจะไม่ถูกนับซ้ำ'
+          : err instanceof Error
+            ? err.message
+            : 'ส่งไม่สำเร็จ',
+      )
       setStatus('error')
+    } finally {
+      clearTimeout(timer)
+      busyRef.current = false
     }
   }
 
   if (status === 'done') {
     return (
-      <div className="report-done">
+      <div className="report-done" ref={doneRef}>
         <h3>ส่งเรียบร้อย ขอบคุณมาก</h3>
         <p>
           รายงานเข้าระบบแล้ว ถ้าใส่ช่องทางติดต่อกลับไว้ อาจมีการถามรายละเอียดเพิ่มก่อนออกตัวแก้
@@ -124,122 +180,136 @@ export default function ReportForm({ games }: ReportFormProps) {
         </p>
       )}
 
-      <label className="report-field">
-        <span className="report-label">
-          ภาคที่เจอปัญหา <em>*</em>
-        </span>
-        <select name="gameId" required defaultValue="">
-          <option value="" disabled>
-            — เลือกภาค —
-          </option>
-          {games.map((g) => (
-            <option key={g.id} value={g.id}>
-              {g.title}
-            </option>
-          ))}
-          <option value="other">เว็บไซต์ / อื่น ๆ</option>
-        </select>
-      </label>
-
-      <div className="report-row">
+      {/* ปิดทั้งชุดตอนกำลังส่ง กันแก้ค่าในช่องระหว่างที่ payload เดินทางอยู่ และกันกดปุ่มซ้ำอีกชั้นหนึ่ง */}
+      <fieldset className="report-fields" disabled={busy}>
         <label className="report-field">
           <span className="report-label">
-            ประเภทปัญหา <em>*</em>
+            ภาคที่เจอปัญหา <em>*</em>
           </span>
-          <select name="issueType" required defaultValue="">
+          <select name="gameId" required defaultValue="">
             <option value="" disabled>
-              — เลือกประเภท —
+              — เลือกภาค —
             </option>
-            {ISSUE_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {t}
+            {games.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.title}
               </option>
             ))}
+            <option value="other">เว็บไซต์ / อื่น ๆ</option>
           </select>
         </label>
 
+        <div className="report-row">
+          <label className="report-field">
+            <span className="report-label">
+              ประเภทปัญหา <em>*</em>
+            </span>
+            <select name="issueType" required defaultValue="">
+              <option value="" disabled>
+                — เลือกประเภท —
+              </option>
+              {ISSUE_TYPES.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="report-field">
+            <span className="report-label">เวอร์ชันม็อด</span>
+            <input type="text" name="modVersion" placeholder="เช่น v1.0 (ดูได้ที่หน้าภาคนั้น)" maxLength={40} />
+          </label>
+        </div>
+
         <label className="report-field">
-          <span className="report-label">เวอร์ชันม็อด</span>
-          <input type="text" name="modVersion" placeholder="เช่น v1.0 (ดูได้ที่หน้าภาคนั้น)" maxLength={40} />
+          <span className="report-label">บท / ฉากที่เจอ</span>
+          <input
+            type="text"
+            name="scene"
+            placeholder="เช่น บทที่ 5 คัตซีนหลังออกจาก ADDC หรือ เมนูร้านอาหารในโซเท็นโบริ"
+            maxLength={200}
+          />
         </label>
-      </div>
 
-      <label className="report-field">
-        <span className="report-label">บท / ฉากที่เจอ</span>
-        <input
-          type="text"
-          name="scene"
-          placeholder="เช่น บทที่ 5 คัตซีนหลังออกจาก ADDC หรือ เมนูร้านอาหารในโซเท็นโบริ"
-          maxLength={200}
-        />
-      </label>
-
-      <label className="report-field">
-        <span className="report-label">
-          อาการที่เจอ <em>*</em>
-        </span>
-        <textarea
-          name="detail"
-          required
-          rows={5}
-          maxLength={3000}
-          placeholder="เล่าตามที่เห็นได้เลย เช่น กดเริ่มมินิเกมดาร์ตแล้วเกมเด้งออกทันที ลองใหม่ 3 รอบก็เป็นเหมือนเดิม"
-        />
-      </label>
-
-      <label className="report-field">
-        <span className="report-label">สเปกเครื่อง / วิธีลงเกม</span>
-        <input
-          type="text"
-          name="system"
-          placeholder="เช่น Windows 11 · เกมจาก Steam · ลงม็อดอื่นอยู่ด้วย 1 ตัว"
-          maxLength={200}
-        />
-      </label>
-
-      <label className="report-field">
-        <span className="report-label">ลิงก์ไฟล์เซฟ</span>
-        <input type="url" name="saveLink" placeholder="https:// … (อัปไฟล์เซฟขึ้น Drive แล้ววางลิงก์)" maxLength={500} />
-        <span className="report-hint">
-          ถ้าเป็นบั๊กที่เจอเฉพาะบางจุดของเกม ไฟล์เซฟช่วยให้ตามแก้ได้เร็วขึ้นมาก (เปิดสิทธิ์ให้คนที่มีลิงก์ดาวน์โหลดได้ด้วย)
-        </span>
-      </label>
-
-      <label className="report-field">
-        <span className="report-label">ภาพหน้าจอ / คลิป</span>
-        <input
-          type="file"
-          name="file"
-          accept="image/png,image/jpeg,image/webp,video/mp4"
-          onChange={(e) => setFile(e.currentTarget.files?.[0] ?? null)}
-        />
-        <span className="report-hint">
-          ไม่เกิน {MAX_FILE_MB} MB ต่อไฟล์ (png / jpg / webp / mp4) — ไฟล์ใหญ่กว่านั้นอัปขึ้น Drive แล้ววางลิงก์แทน · ไฟล์ที่ส่งมาถูกลบอัตโนมัติเมื่อครบ 90 วัน
-        </span>
-      </label>
-
-      <label className="report-field">
-        <span className="report-label">ช่องทางติดต่อกลับ</span>
-        <input type="text" name="contact" placeholder="Discord หรืออีเมล (ไม่ใส่ก็ได้)" maxLength={120} />
-        <span className="report-hint">ใช้เฉพาะกรณีต้องถามรายละเอียดเพิ่มเรื่องบั๊กนี้เท่านั้น</span>
-      </label>
-
-      {/* honeypot — ซ่อนจากคนจริงด้วย CSS ไม่ใช่ hidden เพื่อให้บอทที่อ่าน DOM ยังเห็น */}
-      <div className="report-hp" aria-hidden="true">
-        <label>
-          เว็บไซต์
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        <label className="report-field">
+          <span className="report-label">
+            อาการที่เจอ <em>*</em>
+          </span>
+          <textarea
+            name="detail"
+            required
+            rows={5}
+            maxLength={3000}
+            placeholder="เล่าตามที่เห็นได้เลย เช่น กดเริ่มมินิเกมดาร์ตแล้วเกมเด้งออกทันที ลองใหม่ 3 รอบก็เป็นเหมือนเดิม"
+          />
         </label>
-      </div>
 
-      {status === 'error' && <p className="report-note report-note-warn">{error}</p>}
+        <label className="report-field">
+          <span className="report-label">สเปกเครื่อง / วิธีลงเกม</span>
+          <input
+            type="text"
+            name="system"
+            placeholder="เช่น Windows 11 · เกมจาก Steam · ลงม็อดอื่นอยู่ด้วย 1 ตัว"
+            maxLength={200}
+          />
+        </label>
 
-      <div className="report-actions">
-        <button type="submit" className="mod-btn" disabled={!configured || status === 'sending'}>
-          {status === 'sending' ? 'กำลังส่ง…' : 'ส่งรายงาน ↗'}
-        </button>
-        <span className="report-hint">ช่องที่มี * ต้องกรอก · ที่เหลือไม่ใส่ก็ส่งได้</span>
-      </div>
+        <label className="report-field">
+          <span className="report-label">ลิงก์ไฟล์เซฟ</span>
+          <input type="url" name="saveLink" placeholder="https:// … (อัปไฟล์เซฟขึ้น Drive แล้ววางลิงก์)" maxLength={500} />
+          <span className="report-hint">
+            ถ้าเป็นบั๊กที่เจอเฉพาะบางจุดของเกม ไฟล์เซฟช่วยให้ตามแก้ได้เร็วขึ้นมาก (เปิดสิทธิ์ให้คนที่มีลิงก์ดาวน์โหลดได้ด้วย)
+          </span>
+        </label>
+
+        <label className="report-field">
+          <span className="report-label">ภาพหน้าจอ / คลิป</span>
+          <input
+            type="file"
+            name="file"
+            accept="image/png,image/jpeg,image/webp,video/mp4"
+            onChange={(e) => setFile(e.currentTarget.files?.[0] ?? null)}
+          />
+          <span className="report-hint">
+            ไม่เกิน {MAX_FILE_MB} MB ต่อไฟล์ (png / jpg / webp / mp4) — ไฟล์ใหญ่กว่านั้นอัปขึ้น Drive แล้ววางลิงก์แทน · ไฟล์ที่ส่งมาถูกลบอัตโนมัติเมื่อครบ 90 วัน
+          </span>
+        </label>
+
+        <label className="report-field">
+          <span className="report-label">ช่องทางติดต่อกลับ</span>
+          <input type="text" name="contact" placeholder="Discord หรืออีเมล (ไม่ใส่ก็ได้)" maxLength={120} />
+          <span className="report-hint">ใช้เฉพาะกรณีต้องถามรายละเอียดเพิ่มเรื่องบั๊กนี้เท่านั้น</span>
+        </label>
+
+        {/* honeypot — ซ่อนจากคนจริงด้วย CSS ไม่ใช่ hidden เพื่อให้บอทที่อ่าน DOM ยังเห็น */}
+        <div className="report-hp" aria-hidden="true">
+          <label>
+            เว็บไซต์
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          </label>
+        </div>
+
+        {/* ช่องบอกสถานะเหนือปุ่ม — aria-live ให้โปรแกรมอ่านหน้าจอประกาศเองโดยไม่ต้องย้ายโฟกัส */}
+        <div className="report-feedback" ref={feedbackRef} role="status" aria-live="polite">
+          {busy && (
+            <p className="report-note report-note-busy">
+              <span className="report-spinner" aria-hidden="true" />
+              {status === 'reading'
+                ? 'กำลังอ่านไฟล์แนบ…'
+                : 'กำลังส่งรายงาน… ถ้ามีไฟล์แนบอาจใช้เวลาสักครู่ อย่าเพิ่งปิดหน้านี้'}
+            </p>
+          )}
+          {status === 'error' && <p className="report-note report-note-warn">{error}</p>}
+        </div>
+
+        <div className="report-actions">
+          <button type="submit" className="mod-btn" disabled={!configured || busy}>
+            {busy ? 'กำลังส่ง…' : 'ส่งรายงาน ↗'}
+          </button>
+          <span className="report-hint">ช่องที่มี * ต้องกรอก · ที่เหลือไม่ใส่ก็ส่งได้</span>
+        </div>
+      </fieldset>
     </form>
   )
 }

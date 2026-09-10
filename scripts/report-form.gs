@@ -55,6 +55,9 @@ var CONFIG = {
   // ไฟล์แนบเก่ากว่ากี่วันให้ลบทิ้ง (กัน Drive เต็ม) — แถวในชีตยังอยู่ครบ เปลี่ยนแค่ช่องไฟล์แนบเป็นข้อความว่าลบแล้ว
   // ตั้ง 0 = ไม่ลบอัตโนมัติ
   attachmentKeepDays: 90,
+  // กันรายงานซ้ำ: ใบที่มี reportId เดิม (หรือเนื้อหาเหมือนกันเป๊ะจากเครื่องเดิม) ที่เข้ามาซ้ำภายในกี่นาที
+  // ให้ตอบว่าสำเร็จแต่ไม่เขียนแถวใหม่ — สูงสุด 360 นาที (เพดาน TTL ของ CacheService)
+  dedupeWindowMinutes: 360,
 }
 
 var HEADERS = [
@@ -82,6 +85,13 @@ function doPost(e) {
       return json({ ok: false, error: 'ข้อมูลไม่ครบ' })
     }
 
+    // เช็คใบซ้ำก่อนทำอย่างอื่น จะได้ไม่เสียเวลาอัปไฟล์แนบซ้ำลง Drive
+    var cache = CacheService.getScriptCache()
+    var dedupeKey = dedupeKey_(p)
+    if (cache.get(dedupeKey)) {
+      return json({ ok: true, duplicate: true })
+    }
+
     var fileUrl = ''
     if (p.fileData) {
       fileUrl = saveAttachment_(p.fileData, p.fileName, p.fileType)
@@ -107,6 +117,13 @@ function doPost(e) {
     var lock = LockService.getScriptLock()
     lock.waitLock(20000)
     try {
+      // เช็คซ้ำอีกรอบในล็อก — สองคำขอที่ออกจากเบราว์เซอร์ห่างกันไม่กี่มิลลิวินาที
+      // ผ่านการเช็คด้านบนมาพร้อมกันได้ทั้งคู่ก่อนที่ใบแรกจะทันเขียน cache
+      if (cache.get(dedupeKey)) {
+        return json({ ok: true, duplicate: true })
+      }
+      cache.put(dedupeKey, '1', CONFIG.dedupeWindowMinutes * 60)
+
       tabFor_(p.gameId).appendRow(row)
       if (CONFIG.masterTabName) {
         tab_(CONFIG.masterTabName).appendRow(row)
@@ -128,6 +145,19 @@ function doGet() {
 
 function json(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON)
+}
+
+// กุญแจกันรายงานซ้ำของใบหนึ่ง ๆ
+// ปกติใช้ reportId ที่ฟอร์มสร้างให้ต่อการกดส่งหนึ่งครั้ง (คงค่าเดิมตอนผู้แจ้งกดลองใหม่หลังส่งไม่สำเร็จ)
+// ถ้าไม่มี (หน้าเว็บเวอร์ชันเก่าที่ยังค้างอยู่ในแคชของเบราว์เซอร์) ถอยไปใช้ลายนิ้วมือของเนื้อรายงานแทน
+function dedupeKey_(p) {
+  var id = String(p.reportId || '').trim()
+  if (id) {
+    return 'rid-' + id.replace(/[^A-Za-z0-9_-]/g, '').slice(0, 100)
+  }
+  var sig = [p.gameId, p.issueType, p.scene, p.detail, p.contact, p.userAgent].join('')
+  var digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, sig, Utilities.Charset.UTF_8)
+  return 'sig-' + Utilities.base64EncodeWebSafe(digest)
 }
 
 // แท็บของภาคหนึ่ง ๆ จาก gameId ที่ฟอร์มส่งมา
