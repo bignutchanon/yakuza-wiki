@@ -94,6 +94,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/like-a-dragon-ishin-thai-mod/releases/download/v1.3/LikeADragonIshinThai-v1.3.zip',
+      nexus: 'https://www.nexusmods.com/likeadragonishin/mods/87',
       note: 'v1.3 (8 ก.ย. 2026) — แก้จอทหารหน่วย/ส่งทัพที่ข้อความหายทั้งแถบ · ข้อความยาวล้นกรอบในสารานุกรม/สมุดบันทึก · ชื่อในแผนผังความสัมพันธ์ที่ขึ้นเป็น ? · ตั้งภาษาข้อความในเกมเป็น English',
       version: 'v1.3',
       updated: '2026-09-08',
@@ -119,7 +120,7 @@ export const GAMES: Game[] = [
       note: "v1.8 (6 ก.ย. 2026) — เก็บบทคุยชาวเมือง บทพูดในใจ และบทคาบาเรต์/อสังหาฯ ที่ยังขึ้นเป็นอังกฤษ · รองรับ Yakuza 0 Director's Cut",
       version: 'v1.8',
       updated: '2026-09-06',
-      nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/36',
+      nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/40',
     },
   },
   {
@@ -136,7 +137,7 @@ export const GAMES: Game[] = [
     setting: 'คามุโรโจ — ค.ศ. 1995 / 2005',
     blurb:
       'คิริวรับผิดแทนเพื่อนรักในคดีฆ่าหัวหน้าตระกูล ติดคุกสิบปี ออกมาพบว่าเงินหนึ่งหมื่นล้านเยนของตระกูลโทโจหายไป และเด็กหญิงชื่อฮารุกะคือกุญแจของทุกอย่าง',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/1l6ylfgV_E9cLI2muS_21_roDiaBzSvfR/view?usp=drive_link', note: 'รองรับ Yakuza Kiwami (Remaster 2025)' },
+    mod: { status: 'released', url: 'https://drive.google.com/file/d/1l6ylfgV_E9cLI2muS_21_roDiaBzSvfR/view?usp=drive_link', nexus: 'https://www.nexusmods.com/yakuzakiwami2025/mods/31', note: 'รองรับ Yakuza Kiwami (Remaster 2025)' },
   },
   {
     id: 'kiwami2',
@@ -155,6 +156,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza-kiwami2-thai-mod/releases/download/v1.1/YakuzaKiwami2R-Thai-v1.1.zip',
+      nexus: 'https://www.nexusmods.com/yakuzakiwami2025/mods/32',
       note: 'v1.1 (1 ก.ย. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · แก้คำลงท้าย/สรรพนามที่ไม่ตรงเพศผู้พูด ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.1',
       updated: '2026-09-01',
@@ -178,6 +180,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.1/YakuzaKiwami3-Thai-v1.1.zip',
+      nexus: 'https://www.nexusmods.com/yakuzakiwami3/mods/372',
       note: 'v1.1 (1 ก.ย. 2026) — แก้คำลงท้าย/สรรพนามที่ไม่ตรงเพศผู้พูด ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.1',
       updated: '2026-09-01',
@@ -201,6 +204,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.1/YakuzaKiwami3-Thai-v1.1.zip',
+      nexus: 'https://www.nexusmods.com/yakuzakiwami3/mods/372',
       note: 'v1.1 (1 ก.ย. 2026) — ม็อดตัวเดียวกับ Kiwami 3 ติดตั้งครั้งเดียวได้ทั้งสองแคมเปญ',
       version: 'v1.1',
       updated: '2026-09-01',
@@ -221,6 +225,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza3-thai-mod/releases/download/v1.0/Yakuza3-Thai-Mod-v1.0.zip',
+      nexus: 'https://www.nexusmods.com/yakuza3remastered/mods/273',
       note: 'v1.0 (9 ก.ย. 2026) — รุ่นแรก แปลไทยทั้งเกม ลากโฟลเดอร์ทับโฟลเดอร์เกมจบ ไม่ต้องตั้ง Launch Options',
       version: 'v1.0',
       updated: '2026-09-09',
@@ -264,6 +269,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza5-thai-mod/releases/download/v1.5/Yakuza5-Thai-v1.5.zip',
+      nexus: 'https://www.nexusmods.com/yakuza5remastered/mods/329',
       note: 'v1.5 (29 ส.ค. 2026) — แก้มินิเกมขับแท็กซี่ค้างจอมืด + บทสนทนาค้างไม่ขึ้นปุ่มกดต่อ · เมนูร้าน/บาร์ ชื่อบทหน้าโหลด และซับคัตซีนเป็นไทยครบขึ้น (รวมงานจากรุ่นทดสอบ v1.5 beta เข้าตัวจริงแล้ว) · ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.5',
       updated: '2026-08-29',
@@ -306,6 +312,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/judgment-thai/releases/download/v1.1.3/JudgmentThai-th-v1.1.3.zip',
+      nexus: 'https://www.nexusmods.com/judgment/mods/365',
       note: 'v1.1.3 (7 ก.ย. 2026) — แก้สรรพนาม/ระดับภาษาให้ตรงตัวละครในบทนำถึงบท 3 (ยากามิใช้ "ผม/นาย" เสมอ · ผู้หญิงไม่ลงท้าย "ครับ" · ตัวละครเดียวกันไม่สลับ มึง↔คุณ กลางฉาก) ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.1.3',
       updated: '2026-09-07',
@@ -327,6 +334,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza7-thai-mod/releases/download/v1.0.4/LikeADragon7-Thai-v1.0.4.zip',
+      nexus: 'https://www.nexusmods.com/yakuzalikeadragon/mods/336',
       note: 'v1.0.4 (2 ก.ย. 2026) — คำลงท้าย/สรรพนามตรงเพศผู้พูดขึ้นทั้งเกม (บทของเอริในมินิเกมบริหารธุรกิจ ฯลฯ)',
       version: 'v1.0.4',
       updated: '2026-09-02',
@@ -348,6 +356,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://drive.google.com/file/d/1EmY3mbsLmSlPPdZw1a3tF3bBvcCGeSYt/view?usp=sharing',
+      nexus: 'https://www.nexusmods.com/likeadragongaiden/mods/533',
       note: 'v1.0.3 (24 ส.ค. 2026) — แก้ซับไตเติลในคัตซีนที่กลายเป็นภาษาอังกฤษใน v1.0.2',
       version: 'v1.0.3',
       updated: '2026-08-24',
@@ -369,6 +378,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/lost-judgment-thai/releases/download/v1.0.7/LostJudgmentThai-th-v1.0.7.zip',
+      nexus: 'https://www.nexusmods.com/lostjudgment/mods/800',
       note: 'v1.0.7 (10 ก.ย. 2026) — แก้คำอธิบายเควสในหน้าภารกิจที่ตัวอักษรเรียงลงมาแนวตั้ง + ย้ายช่องว่างที่ตกกลางวลีจนอ่านสะดุด ติดตั้งทับได้เลย',
       version: 'v1.0.7',
       updated: '2026-09-10',
@@ -390,6 +400,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/download/v1.0.6/LikeADragon8-Thai-v1.0.6.zip',
+      nexus: 'https://www.nexusmods.com/likeadragoninfinitewealth/mods/494',
       note: 'v1.0.6 (2 ก.ย. 2026) — ซับคัตซีนที่เคยเป็นอังกฤษกลับมาเป็นไทย + เมนูตั้งค่าเป็นไทยครบ',
       version: 'v1.0.6',
       updated: '2026-09-02',
@@ -407,7 +418,7 @@ export const GAMES: Game[] = [
     setting: 'ฮาวาย / มาดแลนติส — ค.ศ. 2025',
     blurb:
       'มาจิมะตื่นบนเกาะร้างพร้อมความจำที่หายไป — คว้าดาบคู่ ยึดเรือ แล้วกลายเป็นกัปตันโจรสลัดแห่งแปซิฟิกในภาคสปินออฟสุดเหวี่ยง',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/13Vt_7d1BTEOg-yEBnXh6Sp_lWXIsRcCM/view?usp=drive_link' },
+    mod: { status: 'released', url: 'https://drive.google.com/file/d/13Vt_7d1BTEOg-yEBnXh6Sp_lWXIsRcCM/view?usp=drive_link', nexus: 'https://www.nexusmods.com/likeadragonpirateyakuzainhawaii/mods/237' },
   },
 ]
 
