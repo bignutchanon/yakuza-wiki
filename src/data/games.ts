@@ -117,7 +117,7 @@ export const GAMES: Game[] = [
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza0-dc-thai-mod/releases/download/v1.8/Yakuza0DC_Thai_v1.8.zip',
-      note: "v1.8 (6 ก.ย. 2026) — เก็บบทคุยชาวเมือง บทพูดในใจ และบทคาบาเรต์/อสังหาฯ ที่ยังขึ้นเป็นอังกฤษ · รองรับ Yakuza 0 Director's Cut",
+      note: "v1.8 (6 ก.ย. 2026) — เก็บบทคุยชาวเมือง บทพูดในใจ และบทคาบาเรต์/อสังหาฯ ที่ยังขึ้นเป็นอังกฤษ · รองรับ Yakuza 0 Director's Cut · ติดตั้ง: ปิดเกม แตกไฟล์ zip แล้วลากโฟลเดอร์ runtime ไปวางทับในโฟลเดอร์เกม (Steam → Manage → Browse local files) ตอบ Merge/Replace แล้วเปิดเกมได้เลย",
       version: 'v1.8',
       updated: '2026-09-06',
       nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/40',
