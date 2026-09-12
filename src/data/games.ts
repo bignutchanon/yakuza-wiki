@@ -93,11 +93,11 @@ export const GAMES: Game[] = [
       'ญี่ปุ่นปลายยุคเอโดะกำลังจะแตกเป็นสองฝ่ายหลังเรือรบตะวันตกมาถึง ริวมะ ซากาโมโตะถูกใส่ร้ายว่าฆ่าพ่อบุญธรรมของตัวเอง จึงหนีไปเกียวโตแล้วแฝงตัวเข้ากลุ่มชินเซ็นงุมิในชื่อ "ไซโต ฮาจิเมะ" เพื่อล่าฆาตกรตัวจริง — สปินออฟที่ยกนักแสดงทั้งซีรีส์มาสวมบทบุคคลจริงในประวัติศาสตร์ (ฉบับรีเมค Kiwami วางขายทั่วโลกปี 2023 ต้นฉบับปี 2014 มีแต่ในญี่ปุ่น)',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/like-a-dragon-ishin-thai-mod/releases/download/v1.4/LikeADragonIshinThai-v1.4.zip',
+      url: 'https://github.com/bignutchanon/like-a-dragon-ishin-thai-mod/releases/download/v1.5/LikeADragonIshinThai-v1.5.zip',
       nexus: 'https://www.nexusmods.com/likeadragonishin/mods/87',
-      note: 'v1.4 (11 ก.ย. 2026) — แก้ตัวอักษรตัวสุดท้ายของบรรทัดที่หายไปจากจอ (คำลงท้ายอย่าง "แล้ว" · "นะ" · "ล่ะ") · เก็บคำแปลที่ความหมายเพี้ยนทั้งเกม · ตั้งภาษาข้อความในเกมเป็น English',
-      version: 'v1.4',
-      updated: '2026-09-11',
+      note: 'v1.5 (13 ก.ย. 2026) — ชื่อผู้พูดกับตัวเลือกตอบขึ้นไทยแล้ว · ชื่อศัตรูบนแถบพลังและชื่อในแผนผังความสัมพันธ์เป็นไทย · วรรณยุกต์ที่เคยหายบนฟอนต์พู่กันกลับมาครบ · ตั้งภาษาข้อความในเกมเป็น English',
+      version: 'v1.5',
+      updated: '2026-09-13',
     },
   },
   {
@@ -399,11 +399,11 @@ export const GAMES: Game[] = [
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/download/v1.0.6/LikeADragon8-Thai-v1.0.6.zip',
+      url: 'https://github.com/bignutchanon/yakuza8-thai-mod/releases/download/v1.0.7/LikeADragon8-Thai-v1.0.7.zip',
       nexus: 'https://www.nexusmods.com/likeadragoninfinitewealth/mods/494',
-      note: 'v1.0.6 (2 ก.ย. 2026) — ซับคัตซีนที่เคยเป็นอังกฤษกลับมาเป็นไทย + เมนูตั้งค่าเป็นไทยครบ',
-      version: 'v1.0.6',
-      updated: '2026-09-02',
+      note: 'v1.0.7 (13 ก.ย. 2026) — รอบเกลาสำนวน: น้ำเสียงตัวละครนิ่งขึ้น + แก้ประโยคที่ความหมายเพี้ยน ติดตั้งทับได้เลย',
+      version: 'v1.0.7',
+      updated: '2026-09-13',
     },
   },
   {
