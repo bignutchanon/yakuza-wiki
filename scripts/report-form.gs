@@ -36,7 +36,6 @@ var CONFIG = {
     kiwami: 'Kiwami',
     kiwami2: 'Kiwami 2',
     y3: 'Kiwami 3',
-    darkties: 'Dark Ties',
     y4: 'Yakuza 4',
     y5: 'Yakuza 5',
     y6: 'Yakuza 6',

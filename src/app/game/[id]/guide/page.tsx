@@ -6,6 +6,7 @@ import { contentFor, plainText } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
 import { breadcrumbJsonLd } from '@/lib/seo'
 import Markdown from '@/components/Markdown'
+import Byline from '@/components/Byline'
 import JsonLd from '@/components/JsonLd'
 
 export async function generateStaticParams() {
@@ -52,6 +53,7 @@ export default async function GuidePage({ params }: { params: Promise<{ id: stri
         <Link href={`/game/${id}`}>{game.title}</Link>
       </div>
       <h1 className="game-title">{guide.meta.title || 'ไกด์เสริม'}</h1>
+      <Byline />
       <Markdown text={guide.body} />
     </div>
   )

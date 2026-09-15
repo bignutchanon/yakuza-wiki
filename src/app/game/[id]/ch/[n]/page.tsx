@@ -133,7 +133,7 @@ export default async function ChapterPage({
           )}
           {guide && (
             <li>
-              <Link href={`/game/${id}/guide`}>ไกด์เล่น {game.title}</Link> — ระบบต่อสู้ สกิล และสิ่งที่ควรรู้ก่อนเริ่ม
+              <Link href={`/game/${id}/guide`}>{guide.meta.title || `ไกด์เล่น ${game.title}`}</Link>
             </li>
           )}
         </ul>

@@ -187,30 +187,6 @@ export const GAMES: Game[] = [
     },
   },
   {
-    id: 'darkties',
-    title: 'Dark Ties',
-    subtitle: 'เรื่องราวฝั่งโยชิทากะ มิเนะ — แคมเปญใหม่คู่กับ Kiwami 3',
-    year: 2007,
-    releaseYear: 2026,
-    steamAppId: 3937550,
-    image:
-      'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3937550/a90df0d7be6d8f1dd5d8eceb796840ff522d002a/header.jpg',
-    trailer: 'nKeeJzadLUE',
-    maps: ['kamurocho'],
-    protagonists: ['โยชิทากะ มิเนะ'],
-    setting: 'โตเกียว — ค.ศ. 2007 (ก่อนเหตุการณ์ภาค 3)',
-    blurb:
-      'เรื่องราวที่ไม่เคยเล่ามาก่อนของมิเนะ ตัวร้ายจากภาค 3 — เส้นทางจากนักธุรกิจสู่โลกยากูซ่า แคมเปญใหม่ยาว ~15 ชั่วโมงที่มาคู่กับ Yakuza Kiwami 3',
-    mod: {
-      status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.1/YakuzaKiwami3-Thai-v1.1.zip',
-      nexus: 'https://www.nexusmods.com/yakuzakiwami3/mods/372',
-      note: 'v1.1 (1 ก.ย. 2026) — ม็อดตัวเดียวกับ Kiwami 3 ติดตั้งครั้งเดียวได้ทั้งสองแคมเปญ',
-      version: 'v1.1',
-      updated: '2026-09-01',
-    },
-  },
-  {
     id: 'y3r',
     title: 'Yakuza 3 Remastered',
     subtitle: 'ภาค 3 ฉบับรีมาสเตอร์ — ต้นฉบับปี 2009 ก่อนถูกรีเมคเป็น Kiwami 3',

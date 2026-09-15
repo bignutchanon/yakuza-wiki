@@ -243,7 +243,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
         <>
           <h2 className="section-h">{guide.meta.title || 'ไกด์เสริม'}</h2>
           <p>
-            <Link href={`/game/${id}/guide`}>อ่านไกด์ฉบับเต็ม — อาชีพ ของเทพ และการฟาร์ม →</Link>
+            <Link href={`/game/${id}/guide`}>อ่านฉบับเต็ม →</Link>
           </p>
         </>
       )}
