@@ -13,6 +13,6 @@ tag: วางจำหน่าย
 
 ราคาบน Steam ไทยอยู่ที่ **฿1,790** และมี **เดโมให้ลองเล่นฟรี** ทั้งสองฝั่งเนื้อเรื่อง
 
-อ่านสรุปเนื้อเรื่องได้ในวิกินี้: [Yakuza Kiwami 3](#/game/y3) และ [Dark Ties](#/game/darkties)
+อ่านสรุปเนื้อเรื่องได้ในวิกินี้: [Yakuza Kiwami 3](/game/y3/) และ [Dark Ties](/game/darkties/)
 
 **แหล่งข่าว:** [SEGA ประกาศทางการ](https://www.sega.co.jp/en/release/250924_4.html) · [เว็บทางการ Ryu Ga Gotoku](https://ryu-ga-gotoku.com/kiwami3/asia_en/)

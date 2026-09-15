@@ -25,12 +25,16 @@ export async function generateMetadata({
   const { substories } = contentFor(id)
   if (!game || !substories) return {}
 
-  return pageMeta({
+  const meta = pageMeta({
     title: `Substories — ${game.title}`,
     description: `รายการเควสเสริม (Substories) ทั้งหมดของ ${game.title} — ${plainText(substories.body)}`,
     path: `/game/${id}/substories/`,
     image: { url: gameImage(game), ...STEAM_HEADER_SIZE },
   })
+
+  // ภาคที่ยังไม่มีรายการเควส (เช่น y3 = หน้าแจ้งย้ายไป y3r) เป็นหน้าบาง → noindex และไม่ลง sitemap.ts
+  // เก็บหน้าไว้กันลิงก์เดิม 404 · follow ไว้ให้บอตตามลิงก์ไปหน้าจริงได้
+  return substoryDataFor(id) ? meta : { ...meta, robots: { index: false, follow: true } }
 }
 
 export default async function SubstoriesPage({ params }: { params: Promise<{ id: string }> }) {

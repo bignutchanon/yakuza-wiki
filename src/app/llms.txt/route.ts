@@ -1,6 +1,7 @@
 import { GAMES } from '@/data/games'
 import type { Game } from '@/data/games'
 import { contentFor, loreArticles, newsPosts, gamePrices } from '@/lib/content'
+import { substoryDataFor } from '@/lib/substories'
 import { thaiDate } from '@/lib/format'
 import { SITE_URL, DEFAULT_DESCRIPTION, clip } from '@/lib/site'
 
@@ -70,7 +71,8 @@ function buildLlmsTxt(): string {
         lines.push(`  - [${label}](${SITE_URL}/game/${g.id}/ch/${ch.n}/)`)
       }
     }
-    if (substories) lines.push(`- [เควสเสริม (Substories)](${SITE_URL}/game/${g.id}/substories/)`)
+    // หน้าเควสเสริมที่ยังไม่มีรายการ (noindex) ไม่ชี้ไป — ดู game/[id]/substories/page.tsx
+    if (substories && substoryDataFor(g.id)) lines.push(`- [เควสเสริม (Substories)](${SITE_URL}/game/${g.id}/substories/)`)
     if (guide) lines.push(`- [${guide.meta.title || 'ไกด์เสริม'}](${SITE_URL}/game/${g.id}/guide/)`)
     lines.push('')
   }

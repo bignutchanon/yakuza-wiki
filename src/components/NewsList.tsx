@@ -3,14 +3,15 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { thaiDate } from '@/lib/format'
+import { isFirstPaint } from '@/lib/firstPaint'
 
 const MotionArticle = motion.article
 
 // โพสต์โผล่ไล่จังหวะทีละใบ — แยกเป็น client component เพราะ framer-motion ต้องใช้ hook ฝั่ง browser
-// (NewsPage เองยังเป็น server component เพื่อ export metadata ได้)
+// (NewsPage เองยังเป็น server component เพื่อ export metadata ได้) · โหลดหน้าแรกโพสต์ขึ้นทันที ดู lib/firstPaint.ts
 const postMotion = (i: number) =>
   ({
-    initial: { opacity: 0, y: 18 },
+    initial: isFirstPaint() ? false : { opacity: 0, y: 18 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.35, delay: Math.min(i, 4) * 0.08, ease: 'easeOut' },
   }) as const

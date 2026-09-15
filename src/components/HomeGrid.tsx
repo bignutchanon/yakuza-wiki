@@ -5,15 +5,16 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { STEAM_HEADER_SIZE } from '@/data/games'
 import { fetchRecommendCounts } from '@/lib/recommend'
+import { isFirstPaint } from '@/lib/firstPaint'
 import Credit from './Credit'
 
 const MotionLink = motion.create(Link)
 
-// การ์ดโผล่ไล่จังหวะทีละใบเมื่อเลื่อนมาถึง + เด้งรับเมาส์
+// การ์ดโผล่ไล่จังหวะทีละใบเมื่อเลื่อนมาถึง + เด้งรับเมาส์ (โหลดหน้าแรกการ์ดขึ้นทันที ดู lib/firstPaint.ts)
 // as const กัน TS ขยาย 'easeOut' เป็น string เฉย ๆ (framer-motion ต้องการ literal union ของ Easing)
 const cardMotion = (i: number) =>
   ({
-    initial: { opacity: 0, y: 24 },
+    initial: isFirstPaint() ? false : { opacity: 0, y: 24 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: '-40px' },
     transition: { duration: 0.4, delay: (i % 4) * 0.07, ease: 'easeOut' },

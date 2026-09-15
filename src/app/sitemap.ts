@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { GAMES } from '@/data/games'
 import { contentFor, loreArticles, newsPosts, gamePrices } from '@/lib/content'
 import { SITE_URL } from '@/lib/site'
+import { substoryDataFor } from '@/lib/substories'
 
 // สร้างตอน build ครั้งเดียว (static export ไม่มี request-time data) → out/sitemap.xml
 export const dynamic = 'force-static'
@@ -47,7 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const ch of chapters) {
       entries.push(entry(`${SITE_URL}/game/${g.id}/ch/${ch.n}/`))
     }
-    if (substories) entries.push(entry(`${SITE_URL}/game/${g.id}/substories/`))
+    // หน้าเควสเสริมที่ยังไม่มีรายการ (noindex) ไม่ลง sitemap — ดู game/[id]/substories/page.tsx
+    if (substories && substoryDataFor(g.id)) entries.push(entry(`${SITE_URL}/game/${g.id}/substories/`))
     if (guide) entries.push(entry(`${SITE_URL}/game/${g.id}/guide/`))
   }
 

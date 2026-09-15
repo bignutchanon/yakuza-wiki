@@ -31,6 +31,8 @@ export interface GameContent {
   chapters: Chapter[]
   substories: MetaBody | null
   guide: MetaBody | null
+  /** overview.md = บทความ "รู้จักภาคนี้ก่อนเล่น" ที่แสดงในหน้าเกม (ไม่มีไฟล์ = ไม่แสดงส่วนนี้) */
+  overview: MetaBody | null
 }
 
 export interface LoreArticle {
@@ -141,9 +143,11 @@ function loadAll() {
         })
         continue
       }
-      byGame[gameId] ??= { chapters: [], substories: null, guide: null }
+      byGame[gameId] ??= { chapters: [], substories: null, guide: null, overview: null }
       if (file === 'substories') {
         byGame[gameId].substories = { meta, body }
+      } else if (file === 'overview') {
+        byGame[gameId].overview = { meta, body }
       } else if (file === 'guide') {
         // guide.md = ไกด์เสริมของภาค (เช่นไกด์ RPG ของภาค 7/8)
         byGame[gameId].guide = { meta, body }
@@ -170,7 +174,7 @@ function loadAll() {
 const { byGame, lore, news, prices } = loadAll()
 
 export const contentFor = (gameId: string): GameContent =>
-  byGame[gameId] || { chapters: [], substories: null, guide: null }
+  byGame[gameId] || { chapters: [], substories: null, guide: null, overview: null }
 
 export const loreArticles: LoreArticle[] = lore
 export const loreBySlug = (slug: string): LoreArticle | undefined => lore.find((a) => a.slug === slug)

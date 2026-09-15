@@ -22,7 +22,7 @@ function buildLlmsFull(): string {
   )
 
   for (const g of GAMES) {
-    const { chapters, substories, guide } = contentFor(g.id)
+    const { chapters, substories, guide, overview } = contentFor(g.id)
     push(`# ${g.title}`, '', `แหล่งที่มา: ${SITE_URL}/game/${g.id}/`, '')
     push(
       `${g.subtitle} · เหตุการณ์ในเรื่องปี ${g.year} · วางจำหน่าย ${g.releaseYear}`,
@@ -31,6 +31,7 @@ function buildLlmsFull(): string {
       g.blurb,
       '',
     )
+    if (overview) push(overview.body.trim(), '')
 
     for (const ch of chapters) {
       const heading = ch.thai ? `${ch.title} / ${ch.thai}` : ch.title

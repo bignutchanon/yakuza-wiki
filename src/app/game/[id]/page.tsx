@@ -16,6 +16,7 @@ import { pageMeta } from '@/lib/site'
 import { breadcrumbJsonLd, videoGameJsonLd, modJsonLd } from '@/lib/seo'
 import Credit from '@/components/Credit'
 import JsonLd from '@/components/JsonLd'
+import Markdown from '@/components/Markdown'
 import RecommendButton from '@/components/RecommendButton'
 import { ShotStrip } from '@/components/Screenshots'
 
@@ -49,7 +50,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   const game = gameById(id)
   if (!game) notFound()
 
-  const { chapters, substories, guide } = contentFor(id)
+  const { chapters, substories, guide, overview } = contentFor(id)
 
   // แทรกป้ายชื่อพาร์ทเมื่อบทถัดไปเปลี่ยนพาร์ท (ภาคที่แบ่งพาร์ท เช่น Y4/Y5)
   const rows: Row[] = []
@@ -151,6 +152,14 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
       <RecommendButton target={`game:${game.id}`} />
 
+      {/* src/content/<id>/overview.md — แนะนำภาคก่อนเล่น ช่วยให้หน้าเกมไม่เหลือแค่ blurb บรรทัดเดียว */}
+      {overview && (
+        <>
+          <h2 className="section-h">{overview.meta.title || `รู้จัก ${game.title} ก่อนเล่น`}</h2>
+          <Markdown text={overview.body} />
+        </>
+      )}
+
       <ShotStrip game={game} />
 
       {game.trailer && (
@@ -220,13 +229,14 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
         <div className="placeholder">เนื้อหาส่วนนี้กำลังเขียน — เร็ว ๆ นี้</div>
       )}
 
-      <h2 className="section-h">เควสเสริม (Substories)</h2>
-      {substories ? (
-        <p>
-          <Link href={`/game/${id}/substories`}>ดูรายการเควสเสริมทั้งหมดของ {game.title} →</Link>
-        </p>
-      ) : (
-        <div className="placeholder">เนื้อหาส่วนนี้กำลังเขียน — เร็ว ๆ นี้</div>
+      {/* ไม่มีหน้าเควสเสริม = ไม่แสดงหัวข้อเลย — กล่อง "กำลังเขียน" เข้าข่าย "under construction" ที่ AdSense ระบุว่าเป็นเหตุไม่อนุมัติ */}
+      {substories && (
+        <>
+          <h2 className="section-h">เควสเสริม (Substories)</h2>
+          <p>
+            <Link href={`/game/${id}/substories`}>ดูรายการเควสเสริมทั้งหมดของ {game.title} →</Link>
+          </p>
+        </>
       )}
 
       {guide && (
