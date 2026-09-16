@@ -222,11 +222,11 @@ export const GAMES: Game[] = [
       'ครั้งแรกที่ซีรีส์เล่าผ่านตัวเอกสี่คน — เจ้าหนี้ใจดี นักโทษแหกคุก ตำรวจนอกคอก และมังกรในตำนาน — สี่มุมมองที่พันกันรอบคดีเดียวกลางคามุโรโจ',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/download/v2.3.1/Yakuza4-Thai-Mod-v2.3.1.zip',
+      url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/download/v2.3.2/Yakuza4-Thai-Mod-v2.3.2.zip',
       nexus: 'https://www.nexusmods.com/yakuza4remastered/mods/233',
-      note: 'v2.3.1 (7 ก.ย. 2026) — แก้หน้าต่างยืนยัน (เซฟทับ/ข้ามคัตซีน) ขึ้น ? แทนตัวอักษรไทย · รวมรอบเกลาคำแปลทั้งเกม + แก้ฟอนต์ไทยเบียดกันจาก v2.3 · ลากโฟลเดอร์เดียวทับ ไม่ต้องตั้ง Launch Options',
-      version: 'v2.3.1',
-      updated: '2026-09-07',
+      note: 'v2.3.2 (16 ก.ย. 2026) — แก้เกมเด้ง/ค้างตอนคุยกับ NPC บางคน (ตาแก่ในท่อระบายน้ำสายซาเอะจิมะ · ฮอสเตสคลับ · โบว์ลิ่ง · ปาเป้า) · ลากโฟลเดอร์เดียวทับ ไม่ต้องตั้ง Launch Options',
+      version: 'v2.3.2',
+      updated: '2026-09-16',
     },
   },
   {
