@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
-import { pageMeta } from '@/lib/site'
+import { CONTACT_EMAIL, pageMeta } from '@/lib/site'
 import Markdown from '@/components/Markdown'
 import CookieResetButton from '@/components/CookieResetButton'
+import { breadcrumbJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
 
 // นโยบายความเป็นส่วนตัว + คุกกี้ — จำเป็นตามนโยบายโปรแกรม Google AdSense
 // ปุ่มท้ายหน้าใช้ล้างตัวเลือกคุกกี้ (localStorage) เพื่อให้แบนเนอร์ถามใหม่ — แยกเป็น <CookieResetButton> (client)
@@ -75,7 +77,7 @@ Google และพาร์ตเนอร์ใช้คุกกี้โฆ�
 
 ## ติดต่อ
 
-คำถามเกี่ยวกับนโยบายนี้ ติดต่อผู้จัดทำได้ที่ nuthappy2549@gmail.com
+คำถามเกี่ยวกับนโยบายนี้ ติดต่อผู้จัดทำได้ที่ ${CONTACT_EMAIL}
 
 _อัปเดตล่าสุด: 8 ก.ย. 2026_
 `
@@ -89,6 +91,7 @@ export const metadata: Metadata = pageMeta({
 export default function PrivacyPage() {
   return (
     <div className="page">
+      <JsonLd data={breadcrumbJsonLd([{ name: 'นโยบายความเป็นส่วนตัว', path: '/privacy/' }])} />
       <div className="eyebrow">Privacy</div>
       <h1 className="game-title">นโยบายความเป็นส่วนตัวและคุกกี้</h1>
       <Markdown text={BODY} />

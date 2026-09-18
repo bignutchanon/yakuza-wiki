@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { gamePrices, thaiDate } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
 import Markdown from '@/components/Markdown'
+import { breadcrumbJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMeta({
   title: 'ราคาเกม',
@@ -23,6 +25,7 @@ export default function PricesPage() {
   }
   return (
     <div className="page">
+      <JsonLd data={breadcrumbJsonLd([{ name: 'ราคาเกม', path: '/prices/' }])} />
       <h1>ราคาเกมตอนนี้</h1>
       <p className="game-sub">
         อัปเดตล่าสุด {thaiDate(gamePrices.updated)} · ตามข่าวซีรีส์ได้ที่หน้า{' '}

@@ -12,10 +12,27 @@ import { REPORT_ENDPOINT } from '@/lib/site'
 export interface ReportFormGame {
   id: string
   title: string
+  // เวอร์ชันล่าสุดบนเว็บ (mod.version) — ภาคที่ยังไม่ใส่ใน games.ts เหลือตัวเลือกกว้าง ๆ แทน
+  version?: string
+  betaVersion?: string
 }
 
 interface ReportFormProps {
   games: ReportFormGame[]
+}
+
+// ตัวเลือกเวอร์ชันของภาคที่เลือก — เดิมเป็นช่องพิมพ์เองแล้วแทบไม่มีใครกรอก จึงเปลี่ยนเป็น dropdown บังคับเลือก
+// ค่าที่ส่งเป็นข้อความอ่านรู้เรื่องในชีตได้เลย ไม่ต้องแปลงกลับ
+function versionOptions(game: ReportFormGame | undefined, gameId: string): string[] {
+  if (gameId === 'other') return ['ไม่เกี่ยวกับม็อด']
+  if (!game) return []
+  const opts: string[] = []
+  if (game.version) opts.push(`${game.version} (ล่าสุด)`)
+  else opts.push('ตัวล่าสุดที่โหลดจากเว็บนี้')
+  if (game.betaVersion) opts.push(`${game.betaVersion} (beta)`)
+  opts.push(game.version ? `รุ่นเก่ากว่า ${game.version}` : 'รุ่นเก่ากว่านั้น')
+  opts.push('ไม่แน่ใจ')
+  return opts
 }
 
 const ISSUE_TYPES = [
@@ -60,6 +77,8 @@ export default function ReportForm({ games }: ReportFormProps) {
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
   const [file, setFile] = useState<File | null>(null)
+  const [gameId, setGameId] = useState('')
+  const versions = versionOptions(games.find((g) => g.id === gameId), gameId)
 
   // ล็อกกันกดส่งซ้ำ — ต้องเป็น ref ไม่ใช่ state เพราะ state ที่เพิ่งตั้งยังอ่านไม่ได้ในจังหวะเดียวกัน
   // และปุ่มที่ disabled จากการ re-render มาช้ากว่าการกดรัว/ดับเบิลแท็ปเสมอ
@@ -139,6 +158,7 @@ export default function ReportForm({ games }: ReportFormProps) {
 
       form.reset()
       setFile(null)
+      setGameId('')
       reportIdRef.current = ''
       setStatus('done')
     } catch (err) {
@@ -186,7 +206,7 @@ export default function ReportForm({ games }: ReportFormProps) {
           <span className="report-label">
             ภาคที่เจอปัญหา <em>*</em>
           </span>
-          <select name="gameId" required defaultValue="">
+          <select name="gameId" required value={gameId} onChange={(e) => setGameId(e.currentTarget.value)}>
             <option value="" disabled>
               — เลือกภาค —
             </option>
@@ -217,8 +237,21 @@ export default function ReportForm({ games }: ReportFormProps) {
           </label>
 
           <label className="report-field">
-            <span className="report-label">เวอร์ชันม็อด</span>
-            <input type="text" name="modVersion" placeholder="เช่น v1.0 (ดูได้ที่หน้าภาคนั้น)" maxLength={40} />
+            <span className="report-label">
+              เวอร์ชันม็อด <em>*</em>
+            </span>
+            {/* key ตามภาค — เปลี่ยนภาคแล้วค่าที่เลือกไว้ของภาคก่อนต้องล้างทิ้ง ไม่งั้นส่งเวอร์ชันผิดภาคไปได้ */}
+            <select key={gameId} name="modVersion" required defaultValue="" disabled={!gameId}>
+              <option value="" disabled>
+                {gameId ? '— เลือกเวอร์ชัน —' : '— เลือกภาคก่อน —'}
+              </option>
+              {versions.map((v) => (
+                <option key={v} value={v}>
+                  {v}
+                </option>
+              ))}
+            </select>
+            <span className="report-hint">ดูเวอร์ชันได้จากชื่อไฟล์ zip ที่โหลดมา หรือหน้าภาคนั้นบนเว็บ</span>
           </label>
         </div>
 

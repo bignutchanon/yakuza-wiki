@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { GAMES } from '@/data/games'
 import { pageMeta } from '@/lib/site'
 import ReportForm, { type ReportFormGame } from '@/components/ReportForm'
+import { breadcrumbJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMeta({
   title: 'แจ้งบั๊กม็อดแปลไทย',
@@ -16,10 +18,13 @@ export default function ReportPage() {
   const games: ReportFormGame[] = GAMES.filter((g) => g.mod.status !== 'none').map((g) => ({
     id: g.id,
     title: g.title,
+    version: g.mod.version,
+    betaVersion: g.mod.beta?.version,
   }))
 
   return (
     <div className="page">
+      <JsonLd data={breadcrumbJsonLd([{ name: 'แจ้งบั๊กม็อดแปลไทย', path: '/report/' }])} />
       <div className="eyebrow">Bug report</div>
       <h1 className="game-title">แจ้งบั๊กม็อดแปลไทย</h1>
       <p className="game-sub">เจอเกมเด้ง ตัวหนังสือเพี้ยน หรือคำแปลผิด — บอกมาได้เลย</p>

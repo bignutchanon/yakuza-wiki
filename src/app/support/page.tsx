@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GITHUB_SPONSORS_URL, pageMeta } from '@/lib/site'
+import { breadcrumbJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = pageMeta({
   title: 'สนับสนุนผู้จัดทำ',
@@ -12,6 +14,7 @@ export const metadata: Metadata = pageMeta({
 export default function SupportPage() {
   return (
     <div className="page">
+      <JsonLd data={breadcrumbJsonLd([{ name: 'สนับสนุนผู้จัดทำ', path: '/support/' }])} />
       <div className="eyebrow">Support</div>
       <h1 className="game-title">สนับสนุนผู้จัดทำ</h1>
       <p className="game-sub">
@@ -19,7 +22,7 @@ export default function SupportPage() {
       </p>
 
       <div className="support-card">
-        <img src="/promptpay-qr.png" alt="Thai QR Payment — PromptPay" className="qr-img" />
+        <img src="/promptpay-qr.png" alt="Thai QR Payment — PromptPay" className="qr-img" width={856} height={1212} />
         <div className="support-info">
           <div className="support-label">Thai QR Payment (PromptPay)</div>
           {/* ไม่แสดงชื่อ-นามสกุลจริงบนหน้าเว็บ — ชื่อบัญชีผู้รับจะขึ้นในแอปธนาคารตอนสแกน QR อยู่แล้ว */}
