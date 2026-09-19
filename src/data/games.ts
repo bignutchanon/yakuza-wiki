@@ -355,7 +355,7 @@ export const GAMES: Game[] = [
       status: 'released',
       url: 'https://github.com/bignutchanon/lost-judgment-thai/releases/download/v1.0.8/LostJudgmentThai-th-v1.0.8.zip',
       nexus: 'https://www.nexusmods.com/lostjudgment/mods/800',
-      note: 'v1.0.8 (19 ก.ย. 2026) — ตรวจคำแปลทั้งเกมเทียบต้นฉบับญี่ปุ่น แก้ความหมายเพี้ยน + ตัวละครพูดผิดเพศ + ข้อความเรียงแนวตั้งในแฟ้มคดี/มือถือ ติดตั้งทับได้เลย',
+      note: 'v1.0.8 (19 ก.ย. 2026) — ตรวจคำแปลทั้งเกมเทียบต้นฉบับญี่ปุ่น แก้ความหมายเพี้ยน + ตัวละครพูดผิดเพศ + ข้อความเรียงแนวตั้งในกล่องบทสนทนา/แฟ้มคดี/มือถือ ติดตั้งทับได้เลย',
       version: 'v1.0.8',
       updated: '2026-09-19',
     },
