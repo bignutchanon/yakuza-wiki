@@ -12,7 +12,10 @@ import {
   absUrl,
   clip,
 } from './site'
+import { marked } from 'marked'
+import { steamStore } from '@/data/games'
 import type { Game } from '@/data/games'
+import type { FaqItem } from './content'
 
 // @id คงที่ ใช้ให้โหนดอื่นอ้างถึงได้โดยไม่ต้องประกาศซ้ำทั้งก้อน
 export const ORG_ID = `${SITE_URL}/#org`
@@ -131,8 +134,10 @@ export function videoGameJsonLd(game: Game, pagePath: string, image: string): Js
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
     name: game.title,
-    alternateName: game.subtitle,
+    // ชื่อบนหน้าร้าน (เช่น "Yakuza 4 Remastered") ช่วยให้จับคู่กับคำค้นที่ใช้ชื่อฉบับที่ซื้อมา
+    alternateName: game.storeName ? [game.storeName, game.subtitle] : game.subtitle,
     url: absUrl(pagePath),
+    ...(game.steamAppId ? { sameAs: [steamStore(game.steamAppId)] } : {}),
     image,
     description: clip(game.blurb, 300),
     inLanguage: 'th-TH',
@@ -161,6 +166,7 @@ export function modJsonLd(game: Game, pagePath: string, image: string): JsonLdNo
     url: absUrl(pagePath),
     image,
     downloadUrl: game.mod.url,
+    softwareRequirements: `${game.storeName ?? game.title} บน PC`,
     inLanguage: 'th-TH',
     isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'THB' },
@@ -170,6 +176,26 @@ export function modJsonLd(game: Game, pagePath: string, image: string): JsonLdNo
   if (game.mod.version) node.softwareVersion = game.mod.version
   if (game.mod.updated) node.dateModified = game.mod.updated
   return node
+}
+
+// คำถามที่พบบ่อยท้ายหน้าเกม (src/content/<id>/faq.md) — ต้องเป็นชุดเดียวกับที่แสดงบนหน้าเป๊ะ (กติกาของ FAQPage)
+// ตั้งแต่ ส.ค. 2023 Google แสดงกล่อง FAQ ในผลค้นหาเฉพาะเว็บรัฐ/สุขภาพ โหนดนี้จึงไม่ได้ทำให้ผลค้นหามีกล่องคำถาม
+// แต่ Bing และผู้ช่วย AI ยังอ่านคู่คำถาม-คำตอบจากโหนดนี้ได้ตรง ๆ โดยไม่ต้องแกะจาก HTML
+export function faqJsonLd(items: FaqItem[]): JsonLdNode {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: 'th-TH',
+    mainEntity: items.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        // Answer.text รับ HTML (ลิงก์/รายการ) — ลิงก์ภายในต้องเป็น URL เต็ม เพราะตัวอ่านไม่ได้อยู่บนหน้าเว็บเรา
+        text: (marked.parse(a, { gfm: true }) as string).replaceAll('href="/', `href="${SITE_URL}/`).trim(),
+      },
+    })),
+  }
 }
 
 // หน้า /about — ประกาศว่าใครอยู่เบื้องหลังเว็บ (E-E-A-T: ผู้อ่านและเครื่องมือค้นหาต้องตรวจสอบตัวตนผู้เขียนได้)

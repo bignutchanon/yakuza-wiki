@@ -32,6 +32,15 @@ export interface Game {
   setting: string
   blurb: string
   mod: ModInfo
+  // ชื่อบนหน้าร้าน Steam เมื่อต่างจาก title (เช่น "Yakuza 4 Remastered") — ใช้ใน meta description + alternateName ของ JSON-LD
+  // คนค้นด้วยชื่อฉบับที่ตัวเองซื้อ ต้องเจอหน้านี้ · คัดลอกจากหน้าร้าน Steam ตรง ๆ ห้ามเดา
+  storeName?: string
+  // ชื่อสั้นสำหรับ <title> ของหน้าเกม เมื่อชื่อเต็มยาวจนคำค้นหลัก ("แปลไทย") หลุดท้ายผลค้นหา
+  shortTitle?: string
+  // รูปการ์ดแชร์ (og:image) — ใส่เฉพาะเกมที่ Steam เก็บ capsule_616x353 แบบ URL hashed (ไม่ใส่ = ประกอบจาก steamAppId)
+  ogImage?: string
+  // เขียน <title> / meta description ของหน้าเกมเองแทนค่าที่ประกอบอัตโนมัติ (ไว้ให้ทีม SEO ปรับรายภาค)
+  seo?: { title?: string; description?: string }
 }
 
 export const steamHeader = (appId?: number): string =>
@@ -44,6 +53,12 @@ export const STEAM_SHOT_SIZE = { width: 1920, height: 1080 } as const
 
 // เกมที่ระบุ image เอง (เกมใหม่ ๆ Steam ใช้ URL แบบ hashed) ให้ใช้ก่อน fallback เป็น steamHeader
 export const gameImage = (g: Game): string => g.image || steamHeader(g.steamAppId)
+
+// รูปการ์ดแชร์ของหน้าเกม = capsule 616×353 ของ Steam — กว้างเกิน 600×315 ที่ Facebook ใช้ตัดสินให้เป็นการ์ดรูปใหญ่
+// (header.jpg 460×215 เล็กกว่าเกณฑ์ ลิงก์ที่แชร์จึงได้รูปย่อเล็ก ๆ ข้างข้อความ)
+export const STEAM_CAPSULE_SIZE = { width: 616, height: 353 } as const
+export const gameShareImage = (g: Game): string =>
+  g.ogImage || `https://cdn.cloudflare.steamstatic.com/steam/apps/${g.steamAppId}/capsule_616x353.jpg`
 
 // ป้าย "อัปเดตใหม่" บนแบนเนอร์ — โชว์เมื่อแพตช์ล่าสุดออกไม่เกิน UPDATE_FRESH_DAYS วัน
 // หมายเหตุ: เว็บเป็น static export → วันที่ถูกคำนวณตอน build ป้ายจึงหายก็ต่อเมื่อมี build/deploy ครั้งถัดไป
@@ -104,10 +119,12 @@ export const GAMES: Game[] = [
     id: 'y0',
     title: 'Yakuza 0',
     subtitle: 'จุดเริ่มต้นของตำนาน',
+    storeName: "Yakuza 0 Director's Cut",
     year: 1988,
     releaseYear: 2015,
     steamAppId: 2988580,
     image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2988580/aaceda0f5c16fce191e63f7342d07323e86a1156/header.jpg',
+    ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2988580/cd4801db60e667d95798120cc4e6e513695beeef/capsule_616x353.jpg',
     trailer: 'eeKcgXuewvg',
     maps: ['kamurocho', 'sotenbori'],
     protagonists: ['คาซึมะ คิริว', 'โกโร่ มาจิมะ'],
@@ -131,6 +148,7 @@ export const GAMES: Game[] = [
     releaseYear: 2016,
     steamAppId: 3717330,
     image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3717330/07bf98df23eb154febbf878a79ff02b915b6cc43/header.jpg',
+    ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3717330/afcac448bb5f508b7e75b8eff7cb8b9431dd721a/capsule_616x353.jpg',
     trailer: 'fuBRHFl_LiM',
     maps: ['kamurocho'],
     protagonists: ['คาซึมะ คิริว'],
@@ -147,6 +165,7 @@ export const GAMES: Game[] = [
     releaseYear: 2017,
     steamAppId: 3717340,
     image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3717340/894621031b664c828e8114c42934a098e38d182b/header.jpg',
+    ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3717340/e92c1041d8697ea3eec7a3aafe60246bce742e7d/capsule_616x353.jpg',
     trailer: 'JSTKk_pvjl4',
     maps: ['kamurocho', 'sotenbori'],
     protagonists: ['คาซึมะ คิริว'],
@@ -166,11 +185,13 @@ export const GAMES: Game[] = [
     id: 'y3',
     title: 'Yakuza Kiwami 3',
     subtitle: 'รีเมคภาค 3 — จากคามุโรโจสู่ชายหาดโอกินาว่า',
+    storeName: 'Yakuza Kiwami 3 & Dark Ties',
     year: 2009,
     releaseYear: 2026,
     steamAppId: 3937550,
     image:
       'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3937550/a90df0d7be6d8f1dd5d8eceb796840ff522d002a/header.jpg',
+    ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3937550/2a9851eada96c190d00c135a94320020653ae0ec/capsule_616x353.jpg',
     trailer: 'nKeeJzadLUE',
     maps: ['ryukyu', 'kamurocho'],
     protagonists: ['คาซึมะ คิริว'],
@@ -211,6 +232,7 @@ export const GAMES: Game[] = [
     id: 'y4',
     title: 'Yakuza 4',
     subtitle: 'สี่ชีวิต หนึ่งคดี',
+    storeName: 'Yakuza 4 Remastered',
     year: 2010,
     releaseYear: 2010,
     steamAppId: 1105500,
@@ -233,6 +255,7 @@ export const GAMES: Game[] = [
     id: 'y5',
     title: 'Yakuza 5',
     subtitle: 'ความฝัน ห้าเมือง ห้าชีวิต',
+    storeName: 'Yakuza 5 Remastered',
     year: 2012,
     releaseYear: 2012,
     steamAppId: 1105510,
@@ -320,6 +343,7 @@ export const GAMES: Game[] = [
     id: 'gaiden',
     title: 'Like a Dragon Gaiden: The Man Who Erased His Name',
     subtitle: 'ชายผู้ลบชื่อตัวเอง',
+    shortTitle: 'Like a Dragon Gaiden',
     year: 2019,
     releaseYear: 2023,
     steamAppId: 2375550,
@@ -389,6 +413,7 @@ export const GAMES: Game[] = [
     year: 2025,
     releaseYear: 2025,
     steamAppId: 3061810,
+    ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3061810/7028c5abc388a2376e0a19aca1e2362821b2ef62/capsule_616x353.jpg',
     trailer: '4UW7G-fAvOM',
     protagonists: ['โกโร่ มาจิมะ'],
     setting: 'ฮาวาย / มาดแลนติส — ค.ศ. 2025',
