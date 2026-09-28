@@ -127,10 +127,10 @@ export const GAMES: Game[] = [
     ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2988580/cd4801db60e667d95798120cc4e6e513695beeef/capsule_616x353.jpg',
     trailer: 'eeKcgXuewvg',
     maps: ['kamurocho', 'sotenbori'],
-    protagonists: ['คาซึมะ คิริว', 'โกโร่ มาจิมะ'],
+    protagonists: ['คาซึมะ คิริว', 'โกโร่ มาจิม่า'],
     setting: 'คามุโรโจ (โตเกียว) / โซเท็นโบริ (โอซาก้า) — ค.ศ. 1988',
     blurb:
-      'ยุคฟองสบู่ญี่ปุ่นกำลังเดือด คิริวหนุ่มถูกใส่ร้ายคดีฆาตกรรมบนที่ดินผืนเดียวที่ทั้งคามุโรโจต้องการ ส่วนมาจิมะถูกเนรเทศไปคุมคาบาเรต์ในโอซาก้า รอวันกลับเข้าตระกูล — สองเส้นเรื่องค่อย ๆ บรรจบกันเป็นจุดเริ่มต้นของทุกสิ่ง',
+      'ยุคฟองสบู่ญี่ปุ่นกำลังเดือด คิริวหนุ่มถูกใส่ร้ายคดีฆาตกรรมบนที่ดินผืนเดียวที่ทั้งคามุโรโจต้องการ ส่วนมาจิม่าถูกเนรเทศไปคุมคาบาเรต์ในโอซาก้า รอวันกลับเข้าตระกูล — สองเส้นเรื่องค่อย ๆ บรรจบกันเป็นจุดเริ่มต้นของทุกสิ่ง',
     mod: {
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza0-dc-thai-mod/releases/download/v1.9/Yakuza0DC_Thai_v1.9.zip',
@@ -320,13 +320,13 @@ export const GAMES: Game[] = [
   {
     id: 'y7',
     title: 'Yakuza: Like a Dragon',
-    subtitle: 'มังกรตัวใหม่ อิจิบัง คาสึกะ',
+    subtitle: 'มังกรตัวใหม่ อิจิบัง คาซึกะ',
     year: 2019,
     releaseYear: 2020,
     steamAppId: 1235140,
     trailer: 'dNmM9pivqQ0',
     maps: ['ijincho'],
-    protagonists: ['อิจิบัง คาสึกะ'],
+    protagonists: ['อิจิบัง คาซึกะ'],
     setting: 'อิเซซากิ อิจินโจ (โยโกฮาม่า) — ค.ศ. 2019',
     blurb:
       'อิจิบังติดคุก 18 ปีแทนตระกูล ออกมาพบว่าถูกหักหลังและถูกยิงทิ้ง — เขาลุกขึ้นจากกองขยะในโยโกฮาม่าพร้อมเปลี่ยนซีรีส์เป็น RPG เต็มตัวครั้งแรก',
@@ -393,7 +393,7 @@ export const GAMES: Game[] = [
     steamAppId: 2072450,
     trailer: '7WIpJ-ZZBUQ',
     maps: ['ijincho'],
-    protagonists: ['อิจิบัง คาสึกะ', 'คาซึมะ คิริว'],
+    protagonists: ['อิจิบัง คาซึกะ', 'คาซึมะ คิริว'],
     setting: 'โฮโนลูลู (ฮาวาย) / โยโกฮาม่า — ค.ศ. 2024',
     blurb:
       'อิจิบังบินข้ามมหาสมุทรไปตามหาแม่ที่ฮาวาย ส่วนคิริวผู้ป่วยมะเร็งออกเดินทางครั้งสุดท้าย — ภาคที่ใหญ่ที่สุดของซีรีส์ และครั้งแรกที่สองมังกรลุยด้วยกันเต็มภาค',
@@ -409,16 +409,16 @@ export const GAMES: Game[] = [
   {
     id: 'pirate',
     title: 'Like a Dragon: Pirate Yakuza in Hawaii',
-    subtitle: 'มาจิมะกัปตันโจรสลัด',
+    subtitle: 'มาจิม่ากัปตันโจรสลัด',
     year: 2025,
     releaseYear: 2025,
     steamAppId: 3061810,
     ogImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3061810/7028c5abc388a2376e0a19aca1e2362821b2ef62/capsule_616x353.jpg',
     trailer: '4UW7G-fAvOM',
-    protagonists: ['โกโร่ มาจิมะ'],
+    protagonists: ['โกโร่ มาจิม่า'],
     setting: 'ฮาวาย / มาดแลนติส — ค.ศ. 2025',
     blurb:
-      'มาจิมะตื่นบนเกาะร้างพร้อมความจำที่หายไป — คว้าดาบคู่ ยึดเรือ แล้วกลายเป็นกัปตันโจรสลัดแห่งแปซิฟิกในภาคสปินออฟสุดเหวี่ยง',
+      'มาจิม่าตื่นบนเกาะร้างพร้อมความจำที่หายไป — คว้าดาบคู่ ยึดเรือ แล้วกลายเป็นกัปตันโจรสลัดแห่งแปซิฟิกในภาคสปินออฟสุดเหวี่ยง',
     mod: { status: 'released', url: 'https://drive.google.com/file/d/13Vt_7d1BTEOg-yEBnXh6Sp_lWXIsRcCM/view?usp=drive_link', nexus: 'https://www.nexusmods.com/likeadragonpirateyakuzainhawaii/mods/237' },
   },
 ]

@@ -11,3 +11,4 @@ legacy/
 
 # สกิล Claude Code ของเครื่องนี้ (ไม่ขึ้น repo)
 .claude/
+__pycache__/

@@ -4,7 +4,7 @@
 ตรวจสามชั้น:
   1. โครงข้อมูล — ฟิลด์ครบ ชนิดถูก ไม่มีชื่อว่าง ไม่มีเลขซ้ำในกลุ่มเดียวกัน
   2. เทียบกับตาราง markdown เดิมใน git (ค่าเริ่มต้น: 7b70e55 ก่อนย้ายมาเป็น JSON)
-     ทุกเควสในตารางเดิมต้องยังอยู่ครบ ค่าทุกช่องต้องตรงกัน
+     ทุกเควสในตารางเดิมต้องยังอยู่ครบ ค่าทุกช่องต้องตรงกัน (ตารางเดิมผ่าน scripts/spelling_fixes.py ก่อนเทียบ)
   3. เทียบกับ HTML ที่ build แล้วใน out/ (ถ้ามี) — ชื่อเควสทุกอันต้องโผล่ในหน้าจริง
      และบล็อก "เควสเสริมที่เปิดในบทนี้" ในหน้าบทต้องมีจำนวนเท่าที่คำนวณจาก unlock
 
@@ -18,6 +18,9 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from spelling_fixes import fix as fix_spelling  # noqa: E402  ตัวสะกดที่รวมทั้งเว็บหลังย้ายเป็น JSON
 
 DATA = Path('src/data/substories')
 OUT = Path('out')
@@ -80,11 +83,11 @@ def old_tables(ref: str) -> dict[str, list[dict]]:
         for line in text.split('\n'):
             line = line.strip()
             if line.startswith('## '):
-                heading = re.sub(r'\s*\(\s*\d+\s*เควส\s*\)\s*$', '', line[3:]).strip()
+                heading = fix_spelling(re.sub(r'\s*\(\s*\d+\s*เควส\s*\)\s*$', '', line[3:]).strip())
                 continue
             if not line.startswith('|') or SEPARATOR.match(line):
                 continue
-            cells = [strip_markdown(c) for c in line.strip('|').split('|')]
+            cells = [fix_spelling(strip_markdown(c)) for c in line.strip('|').split('|')]
             if len(cells) < 5 or not re.match(r'^[0-9]', cells[0]):
                 continue
             rows.append(
