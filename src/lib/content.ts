@@ -33,6 +33,19 @@ export interface GameContent {
   guide: MetaBody | null
   /** overview.md = บทความ "รู้จักภาคนี้ก่อนเล่น" ที่แสดงในหน้าเกม (ไม่มีไฟล์ = ไม่แสดงส่วนนี้) */
   overview: MetaBody | null
+  /** faq.md = คำถามที่พบบ่อยท้ายหน้าเกม + FAQPage JSON-LD (ไม่มีไฟล์ = ไม่แสดงส่วนนี้) */
+  faq: Faq | null
+}
+
+export interface FaqItem {
+  q: string
+  /** คำตอบเป็น markdown */
+  a: string
+}
+
+export interface Faq {
+  title: string
+  items: FaqItem[]
 }
 
 export interface LoreArticle {
@@ -89,6 +102,22 @@ export function plainText(markdown: string): string {
     .trim()
 }
 
+// faq.md: หัวข้อ "## " หนึ่งอัน = คำถามหนึ่งข้อ เนื้อหาจนถึงหัวข้อถัดไป = คำตอบ
+// ชุดเดียวกันใช้ทั้งแสดงบนหน้าเกมและประกอบ FAQPage JSON-LD — ข้อความก่อนคำถามแรกหรือคำถามที่ไม่มีคำตอบจะหายเงียบ ๆ
+// จึงให้ build พังพร้อมบอกไฟล์แทน
+function parseFaq(file: string, { meta, body }: MetaBody): Faq {
+  const [preamble, ...chunks] = body.split(/^## +/m)
+  if (preamble.trim()) throw new Error(`${file}: มีข้อความก่อนคำถามแรก — faq.md ต้องเริ่มด้วยหัวข้อ "## <คำถาม>"`)
+  const items = chunks.map((chunk) => {
+    const nl = chunk.indexOf('\n')
+    const q = (nl === -1 ? chunk : chunk.slice(0, nl)).trim()
+    const a = nl === -1 ? '' : chunk.slice(nl + 1).trim()
+    if (!a) throw new Error(`${file}: คำถาม "${q}" ไม่มีคำตอบ`)
+    return { q, a }
+  })
+  return { title: meta.title || 'คำถามที่พบบ่อย', items }
+}
+
 // ย่อหน้าแรกที่มีเนื้อความจริง (ข้ามหัวข้อ/รูป/ตาราง) — ใช้เป็นคำโปรยของบทความ
 function firstParagraph(markdown: string): string {
   for (const block of markdown.split(/\r?\n\s*\r?\n/)) {
@@ -143,11 +172,13 @@ function loadAll() {
         })
         continue
       }
-      byGame[gameId] ??= { chapters: [], substories: null, guide: null, overview: null }
+      byGame[gameId] ??= { chapters: [], substories: null, guide: null, overview: null, faq: null }
       if (file === 'substories') {
         byGame[gameId].substories = { meta, body }
       } else if (file === 'overview') {
         byGame[gameId].overview = { meta, body }
+      } else if (file === 'faq') {
+        byGame[gameId].faq = parseFaq(`${gameId}/${filename}`, { meta, body })
       } else if (file === 'guide') {
         // guide.md = ไกด์เสริมของภาค (เช่นไกด์ RPG ของภาค 7/8)
         byGame[gameId].guide = { meta, body }
@@ -174,7 +205,7 @@ function loadAll() {
 const { byGame, lore, news, prices } = loadAll()
 
 export const contentFor = (gameId: string): GameContent =>
-  byGame[gameId] || { chapters: [], substories: null, guide: null, overview: null }
+  byGame[gameId] || { chapters: [], substories: null, guide: null, overview: null, faq: null }
 
 export const loreArticles: LoreArticle[] = lore
 export const loreBySlug = (slug: string): LoreArticle | undefined => lore.find((a) => a.slug === slug)

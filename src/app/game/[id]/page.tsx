@@ -9,11 +9,16 @@ import {
   modUpdateBadge,
   CITY_MAPS,
   STEAM_HEADER_SIZE,
+  STEAM_CAPSULE_SIZE,
+  gameShareImage,
 } from '@/data/games'
+import type { Game } from '@/data/games'
 import { contentFor } from '@/lib/content'
 import type { Chapter } from '@/lib/content'
+import { substoryDataFor } from '@/lib/substories'
+import { thaiDate } from '@/lib/format'
 import { pageMeta } from '@/lib/site'
-import { breadcrumbJsonLd, videoGameJsonLd, modJsonLd } from '@/lib/seo'
+import { breadcrumbJsonLd, videoGameJsonLd, modJsonLd, faqJsonLd } from '@/lib/seo'
 import Credit from '@/components/Credit'
 import JsonLd from '@/components/JsonLd'
 import Markdown from '@/components/Markdown'
@@ -25,6 +30,29 @@ export async function generateStaticParams() {
 }
 export const dynamicParams = false
 
+// <title> ของหน้าเกม — คำค้นหลักของเว็บนี้คือ "<ชื่อภาค> แปลไทย / ภาษาไทย" จึงต้องอยู่ต้นชื่อ ไม่ใช่ชื่อภาคเปล่า ๆ
+function gameMetaTitle(game: Game): string {
+  const name = game.shortTitle ?? game.title
+  return game.mod.status === 'released'
+    ? `${name} แปลไทย: ม็อดภาษาไทย + สรุปเนื้อเรื่องรายบท`
+    : `${name} สรุปเนื้อเรื่องรายบท`
+}
+
+// meta description ประกอบจากข้อมูลจริงของหน้า (เวอร์ชันม็อด/วันที่/จำนวนบท/จำนวนเควส) — ออกแพตช์ใหม่แล้วอัปเดตเองตอน build
+// ไม่ต้องตัดความยาวเอง pageMeta() เรียก clip() ให้ (ส่วนท้ายที่เป็น blurb จะถูกตัดก่อน)
+function gameMetaDescription(game: Game, chapterCount: number, questCount: number, hasFaq: boolean): string {
+  const parts: string[] = []
+  if (game.mod.status === 'released') {
+    const version = game.mod.version ? ` ${game.mod.version}` : ''
+    const updated = game.mod.updated ? ` (อัปเดต ${thaiDate(game.mod.updated)})` : ''
+    const howTo = hasFaq ? ' พร้อมวิธีติดตั้ง' : ''
+    parts.push(`ม็อดแปลไทย ${game.storeName ?? game.title}${version} โหลดฟรี${updated}${howTo}`)
+  }
+  if (chapterCount) parts.push(`สรุปเนื้อเรื่อง ${chapterCount} บท`)
+  if (questCount) parts.push(`เควสเสริม ${questCount} เควส`)
+  return parts.length ? `${parts.join(' · ')} — ${game.blurb}` : game.blurb
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -34,11 +62,14 @@ export async function generateMetadata({
   const game = gameById(id)
   if (!game) return {}
 
+  const { chapters, faq } = contentFor(id)
+  const questCount = substoryDataFor(id)?.quests.length ?? 0
+
   return pageMeta({
-    title: game.title,
-    description: `${game.subtitle} — ${game.blurb}`,
+    title: game.seo?.title ?? gameMetaTitle(game),
+    description: game.seo?.description ?? gameMetaDescription(game, chapters.length, questCount, !!faq),
     path: `/game/${id}/`,
-    image: { url: gameImage(game), ...STEAM_HEADER_SIZE },
+    image: { url: gameShareImage(game), ...STEAM_CAPSULE_SIZE },
   })
 }
 
@@ -50,7 +81,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
   const game = gameById(id)
   if (!game) notFound()
 
-  const { chapters, substories, guide, overview } = contentFor(id)
+  const { chapters, substories, guide, overview, faq } = contentFor(id)
 
   // แทรกป้ายชื่อพาร์ทเมื่อบทถัดไปเปลี่ยนพาร์ท (ภาคที่แบ่งพาร์ท เช่น Y4/Y5)
   const rows: Row[] = []
@@ -75,6 +106,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           videoGameJsonLd(game, path, image),
           // ประกาศม็อดแปลไทยเป็นซอฟต์แวร์แจกฟรีแยกโหนด — คำถามยอดฮิตที่คนถามผู้ช่วย AI
           modJsonLd(game, path, image),
+          faq && faqJsonLd(faq.items),
           breadcrumbJsonLd([{ name: game.title, path }]),
         ]}
       />
@@ -140,6 +172,11 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
               <a href={game.mod.nexus} target="_blank" rel="noreferrer">
                 หน้าม็อดบน Nexus Mods ↗
               </a>
+            </p>
+          )}
+          {faq && (
+            <p className="mod-faq-link">
+              <a href="#faq">วิธีติดตั้งและคำถามที่พบบ่อย ↓</a>
             </p>
           )}
         </div>
@@ -246,6 +283,19 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
             <Link href={`/game/${id}/guide`}>อ่านฉบับเต็ม →</Link>
           </p>
         </>
+      )}
+
+      {/* src/content/<id>/faq.md — ชุดเดียวกับ FAQPage JSON-LD ด้านบน ต้องแสดงครบบนหน้า ห้ามซ่อน */}
+      {faq && (
+        <section id="faq" className="faq">
+          <h2 className="section-h">{faq.title}</h2>
+          {faq.items.map((item) => (
+            <div key={item.q} className="faq-item">
+              <h3>{item.q}</h3>
+              <Markdown text={item.a} />
+            </div>
+          ))}
+        </section>
       )}
     </div>
   )

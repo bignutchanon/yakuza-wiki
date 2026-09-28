@@ -557,6 +557,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .mod-btn-beta:hover { background: var(--gold); color: #111; }
 .mod-beta-note { font-size: 0.85rem; color: var(--muted); }
+.mod-box .mod-faq-link { margin: 0.7rem 0 0; font-size: 0.88rem; }
 /* ป้ายยอดกดแนะนำมุมล่างซ้ายของภาพปกหน้าแรก — ยอดมาหลังหน้าโหลด จึงวางทับภาพไม่ให้ดันเลย์เอาต์ */
 .card-score {
   position: absolute;
@@ -780,6 +781,15 @@ img { max-width: 100%; height: auto; display: block; }
   height: 1px;
   background: linear-gradient(90deg, var(--red), transparent);
 }
+
+/* ─── FAQ ท้ายหน้าเกม (src/content/<id>/faq.md) ─── */
+/* navbar เป็น sticky — เว้นขอบบนให้หัวข้อไม่จมใต้ navbar ตอนกดลิงก์ #faq จากกล่องม็อด */
+.faq { scroll-margin-top: 5rem; }
+.faq-item { border-top: 1px solid var(--line); }
+.faq-item:first-of-type { border-top: none; }
+.faq-item h3 { margin: 1.2rem 0 0; font-size: 1.05rem; color: var(--gold-soft); }
+.faq-item .article { margin-top: 0; }
+.faq-item .article p { margin: 0.5rem 0 0.9rem; }
 
 /* ─── Screenshots ─── */
 .shot-strip-wrap { margin: 1.2rem 0 0.4rem; }

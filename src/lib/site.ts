@@ -4,6 +4,9 @@ import type { Metadata } from 'next'
 
 export const SITE_URL = 'https://yakuzathai.com'
 export const SITE_NAME = 'Yakuza Wiki ภาษาไทย'
+// <title> ของหน้าแรก — ชื่อเว็บอย่างเดียวสั้นเกิน (19 ตัว) และไม่มีคำที่คนค้นจริง ("ม็อดแปลไทย") ทีม SEO ขอให้ใช้ช่อง ~60 ตัวให้เต็ม
+// หน้าอื่นยังเป็น "<ชื่อหน้า> — SITE_NAME" เหมือนเดิม · SITE_NAME ยังเป็นชื่อเว็บใน og:site_name และ JSON-LD
+export const HOME_TITLE = `${SITE_NAME} — ม็อดแปลไทย + สรุปเนื้อเรื่องทุกภาค`
 // รูป OG/Twitter card ค่าเริ่มต้น (หน้าแรก + หน้าที่ไม่ระบุ image เอง) — public/og.jpg 1200×630
 export const DEFAULT_OG_IMAGE = '/og.jpg'
 // ผู้จัดทำเว็บ + ช่องทางติดต่อ — โชว์ในหน้า /about, footer และ JSON-LD (Person)
@@ -28,7 +31,7 @@ export const REPORT_ENDPOINT: string =
 export const RECOMMEND_ENDPOINT: string = 'https://api.yakuzathai.com/recommend'
 
 export const DEFAULT_DESCRIPTION =
-  'วิกิภาษาไทยของซีรีส์ Yakuza / Like a Dragon ทำโดยแฟนเกม สรุปเนื้อเรื่องรายบท ไกด์ substories บทความ lore ข่าวสาร ตารางราคา และลิงก์ดาวน์โหลดม็อดแปลไทยครบทุกภาค'
+  'ม็อดแปลไทย Yakuza / Like a Dragon แจกฟรีครบ 15 ภาค ตั้งแต่ Yakuza 0 ถึง Infinite Wealth พร้อมวิธีติดตั้ง สรุปเนื้อเรื่องรายบท ไกด์เควสเสริม และข่าวอัปเดตม็อด'
 
 // ความยาว meta description ที่เครื่องมือค้นหาตัดทิ้ง — ใช้เป็นเพดานของ clip()
 export const DESCRIPTION_MAX = 160
@@ -70,7 +73,7 @@ export interface PageMetaOptions {
 }
 
 // สร้าง Metadata object สำหรับ generateMetadata/export const metadata ของแต่ละหน้า
-// title ว่าง → ใช้ชื่อเว็บอย่างเดียว (หน้าแรก)
+// title ว่าง → HOME_TITLE (หน้าแรก)
 export function pageMeta({
   title,
   description,
@@ -80,7 +83,7 @@ export function pageMeta({
   publishedTime,
   modifiedTime,
 }: PageMetaOptions): Metadata {
-  const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME
+  const fullTitle = title ? `${title} — ${SITE_NAME}` : HOME_TITLE
   const desc = description ? clip(description) : undefined
 
   // ส่ง image เป็น string = รู้แค่ URL → ไม่ประกาศขนาด (ประกาศผิดแย่กว่าไม่ประกาศ)

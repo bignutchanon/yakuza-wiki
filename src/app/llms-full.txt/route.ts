@@ -22,7 +22,7 @@ function buildLlmsFull(): string {
   )
 
   for (const g of GAMES) {
-    const { chapters, substories, guide, overview } = contentFor(g.id)
+    const { chapters, substories, guide, overview, faq } = contentFor(g.id)
     push(`# ${g.title}`, '', `แหล่งที่มา: ${SITE_URL}/game/${g.id}/`, '')
     push(
       `${g.subtitle} · เหตุการณ์ในเรื่องปี ${g.year} · วางจำหน่าย ${g.releaseYear}`,
@@ -32,6 +32,11 @@ function buildLlmsFull(): string {
       '',
     )
     if (overview) push(overview.body.trim(), '')
+    // คำถามที่พบบ่อย (วิธีติดตั้ง/ตั้งภาษา/ถอนม็อด) — คำถามที่คนถามผู้ช่วย AI บ่อยสุด วางไว้ก่อนสรุปบทให้เจอเร็ว
+    if (faq) {
+      push(`## ${g.title} — คำถามที่พบบ่อย`, '', `แหล่งที่มา: ${SITE_URL}/game/${g.id}/#faq`, '')
+      for (const item of faq.items) push(`### ${item.q}`, '', item.a, '')
+    }
 
     for (const ch of chapters) {
       const heading = ch.thai ? `${ch.title} / ${ch.thai}` : ch.title
