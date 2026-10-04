@@ -207,11 +207,11 @@ export const GAMES: Game[] = [
       'คิริววางมือไปเปิดสถานเลี้ยงเด็กกำพร้าริมทะเล แต่โครงการรีสอร์ตทหารลากเขากลับเข้าสู่เกมการเมืองและเงาของชายที่หน้าเหมือนคนที่ตายไปแล้ว — รีเมคเต็มรูปแบบของ Yakuza 3 (2009) วางจำหน่ายคู่กับแคมเปญใหม่ Dark Ties',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.2.1/YakuzaKiwami3-Thai-v1.2.1.zip',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami3-thai-mod/releases/download/v1.3/YakuzaKiwami3-Thai-v1.3.zip',
       nexus: 'https://www.nexusmods.com/yakuzakiwami3/mods/372',
-      note: 'v1.2.1 (3 ต.ค. 2026) — แก้บั๊กสอบเลื่อนขั้นที่โดโจมิยาซาโตะ (ไม่มีคัตซีน/ไม่ได้ท่าใหม่) + ภารกิจในด่านฝึกติ๊กไม่ครบ · คำแปลเท่า v1.2 ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
-      version: 'v1.2.1',
-      updated: '2026-10-03',
+      note: 'v1.3 (4 ต.ค. 2026) — ภาพที่มีตัวหนังสือในเกมเป็นภาษาไทย (การ์ดเปิดบท ป้ายชื่อบอส การ์ดแนะนำตัวละคร มินิเกม โลโก้จอเลือกเรื่อง) + ป้ายสถานที่/เวลาในคัตซีน · ชุดม็อดมี 3 ไฟล์แล้ว ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
+      version: 'v1.3',
+      updated: '2026-10-04',
     },
   },
   {
