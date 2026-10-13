@@ -339,11 +339,11 @@ export const GAMES: Game[] = [
       'อิจิบังติดคุก 18 ปีแทนตระกูล ออกมาพบว่าถูกหักหลังและถูกยิงทิ้ง — เขาลุกขึ้นจากกองขยะในโยโกฮาม่าพร้อมเปลี่ยนซีรีส์เป็น RPG เต็มตัวครั้งแรก',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza7-thai-mod/releases/download/v1.0.4/LikeADragon7-Thai-v1.0.4.zip',
+      url: 'https://github.com/bignutchanon/yakuza7-thai-mod/releases/download/v1.2.0/LikeADragon7-Thai-v1.2.0.zip',
       nexus: 'https://www.nexusmods.com/yakuzalikeadragon/mods/336',
-      note: 'v1.0.4 (2 ก.ย. 2026) — คำลงท้าย/สรรพนามตรงเพศผู้พูดขึ้นทั้งเกม (บทของเอริในมินิเกมบริหารธุรกิจ ฯลฯ)',
-      version: 'v1.0.4',
-      updated: '2026-09-02',
+      note: 'v1.2.0 (14 ต.ค. 2026) — ฟอนต์ไทยชุดใหม่ + เกลาบทพูดทั้งเกม (อัปจาก v1.0.4 ต้องวางทั้ง 2 ไฟล์)',
+      version: 'v1.2.0',
+      updated: '2026-10-14',
     },
   },
   {
