@@ -74,7 +74,8 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 ## วิดีโอสอนมาจอง (`/mahjong/`, 14 ต.ค. 2026)
 
-- เจ้าของสั่งทำวิดีโอสอนมาจองญี่ปุ่น (ริอิจิ) พื้นฐาน ~142 วินาที ไม่มีเสียง คำบรรยายไทยบนจอ ฝังในหน้า `/mahjong/` คู่กับบทความ `src/content/guides/mahjong.md` · หน้าเกมทุกภาคใน `MAHJONG_GAME_IDS` ลิงก์มา
+- เจ้าของสั่งทำวิดีโอสอนมาจองญี่ปุ่น (ริอิจิ) พื้นฐาน ~142 วินาที ไม่มีเสียง คำบรรยายไทยบนจอ ฝังในหน้า `/mahjong/` คู่กับบทความ `src/content/guides/mahjong.md` · หน้าเกมทุกภาคใน `MAHJONG_GAME_IDS` ลิงก์มา + ลิงก์ "สอนมาจอง" ในเมนูบน (15 ต.ค. 2026 — เมนูเต็มแถวกว้าง 976px จึงยุบเป็น ☰ ที่ ≤1000px ดูคอมเมนต์ใน `styles.css`)
+- ศัพท์: Ron = **รง** ไม่ใช่ รอน (เจ้าของสั่ง 15 ต.ค. 2026) ทั้งบทความและคำบรรยายวิดีโอ
 - วิดีโอวาดเองด้วย three.js ไม่ใช้ภาพจากเกม: ไพ่ FluffyStuff (CC0) · ฟอนต์ Kanit/Sarabun (OFL) — ไลเซนส์อยู่ใน `scripts/mahjong-video/assets/`
 - แก้เนื้อหา/คำบรรยาย = แก้ `scripts/mahjong-video/src/timeline.js` → `node check.mjs` → `node render.mjs --stills --scale 0.5` แล้ว**ดูภาพ `out/contact.png` ทุกครั้ง** (check ผ่านไม่ได้แปลว่าภาพถูก — รอบ 1–4 check ผ่านแต่กำแพงหาย/ไพ่เป็นกล่องดำ) → `node render.mjs` (MP4 ≤ 8 MB, ไม่มีเสียง) → `npm run build`
 - กฎตำแหน่งชิปใน `check.mjs` ลอกมาจาก `overlay.js` — แก้ตำแหน่งชิปที่ไหนต้องแก้อีกที่ด้วย

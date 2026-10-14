@@ -96,8 +96,8 @@ export const timeline = [
   ] },
   { id: 'win', duration: 13, camera: 'table', setup: { walls: true, hands: [hand('234m 567p 88p 345s 66s')], opponents: { right: '123m 456p 789s 123z', opposite: '234m 567p 89s 445z', left: '345m 678p 19s 667z' }, ponds: { us: ['9m'] } }, captions: [
     cap(.2, 4.6, 'ชนะได้ 2 แบบ — **สึโม**: จั่วได้ใบที่รอเอง อีก 3 คนจ่าย'),
-    cap(4.6, 8.6, '**รอน**: คนอื่นทิ้งใบที่เรารอ — คนทิ้งจ่ายคนเดียว'),
-    cap(8.6, 13, 'ระวัง **ฟุริเท็น**: ถ้าใบที่รอมีอยู่ในกองทิ้งของเราเอง จะรอนไม่ได้ (สึโมยังได้)'),
+    cap(4.6, 8.6, '**รง**: คนอื่นทิ้งใบที่เรารอ — คนทิ้งจ่ายคนเดียว'),
+    cap(8.6, 13, 'ระวัง **ฟุริเท็น**: ถ้าใบที่รอมีอยู่ในกองทิ้งของเราเอง จะรงไม่ได้ (สึโมยังได้)'),
   ], reviewTimes: [2.5, 6.5, 10.5, 12.5], events: [
     { type: 'stick', at: 0, dur: 13, visible: true },
     { type: 'draw', at: 1, dur: .8, code: '8p', seat: 'us', from: { zone: 'wall', index: 3, layer: 1 }, to: { zone: 'hand', index: 13, count: 14 }, glow: true },
@@ -106,13 +106,13 @@ export const timeline = [
     { type: 'arrow', at: 2.8, dur: 1.2, from: ['right', 'opposite', 'left'], to: 'us' },
     { type: 'reset', at: 4.6, dur: .4, state: 'riichi' },
     { type: 'discard', at: 5.2, dur: .8, code: '6s', seat: 'opposite', to: { zone: 'pond', seat: 'opposite', index: 1 } },
-    { type: 'chip', at: 5.4, dur: 2.8, text: 'รอน!', anchor: 'hand', kind: 'label' },
+    { type: 'chip', at: 5.4, dur: 2.8, text: 'รง!', anchor: 'hand', kind: 'label' },
     { type: 'arrow', at: 5.6, dur: 1.2, from: ['opposite'], to: 'us' },
     { type: 'reset', at: 8.6, dur: .4, state: 'furiten' },
     { type: 'discard', at: 8.8, dur: .7, code: '6s', seat: 'us', to: { zone: 'pond', seat: 'us', index: 1 } },
     { type: 'glow', at: 8.8, dur: 4, code: '6s', zone: 'pond', seat: 'us', color: 'red' },
     { type: 'discard', at: 9.8, dur: .8, code: '8p', seat: 'left', to: { zone: 'pond', seat: 'left', index: 1 } },
-    { type: 'chip', at: 10, dur: 2.8, text: 'รอน', anchor: 'hand', kind: 'label' },
+    { type: 'chip', at: 10, dur: 2.8, text: 'รง', anchor: 'hand', kind: 'label' },
     { type: 'cross', at: 10.4, dur: 2.4, anchor: 'hand' },
   ] },
   { id: 'dora', duration: 11, camera: 'wall', setup: { walls: true, hands: [] }, captions: [

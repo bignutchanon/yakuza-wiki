@@ -1086,7 +1086,9 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-support a:hover { color: var(--gold); text-decoration: none; }
 
 /* ─── Mobile ─── */
-@media (max-width: 900px) {
+/* เมนูเต็มแถววัดจริงได้ 976px (15 ต.ค. 2026 หลังเพิ่มลิงก์สอนมาจอง) + scrollbar 15px —
+   แคบกว่า 1000px ยุบเป็นปุ่ม ☰ ไม่งั้นลิงก์เบียดจนตัดบรรทัด · เพิ่มลิงก์ในเมนูต้องวัดใหม่ */
+@media (max-width: 1000px) {
   .navbar-inner {
     flex-wrap: wrap;
     gap: 0.6rem;
@@ -1134,6 +1136,9 @@ img { max-width: 100%; height: auto; display: block; }
     max-height: none;
     min-width: 0;
   }
+}
+
+@media (max-width: 900px) {
   .page { padding: 1.8rem 1.2rem 3.5rem; }
 }
 
