@@ -5,7 +5,7 @@
 
 ## Stack + คำสั่ง
 
-- Next.js 16 (App Router) + TypeScript (`.ts`/`.tsx`, `strict: true`) + React 19.2 (App Router ต้อง React 19) + framer-motion + marked — **ไม่มี Tailwind, ไม่มี ESLint config ใหม่, ไม่มี test** · hero หน้าแรกเป็นรูปถ่ายในเกม (ไม่มี three.js/WebGL แล้ว)
+- Next.js 16 (App Router) + TypeScript (`.ts`/`.tsx`, `strict: true`) + React 19.2 (App Router ต้อง React 19) + framer-motion + marked — **ไม่มี Tailwind, ไม่มี ESLint config ใหม่, ไม่มี test** · three.js ใช้เฉพาะ hero หน้าแรก โหลดแบบ lazy (ดูหัวข้อ "Hero หน้าแรก")
 - `legacy/` (gitignored, เก็บ local) = โค้ด Vite/react-router เดิมไว้อ้างอิง — ไม่ถูก build
 - Static export (`output: 'export'`) — build ออกมาเป็น HTML ล้วนทุกหน้า ไม่มี Node server ตอนรันจริง
 - `npm run dev` = เปิด dev server · `npm run build` = build ลง `out/`
@@ -33,15 +33,18 @@ src/
     format.ts               thaiDate() (ไม่มี fs — import ได้ทั้ง server/client component)
     site.ts                  SITE_URL, SITE_NAME, pageMeta({title, description, path, image, type, publishedTime}), clip() ตัดข้อความไม่ให้ขาดกลางคำ, absUrl()
     seo.ts                    ตัวสร้าง JSON-LD: siteJsonLd (Organization+WebSite ใน layout), breadcrumbJsonLd, articleJsonLd, videoGameJsonLd, modJsonLd
+    heroFx.ts                 three.js engine ของ hero หน้าแรก — โหลดผ่าน dynamic import ใน HeroFX เท่านั้น ห้าม import ตรง
   data/
     substories/<gameId>.json ★ รายการเควสเสริมของทุกภาค (900 เควส 14 ไฟล์) — หน้า `/game/<id>/substories/` render เป็นการ์ด + แถบค้นหาจากไฟล์นี้ · y3r สร้างจากไฟล์เกมด้วย `scripts/extract-substories-y3r.py` ภาคอื่นแปลงจากตาราง markdown เดิมด้วย `scripts/substories-md-to-json.py`
     games.ts              ★ ข้อมูลหลัก 15 ภาค (รวม Judgment / Lost Judgment / Ishin! / Yakuza 3 Remastered) (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
     screenshots.json        รูป screenshot ราย gameId (ใช้ใน <Screenshots>)
   content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md, overview.md, faq.md · lore/ · news/ (ไฟล์ละโพสต์) + prices.md
-  components/              Navbar, Markdown (marked), JsonLd, Credit, Screenshots, HeroScene (hero รูปซุ้มคามุโรโจ + ไฟนีออนกะพริบ, รูปใน public/hero/), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
+  components/              Navbar, Markdown (marked), JsonLd, Credit, Screenshots, HeroScene (โปสเตอร์ซุ้มคามุโรโจ + ไฟนีออน = LCP/fallback + รายชื่อฉาก TOUR_SCENES), HeroFX (ฉาก 3D depth-photo แบบ lazy), Logo (LogoMark = <img src="/icon.svg">), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
   styles.css               สไตล์ทั้งเว็บไฟล์เดียว (ธีมนีออนแดง-ดำ) — import ใน layout.tsx
 public/
   maps/                    แผนที่เมือง self-host (อ้างจาก CITY_MAPS)
+  hero/                    โปสเตอร์ hero (kamurocho-gate.jpg = LCP) + tour/ (ภาพฉาก · <id>-maps.png depth · <id>-fill.webp)
+  logo.svg · icon-512.png  โลโก้ + ชื่อเว็บ · โลโก้ Organization ใน JSON-LD (สร้างจาก src/app/icon.svg)
   promptpay-qr.png         QR หน้า Support
   CNAME · .nojekyll        GitHub Pages custom domain (yakuzathai.com)
 worker/                    ★ Cloudflare Worker + D1 = ระบบปุ่ม "แนะนำ" (recommend) — deploy แยกจากเว็บ
@@ -50,10 +53,11 @@ worker/                    ★ Cloudflare Worker + D1 = ระบบปุ่ม
   README.md                ขั้นตอน deploy ครั้งแรก + คำสั่งดู/ลบยอด
 scripts/
   fetch-prices.ps1         ดึงราคา Steam ไทยทุกภาค — ใช้ตอนอัปเดต prices.md (PS/Xbox ต้องเช็คมือ)
+  hero-depth.py            ทำ depth map + ภาพเติมขอบของฉาก hero ใหม่ (วิธีใช้อยู่หัวไฟล์)
   gtm-container.json       ค่าตั้ง GTM (ตัวแปร cookieConsent + ทริกเกอร์ Consent All + แท็ก GA4) — import ที่ GTM → ผู้ดูแลระบบ → นำเข้าคอนเทนเนอร์ (merge)
 ```
 
-Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod) → `lib/content.ts` = เนื้อหา markdown → แต่ละหน้า (server component) ประกอบสองอย่างนี้ render ผ่าน `<Markdown>` — component ไหนต้องใช้ state/window/motion ถึงมี `'use client'` (Navbar, CookieConsent, CookieResetButton, HashRedirect, HeroScene, Screenshots, HomeGrid, NewsList, template.tsx) นอกนั้น render markdown ฝั่ง server ให้ HTML อยู่ใน static output ตั้งแต่ build (SEO)
+Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod) → `lib/content.ts` = เนื้อหา markdown → แต่ละหน้า (server component) ประกอบสองอย่างนี้ render ผ่าน `<Markdown>` — component ไหนต้องใช้ state/window/motion ถึงมี `'use client'` (Navbar, CookieConsent, CookieResetButton, HashRedirect, HeroFX, Screenshots, HomeGrid, NewsList, template.tsx) นอกนั้น render markdown ฝั่ง server ให้ HTML อยู่ใน static output ตั้งแต่ build (SEO)
 
 ## Routes
 
@@ -62,6 +66,23 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 ไฟล์ที่ไม่ใช่หน้าเว็บ: `/sitemap.xml` · `/robots.txt` · `/feed.xml` (RSS ข่าว) · `/llms.txt` + `/llms-full.txt`
 
 ทุก URL จริงลงท้ายด้วย `/` เสมอ (`trailingSlash: true`) เช่น `/game/y7/ch/3/` — ไม่มี `#/` แบบ HashRouter เดิมแล้ว (ดูกติกา HashRedirect ด้านบน)
+
+## Hero หน้าแรก (3D depth-photo, 14 ต.ค. 2026)
+
+- เจ้าของสั่งเปลี่ยนจากภาพนิ่งเป็นฉาก 3D ที่ให้ฟีลเดินในคามุโรโจ: ภาพเกมจริง 4 ฉาก (`TOUR_SCENES` ใน `HeroScene.tsx`) ยกนูนตาม depth map กล้องเลื่อนเข้าแบบโดรน แล้ว cross-fade ไปฉากถัดไป · **ห้ามกล้องโยก/เดินเด้ง/หันเอง** · ห้ามโมเดล low-poly · cameo ตัวละครในฉากถูกยกเลิกแล้ว ห้ามเสนอซ้ำ
+- ฝนปรอย + หยดน้ำบนเลนส์ระดับ "กลาง" เป็นค่าคงที่ใน shader ของ `src/lib/heroFx.ts` (หยดพัก 0.07/0.15 · ขอบหยด 0.7 · ฝน `mix(0.34, 0.08)` · หยดไหล 2 เม็ด, quality ต่ำ 1) — ค่าระดับอื่นที่เคยให้เจ้าของเลือกเก็บไว้ที่ `legacy/hero-dev-picker/`
+- โปสเตอร์ `/hero/kamurocho-gate.jpg` (`fetchPriority="high"` + ไฟนีออน CSS) คือ LCP และ fallback — ห้ามเอาออก ฉาก 3D ค่อยจางเข้ามาทับหลังพร้อม
+- three.js โหลดผ่าน `import('@/lib/heroFx')` ใน `HeroFX.tsx` เท่านั้น หลัง requestIdleCallback · ไม่โหลดเลยเมื่อ prefers-reduced-motion / Save-Data / มือถือสเปกต่ำ / ไม่มี WebGL2 / `?fx=off` · เฟรมช้าลด quality เอง ช้าต่อปิดตัวเองกลับเป็นโปสเตอร์
+- เครดิต `ภาพ: <เกม> © SEGA` เปลี่ยนตามฉากที่เห็นอยู่ (`.hero-fx-credit`)
+- URL สำหรับจูน: `?fx=low|high|off` (ใช้ได้ทั้งเว็บจริง) · `?scene=<id>&at=<วินาที>` (เฉพาะ dev — เริ่มที่ฉากนั้นและแช่เวลา)
+- เพิ่มฉาก: `scripts/hero-depth.py` → ไฟล์ลง `public/hero/tour/` → เพิ่ม entry ใน `TOUR_SCENES`
+- หลัง build: chunk ของ three.js ต้องไม่ถูกอ้างใน HTML หน้าไหนเลย (หาไฟล์ใน `out/_next/static/chunks` ที่มี `WebGLRenderer` แล้ว grep ชื่อไฟล์ใน `out/**/*.html` ต้องว่าง) + ไม่มี `opacity:0`
+
+## โลโก้ (D2, 14 ต.ค. 2026)
+
+- ตรา "แบดจ์มังกรลอดซุ้ม" (กรอบทองมุมมน + มังกรแดงขดผ่านซุ้มทอง บนพื้นดำ) เจ้าของเลือกจาก 8 คอนเซปต์ แทนตราซุ้มนีออนแดงเดิม
+- ต้นฉบับเวกเตอร์ตัวเดียวคือ `src/app/icon.svg` (favicon) — `<LogoMark>` ในแถบเมนูเป็น `<img src="/icon.svg">` ใช้ไฟล์เดียวกัน (แคชร่วม ไม่ฝัง path ลงทุกหน้า)
+- ไฟล์ที่สร้างจาก icon.svg: `src/app/favicon.ico` (16/32/48) · `src/app/apple-icon.png` (180 ทึบ) · `public/icon-512.png` (โลโก้ Organization ใน JSON-LD) · `public/logo.svg` (โลโก้ + ชื่อเว็บ) — แก้ตราแล้วต้องสร้างใหม่ทั้งชุด: `python legacy/logo-d2/trace2.py && node legacy/logo-d2/render.mjs` (trace ภาพต้นแบบ → icon.svg แล้ว render ไฟล์ที่เหลือ + ภาพเทียบ `compare.png`/`gate-compare.png`; ซุ้มทอง = trace เป็น polygon คมจากส่วนทองที่มองเห็นจริง ห้าม smooth/วาดมือ — ลองแล้วเพี้ยนสองรอบ) · ภาพต้นแบบ + สคริปต์อยู่ `legacy/logo-d2/` (gitignored มีแค่ในเครื่อง)
 
 ## AdSense
 

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GAMES, gameImage, modUpdateBadge } from '@/data/games'
-import { newsPosts, thaiDate } from '@/lib/content'
+import { contentFor, newsPosts, thaiDate } from '@/lib/content'
+import { substoryDataFor } from '@/lib/substories'
 import { pageMeta, DEFAULT_DESCRIPTION, AUTHOR_NAME } from '@/lib/site'
 import HeroScene from '@/components/HeroScene'
 import HomeGrid, { type HomeGridGame } from '@/components/HomeGrid'
@@ -21,11 +22,19 @@ export default function Home() {
     updateBadge: modUpdateBadge(g.mod),
   }))
 
+  const stats = [
+    { value: GAMES.length, label: 'ภาค' },
+    { value: GAMES.reduce((sum, game) => sum + contentFor(game.id).chapters.length, 0), label: 'บทสรุปเนื้อเรื่อง' },
+    { value: GAMES.reduce((sum, game) => sum + (substoryDataFor(game.id)?.quests.length ?? 0), 0), label: 'เควสเสริม' },
+    { value: GAMES.filter((game) => game.mod.status === 'released').length, label: 'ม็อดแปลไทย' },
+  ]
+
   return (
     <>
       <div className="hero3d">
         <HeroScene />
         <div className="hero-copy">
+          <div className="hero-eyebrow"><span aria-hidden="true" />神室町 · KAMUROCHO</div>
           {/* h1 ต้องมีคำที่คนค้นจริง — เดิมเป็น "龍が如く Yakuza Wiki" ซึ่งไม่มีคำภาษาไทยให้จับเลย */}
           <h1>
             龍が如く <span className="accent">Yakuza Wiki ภาษาไทย</span>
@@ -34,8 +43,17 @@ export default function Home() {
             สรุปเนื้อเรื่องทุกบท เควสเสริม และม็อดแปลไทย ครบทั้งซีรีส์
             ตั้งแต่ Yakuza 0 ถึง Infinite Wealth — โดยแฟนเกม เพื่อแฟนเกม
           </p>
+          <dl className="hero-stats">
+            {stats.map((stat) => (
+              <div className="hero-stat" key={stat.label}>
+                <dd>{stat.value}</dd>
+                <dt>{stat.label}</dt>
+              </div>
+            ))}
+          </dl>
         </div>
-        <span className="hero-credit">ภาพ: Like a Dragon: Kiwami 3 © SEGA</span>
+        <span className="hero-kanji" aria-hidden="true">神室町</span>
+        <span className="hero-credit"><span className="credit-photo">ภาพ: Like a Dragon: Kiwami 3 © SEGA</span></span>
       </div>
 
       <div className="page page-wide">

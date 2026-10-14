@@ -33,7 +33,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-inner">
         <Link href="/" className="brand">
-          <LogoMark size={30} full className="brand-mark" />
+          <LogoMark size={30} className="brand-mark" />
           <span className="brand-text">
             <span className="kanji">龍が如く</span>
             <span className="sub">Yakuza Wiki ภาษาไทย</span>

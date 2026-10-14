@@ -215,23 +215,36 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ─── Home hero (ภาพซุ้มประตูคามุโรโจด้านหลัง) ─── */
 .hero3d {
+  --hero-h: clamp(360px, 62vh, 660px);
   position: relative;
-  height: 46vh;
-  min-height: 300px;
+  height: var(--hero-h);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
 .hero3d .hero-copy {
   position: absolute;
   inset: 0;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
-  padding: 0 clamp(1.5rem, 6vw, 5rem);
+  padding: 2rem clamp(1.5rem, 6vw, 5rem) 3.25rem;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 40%, rgba(13, 10, 18, 0.9) 96%);
+  background: linear-gradient(180deg, transparent 20%, rgba(13, 10, 18, 0.26) 52%, rgba(13, 10, 18, 0.94) 100%);
 }
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
+  color: #f0d9c4;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-shadow: 0 1px 10px #000;
+}
+.hero-eyebrow span { width: 1.75rem; height: 2px; background: var(--red); box-shadow: 0 0 12px rgba(230, 57, 80, 0.8); }
 .hero-copy h1 {
   margin: 0;
   font-style: italic;
@@ -247,11 +260,78 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text);
   text-shadow: 0 1px 12px rgba(0,0,0,0.9);
 }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 46rem);
+  margin: 1.55rem 0 0;
+  padding: 0;
+  gap: 0 clamp(0.7rem, 2.2vw, 2rem);
+}
+.hero-stat {
+  min-width: 0;
+  padding-top: 0.45rem;
+  animation: hero-stat-rise 0.55s ease both;
+}
+.hero-stat:nth-child(2) { animation-delay: 0.14s; }
+.hero-stat:nth-child(3) { animation-delay: 0.28s; }
+.hero-stat:nth-child(4) { animation-delay: 0.42s; }
+.hero-stat::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(90deg, rgba(232, 201, 138, 0.75), rgba(232, 201, 138, 0.08));
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: hero-stat-rule 0.55s ease both;
+}
+.hero-stat:nth-child(2)::before { animation-delay: 0.14s; }
+.hero-stat:nth-child(3)::before { animation-delay: 0.28s; }
+.hero-stat:nth-child(4)::before { animation-delay: 0.42s; }
+.hero-stat dd {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  text-shadow: 0 2px 12px #000;
+}
+.hero-stat dt {
+  margin-top: 0.2rem;
+  color: #c3b8b7;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-shadow: 0 1px 8px #000;
+}
+@keyframes hero-stat-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-stat-rule { to { transform: scaleX(1); } }
+.hero-kanji {
+  position: absolute;
+  z-index: 3;
+  top: 2.2rem;
+  right: clamp(1.5rem, 4vw, 3.5rem);
+  writing-mode: vertical-rl;
+  color: rgba(255, 245, 232, 0.78);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+}
 
 /* ─── Home hero: ซุ้มประตูคามุโรโจ (รูป + ไฟนีออนกะพริบ) ─── */
 .hero-scene {
   position: absolute;
   inset: 0;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
 }
@@ -263,11 +343,14 @@ img { max-width: 100%; height: auto; display: block; }
   top: 50%;
   translate: -50% -50%;
   aspect-ratio: 16 / 9;
-  width: max(100%, calc(46vh * 16 / 9));
+  width: max(100%, calc(var(--hero-h) * 16 / 9));
   min-width: 100%;
   min-height: 100%;
+  z-index: 0;
+  transition: opacity 0.8s ease;
   will-change: transform;
 }
+.hero3d.fx-live .hero-frame { opacity: 0; }
 .hero-img {
   position: absolute;
   inset: 0;
@@ -275,6 +358,18 @@ img { max-width: 100%; height: auto; display: block; }
   height: 100%;
   object-fit: cover;
 }
+.hero-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.hero-fx.is-live { opacity: 1; transition-duration: 0.8s; }
+.hero-fx.is-resetting { opacity: 0; transition-duration: 0.6s; }
+.hero-fx canvas { display: block; width: 100%; height: 100%; }
 .neon-glow {
   --glow-intensity: 0.8;
   position: absolute;
@@ -303,6 +398,8 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-shade {
   position: absolute;
   inset: 0;
+  z-index: 2;
+  pointer-events: none;
   background:
     linear-gradient(90deg, rgba(13, 10, 18, 0.82), rgba(13, 10, 18, 0.35) 45%, transparent 70%),
     linear-gradient(180deg, rgba(13, 10, 18, 0.55) 0%, transparent 18%, transparent 78%, rgba(13, 10, 18, 0.68) 100%);
@@ -311,12 +408,21 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   right: 0.6rem;
   bottom: 0.5rem;
-  z-index: 1;
+  z-index: 3;
   font-size: 0.68rem;
   color: var(--muted);
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
-
+.hero3d.fx-live .hero-credit { visibility: hidden; }
+.hero-fx-credit {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
+  z-index: 3;
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
 @keyframes neon-flicker-a {
   0%, 18%, 22%, 100% { opacity: var(--glow-intensity); }
   20% { opacity: calc(var(--glow-intensity) * 0.5); }
@@ -362,6 +468,17 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (max-width: 640px) {
   .neon-glow.minor { display: none; }
+  .hero3d .hero-copy { padding: 1.5rem 1.1rem 3.4rem; }
+  .hero-copy h1 { font-size: clamp(2rem, 9vw, 3rem); }
+  .hero-copy p { max-width: 34rem; font-size: 0.9rem; line-height: 1.5; }
+  .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.16em; }
+  .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem 1rem; margin-top: 0.7rem; max-width: 25rem; }
+  .hero-stat { padding-top: 0.25rem; }
+  .hero-stat::before { margin-bottom: 0.18rem; }
+  .hero-stat dd { font-size: 1.55rem; }
+  .hero-stat dt { font-size: 0.6rem; letter-spacing: 0.08em; }
+  .hero-kanji { display: none; }
+  .hero-credit { z-index: 2; font-size: 0.6rem; }
 }
 
 /* ─── Game cards grid ─── */
@@ -1024,6 +1141,8 @@ img { max-width: 100%; height: auto; display: block; }
   .game-card { transition: none; }
   .hero3d .hero-copy, .brand .kanji { animation: none; }
   .neon-glow, .hero-rain { animation: none; }
+  .hero-stat, .hero-stat::before { animation: none; transform: none; }
+  .hero-fx, .hero-frame { transition: none; }
 }
 
 /* ---- แบนเนอร์คุกกี้ ---- */
