@@ -28,6 +28,7 @@ src/
     lore/                    page.tsx (สารบัญ) + [slug]/page.tsx (บทความ)
     news/                    page.tsx (สารบัญ ย่อหน้าแรก) + [slug]/page.tsx (โพสต์เต็ม)
     prices/ · support/ · privacy/ · report/   page.tsx
+    mahjong/                 page.tsx (ไกด์มาจอง + วิดีโอสอน — ดูหัวข้อ "วิดีโอสอนมาจอง")
   lib/
     content.ts            ★ server-only (fs) โหลด markdown ทั้งหมดตอน build แทน loader.js เดิม — contentFor(id), loreArticles, loreBySlug(slug), newsPosts, gamePrices
     format.ts               thaiDate() (ไม่มี fs — import ได้ทั้ง server/client component)
@@ -36,13 +37,16 @@ src/
     heroFx.ts                 three.js engine ของ hero หน้าแรก — โหลดผ่าน dynamic import ใน HeroFX เท่านั้น ห้าม import ตรง
   data/
     substories/<gameId>.json ★ รายการเควสเสริมของทุกภาค (900 เควส 14 ไฟล์) — หน้า `/game/<id>/substories/` render เป็นการ์ด + แถบค้นหาจากไฟล์นี้ · y3r สร้างจากไฟล์เกมด้วย `scripts/extract-substories-y3r.py` ภาคอื่นแปลงจากตาราง markdown เดิมด้วย `scripts/substories-md-to-json.py`
+    minigames.ts           MAHJONG_GAME_IDS — ภาคที่มีมาจอง (หน้าเกมโชว์ลิงก์ไป /mahjong/)
+    videos/<slug>.json      manifest วิดีโอ (src/poster/ขนาด/ความยาว/ไบต์) — render.mjs เขียนเอง ห้ามแก้มือ
     games.ts              ★ ข้อมูลหลัก 15 ภาค (รวม Judgment / Lost Judgment / Ishin! / Yakuza 3 Remastered) (GAMES array, type Game/ModInfo) + CITY_MAPS + helper รูป Steam CDN
     screenshots.json        รูป screenshot ราย gameId (ใช้ใน <Screenshots>)
-  content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md, overview.md, faq.md · lore/ · news/ (ไฟล์ละโพสต์) + prices.md
+  content/                 ★ เนื้อหา markdown ทั้งหมด (ไม่แตะตอน migrate) — <gameId>/ch-NN.md, substories.md, guide.md, overview.md, faq.md · lore/ · news/ (ไฟล์ละโพสต์) · guides/ (บทความเดี่ยว เช่น mahjong.md — `{{tiles: 234m …}}` = แถวรูปไพ่) + prices.md
   components/              Navbar, Markdown (marked), JsonLd, Credit, Screenshots, HeroScene (โปสเตอร์ซุ้มคามุโรโจ + ไฟนีออน = LCP/fallback + รายชื่อฉาก TOUR_SCENES), HeroFX (ฉาก 3D depth-photo แบบ lazy), Logo (LogoMark = <img src="/icon.svg">), HomeGrid, NewsList, CookieConsent, CookieResetButton, HashRedirect
   styles.css               สไตล์ทั้งเว็บไฟล์เดียว (ธีมนีออนแดง-ดำ) — import ใน layout.tsx
 public/
   maps/                    แผนที่เมือง self-host (อ้างจาก CITY_MAPS)
+  video/ · mahjong/tiles/  วิดีโอสอนมาจอง (MP4 + poster) + รูปหน้าไพ่ 34 แบบ — render.mjs สร้าง/ก๊อปมาให้
   hero/                    โปสเตอร์ hero (kamurocho-gate.jpg = LCP) + tour/ (ภาพฉาก · <id>-maps.png depth · <id>-fill.webp)
   logo.svg · icon-512.png  โลโก้ + ชื่อเว็บ · โลโก้ Organization ใน JSON-LD (สร้างจาก src/app/icon.svg)
   promptpay-qr.png         QR หน้า Support
@@ -54,6 +58,7 @@ worker/                    ★ Cloudflare Worker + D1 = ระบบปุ่ม
 scripts/
   fetch-prices.ps1         ดึงราคา Steam ไทยทุกภาค — ใช้ตอนอัปเดต prices.md (PS/Xbox ต้องเช็คมือ)
   hero-depth.py            ทำ depth map + ภาพเติมขอบของฉาก hero ใหม่ (วิธีใช้อยู่หัวไฟล์)
+  mahjong-video/           เครื่องมือเรนเดอร์วิดีโอสอนมาจอง (three.js + Chrome headless + ffmpeg) — วิธีใช้ใน README.md ของโฟลเดอร์ · `out/` gitignored
   gtm-container.json       ค่าตั้ง GTM (ตัวแปร cookieConsent + ทริกเกอร์ Consent All + แท็ก GA4) — import ที่ GTM → ผู้ดูแลระบบ → นำเข้าคอนเทนเนอร์ (merge)
 ```
 
@@ -61,11 +66,19 @@ Flow: `games.ts` = metadata ภาค (ชื่อ/ปี/steamAppId/blurb/mod)
 
 ## Routes
 
-`/` Home · `/game/[id]` ภาค · `/game/[id]/ch/[n]` บท · `/game/[id]/substories` · `/game/[id]/guide` · `/lore` + `/lore/[slug]` · `/news` + `/news/[slug]` · `/prices` · `/report` · `/support` · `/privacy` (นโยบายคุกกี้ — คู่กับ AdSense)
+`/` Home · `/game/[id]` ภาค · `/game/[id]/ch/[n]` บท · `/game/[id]/substories` · `/game/[id]/guide` · `/lore` + `/lore/[slug]` · `/news` + `/news/[slug]` · `/prices` · `/mahjong` · `/report` · `/support` · `/privacy` (นโยบายคุกกี้ — คู่กับ AdSense)
 
 ไฟล์ที่ไม่ใช่หน้าเว็บ: `/sitemap.xml` · `/robots.txt` · `/feed.xml` (RSS ข่าว) · `/llms.txt` + `/llms-full.txt`
 
 ทุก URL จริงลงท้ายด้วย `/` เสมอ (`trailingSlash: true`) เช่น `/game/y7/ch/3/` — ไม่มี `#/` แบบ HashRouter เดิมแล้ว (ดูกติกา HashRedirect ด้านบน)
+
+## วิดีโอสอนมาจอง (`/mahjong/`, 14 ต.ค. 2026)
+
+- เจ้าของสั่งทำวิดีโอสอนมาจองญี่ปุ่น (ริอิจิ) พื้นฐาน ~142 วินาที ไม่มีเสียง คำบรรยายไทยบนจอ ฝังในหน้า `/mahjong/` คู่กับบทความ `src/content/guides/mahjong.md` · หน้าเกมทุกภาคใน `MAHJONG_GAME_IDS` ลิงก์มา
+- วิดีโอวาดเองด้วย three.js ไม่ใช้ภาพจากเกม: ไพ่ FluffyStuff (CC0) · ฟอนต์ Kanit/Sarabun (OFL) — ไลเซนส์อยู่ใน `scripts/mahjong-video/assets/`
+- แก้เนื้อหา/คำบรรยาย = แก้ `scripts/mahjong-video/src/timeline.js` → `node check.mjs` → `node render.mjs --stills --scale 0.5` แล้ว**ดูภาพ `out/contact.png` ทุกครั้ง** (check ผ่านไม่ได้แปลว่าภาพถูก — รอบ 1–4 check ผ่านแต่กำแพงหาย/ไพ่เป็นกล่องดำ) → `node render.mjs` (MP4 ≤ 8 MB, ไม่มีเสียง) → `npm run build`
+- กฎตำแหน่งชิปใน `check.mjs` ลอกมาจาก `overlay.js` — แก้ตำแหน่งชิปที่ไหนต้องแก้อีกที่ด้วย
+- ชื่อ "Sacred Discard" (ฟุริเท็นในเมนู EN ของเกม) ยังไม่ยืนยัน วิดีโอใช้ "ฟุริเท็น"
 
 ## Hero หน้าแรก (3D depth-photo, 14 ต.ค. 2026)
 

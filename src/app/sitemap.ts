@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { GAMES } from '@/data/games'
-import { contentFor, loreArticles, newsPosts, gamePrices } from '@/lib/content'
+import { contentFor, guideBySlug, loreArticles, newsPosts, gamePrices } from '@/lib/content'
 import { SITE_URL } from '@/lib/site'
 import { substoryDataFor } from '@/lib/substories'
 
@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`${SITE_URL}/news/`, latestNews),
     entry(`${SITE_URL}/prices/`, at(gamePrices?.updated)),
     entry(`${SITE_URL}/lore/`),
+    entry(`${SITE_URL}/mahjong/`, at(guideBySlug('mahjong')?.date)),
     entry(`${SITE_URL}/about/`),
     entry(`${SITE_URL}/support/`),
     entry(`${SITE_URL}/report/`),

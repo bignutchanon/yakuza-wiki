@@ -1,5 +1,6 @@
 import { GAMES } from '@/data/games'
-import { contentFor, loreArticles, newsPosts, gamePrices } from '@/lib/content'
+import { contentFor, guideBySlug, loreArticles, newsPosts, gamePrices } from '@/lib/content'
+import { expandTiles } from '@/lib/mahjongTiles'
 import { substoryDataFor } from '@/lib/substories'
 import { thaiDate } from '@/lib/format'
 import { SITE_URL, DEFAULT_DESCRIPTION } from '@/lib/site'
@@ -86,6 +87,11 @@ function buildLlmsFull(): string {
   push('# Lore — เรื่องราวเบื้องหลังซีรีส์', '')
   for (const l of loreArticles) {
     push(`## ${l.title}`, '', `แหล่งที่มา: ${SITE_URL}/lore/${l.slug}/`, '', l.body.trim(), '')
+  }
+
+  const mahjongGuide = guideBySlug('mahjong')
+  if (mahjongGuide) {
+    push('## วิธีเล่นมาจองญี่ปุ่นใน Yakuza', '', `แหล่งที่มา: ${SITE_URL}/mahjong/`, `วิดีโอ: ${SITE_URL}/video/mahjong-basics.mp4`, '', expandTiles(mahjongGuide.body, 'text').trim(), '')
   }
 
   push('# ข่าวสารและอัปเดตม็อดแปลไทย', '')

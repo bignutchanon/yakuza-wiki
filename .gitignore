@@ -12,3 +12,6 @@ legacy/
 # สกิล Claude Code ของเครื่องนี้ (ไม่ขึ้น repo)
 .claude/
 __pycache__/
+
+# เฟรม/ไฟล์กลางของเครื่องมือเรนเดอร์วิดีโอมาจอง (สร้างใหม่ได้ทุกครั้ง)
+scripts/mahjong-video/out/

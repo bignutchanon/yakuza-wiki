@@ -1,6 +1,6 @@
 import { GAMES } from '@/data/games'
 import type { Game } from '@/data/games'
-import { contentFor, loreArticles, newsPosts, gamePrices } from '@/lib/content'
+import { contentFor, guideBySlug, loreArticles, newsPosts, gamePrices } from '@/lib/content'
 import { substoryDataFor } from '@/lib/substories'
 import { thaiDate } from '@/lib/format'
 import { SITE_URL, DEFAULT_DESCRIPTION, clip } from '@/lib/site'
@@ -83,6 +83,8 @@ function buildLlmsTxt(): string {
   for (const l of loreArticles) {
     lines.push(`- [${l.title}](${SITE_URL}/lore/${l.slug}/): ${clip(l.excerpt, 180)}`)
   }
+  const mahjongGuide = guideBySlug('mahjong')
+  if (mahjongGuide) lines.push(`- [วิธีเล่นมาจองญี่ปุ่นใน Yakuza (วิดีโอ + ไกด์)](${SITE_URL}/mahjong/): ${clip(mahjongGuide.excerpt)}`)
   lines.push('')
 
   lines.push('## ข่าวสาร')

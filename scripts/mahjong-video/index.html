@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920, initial-scale=1">
+  <title>Mahjong tutorial render stage</title>
+  <!-- กัน Chrome ขอ /favicon.ico แล้วได้ 404 — render.mjs ถือ console error ทุกตัวเป็นเรนเดอร์พัง -->
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./stage.css">
+  <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <div id="overlay" aria-hidden="true"><div id="watermark">yakuzathai.com</div><div id="title"></div><div id="caption"></div><div id="chips"></div><div id="recap"></div><div id="recap-cta"></div></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

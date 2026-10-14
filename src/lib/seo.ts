@@ -128,6 +128,40 @@ export function articleJsonLd({
   return node
 }
 
+export interface VideoObjectJsonLdOptions {
+  name: string
+  description: string
+  path: string
+  contentUrl: string
+  thumbnailUrl: string
+  uploadDate: string
+  duration: number
+}
+
+// ประกาศวิดีโอที่แสดงบนหน้า เพื่อให้ระบบค้นหาอ่านชนิดและความยาวได้ตรงกับไฟล์จริง
+export function videoObjectJsonLd({
+  name, description, path: pagePath, contentUrl, thumbnailUrl, uploadDate, duration,
+}: VideoObjectJsonLdOptions): JsonLdNode {
+  // วิดีโอสั้นไม่ถึงชั่วโมง — ปัดเป็นวินาทีเต็มแบบ PT2M15S
+  const seconds = Math.round(duration)
+  const isoDuration = `PT${Math.floor(seconds / 60)}M${seconds % 60}S`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name,
+    description: clip(description),
+    thumbnailUrl: [absUrl(thumbnailUrl)],
+    uploadDate: `${uploadDate}T00:00:00+07:00`,
+    duration: isoDuration,
+    contentUrl: absUrl(contentUrl),
+    // หน้าที่ฝังวิดีโอ (ไม่ใช่ embedUrl — embedUrl ต้องเป็นตัวเล่นแบบฝังได้ ซึ่งเว็บนี้ไม่มี)
+    url: absUrl(pagePath),
+    inLanguage: 'th-TH',
+    publisher: { '@id': ORG_ID },
+    author: { '@id': PERSON_ID },
+  }
+}
+
 // หน้าเกม — VideoGame ตัวเต็ม (เดิมมีแค่ name/url/image) ให้เครื่องมือค้นหาจับคู่กับเกมจริงได้
 export function videoGameJsonLd(game: Game, pagePath: string, image: string): JsonLdNode {
   return {

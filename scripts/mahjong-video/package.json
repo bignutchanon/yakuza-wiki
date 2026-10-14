@@ -1,0 +1,15 @@
+{
+  "name": "mahjong-video",
+  "private": true,
+  "type": "module",
+  "description": "เครื่องมือเรนเดอร์วิดีโอสอนมาจอง (three.js → Chrome headless → ffmpeg) — แยกจากเว็บ ไม่ถูก build ไปกับ Next",
+  "scripts": {
+    "check": "node check.mjs",
+    "serve": "node serve.mjs",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "25.13.0",
+    "three": "0.186.1"
+  }
+}

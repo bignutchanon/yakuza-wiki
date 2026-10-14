@@ -67,6 +67,14 @@ export interface NewsPost {
   excerpt: string
 }
 
+export interface GuideArticle {
+  slug: string
+  title: string
+  date: string
+  body: string
+  excerpt: string
+}
+
 export interface Prices {
   updated: string
   body: string
@@ -131,6 +139,7 @@ function loadAll() {
   const byGame: Record<string, GameContent> = {}
   const lore: LoreArticle[] = []
   const news: NewsPost[] = []
+  const guides: GuideArticle[] = []
   let prices: Prices | null = null
 
   const dirs = fs.readdirSync(CONTENT_DIR, { withFileTypes: true }).filter((d) => d.isDirectory())
@@ -172,6 +181,11 @@ function loadAll() {
         })
         continue
       }
+      // guides เป็นบทความเดี่ยว จึงแยกจากโฟลเดอร์ไอดีเกมก่อนสร้างเนื้อหาภาค
+      if (gameId === 'guides') {
+        guides.push({ slug: file, title: meta.title || file, date: meta.date || '', body, excerpt: firstParagraph(body) })
+        continue
+      }
       byGame[gameId] ??= { chapters: [], substories: null, guide: null, overview: null, faq: null }
       if (file === 'substories') {
         byGame[gameId].substories = { meta, body }
@@ -198,17 +212,18 @@ function loadAll() {
   lore.sort((a, b) => a.order - b.order)
   news.sort((a, b) => b.date.localeCompare(a.date)) // ใหม่ → เก่า
 
-  return { byGame, lore, news, prices }
+  return { byGame, lore, news, guides, prices }
 }
 
 // คำนวณครั้งเดียวตอน build (module-level cache) — ไฟล์นี้ถูก import เฉพาะฝั่ง server
-const { byGame, lore, news, prices } = loadAll()
+const { byGame, lore, news, guides, prices } = loadAll()
 
 export const contentFor = (gameId: string): GameContent =>
   byGame[gameId] || { chapters: [], substories: null, guide: null, overview: null, faq: null }
 
 export const loreArticles: LoreArticle[] = lore
 export const loreBySlug = (slug: string): LoreArticle | undefined => lore.find((a) => a.slug === slug)
+export const guideBySlug = (slug: string): GuideArticle | undefined => guides.find((a) => a.slug === slug)
 
 // ข่าวเรียงใหม่ → เก่า / gamePrices = เนื้อหาตารางราคา (null ถ้ายังไม่มีไฟล์)
 export const newsPosts: NewsPost[] = news

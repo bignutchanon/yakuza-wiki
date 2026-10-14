@@ -14,6 +14,7 @@ import {
 } from '@/data/games'
 import type { Game } from '@/data/games'
 import { contentFor } from '@/lib/content'
+import { MAHJONG_GAME_IDS } from '@/data/minigames'
 import type { Chapter } from '@/lib/content'
 import { substoryDataFor } from '@/lib/substories'
 import { thaiDate } from '@/lib/format'
@@ -282,6 +283,13 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           <p>
             <Link href={`/game/${id}/guide`}>อ่านฉบับเต็ม →</Link>
           </p>
+        </>
+      )}
+
+      {MAHJONG_GAME_IDS.includes(id) && (
+        <>
+          <h2 className="section-h">มินิเกมมาจอง</h2>
+          <p>ภาคนี้มีมาจองญี่ปุ่นให้เล่น — <Link href="/mahjong/">ดูวิดีโอสอนกติกาพื้นฐาน →</Link></p>
         </>
       )}
 
