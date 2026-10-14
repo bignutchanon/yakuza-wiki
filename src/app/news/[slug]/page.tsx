@@ -4,12 +4,31 @@ import { notFound } from 'next/navigation'
 import { newsPosts, newsBySlug, thaiDate } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo'
+import { gameById } from '@/data/games'
 import Markdown from '@/components/Markdown'
 import Byline from '@/components/Byline'
 import JsonLd from '@/components/JsonLd'
 
 // โพสต์ทั้งหมดรู้ล่วงหน้าตอน build จาก newsPosts — slug นอกลิสต์นี้ = 404
 export const dynamicParams = false
+
+// ข่าวม็อดตั้งชื่อไฟล์ YYYY-MM-DD-<เกม>-thai-mod-v<เลข> — <เกม> ตรงกับ id ใน games.ts ยกเว้นสามตัวนี้
+const NEWS_GAME_ALIAS: Record<string, string> = {
+  'lost-judgment': 'lostjudgment',
+  kiwami3: 'y3',
+  'y3-remastered': 'y3r',
+}
+
+// ข่าวแพตช์เก่ายังติดอันดับค้นหา (เช่น "yakuza 0 mod" ไปเจอข่าว v1.8.1) — ถ้าม็อดภาคนั้นออกรุ่นใหม่หลังวันที่ข่าว
+// ให้คืนเกมไว้ทำกล่องชี้ไปรุ่นล่าสุดในหน้าเกม แทนการลบข่าวเก่า (ลบ = URL ที่ติดอันดับกลายเป็น 404)
+function newerModFor(slug: string, postDate: string) {
+  const m = slug.match(/^\d{4}-\d{2}-\d{2}-(.+)-thai-mod-v\d+$/)
+  if (!m) return undefined
+  const game = gameById(NEWS_GAME_ALIAS[m[1]] ?? m[1])
+  const { version, updated } = game?.mod ?? {}
+  if (!game || !version || !updated || updated <= postDate) return undefined
+  return { id: game.id, name: game.shortTitle ?? game.title, version, updated }
+}
 
 export function generateStaticParams() {
   return newsPosts.map((p) => ({ slug: p.slug }))
@@ -44,6 +63,7 @@ export default async function NewsPostPage({ params }: { params: Promise<{ slug:
   const newer = newsPosts[idx - 1]
   const older = newsPosts[idx + 1]
   const path = `/news/${slug}/`
+  const newerMod = newerModFor(slug, post.date)
 
   return (
     <div className="page">
@@ -73,6 +93,16 @@ export default async function NewsPostPage({ params }: { params: Promise<{ slug:
       </div>
       <h1 className="game-title">{post.title}</h1>
       <Byline date={post.date} />
+
+      {newerMod && (
+        <Link href={`/game/${newerMod.id}/`} className="news-strip">
+          <span className="news-strip-tag">มีรุ่นใหม่แล้ว</span>
+          <span className="news-strip-title">
+            ข่าวนี้เป็นของรุ่นเก่า — ม็อดแปลไทย {newerMod.name} รุ่นล่าสุดคือ{' '}
+            <strong>{newerMod.version}</strong> ({thaiDate(newerMod.updated)}) โหลดได้ที่หน้าเกม →
+          </span>
+        </Link>
+      )}
 
       <Markdown text={post.body} />
 
