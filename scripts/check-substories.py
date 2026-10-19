@@ -4,7 +4,7 @@
 ตรวจสามชั้น:
   1. โครงข้อมูล — ฟิลด์ครบ ชนิดถูก ไม่มีชื่อว่าง ไม่มีเลขซ้ำในกลุ่มเดียวกัน
   2. เทียบกับตาราง markdown เดิมใน git (ค่าเริ่มต้น: 7b70e55 ก่อนย้ายมาเป็น JSON)
-     ทุกเควสในตารางเดิมต้องยังอยู่ครบ ค่าทุกช่องต้องตรงกัน (ตารางเดิมผ่าน scripts/spelling_fixes.py ก่อนเทียบ)
+     ทุกเควสในตารางเดิมต้องยังอยู่ครบ ค่าทุกช่องต้องตรงกัน ยกเว้นช่องใน REVISED (ตารางเดิมผ่าน scripts/spelling_fixes.py ก่อนเทียบ)
   3. เทียบกับ HTML ที่ build แล้วใน out/ (ถ้ามี) — ชื่อเควสทุกอันต้องโผล่ในหน้าจริง
      และบล็อก "เควสเสริมที่เปิดในบทนี้" ในหน้าบทต้องมีจำนวนเท่าที่คำนวณจาก unlock
 
@@ -27,6 +27,12 @@ OUT = Path('out')
 FIELDS = {'n': str, 'name': str, 'sub': str, 'place': str, 'unlock': str, 'summary': str, 'group': str}
 SEPARATOR = re.compile(r'^\|[\s\-:|]+\|$')
 CHAPTER = re.compile(r'บทที่\s*(\d+)')
+# ช่องที่ตั้งใจแก้หลังย้ายเป็น JSON เพราะตารางเดิมผิด (เทียบแหล่งแล้ว) — ช่องเหล่านี้ไม่ต้องตรงกับตารางเดิม
+REVISED = {
+    ('y0', '37', 'summary'): 'ราคา Killer Bee ผิด + ไม่มีแหล่งไหนใช้ Killer Bee ในรอบนี้ (Fandom · TheGamer · 19 ต.ค. 2026)',
+    ('kiwami', '50', 'summary'): 'เขียนขั้นตอนตาม PlayStation LifeStyle (19 ต.ค. 2026)',
+    ('kiwami', '56', 'summary'): 'Pocket Circuit Fighter เป็นผู้บรรยาย ไม่ใช่นักสู้ (Fandom · PlayStation LifeStyle · 19 ต.ค. 2026)',
+}
 
 problems: list[str] = []
 
@@ -128,6 +134,8 @@ def check_against_old(game: str, quests: list[dict], rows: list[dict]) -> None:
         fail(f'{game}: จำนวนเควสไม่เท่าเดิม (เดิม {len(rows)} · ตอนนี้ {len(quests)})')
     for old, new in zip(rows, quests):
         for field in ('n', 'name', 'place', 'unlock', 'summary', 'group'):
+            if (game, old['n'], field) in REVISED:
+                continue
             if old[field] != new.get(field):
                 fail(
                     f'{game} เควส {old["n"]} "{old["name"]}": ช่อง {field} เปลี่ยนไป\n'
