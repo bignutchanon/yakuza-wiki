@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GAMES } from '@/data/games'
+import { GAMES, gameById } from '@/data/games'
+import { POCKET_CIRCUIT_GUIDE_IDS } from '@/data/minigames'
 import { LogoMark } from '@/components/Logo'
 
 // ชื่อย่อสำหรับเมนู — ตัด prefix/suffix ยาว ๆ ออก
@@ -15,19 +16,20 @@ const shortTitle = (t: string): string =>
 
 export default function Navbar() {
   const [open, setOpen] = useState(false) // เมนูมือถือ
-  const [gamesOpen, setGamesOpen] = useState(false) // dropdown รายชื่อภาค
+  const [menuOpen, setMenuOpen] = useState<'games' | 'minigames' | null>(null) // dropdown ที่กางอยู่ (กางได้ทีละอัน)
   const pathname = usePathname()
 
   // ปิดเมนูทุกครั้งที่เปลี่ยนหน้า
   useEffect(() => {
     setOpen(false)
-    setGamesOpen(false)
+    setMenuOpen(null)
   }, [pathname])
 
   // แทนที่ NavLink ของ react-router: root ต้อง exact เท่านั้น ที่เหลือ active ทั้งตัวเองและ path ย่อย
   const isActive = (href: string): boolean =>
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
   const navLinkClass = (href: string): string => `nav-link${isActive(href) ? ' active' : ''}`
+  const toggleMenu = (menu: 'games' | 'minigames') => setMenuOpen((v) => (v === menu ? null : menu))
 
   return (
     <header className="navbar">
@@ -54,12 +56,12 @@ export default function Navbar() {
             หน้าแรก
           </Link>
 
-          <div className={`nav-dropdown${gamesOpen ? ' open' : ''}`}>
+          <div className={`nav-dropdown${menuOpen === 'games' ? ' open' : ''}`}>
             <button
               type="button"
               className="nav-link nav-drop-btn"
-              onClick={() => setGamesOpen((v) => !v)}
-              aria-expanded={gamesOpen}
+              onClick={() => toggleMenu('games')}
+              aria-expanded={menuOpen === 'games'}
             >
               ภาคทั้งหมด ▾
             </button>
@@ -88,9 +90,31 @@ export default function Navbar() {
           <Link href="/lore" className={navLinkClass('/lore')}>
             Lore
           </Link>
-          <Link href="/mahjong" className={navLinkClass('/mahjong')}>
-            สอนมาจอง
-          </Link>
+          <div className={`nav-dropdown${menuOpen === 'minigames' ? ' open' : ''}`}>
+            <button
+              type="button"
+              className="nav-link nav-drop-btn"
+              onClick={() => toggleMenu('minigames')}
+              aria-expanded={menuOpen === 'minigames'}
+            >
+              มินิเกม ▾
+            </button>
+            <div className="nav-menu">
+              <Link href="/mahjong" className={`nav-game${isActive('/mahjong') ? ' active' : ''}`}>
+                สอนมาจอง
+              </Link>
+              {POCKET_CIRCUIT_GUIDE_IDS.map((id) => (
+                <Link
+                  key={id}
+                  href={`/game/${id}/guide`}
+                  className={`nav-game${isActive(`/game/${id}/guide`) ? ' active' : ''}`}
+                >
+                  Pocket Circuit
+                  <span className="yr">{shortTitle(gameById(id)?.title ?? id)}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
           <Link href="/about" className={navLinkClass('/about')}>
             เกี่ยวกับ
           </Link>
