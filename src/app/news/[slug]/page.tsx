@@ -4,31 +4,13 @@ import { notFound } from 'next/navigation'
 import { newsPosts, newsBySlug, thaiDate } from '@/lib/content'
 import { pageMeta } from '@/lib/site'
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo'
-import { gameById } from '@/data/games'
+import { newerModFor } from '@/lib/news'
 import Markdown from '@/components/Markdown'
 import Byline from '@/components/Byline'
 import JsonLd from '@/components/JsonLd'
 
 // โพสต์ทั้งหมดรู้ล่วงหน้าตอน build จาก newsPosts — slug นอกลิสต์นี้ = 404
 export const dynamicParams = false
-
-// ข่าวม็อดตั้งชื่อไฟล์ YYYY-MM-DD-<เกม>-thai-mod-v<เลข> — <เกม> ตรงกับ id ใน games.ts ยกเว้นสามตัวนี้
-const NEWS_GAME_ALIAS: Record<string, string> = {
-  'lost-judgment': 'lostjudgment',
-  kiwami3: 'y3',
-  'y3-remastered': 'y3r',
-}
-
-// ข่าวแพตช์เก่ายังติดอันดับค้นหา (เช่น "yakuza 0 mod" ไปเจอข่าว v1.8.1) — ถ้าม็อดภาคนั้นออกรุ่นใหม่หลังวันที่ข่าว
-// ให้คืนเกมไว้ทำกล่องชี้ไปรุ่นล่าสุดในหน้าเกม แทนการลบข่าวเก่า (ลบ = URL ที่ติดอันดับกลายเป็น 404)
-function newerModFor(slug: string, postDate: string) {
-  const m = slug.match(/^\d{4}-\d{2}-\d{2}-(.+)-thai-mod-v\d+$/)
-  if (!m) return undefined
-  const game = gameById(NEWS_GAME_ALIAS[m[1]] ?? m[1])
-  const { version, updated } = game?.mod ?? {}
-  if (!game || !version || !updated || updated <= postDate) return undefined
-  return { id: game.id, name: game.shortTitle ?? game.title, version, updated }
-}
 
 export function generateStaticParams() {
   return newsPosts.map((p) => ({ slug: p.slug }))
@@ -43,7 +25,7 @@ export async function generateMetadata({
   const post = newsBySlug(slug)
   if (!post) return {}
 
-  return pageMeta({
+  const meta = pageMeta({
     title: post.title,
     description: post.excerpt,
     path: `/news/${slug}/`,
@@ -51,6 +33,8 @@ export async function generateMetadata({
     // frontmatter เก็บแค่วันที่ — เติมเวลา 00:00 เขตไทยให้เป็น ISO 8601 เต็มรูปแบบตามที่ Open Graph กำหนด
     publishedTime: `${post.date}T00:00:00+07:00`,
   })
+  // ข่าวม็อดรุ่นเก่าที่มีรุ่นใหม่แทนแล้ว → noindex (ดู lib/news.ts) — follow ไว้ให้บอตตามลิงก์ไปหน้าเกมต่อ
+  return newerModFor(slug, post.date) ? { ...meta, robots: { index: false, follow: true } } : meta
 }
 
 export default async function NewsPostPage({ params }: { params: Promise<{ slug: string }> }) {

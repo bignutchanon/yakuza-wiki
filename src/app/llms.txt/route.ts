@@ -2,6 +2,7 @@ import { GAMES } from '@/data/games'
 import type { Game } from '@/data/games'
 import { contentFor, guideBySlug, loreArticles, newsPosts, gamePrices } from '@/lib/content'
 import { substoryDataFor } from '@/lib/substories'
+import { newerModFor } from '@/lib/news'
 import { thaiDate } from '@/lib/format'
 import { SITE_URL, DEFAULT_DESCRIPTION, clip } from '@/lib/site'
 
@@ -90,6 +91,8 @@ function buildLlmsTxt(): string {
   lines.push('## ข่าวสาร')
   lines.push('')
   for (const p of newsPosts) {
+    // ข่าวม็อดรุ่นเก่าที่มีรุ่นใหม่แทนแล้ว (noindex) ไม่ชี้ไป — รุ่นล่าสุดของแต่ละภาคอยู่ในหัวข้อ "ภาคเกม" แล้ว
+    if (newerModFor(p.slug, p.date)) continue
     const tag = p.tag ? ` [${p.tag}]` : ''
     lines.push(`- [${p.title}](${SITE_URL}/news/${p.slug}/) — ${thaiDate(p.date)}${tag}: ${clip(p.excerpt, 180)}`)
   }

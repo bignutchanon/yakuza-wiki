@@ -3,6 +3,7 @@ import { GAMES } from '@/data/games'
 import { contentFor, guideBySlug, loreArticles, newsPosts, gamePrices } from '@/lib/content'
 import { SITE_URL } from '@/lib/site'
 import { substoryDataFor } from '@/lib/substories'
+import { newerModFor } from '@/lib/news'
 
 // สร้างตอน build ครั้งเดียว (static export ไม่มี request-time data) → out/sitemap.xml
 export const dynamic = 'force-static'
@@ -35,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   for (const post of newsPosts) {
+    // ข่าวม็อดรุ่นเก่าที่มีรุ่นใหม่แทนแล้ว (noindex) ไม่ลง sitemap — ดู lib/news.ts
+    if (newerModFor(post.slug, post.date)) continue
     entries.push(entry(`${SITE_URL}/news/${post.slug}/`, at(post.date)))
   }
 
