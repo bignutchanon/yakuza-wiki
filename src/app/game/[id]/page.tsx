@@ -24,6 +24,7 @@ import Credit from '@/components/Credit'
 import JsonLd from '@/components/JsonLd'
 import Markdown from '@/components/Markdown'
 import RecommendButton from '@/components/RecommendButton'
+import ShopeeBox from '@/components/ShopeeBox'
 import { ShotStrip } from '@/components/Screenshots'
 
 export async function generateStaticParams() {
@@ -189,6 +190,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       )}
 
       <RecommendButton target={`game:${game.id}`} />
+
+      <ShopeeBox gameId={game.id} />
 
       {/* src/content/<id>/overview.md — แนะนำภาคก่อนเล่น ช่วยให้หน้าเกมไม่เหลือแค่ blurb บรรทัดเดียว */}
       {overview && (

@@ -6,6 +6,7 @@ import { substoryDataFor } from '@/lib/substories'
 import { pageMeta, DEFAULT_DESCRIPTION, AUTHOR_NAME } from '@/lib/site'
 import HeroScene from '@/components/HeroScene'
 import HomeGrid, { type HomeGridGame } from '@/components/HomeGrid'
+import ShopeeBox from '@/components/ShopeeBox'
 
 export const metadata: Metadata = pageMeta({ title: '', description: DEFAULT_DESCRIPTION, path: '/' })
 
@@ -65,6 +66,8 @@ export default function Home() {
             <span className="news-strip-date">{thaiDate(newsPosts[0].date)} →</span>
           </Link>
         )}
+
+        <ShopeeBox />
 
         {/* ย่อหน้าแนะนำเว็บ — ผู้อ่านที่มาถึงหน้าแรกครั้งแรกต้องรู้ทันทีว่าเว็บนี้คืออะไรและใครทำ */}
         <section className="home-intro">

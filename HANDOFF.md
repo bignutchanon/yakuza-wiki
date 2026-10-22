@@ -1,3 +1,33 @@
+# HANDOFF — สินค้า Shopee Affiliate (22 ต.ค. 2026)
+
+สถานะ: **deploy ขึ้น main แล้ว 22 ต.ค. 2026** (push main = deploy) · ภาพรวมกติกาอยู่ใน CLAUDE.md หัวข้อ AdSense → "Shopee Affiliate"
+
+## ทำแล้ว
+- `src/data/shopee.ts` สินค้า 33 ชิ้น (เกม 7 · อุปกรณ์คอม 14: จอย/เมาส์/คีย์บอร์ด/หูฟัง/แผ่นรองเมาส์ · ขนมและเครื่องดื่ม 12: เลย์/พริงเกิลส์/เป๊ปซี่/โค้ก/โดริโทส/ชีโตส/เทสโต/ตะวัน/Sunbites) + เกณฑ์คัดหัวไฟล์ · ลิงก์ affiliate ทุกอันเช็ค redirect แล้ว (itemid ตรง + `utm_source=an_15357260476`)
+- `src/components/ShopeeBox.tsx` (server) แถวละหมวด เกม Yakuza / อุปกรณ์คอม / ขนมและเครื่องดื่ม · `ShopeeScroller.tsx` (client) ลูกศรซ้าย/ขวา desktop ซ่อนบนจอสัมผัส · ทั้งกล่องย่อ/ขยายได้ด้วย `<details open>` (หัวกล่อง = `<summary>` ไม่ใช้ JS · เปิดเป็นค่าเริ่มต้น ไม่จำสถานะข้ามหน้า)
+- วาง: หน้าแรกใต้แถบข่าว · หน้าเกมใต้ปุ่มแนะนำ (แผ่นของภาคนั้นเท่านั้น + อุปกรณ์/ขนม)
+- 22 ต.ค. (รอบ 2) ผู้อ่านรีวิวว่าดู clickbait → ถอดป้าย -% บนรูป · ราคาสีขาวแทนแดง · เพิ่มแถวร้าน (ป้าย "Shopee Mall"/"ร้านแนะนำ" + ชื่อร้านจากฟิลด์ `shop`) และแถว "★ 4.9 · N รีวิว" (ดาวสีทอง) เหนือราคา · ราคาก่อนลดยังขีดฆ่าตัวเล็กสีเทา
+- Open API เช็ค 22 ต.ค.: หน้า affiliate.shopee.co.th/open_api ยังขึ้น AppID `--` "คุณไม่ได้รับสิทธิ์…" = ยังไม่ได้สิทธิ์
+- `/privacy` หัวข้อ "ลิงก์ Shopee (affiliate)" + รูปโหลดจาก Shopee · `/about` ประโยคแจ้ง affiliate
+
+## งานค้าง (เจ้าของสั่งแล้ว)
+1. ~~เพิ่มสินค้าแถวอุปกรณ์คอม + ขนม~~ เสร็จ 22 ต.ค. · แถวเกมยังมี 7 ชิ้น (ภาคละรายการถูกสุดที่ผ่านเกณฑ์ · Gaiden/Judgment/Remastered Collection ไม่มีร้านผ่าน) เพิ่มได้ถ้าเจ้าของต้องการ
+2. **ราคาอัปเดตอัตโนมัติ** — ทำได้เมื่อได้สิทธิ์ Open API เท่านั้น (บัญชียังไม่มีสิทธิ์ ขอที่ help.shopee.co.th/portal/webform/c07a3cf32bfd4cd59f5c819d84583d4e) → สคริปต์เรียก `productOfferV2` (keyword · sortType 4 · isKeySeller) ตอน build ใน GitHub Actions + cron รายวัน · AppID/Secret = repo secret เจ้าของใส่เอง · ห้ามให้ GitHub Actions ยิง API ภายในของ Shopee (ไม่มี session ติด captcha แน่)
+3. ~~commit + push~~ deploy แล้ว 22 ต.ค.
+4. เจ้าของต้องกรอกข้อมูลการชำระเงิน/ภาษีในบัญชี affiliate เอง (ห้ามกรอกแทน)
+
+## วิธีหาสินค้า (ใช้ซ้ำได้)
+- เปิดแท็บ shopee.co.th (ล็อกอินบัญชีเจ้าของ) แล้วเรียก `fetch('/api/v4/search/search_items?by=relevancy|sales&keyword=…&limit=60&newest=0&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2')` จาก javascript_tool
+- **ยิงห่าง ≥ 8 วินาที** — รอบแรกยิงรัว ~20 ครั้งติด captcha `scene=crawler_item` (เจ้าของกดผ่านเอง ห้ามแก้ captcha แทน) · ห้ามเปิดหน้าสินค้าทีละหน้า
+- ฟิลด์: `price_min/1e5` · `price_before_discount` · `item_rating.rating_star` · `rating_count[0]` · `historical_sold` · `is_official_shop` (Mall) · `is_preferred_plus_seller` · `shopee_verified` · `stock` · `image` · `shop_name`
+- เกม: ตัด `ps2|ps3|มือสอง|used|dlc|digital|แผ่นปั๊ม|บทสรุป|guide|ninja…` · ร้าน Mall/แนะนำ ★≥4.8 รีวิว≥5 → ถูกสุด · อุปกรณ์/ขนม: Mall ★≥4.8 รีวิว≥50 → ขายดี
+- ผลลัพธ์ที่มี `= & ? ; % : /` โดนเครื่องมือบล็อก (`[BLOCKED: Cookie/query string data]`) → แทนอักษรพวกนี้ด้วยช่องว่างก่อน return
+- ลิงก์ affiliate: affiliate.shopee.co.th/offer/custom_link ใส่ `https://shopee.co.th/product/<shopid>/<itemid>` ได้ 5 บรรทัดต่อครั้ง + Sub_id 1 `yakuzathai` → เช็คด้วย `curl -s -o /dev/null -w '%{redirect_url}' https://s.shopee.co.th/<code>`
+- รูป `https://down-th.img.susercontent.com/file/<image>_tn` = 320×320
+- เซิร์ฟเวอร์ทดสอบ `python -m http.server` ใน `out/` ต้องปิดก่อน `npm run build` ไม่งั้น EBUSY
+
+---
+
 # HANDOFF — ระบบปุ่ม "แนะนำ" (recommend)
 
 อัปเดต: 8 ก.ย. 2026 · สถานะ: **Worker deploy ขึ้น Cloudflare แล้ว ใช้งานได้จริง · ฝั่งเว็บเปิดระบบแล้วแต่ยังไม่ commit/push**

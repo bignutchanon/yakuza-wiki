@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { CONTACT_EMAIL, pageMeta } from '@/lib/site'
+import { SHOPEE_PRODUCTS } from '@/data/shopee'
 import Markdown from '@/components/Markdown'
 import CookieResetButton from '@/components/CookieResetButton'
 import { breadcrumbJsonLd } from '@/lib/seo'
@@ -7,6 +8,21 @@ import JsonLd from '@/components/JsonLd'
 
 // นโยบายความเป็นส่วนตัว + คุกกี้ — จำเป็นตามนโยบายโปรแกรม Google AdSense
 // ปุ่มท้ายหน้าใช้ล้างตัวเลือกคุกกี้ (localStorage) เพื่อให้แบนเนอร์ถามใหม่ — แยกเป็น <CookieResetButton> (client)
+
+// โชว์เฉพาะตอนมีสินค้าใน SHOPEE_PRODUCTS (src/data/shopee.ts)
+const SHOPEE_SECTION = `
+## ลิงก์ Shopee (affiliate)
+
+หน้าแรกและหน้าของแต่ละภาคมีลิงก์ไปสินค้าบน **Shopee** ผ่านโปรแกรม Shopee Affiliate
+ถ้าคุณซื้อสินค้าหลังกดลิงก์นี้ เว็บจะได้ค่าคอมมิชชันจาก Shopee ราคาที่คุณจ่ายเท่าเดิม
+
+- **เว็บนี้ไม่บันทึกการกด** — ลิงก์พาไปที่ Shopee ตรง ๆ ไม่ผ่านระบบของเว็บนี้
+- **รูปสินค้าโหลดจากเซิร์ฟเวอร์ของ Shopee** — เบราว์เซอร์ของคุณดึงรูปจาก Shopee โดยตรง
+  Shopee จึงอาจเห็น IP address ของคุณตอนโหลดรูป (เหมือนกรณี Google Fonts ด้านบน)
+- **คุกกี้ของ Shopee** — หลังกดลิงก์ Shopee จะตั้งคุกกี้บนโดเมนของ Shopee เองเพื่อนับยอดขายที่มาจากลิงก์
+  เป็นไปตามนโยบายความเป็นส่วนตัวของ Shopee ไม่ใช่ของเว็บนี้
+- **ไม่มีผลต่อเนื้อหา** — สรุปเนื้อเรื่อง ไกด์ และม็อดแปลไทยเหมือนเดิมไม่ว่าคุณจะกดลิงก์หรือไม่
+`
 
 const BODY = `
 เว็บนี้เป็น wiki ภาษาไทยของซีรีส์ Yakuza / Like a Dragon จัดทำโดยแฟนเกม ไม่มีระบบสมัครสมาชิก
@@ -75,11 +91,12 @@ Google และพาร์ตเนอร์ใช้คุกกี้โฆ�
 - **ไม่ใช้คุกกี้** — ปุ่มนี้จำว่าคุณเคยกดแล้วด้วย localStorage ของเบราว์เซอร์คุณเอง
   ล้างข้อมูลเบราว์เซอร์เมื่อไหร่ก็หายไป
 
+${SHOPEE_PRODUCTS.length ? SHOPEE_SECTION : ''}
 ## ติดต่อ
 
 คำถามเกี่ยวกับนโยบายนี้ ติดต่อผู้จัดทำได้ที่ ${CONTACT_EMAIL}
 
-_อัปเดตล่าสุด: 8 ก.ย. 2026_
+_อัปเดตล่าสุด: ${SHOPEE_PRODUCTS.length ? '22 ต.ค. 2026' : '8 ก.ย. 2026'}_
 `
 
 export const metadata: Metadata = pageMeta({

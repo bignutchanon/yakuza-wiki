@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { pageMeta, AUTHOR_NAME, CONTACT_EMAIL, GITHUB_URL } from '@/lib/site'
+import { SHOPEE_PRODUCTS } from '@/data/shopee'
 import { aboutPageJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
 
@@ -85,6 +86,8 @@ export default function AboutPage() {
         <p>
           เว็บนี้มีโฆษณาเพื่อช่วยค่าโดเมนและค่าเวลาที่ใช้ทำงานแปล ไม่มีผลต่อเนื้อหา
           ไม่มีบทความรีวิวรับจ้าง และไม่มีส่วนไหนของม็อดที่ต้องจ่ายเงินหรือดูโฆษณาก่อนถึงจะโหลดได้
+          {SHOPEE_PRODUCTS.length > 0 &&
+            ' หน้าแรกและหน้าของแต่ละภาคมีลิงก์ Shopee แบบ affiliate ถ้าซื้อผ่านลิงก์นั้นผมได้ค่าคอมมิชชันเล็กน้อย ราคาที่คุณจ่ายเท่าเดิม'}{' '}
           รายละเอียดเรื่องคุกกี้และโฆษณาอยู่ใน <Link href="/privacy">นโยบายความเป็นส่วนตัว</Link>
           {' · '}
           ใครอยากช่วยค่ากาแฟดูได้ที่ <Link href="/support">หน้าสนับสนุน</Link>
