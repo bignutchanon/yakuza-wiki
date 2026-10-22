@@ -67,8 +67,6 @@ export default function Home() {
           </Link>
         )}
 
-        <ShopeeBox />
-
         {/* ย่อหน้าแนะนำเว็บ — ผู้อ่านที่มาถึงหน้าแรกครั้งแรกต้องรู้ทันทีว่าเว็บนี้คืออะไรและใครทำ */}
         <section className="home-intro">
           <h2>เว็บนี้คืออะไร</h2>
@@ -88,6 +86,8 @@ export default function Home() {
         </section>
 
         <HomeGrid games={games} />
+
+        <ShopeeBox />
       </div>
     </>
   )

@@ -191,8 +191,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
 
       <RecommendButton target={`game:${game.id}`} />
 
-      <ShopeeBox gameId={game.id} />
-
       {/* src/content/<id>/overview.md — แนะนำภาคก่อนเล่น ช่วยให้หน้าเกมไม่เหลือแค่ blurb บรรทัดเดียว */}
       {overview && (
         <>
@@ -308,6 +306,8 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           ))}
         </section>
       )}
+
+      <ShopeeBox gameId={game.id} />
     </div>
   )
 }
