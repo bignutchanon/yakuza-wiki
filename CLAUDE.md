@@ -50,7 +50,7 @@ public/
   hero/                    โปสเตอร์ hero (kamurocho-gate.jpg = LCP) + tour/ (ภาพฉาก · <id>-maps.png depth · <id>-fill.webp)
   logo.svg · icon-512.png  โลโก้ + ชื่อเว็บ · โลโก้ Organization ใน JSON-LD (สร้างจาก src/app/icon.svg)
   promptpay-qr.png         QR หน้า Support
-  promptpay-qr-small.png   QR เดียวกันแบบตัดเหลือการ์ด กว้าง 380 — ฝังด้วย [img] ในคำอธิบายเพจ Nexus ทุกภาค (ห้ามลบ/เปลี่ยนชื่อ ไม่งั้นรูปในเพจ Nexus แตกหมด)
+  promptpay-qr-small.png   QR เดียวกันแบบตัดเหลือการ์ด กว้าง 380 — ฝังด้วย [img] ในคำอธิบายเพจ Nexus ทุกภาค + ม็อด 60 Seconds/60 Parsecs ของบัญชีเดียวกัน (ห้ามลบ/เปลี่ยนชื่อ ไม่งั้นรูปในเพจ Nexus แตกหมด)
   CNAME · .nojekyll        GitHub Pages custom domain (yakuzathai.com)
 worker/                    ★ Cloudflare Worker + D1 = ระบบปุ่ม "แนะนำ" (recommend) — deploy แยกจากเว็บ
   src/index.js             GET /recommend?targets=… (อ่านยอด) · POST /recommend (กด) · CORS จำกัด origin
