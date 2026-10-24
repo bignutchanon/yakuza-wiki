@@ -25,6 +25,7 @@ import JsonLd from '@/components/JsonLd'
 import Markdown from '@/components/Markdown'
 import RecommendButton from '@/components/RecommendButton'
 import ShopeeBox from '@/components/ShopeeBox'
+import SupportDock from '@/components/SupportDock'
 import { ShotStrip } from '@/components/Screenshots'
 
 export async function generateStaticParams() {
@@ -308,6 +309,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       )}
 
       <ShopeeBox gameId={game.id} />
+      <SupportDock />
     </div>
   )
 }

@@ -1,14 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
+import { useDockState } from '@/lib/dock'
 
 // แผงลอยของ <ShopeeBox> — การ์ด (children) ยัง render ฝั่ง server อยู่ใน HTML ตามเดิม ไฟล์นี้ถือแค่สถานะเปิด/ปิด + แท็บหมวดที่เลือก
-// 'auto' = ให้ CSS ตัดสินตามความกว้างจอ: ช่องว่างขวาของ .page พอ → แผงเปิด · ไม่พอ/มือถือ → ปุ่มมุมขวาล่าง (ดู styles.css)
-// ผู้อ่านกด × = จำใน localStorage ไม่เปิดเองอีกทุกหน้า · กดปุ่มเปิดกลับ = ลบค่าที่จำ
-// เริ่มจาก 'pending' (ซ่อนทั้งแผงและปุ่ม) แล้วค่อยอ่านค่าหลัง mount — คนที่เคยปิดไว้จะไม่เห็นแผงแว้บขึ้นมาก่อนหุบ
-const KEY = 'shopDock'
-
-type DockState = 'pending' | 'auto' | 'open' | 'closed'
+// สถานะเปิด/ปิด + การจำค่าที่ผู้อ่านกด × อยู่ใน useDockState (src/lib/dock.ts) ใช้ร่วมกับ <SupportDock>
 
 // หนึ่งหมวด = หนึ่งแท็บ · list = รายการการ์ดที่ <ShopeeBox> render ฝั่ง server มาแล้ว
 export interface ShopeeLine {
@@ -18,40 +14,13 @@ export interface ShopeeLine {
   list: ReactNode
 }
 
-// localStorage เข้าถึงไม่ได้ในโหมดส่วนตัวบางเบราว์เซอร์ — ล้มแล้วแค่จำไม่ได้ แผงยังใช้ได้
-function readClosed(): boolean {
-  try {
-    return localStorage.getItem(KEY) === 'closed'
-  } catch {
-    return false
-  }
-}
-
-function rememberClosed(closed: boolean): void {
-  try {
-    if (closed) localStorage.setItem(KEY, 'closed')
-    else localStorage.removeItem(KEY)
-  } catch {
-    /* ไม่เป็นไร — แค่จำไม่ได้ข้ามหน้า */
-  }
-}
-
 // ป้าย "ลิงก์ affiliate" ท้ายหัวแผงคือจุดเดียวบนหน้าที่บอกผู้อ่านว่าเว็บได้ค่าคอมจากลิงก์นี้ (ห้ามถอด)
 // หัวแผงไม่ใช่ <h2>/<h3> เพื่อไม่ให้แทรกในโครงหัวข้อของหน้า
 // แท็บหมวด: การ์ดทุกหมวดอยู่ใน HTML ครบ หมวดที่ไม่ได้เลือกแค่ซ่อนด้วย hidden · children = บรรทัดท้ายแผง (ที่มาของราคา)
 export default function ShopeeDock({ lines, children }: { lines: ShopeeLine[]; children: ReactNode }) {
-  const [state, setState] = useState<DockState>('pending')
+  const [state, pick] = useDockState('shopDock')
   const [tab, setTab] = useState(lines[0]?.group)
   const body = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    setState(readClosed() ? 'closed' : 'auto')
-  }, [])
-
-  const pick = (next: 'open' | 'closed') => {
-    setState(next)
-    rememberClosed(next === 'closed')
-  }
 
   // เปลี่ยนหมวดแล้วเริ่มดูจากบนสุด ไม่ค้างกลางรายการตามตำแหน่งเลื่อนของหมวดเดิม
   const show = (group: string) => {

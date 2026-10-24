@@ -1206,6 +1206,23 @@ img { max-width: 100%; height: auto; display: block; }
   .page-wide > .shop-dock .shop { position: sticky; top: 5rem; right: auto; bottom: auto; width: auto; max-height: calc(100vh - 7.5rem); }
 }
 
+/* ─── แผงสนับสนุนผู้แปล (<SupportDock>) — กรอบ/ปุ่ม/สถานะเดียวกับแผง Shopee ด้านบน แต่ลอยฝั่งซ้าย (24 ต.ค. 2026) ───
+   จอกว้าง: ช่องว่างซ้ายของ .page กว้างเท่าช่องขวา (.page อยู่กลาง) จึงใช้ breakpoint 82rem/98rem ชุดเดียวกัน
+   จอแคบ: ปุ่ม "สนับสนุนผู้แปล" มุมซ้ายล่าง คู่กับปุ่ม Shopee มุมขวาล่าง */
+.shop-dock.is-support .shop,
+.shop-dock.is-support .shop-fab { right: auto; left: 1rem; }
+.support-dock-text { margin: 0 0 0.7rem; font-size: 0.88rem; line-height: 1.6; color: var(--text); }
+.support-dock-qr { display: block; width: 100%; max-width: 15rem; margin: 0 auto 0.7rem; border-radius: 8px; }
+.support-dock-more { font-size: 0.82rem; color: var(--gold-soft); }
+@media (min-width: 82rem) {
+  .page:not(.page-wide) > .shop-dock.is-support { left: auto; right: 100%; }
+  .page:not(.page-wide) > .shop-dock.is-support .shop { left: auto; }
+}
+@media (min-width: 98rem) {
+  .page-wide > .shop-dock.is-support { left: auto; right: 100%; }
+  .page-wide > .shop-dock.is-support .shop { left: auto; }
+}
+
 /* คันจิหน้าชื่อแท็บ 遊 เกม / 機 อุปกรณ์ / 菓 ขนม ล้อการ์ด lore หน้าแรก */
 .shop-mark {
   font-style: normal;

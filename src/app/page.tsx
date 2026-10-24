@@ -7,6 +7,7 @@ import { pageMeta, DEFAULT_DESCRIPTION, AUTHOR_NAME } from '@/lib/site'
 import HeroScene from '@/components/HeroScene'
 import HomeGrid, { type HomeGridGame } from '@/components/HomeGrid'
 import ShopeeBox from '@/components/ShopeeBox'
+import SupportDock from '@/components/SupportDock'
 
 export const metadata: Metadata = pageMeta({ title: '', description: DEFAULT_DESCRIPTION, path: '/' })
 
@@ -88,6 +89,7 @@ export default function Home() {
         <HomeGrid games={games} />
 
         <ShopeeBox />
+        <SupportDock />
       </div>
     </>
   )
