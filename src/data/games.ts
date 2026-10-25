@@ -181,11 +181,11 @@ export const GAMES: Game[] = [
       'สงครามระหว่างตระกูลโทโจกับพันธมิตรโอมิปะทุ คิริวต้องเผชิญหน้ากับ "มังกรแห่งคันไซ" เรียว โกดะ ในศึกที่แฟน ๆ ยกให้เป็นคู่ปรับที่ดีที่สุดของซีรีส์',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza-kiwami2-thai-mod/releases/download/v1.3/YakuzaKiwami2R-Thai-v1.3.zip',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami2-thai-mod/releases/download/v1.3.1/YakuzaKiwami2R-Thai-v1.3.1.zip',
       nexus: 'https://www.nexusmods.com/yakuzakiwami2025/mods/32',
-      note: 'v1.3 (7 ต.ค. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · ภาพในเกมเป็นไทย (การ์ดชื่อบท ป้ายบอส มินิเกม การ์ดตัวละคร ป้ายในคัตซีน โลโก้) + เกลาคำแปลเนื้อเรื่องไล่ทีละบท · รุ่นนี้ติดตั้งด้วย install.bat ต้องมีที่ว่างในไดรฟ์เกม ~2.5 GB',
-      version: 'v1.3',
-      updated: '2026-10-07',
+      note: 'v1.3.1 (25 ต.ค. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · แก้ซับที่ยังเป็นอังกฤษในฉากต้อนรับลูกค้าคาบาเรต์ และท่อนเพลงตอนชนะ Clan Creator · อัปจาก v1.3 แตก zip ทับแล้วรัน install.bat ซ้ำ · ต้องมีที่ว่างในไดรฟ์เกม ~2.5 GB',
+      version: 'v1.3.1',
+      updated: '2026-10-25',
     },
   },
   {
