@@ -1190,20 +1190,21 @@ img { max-width: 100%; height: auto; display: block; }
 .shop-fab:focus-visible { border-color: var(--red); box-shadow: 0 0 18px rgba(230, 57, 80, 0.45); }
 
 /* จอกว้าง — ช่องขวาของ .page ต้องพอแผง 17rem + ขอบจอ 1rem: .page 46rem → จอ ≥ 46 + 2×18 = 82rem · .page-wide 62rem → ≥ 98rem
-   แผงอยู่ใน .shop-dock ที่สูงเท่าเนื้อหา (top/bottom = padding ของ .page) แล้ว sticky ใต้ navbar */
+   แผงอยู่ใน .shop-dock ที่สูงเท่าเนื้อหา (top/bottom = padding ของ .page) แล้ว sticky ใต้ navbar
+   z-index 40 ใต้ navbar (50): ท้ายหน้า .shop-dock ดันแผงขึ้นให้มุดใต้เมนู — z 90 ของโหมด popover เคยทำแผงวาดทับ navbar */
 @media (min-width: 82rem) {
   .page:not(.page-wide):has(> .shop-dock) { position: relative; }
   .page:not(.page-wide) > .shop-dock { position: absolute; top: 2.5rem; bottom: 5rem; left: 100%; width: 17rem; }
   .page:not(.page-wide) > .shop-dock[data-state='auto'] .shop { display: flex; }
   .page:not(.page-wide) > .shop-dock[data-state='auto'] .shop-fab { display: none; }
-  .page:not(.page-wide) > .shop-dock .shop { position: sticky; top: 5rem; right: auto; bottom: auto; width: auto; max-height: calc(100vh - 7.5rem); }
+  .page:not(.page-wide) > .shop-dock .shop { position: sticky; top: 5rem; right: auto; bottom: auto; z-index: 40; width: auto; max-height: calc(100vh - 7.5rem); }
 }
 @media (min-width: 98rem) {
   .page-wide:has(> .shop-dock) { position: relative; }
   .page-wide > .shop-dock { position: absolute; top: 2.5rem; bottom: 5rem; left: 100%; width: 17rem; }
   .page-wide > .shop-dock[data-state='auto'] .shop { display: flex; }
   .page-wide > .shop-dock[data-state='auto'] .shop-fab { display: none; }
-  .page-wide > .shop-dock .shop { position: sticky; top: 5rem; right: auto; bottom: auto; width: auto; max-height: calc(100vh - 7.5rem); }
+  .page-wide > .shop-dock .shop { position: sticky; top: 5rem; right: auto; bottom: auto; z-index: 40; width: auto; max-height: calc(100vh - 7.5rem); }
 }
 
 /* ─── แผงสนับสนุนผู้แปล (<SupportDock>) — กรอบ/ปุ่ม/สถานะเดียวกับแผง Shopee ด้านบน แต่ลอยฝั่งซ้าย (24 ต.ค. 2026) ───
