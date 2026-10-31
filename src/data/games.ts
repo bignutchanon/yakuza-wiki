@@ -157,11 +157,11 @@ export const GAMES: Game[] = [
       'คิริวรับผิดแทนเพื่อนรักในคดีฆ่าหัวหน้าตระกูล ติดคุกสิบปี ออกมาพบว่าเงินหนึ่งหมื่นล้านเยนของตระกูลโทโจหายไป และเด็กหญิงชื่อฮารุกะคือกุญแจของทุกอย่าง',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza-kiwami-thai-mod/releases/download/v1.5.1/YakuzaKiwamiR_Thai_v1.5.1.zip',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami-thai-mod/releases/download/v1.5.2/YakuzaKiwamiR_Thai_v1.5.2.zip',
       nexus: 'https://www.nexusmods.com/yakuzakiwami2025/mods/31',
-      note: 'v1.5.1 (10 ต.ค. 2026) — รองรับ Yakuza Kiwami (Remaster 2025) · แก้เกมเด้งใน MesuKing · เมนูหยุดเกมและข้อความในมินิเกม (ไพ่นกกระจอก โชกิ คาสิโน Pocket Circuit ฯลฯ) เป็นไทย ติดตั้งทับได้เลย',
-      version: 'v1.5.1',
-      updated: '2026-10-10',
+      note: 'v1.5.2 (31 ต.ค. 2026) — รองรับ Yakuza Kiwami (Remaster 2025) · แก้แท็บ "ต่อสู้" ในร้านแลกแต้ม CP ที่ว่างเปล่า · เมนูหยุดเกมและข้อความในมินิเกมเป็นไทย ติดตั้งทับได้เลย',
+      version: 'v1.5.2',
+      updated: '2026-10-31',
     },
   },
   {
