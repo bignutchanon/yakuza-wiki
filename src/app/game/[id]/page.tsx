@@ -169,6 +169,14 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
               {game.mod.manual.note && <span className="mod-beta-note">{game.mod.manual.note}</span>}
             </p>
           )}
+          {game.mod.dub && (
+            <p className="mod-beta">
+              <a className="mod-btn mod-btn-beta" href={game.mod.dub.url} target="_blank" rel="noreferrer">
+                เสียงพากย์ไทย (ทดสอบ) ↓
+              </a>
+              {game.mod.dub.note && <span className="mod-beta-note">{game.mod.dub.note}</span>}
+            </p>
+          )}
           {game.mod.nexus && (
             <p style={{ marginTop: '0.7rem', marginBottom: 0 }}>
               หรือโหลดผ่าน{' '}

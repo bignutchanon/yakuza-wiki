@@ -21,6 +21,7 @@ function modLine(game: Game): string | null {
   if (mod.updated) parts.push(`อัปเดต ${thaiDate(mod.updated)}`)
   if (mod.beta?.version) parts.push(`มีรุ่นทดสอบ ${mod.beta.version} ให้ลองคู่กัน`)
   if (mod.manual) parts.push('มีแพ็กแบบไม่มีตัวติดตั้ง (ก็อปไฟล์เอง) ให้เลือกโหลด')
+  if (mod.dub) parts.push(`มีเสียงพากย์ไทย${mod.dub.version ? ` ${mod.dub.version}` : ''} ให้ลอง (แพ็กแยก)`)
   if (mod.nexus) parts.push('มีมิเรอร์บน Nexus Mods')
   return parts.join(' · ')
 }

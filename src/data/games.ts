@@ -16,6 +16,8 @@ export interface ModInfo {
   // แพ็กก็อปไฟล์เอง (ไม่มีไฟล์ .bat/.ps1) ของม็อดตัวเดียวกัน — ปุ่มรองในหน้าเกม
   // ไว้ให้คนที่โปรแกรมสแกนไวรัสลบตัวติดตั้งทิ้ง เนื้อไฟล์เกมเหมือนแพ็กปกติทุกอย่าง
   manual?: { url: string; note?: string }
+  // เสียงพากย์ไทย (แพ็กแยกจากม็อดแปลข้อความ ติดตั้งคู่หรือแยกก็ได้) — ปุ่มรองในหน้าเกม
+  dub?: { url: string; note?: string; version?: string; updated?: string }
 }
 
 export interface Game {
@@ -75,6 +77,7 @@ export const modUpdateBadge = (mod: ModInfo, now: Date = new Date()): string | n
   }
   if (fresh(mod.updated)) return `อัปเดต ${mod.version ?? 'ใหม่'}`
   if (mod.beta && fresh(mod.beta.updated)) return `${mod.beta.version ?? 'beta'} ให้ลอง`
+  if (mod.dub && fresh(mod.dub.updated)) return 'พากย์ไทยให้ลอง'
   return null
 }
 
@@ -138,6 +141,12 @@ export const GAMES: Game[] = [
       version: 'v2.4.1',
       updated: '2026-10-24',
       nexus: 'https://www.nexusmods.com/yakuza0directorscut/mods/40',
+      dub: {
+        url: 'https://github.com/bignutchanon/yakuza0-dc-thai-mod/releases/download/dub-beta-0.4/Y0DC-ThaiDub-beta-0.4.zip',
+        note: 'รุ่นทดสอบ beta 0.4 (4 พ.ย. 2026) — เสียงพากย์ไทยด้วย AI บท 1–2 (คัตซีน + ฉากคุยในเกม) · แตก zip แล้วรัน install.bat (ปิดเกมก่อน) · ตั้งเสียงพากย์ในเกมเป็นญี่ปุ่น · ถอนด้วย uninstall.bat · ใช้คู่กับม็อดแปลไทยได้',
+        version: 'beta 0.4',
+        updated: '2026-11-04',
+      },
     },
   },
   {
