@@ -435,7 +435,14 @@ export const GAMES: Game[] = [
     setting: 'ฮาวาย / มาดแลนติส — ค.ศ. 2025',
     blurb:
       'มาจิม่าตื่นบนเกาะร้างพร้อมความจำที่หายไป — คว้าดาบคู่ ยึดเรือ แล้วกลายเป็นกัปตันโจรสลัดแห่งแปซิฟิกในภาคสปินออฟสุดเหวี่ยง',
-    mod: { status: 'released', url: 'https://drive.google.com/file/d/13Vt_7d1BTEOg-yEBnXh6Sp_lWXIsRcCM/view?usp=drive_link', nexus: 'https://www.nexusmods.com/likeadragonpirateyakuzainhawaii/mods/237' },
+    mod: {
+      status: 'released',
+      url: 'https://github.com/bignutchanon/pirate-yakuza-hawaii-thai-mod/releases/download/v2.0.1/PirateYakuzaThai-Thai-v2.0.1.zip',
+      nexus: 'https://www.nexusmods.com/likeadragonpirateyakuzainhawaii/mods/237',
+      note: 'v2.0.1 (7 พ.ย. 2026) — แก้ป้ายไทยเพี้ยนเป็นตัวอังกฤษมีขีด/หมวกในมินิเกมทำอาหารและตอนเข้าเกาะ · คำแปลเท่า v2.0 (ลง v2.0 อยู่แล้วก๊อปแค่ font.spr.par ทับก็พอ) · ติดตั้ง: สำรอง db.spr.en.par กับ font.spr.par ในโฟลเดอร์ data ของเกมก่อน แล้วแตก zip ลากโฟลเดอร์ runtime ไปวางทับในโฟลเดอร์เกม (Steam → Manage → Browse local files) ตอบ Replace',
+      version: 'v2.0.1',
+      updated: '2026-11-07',
+    },
   },
 ]
 
