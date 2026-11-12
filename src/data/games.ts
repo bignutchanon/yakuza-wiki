@@ -18,6 +18,8 @@ export interface ModInfo {
   manual?: { url: string; note?: string }
   // เสียงพากย์ไทย (แพ็กแยกจากม็อดแปลข้อความ ติดตั้งคู่หรือแยกก็ได้) — ปุ่มรองในหน้าเกม
   dub?: { url: string; note?: string; version?: string; updated?: string }
+  // โปรแกรมช่วยเล่น (trainer) ของภาคนั้น แยกจากม็อดแปล — ปุ่มรองในหน้าเกม (เจ้าของสั่งใช้คำว่า "โปรแกรมช่วยเล่น" ไม่ใช่ "โปรแกรมโกง")
+  trainer?: { url: string; note?: string; version?: string; updated?: string }
 }
 
 export interface Game {
@@ -78,6 +80,7 @@ export const modUpdateBadge = (mod: ModInfo, now: Date = new Date()): string | n
   if (fresh(mod.updated)) return `อัปเดต ${mod.version ?? 'ใหม่'}`
   if (mod.beta && fresh(mod.beta.updated)) return `${mod.beta.version ?? 'beta'} ให้ลอง`
   if (mod.dub && fresh(mod.dub.updated)) return 'พากย์ไทยให้ลอง'
+  if (mod.trainer && fresh(mod.trainer.updated)) return 'มีโปรแกรมช่วยเล่น'
   return null
 }
 
@@ -171,6 +174,12 @@ export const GAMES: Game[] = [
       note: 'v1.5.4 (12 พ.ย. 2026) — รองรับ Yakuza Kiwami (Remaster 2025) · ป้ายในเมนูหยุดเกมและหน้าอุปกรณ์/ไอเทม/ทักษะเป็นไทยแล้ว · ข้อความในมินิเกมเป็นไทย ติดตั้งทับได้เลย',
       version: 'v1.5.4',
       updated: '2026-11-12',
+      trainer: {
+        url: 'https://github.com/bignutchanon/yakuza-kiwami-r-trainer/releases/download/plus29/YakuzaKiwamiR_Trainer_Plus29.zip',
+        note: 'รุ่นทดสอบ Plus 29 (12 พ.ย. 2026) — ลองในเกมแล้ว: เลือดไม่ลด · ต่อยทีเดียวล้ม · คูณดาเมจ · เร่ง/ชะลอเวลา · ตั้งเงิน/CP · ส่วนชิปคาสิโนและตัวช่วยมินิเกมยังไม่ได้ลองในเกม · ต้องมี .NET 8 Desktop Runtime · ใช้คู่กับม็อดแปลไทยได้',
+        version: 'Plus 29',
+        updated: '2026-11-12',
+      },
     },
   },
   {
