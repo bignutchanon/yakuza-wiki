@@ -169,11 +169,11 @@ export const GAMES: Game[] = [
       'คิริวรับผิดแทนเพื่อนรักในคดีฆ่าหัวหน้าตระกูล ติดคุกสิบปี ออกมาพบว่าเงินหนึ่งหมื่นล้านเยนของตระกูลโทโจหายไป และเด็กหญิงชื่อฮารุกะคือกุญแจของทุกอย่าง',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza-kiwami-thai-mod/releases/download/v1.5.5/YakuzaKiwamiR_Thai_v1.5.5.zip',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami-thai-mod/releases/download/v1.5.6/YakuzaKiwamiR_Thai_v1.5.6.zip',
       nexus: 'https://www.nexusmods.com/yakuzakiwami2025/mods/31',
-      note: 'v1.5.5 (13 พ.ย. 2026) — รองรับ Yakuza Kiwami (Remaster 2025) · ขัดเกลาบทพูดทั้งเรื่อง (ซับคัตซีน + กล่องข้อความ 3,376 ข้อความ) · ตัวหนังสือบอกวันเวลาในคัตซีนเป็นไทย ติดตั้งทับได้เลย',
-      version: 'v1.5.5',
-      updated: '2026-11-13',
+      note: 'v1.5.6 (14 พ.ย. 2026) — รองรับ Yakuza Kiwami (Remaster 2025) · แก้เกมเด้งตอนแข่ง Pocket Circuit กับไฟท์เตอร์ · สรรพนามในเรื่องราวย่อย Pocket Circuit ตรงตัวละคร · ตัว ฐ ฎ ฏ ขนาดปกติ ติดตั้งทับได้เลย',
+      version: 'v1.5.6',
+      updated: '2026-11-14',
       trainer: {
         url: 'https://github.com/bignutchanon/yakuza-kiwami-r-trainer/releases/download/plus29/YakuzaKiwamiR_Trainer_Plus29.zip',
         note: 'รุ่นทดสอบ Plus 29 (12 พ.ย. 2026) — ลองในเกมแล้ว: เลือดไม่ลด · ต่อยทีเดียวล้ม · คูณดาเมจ · เร่ง/ชะลอเวลา · ตั้งเงิน/CP · ส่วนชิปคาสิโนและตัวช่วยมินิเกมยังไม่ได้ลองในเกม · ต้องมี .NET 8 Desktop Runtime · ใช้คู่กับม็อดแปลไทยได้',
