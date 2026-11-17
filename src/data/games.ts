@@ -204,6 +204,12 @@ export const GAMES: Game[] = [
       note: 'v1.3.1 (25 ต.ค. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · แก้ซับที่ยังเป็นอังกฤษในฉากต้อนรับลูกค้าคาบาเรต์ และท่อนเพลงตอนชนะ Clan Creator · อัปจาก v1.3 แตก zip ทับแล้วรัน install.bat ซ้ำ · ต้องมีที่ว่างในไดรฟ์เกม ~2.5 GB',
       version: 'v1.3.1',
       updated: '2026-10-25',
+      trainer: {
+        url: 'https://github.com/bignutchanon/yakuza-kiwami2-r-trainer/releases/download/plus41/YakuzaKiwami2R_Trainer_Plus41.zip',
+        note: 'รุ่นทดสอบ Plus 41 (18 พ.ย. 2026) — รุ่นแรก · ลองในเกมแล้ว: เลือดไม่ลด · ฮีทเต็ม · ต่อยทีเดียวล้ม · คูณดาเมจ · เงิน/EXP เต็ม · Easy Completion · กุญแจตู้ล็อกเกอร์ครบ 100 ดอก · ตัวช่วยมินิเกมส่วนใหญ่ (โชกิ แบล็กแจ็ก ปาเป้า ฯลฯ) ยังไม่ได้ลองในเกม · ต้องมี .NET 8 Desktop Runtime · ใช้คู่กับม็อดแปลไทยได้',
+        version: 'Plus 41',
+        updated: '2026-11-18',
+      },
     },
   },
   {
