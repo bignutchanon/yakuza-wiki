@@ -205,9 +205,9 @@ export const GAMES: Game[] = [
       version: 'v1.3.1',
       updated: '2026-10-25',
       trainer: {
-        url: 'https://github.com/bignutchanon/yakuza-kiwami2-r-trainer/releases/download/plus48/YakuzaKiwami2R_Trainer_Plus48.zip',
-        note: 'รุ่นทดสอบ Plus 48 (20 พ.ย. 2026) — ใหม่: คาบาเรต์ ค่าสถานะโฮสเตสเต็ม 100 · ลูกค้าทุกโต๊ะอารมณ์ดีที่สุด · หลอดหัวใจตอนคุยกับโฮสเตสเต็ม · เลือดโฮสเตสไม่ลดแก้เพิ่ม (ตัวคาบาเรต์ใหม่ยังไม่ได้ยืนยันผลในเกม) · ลองในเกมแล้ว: เลือดไม่ลด · ฮีทเต็ม · ต่อยทีเดียวล้ม · คูณดาเมจ · เงิน/EXP เต็ม · Easy Completion · กุญแจตู้ล็อกเกอร์ครบ 100 ดอก · ไอเทมเต็ม · หนังสือสกิลกับเรียนสกิลครบ · ตัวช่วยมินิเกมส่วนใหญ่ (โชกิ แบล็กแจ็ก ปาเป้า ฯลฯ) ยังไม่ได้ลองในเกม · ต้องมี .NET 8 Desktop Runtime · ใช้คู่กับม็อดแปลไทยได้',
-        version: 'Plus 48',
+        url: 'https://github.com/bignutchanon/yakuza-kiwami2-r-trainer/releases/download/plus50/YakuzaKiwami2R_Trainer_Plus50.zip',
+        note: 'Plus 50 (20 พ.ย. 2026) — ใหม่: มินิเกมถ่ายกราเวีย เวลาตอบไม่เดิน กับหัวใจเต็มตลอด · มีตัวช่วยต่อสู้ เงิน/EXP ไอเทม สกิล คาบาเรต์ และมินิเกมอื่น ๆ · ต้องมี .NET 8 Desktop Runtime · ใช้คู่กับม็อดแปลไทยได้',
+        version: 'Plus 50',
         updated: '2026-11-20',
       },
     },
