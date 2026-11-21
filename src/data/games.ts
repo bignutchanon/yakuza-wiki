@@ -199,11 +199,11 @@ export const GAMES: Game[] = [
       'สงครามระหว่างตระกูลโทโจกับพันธมิตรโอมิปะทุ คิริวต้องเผชิญหน้ากับ "มังกรแห่งคันไซ" เรียว โกดะ ในศึกที่แฟน ๆ ยกให้เป็นคู่ปรับที่ดีที่สุดของซีรีส์',
     mod: {
       status: 'released',
-      url: 'https://github.com/bignutchanon/yakuza-kiwami2-thai-mod/releases/download/v1.3.2/YakuzaKiwami2R-Thai-v1.3.2.zip',
+      url: 'https://github.com/bignutchanon/yakuza-kiwami2-thai-mod/releases/download/v1.3.3/YakuzaKiwami2R-Thai-v1.3.3.zip',
       nexus: 'https://www.nexusmods.com/yakuzakiwami2025/mods/32',
-      note: 'v1.3.2 (20 พ.ย. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · ซับฉากนั่งดื่มในบาร์ (คาบาเรต์ / Clan Creator) ฉากกินข้าวกับฮารุกะ และป้ายของแถมระหว่างเดินเมืองเป็นไทยแล้ว + เกลาสรรพนามให้ตรงผู้พูด · อัปจาก v1.3 ขึ้นไป แตก zip ทับแล้วรัน install.bat ซ้ำ · ต้องมีที่ว่างในไดรฟ์เกม ~3 GB',
-      version: 'v1.3.2',
-      updated: '2026-11-20',
+      note: 'v1.3.3 (22 พ.ย. 2026) — รองรับ Yakuza Kiwami 2 (Remaster 2025) · ป้ายชื่อตอนดาเตะพูดขึ้น "ดาเตะ" แล้ว (รุ่นก่อนขึ้น "วันที่") + แก้ป้ายชื่อผู้พูดอีก 4 ชื่อ · ซับฉากนั่งดื่มในบาร์เป็นไทยตั้งแต่ v1.3.2 · อัปจาก v1.3 ขึ้นไป แตก zip ทับแล้วรัน install.bat ซ้ำ · ต้องมีที่ว่างในไดรฟ์เกม ~3 GB',
+      version: 'v1.3.3',
+      updated: '2026-11-22',
       trainer: {
         url: 'https://github.com/bignutchanon/yakuza-kiwami2-r-trainer/releases/download/plus50/YakuzaKiwami2R_Trainer_Plus50.zip',
         note: 'Plus 50 (20 พ.ย. 2026) — ใหม่: มินิเกมถ่ายกราเวีย เวลาตอบไม่เดิน กับหัวใจเต็มตลอด · มีตัวช่วยต่อสู้ เงิน/EXP ไอเทม สกิล คาบาเรต์ และมินิเกมอื่น ๆ · ต้องมี .NET 8 Desktop Runtime · ใช้คู่กับม็อดแปลไทยได้',
