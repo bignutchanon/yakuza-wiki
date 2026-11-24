@@ -277,7 +277,7 @@ export const GAMES: Game[] = [
       status: 'released',
       url: 'https://github.com/bignutchanon/yakuza4-thai-mod/releases/download/v3.0.1/Yakuza4-Thai-Mod-v3.0.1.zip',
       nexus: 'https://www.nexusmods.com/yakuza4remastered/mods/233',
-      note: 'v3.0.1 (25 พ.ย. 2026) — แก้เกมเด้งตอนเปิดประวัติตัวละครบางคน (เช่น ไดโกะ) · แก้หน้า Revelations รูปปั้นของซาเอะจิมะค้าง · ลากโฟลเดอร์เดียวทับ เซฟเดิมใช้ต่อได้ · ซิป ~236 MB',
+      note: 'v3.0.1 (25 พ.ย. 2026) — แก้เกมเด้งตอนเปิดประวัติตัวละครบางคน (เช่น ไดโกะ) · แก้หน้า Revelations รูปปั้นของซาเอจิมะค้าง · แก้ชื่อท่าฮีตซ้อนใน Completion List · สะกด "ซาเอจิมะ" ทั้งเกม · ลากโฟลเดอร์เดียวทับ เซฟเดิมใช้ต่อได้ · ซิป ~236 MB',
       version: 'v3.0.1',
       updated: '2026-11-25',
     },
