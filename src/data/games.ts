@@ -351,6 +351,8 @@ export const GAMES: Game[] = [
   {
     id: 'y7',
     title: 'Yakuza: Like a Dragon',
+    // คนค้นด้วยเลขภาคด้วย ("yakuza 7 mod ไทย") — 25 พ.ย. 2026 ใส่เลขภาคใน title หน้าเกม
+    seo: { title: 'Yakuza: Like a Dragon (Yakuza 7) แปลไทย: ม็อดภาษาไทย + สรุปเนื้อเรื่องรายบท' },
     subtitle: 'มังกรตัวใหม่ อิจิบัง คาซึกะ',
     year: 2019,
     releaseYear: 2020,
@@ -418,6 +420,8 @@ export const GAMES: Game[] = [
   {
     id: 'y8',
     title: 'Like a Dragon: Infinite Wealth',
+    // "yakuza 8 mod ไทย" หน้าเกมไม่ติด 8 อันดับแรก (คู่แข่งใส่เลข 8 ใน title) — 25 พ.ย. 2026 ใส่เลขภาคใน title หน้าเกม
+    seo: { title: 'Like a Dragon: Infinite Wealth (Yakuza 8) แปลไทย: ม็อดภาษาไทย + สรุปเนื้อเรื่องรายบท' },
     subtitle: 'สองมังกร ข้ามมหาสมุทร',
     year: 2024,
     releaseYear: 2024,
