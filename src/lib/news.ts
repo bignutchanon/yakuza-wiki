@@ -10,11 +10,21 @@ const NEWS_GAME_ALIAS: Record<string, string> = {
 // ข่าวแพตช์เก่ายังติดอันดับค้นหา (เช่น "yakuza 0 mod" ไปเจอข่าว v1.8.1) — ถ้าม็อดภาคนั้นออกรุ่นใหม่หลังวันที่ข่าว
 // ให้คืนเกมไว้ทำกล่องชี้ไปรุ่นล่าสุดในหน้าเกม แทนการลบข่าวเก่า (ลบ = URL ที่ติดอันดับกลายเป็น 404)
 // ข่าวที่มีรุ่นใหม่แทนแล้วเป็นหน้าบาง (changelog รุ่นเก่า) → noindex + ไม่ลง sitemap/llms.txt (19 ต.ค. 2026 รอบแก้ AdSense)
+// ข่าวโปรแกรมช่วยเล่น (YYYY-MM-DD-<เกม>-trainer-plus<เลข>) ใช้กติกาเดียวกัน แต่เทียบเลข Plus แทนวันที่
+// เพราะออกหลายรุ่นในวันเดียวได้ (kiwami2 Plus 48 กับ Plus 50 วันที่ 20 พ.ย. 2026)
 export function newerModFor(slug: string, postDate: string) {
+  const t = slug.match(/^\d{4}-\d{2}-\d{2}-(.+)-trainer-plus(\d+)$/)
+  if (t) {
+    const game = gameById(NEWS_GAME_ALIAS[t[1]] ?? t[1])
+    const { version, updated } = game?.mod.trainer ?? {}
+    const latest = Number(version?.match(/\d+/)?.[0])
+    if (!game || !version || !updated || !(latest > Number(t[2]))) return undefined
+    return { id: game.id, name: game.shortTitle ?? game.title, version, updated, label: 'โปรแกรมช่วยเล่น' }
+  }
   const m = slug.match(/^\d{4}-\d{2}-\d{2}-(.+)-thai-mod-v\d+$/)
   if (!m) return undefined
   const game = gameById(NEWS_GAME_ALIAS[m[1]] ?? m[1])
   const { version, updated } = game?.mod ?? {}
   if (!game || !version || !updated || updated <= postDate) return undefined
-  return { id: game.id, name: game.shortTitle ?? game.title, version, updated }
+  return { id: game.id, name: game.shortTitle ?? game.title, version, updated, label: 'ม็อดแปลไทย' }
 }

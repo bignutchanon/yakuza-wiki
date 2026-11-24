@@ -82,7 +82,7 @@ export default async function NewsPostPage({ params }: { params: Promise<{ slug:
         <Link href={`/game/${newerMod.id}/`} className="news-strip">
           <span className="news-strip-tag">มีรุ่นใหม่แล้ว</span>
           <span className="news-strip-title">
-            ข่าวนี้เป็นของรุ่นเก่า — ม็อดแปลไทย {newerMod.name} รุ่นล่าสุดคือ{' '}
+            ข่าวนี้เป็นของรุ่นเก่า — {newerMod.label} {newerMod.name} รุ่นล่าสุดคือ{' '}
             <strong>{newerMod.version}</strong> ({thaiDate(newerMod.updated)}) โหลดได้ที่หน้าเกม →
           </span>
         </Link>
