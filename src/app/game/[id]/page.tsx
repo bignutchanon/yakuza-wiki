@@ -180,7 +180,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
           {game.mod.trainer && (
             <p className="mod-beta">
               <a className="mod-btn mod-btn-beta" href={game.mod.trainer.url} target="_blank" rel="noreferrer">
-                โปรแกรมช่วยเล่น (ทดสอบ) ↓
+                โปรแกรมช่วยเล่น ↓
               </a>
               {game.mod.trainer.note && <span className="mod-beta-note">{game.mod.trainer.note}</span>}
             </p>
