@@ -236,6 +236,12 @@ export const GAMES: Game[] = [
       note: 'v1.3.3 (28 พ.ย. 2026) — ภาพตัวอักษรไทยเพิ่ม 23 ภาพ (ปาเป้า · บิลเลียด · จบเกม · บอส K.O. · แบนเนอร์ร้านมอร์นิ่งกลอรี่) · คำเรียกแบบไทย "ลูกพี่" แทน "อานิกิ" และแก้สำนวน/หางเสียงตั้งแต่ v1.3.2 · ชุดม็อด 4 ไฟล์ (ไฟล์ใหญ่ขึ้นเป็น ~730 MB) ติดตั้งทับได้เลย เซฟเดิมใช้ต่อได้',
       version: 'v1.3.3',
       updated: '2026-11-28',
+      trainer: {
+        url: 'https://github.com/bignutchanon/yakuza-kiwami3-trainer/releases/download/plus55b/YakuzaKiwami3_Trainer_Plus55b.zip',
+        note: 'Plus 55b (29 พ.ย. 2026) — รุ่นแรก · ตัวช่วยต่อสู้ (ไม่โดนตี เลือดไม่ลด ฮีท Dragon Boost Dark Awakening ตีทีเดียวตาย) เงิน ไอเทม แต้มฝึก มอร์นิ่งกลอรี่ มินิเกม Bad Boy Dragon · ปลดสกิลทั้งหมด กุญแจตู้ล็อกเกอร์ครบ ไอเทมไม่ลด เงินไม่ลด EXP เต็ม · ต้องมี .NET 8 Desktop Runtime',
+        version: 'Plus 55b',
+        updated: '2026-11-29',
+      },
     },
   },
   {
